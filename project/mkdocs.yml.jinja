@@ -1,0 +1,36 @@
+site_name: [[ project_name ]]
+site_description: [[ project_description ]]
+site_url: https://[[ repository_namespace ]].github.io/[[ repository_name ]]
+repo_url: https://github.com/[[ repository_namespace ]]/[[ repository_name ]]
+repo_name: [[ repository_namespace ]]/[[ repository_name ]]
+
+nav:
+  - Overview: index.md
+  - "Command line usage": command_line_usage.md
+  - Reference:
+    - cli.py: reference/cli.md
+  - Contributing: contributing.md
+  - Code of Conduct: code_of_conduct.md
+  - Changelog: changelog.md
+  - Credits: credits.md
+
+theme:
+  name: material
+
+extra_css:
+  - css/mkdocstrings.css
+
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - pymdownx.superfences
+  - pymdownx.emoji
+  - toc:
+      permalink: "¤"
+
+plugins:
+  - search
+  - mkdocstrings:
+      watch:
+        - src/[[ python_package_import_name ]]

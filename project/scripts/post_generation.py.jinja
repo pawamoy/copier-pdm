@@ -1,0 +1,68 @@
+import os
+import shutil
+
+
+def silence_errors(func):
+    def wrapped(*args, **kwargs):
+        try:
+            func(*args, **kwargs)
+        except Exception:
+            pass
+    return wrapped
+
+
+@silence_errors
+def symlink(source, target):
+    os.symlink(source, target)
+
+
+@silence_errors
+def rm(path):
+    os.remove(path)
+
+
+@silence_errors
+def rmdir(path):
+    shutil.rmtree(path)
+
+
+def copy_license():
+    """Copy the selected rendered license to the LICENSE file."""
+    target = "LICENSE"
+    if not os.path.exists("LICENSE"):
+        source = os.path.join(
+            "licenses",
+            "[[ copyright_license ]]"
+                .replace('"', "")
+                .replace("'", "")
+                .replace("/", "-")
+                .replace(" ", "_"))
+        shutil.copyfile(source, target)
+    rmdir("licenses")
+
+
+def symlink_docs():
+    symlink("docs/index.md", "README.md")
+    symlink("docs/credits.md", "CREDITS.md")
+    symlink("docs/changelog.md", "CHANGELOG.md")
+    symlink("docs/contributing.md", "CONTRIBUTING.md")
+    symlink("docs/code_of_conduct.md", "CODE_OF_CONDUCT.md")
+
+
+def clean_up_providers():
+    provider = "[[ repository_provider ]]"
+    if provider == "github.com":
+        rm(".gitlab-ci.yml")
+    elif provider == "gitlab.com":
+        rmdir(".github")
+
+
+def delete_myself():
+    rm(__file__)
+
+
+if __name__ == "__main__":
+    copy_license()
+    symlink_docs()
+    clean_up_providers()
+    delete_myself()

@@ -1,0 +1,27 @@
+# Why does this file exist, and why not put this in `__main__`?
+#
+# You might be tempted to import things from __main__ later,
+# but that will cause problems: the code will get executed twice:
+#
+# - When you run `python -m [[ python_package_import_name ]]` python will execute
+#   `__main__.py` as a script. That means there won't be any
+#   `[[ python_package_import_name ]].__main__` in `sys.modules`.
+# - When you import `__main__` it will get executed again (as a module) because
+#   there's no `[[ python_package_import_name ]].__main__` in `sys.modules`.
+
+"""Module that contains the command line application."""
+
+import argparse
+
+
+def get_parser():
+    """Return the CLI argument parser."""
+    return argparse.ArgumentParser(prog="[[ python_package_command_line_name ]]")
+
+
+def main(args=None):
+    """The main function, which is executed when you type `[[ python_package_import_name ]]` or `python -m [[ python_package_import_name ]]`."""
+    parser = get_parser()
+    opts = parser.parse_args(args=args)
+    print(opts)
+    return 0
