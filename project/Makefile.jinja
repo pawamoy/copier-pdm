@@ -15,14 +15,13 @@ check-code-quality:  ## Check the code quality.
 
 .PHONY: check-dependencies
 check-dependencies:  ## Check for vulnerabilities in dependencies.
-	SAFETY = safety
-	@if ! command -v $(SAFETY) &>/dev/null; then \
-		SAFETY = pipx run safety
-	else \
-		poetry run pip freeze 2>/dev/null | \
-			grep -v mkdocstrings | \
-			poetry run failprint --no-pty -- $(SAFETY) check --stdin --full-report; \
-	fi
+	@SAFETY=safety; \
+	if ! command -v $$SAFETY &>/dev/null; then \
+		SAFETY="pipx run safety"; \
+	fi; \
+	poetry run pip freeze 2>/dev/null | \
+		grep -v mkdocstrings | \
+		poetry run failprint --no-pty -- $$SAFETY check --stdin --full-report
 
 .PHONY: check-docs
 check-docs:  ## Check if the documentation builds correctly.
