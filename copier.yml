@@ -3,7 +3,6 @@ _subdirectory: project
 _templates_suffix: .jinja
 _tasks:
   - python scripts/post_generation.py
-  - make setup docs-regen format check test
 
 # PROMPT --------------------------------
 project_name:

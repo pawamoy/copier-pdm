@@ -42,11 +42,11 @@ def copy_license():
 
 
 def symlink_docs():
-    symlink("docs/index.md", "README.md")
-    symlink("docs/credits.md", "CREDITS.md")
-    symlink("docs/changelog.md", "CHANGELOG.md")
-    symlink("docs/contributing.md", "CONTRIBUTING.md")
-    symlink("docs/code_of_conduct.md", "CODE_OF_CONDUCT.md")
+    symlink("README.md", "docs/index.md")
+    symlink("CREDITS.md", "docs/credits.md")
+    symlink("CHANGELOG.md", "docs/changelog.md")
+    symlink("CONTRIBUTING.md", "docs/contributing.md")
+    symlink("CODE_OF_CONDUCT.md", "docs/code_of_conduct.md")
 
 
 def clean_up_providers():
