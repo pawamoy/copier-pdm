@@ -3,33 +3,34 @@
 PY_SRC := src/ tests/ scripts/*.py
 
 .PHONY: changelog
-changelog:  ## Write the new changelog to the standard output.
+changelog:  ## Print the new changelog to the standard output.
 	@poetry run git-changelog -s angular .
 
 .PHONY: check
-check: check-docs check-flake8 check-mypy check-safety  ## Check it all!
+check: check-docs check-code-quality check-types check-dependencies  ## Check it all!
+
+.PHONY: check-code-quality
+check-code-quality:  ## Check the code quality.
+	@poetry run failprint -- flake8 --config=config/flake8.ini $(PY_SRC)
+
+.PHONY: check-dependencies
+check-dependencies:  ## Check for vulnerabilities in dependencies.
+	SAFETY = safety
+	@if ! command -v $(SAFETY) &>/dev/null; then \
+		SAFETY = pipx run safety
+	else \
+		poetry run pip freeze 2>/dev/null | \
+			grep -v mkdocstrings | \
+			poetry run failprint --no-pty -- $(SAFETY) check --stdin --full-report; \
+	fi
 
 .PHONY: check-docs
 check-docs:  ## Check if the documentation builds correctly.
 	@poetry run failprint -- mkdocs build -s
 
-.PHONY: check-flake8
-check-flake8:  ## Check for general warnings in code using flake8.
-	@poetry run failprint -- flake8 --config=config/flake8.ini $(PY_SRC)
-
-.PHONY: check-mypy
-check-mypy:  ## Check that the code is correctly typed.
+.PHONY: check-types
+check-types:  ## Check that the code is correctly typed.
 	@poetry run failprint -- mypy --config-file config/mypy.ini $(PY_SRC)
-
-.PHONY: check-safety
-check-safety:  ## Check for vulnerabilities in dependencies using safety.
-	@if ! command -v safety &>/dev/null; then \
-		echo "Please install safety in a isolated virtualenv with 'pipx install safety'"; \
-	else \
-		poetry run pip freeze 2>/dev/null | \
-			grep -v mkdocstrings | \
-			poetry run failprint --no-pty -- safety check --stdin --full-report; \
-	fi
 
 .PHONY: clean
 clean:  ## Delete temporary files.
@@ -42,7 +43,7 @@ clean:  ## Delete temporary files.
 	@rm -rf pip-wheel-metadata 2>/dev/null
 
 .PHONY: docs
-docs:  ## Build the documentation locally.
+docs: docs-regen  ## Build the documentation locally.
 	@poetry run mkdocs build
 
 .PHONY: docs-regen
@@ -50,11 +51,11 @@ docs-regen:  ## Regenerate some documentation pages.
 	@poetry run python scripts/regen_docs.py
 
 .PHONY: docs-serve
-docs-serve:  ## Serve the documentation (localhost:8000).
+docs-serve: docs-regen  ## Serve the documentation (localhost:8000).
 	@poetry run mkdocs serve
 
 .PHONY: docs-deploy
-docs-deploy:  ## Deploy the documentation on GitHub pages.
+docs-deploy: docs-regen  ## Deploy the documentation on GitHub pages.
 	@poetry run mkdocs gh-deploy
 
 .PHONY: help
@@ -62,20 +63,14 @@ help:  ## Print this help.
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z0-9_-]+:.*?## / {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST) | sort
 
 .PHONY: format
-format: format-black format-isort  ## Run formatting tools on the code.
-
-.PHONY: format-black
-format-black:  ## format the code using black.
-	@poetry run black $(PY_SRC)
-
-.PHONY: format-isort
-format-isort:  ## Sort the imports using isort.
-	@poetry run isort -y -rc $(PY_SRC)
+format:  ## Run formatting tools on the code.
+	@poetry run failprint -- black $(PY_SRC)
+	@poetry run failprint -- isort -y -rc $(PY_SRC)
 
 .PHONY: release
 release:  ## Create a new release (commit, tag, push, build, publish, deploy docs).
 ifndef v
-	$(error Pass the version with 'make release v=0.0.0')
+	$(error Pass the new version with 'make release v=0.0.0')
 endif
 	poetry version $(v)
 	git add pyproject.toml docs/CHANGELOG.md
@@ -88,7 +83,7 @@ endif
 	poetry run mkdocs gh-deploy
 
 .PHONY: setup
-setup:  ## Setup the development environment.
+setup:  ## Setup the development environment (install dependencies).
 	@if ! command -v poetry &>/dev/null; then \
 	  if ! command pipx &>/dev/null; then \
 		  pip install --user pipx; \
@@ -98,6 +93,6 @@ setup:  ## Setup the development environment.
 	poetry install -v
 
 .PHONY: test
-test:  ## Run the tests using pytest.
+test:  ## Run the test suite and report coverage.
 	@poetry run pytest -c config/pytest.ini -n auto -k "$(K)" 2>/dev/null
 	-@poetry run coverage html --rcfile=config/coverage.ini
