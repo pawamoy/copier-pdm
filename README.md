@@ -1,9 +1,8 @@
 # Cookie Poetry
 
-<!-- badge list -->
-Cookiecutter for Poetry projects.
+Copier template for Poetry projects.
 
-This cookiecutter is mainly for my own usage,
+This copier template is mainly for my own usage,
 but feel free to try it out, or fork it!
 
 <!-- logo -->
@@ -17,59 +16,88 @@ but feel free to try it out, or fork it!
 - [Credits](#credits)
 
 ## Features
+
 - [Poetry](https://github.com/sdispater/poetry) setup, with pre-defined `pyproject.toml`
-- Documentation built with Sphinx, in Markdown and/or reStructuredText
-- Pre-configured tools: black, isort, bandit, safety
-- Tests run with pytest (and plugins), with coverage
-- Dark theme for coverage HTML report
-- Gitlab CI configuration (no Travis CI)
+- Documentation built with [MkDocs](https://github.com/mkdocs/mkdocs)
+  ([Material theme](https://github.com/squidfunk/mkdocs-material)
+  and "autodoc" [mkdocstrings plugin](https://github.com/pawamoy/mkdocstrings))
+- Pre-configured tools:
+  [bandit](https://github.com/PyCQA/bandit),
+  [black](https://github.com/psf/black),
+  [flake8](https://gitlab.com/pycqa/flake8) and plugins,
+  [isort](https://github.com/timothycrosley/isort),
+  [mypy](https://github.com/python/mypy),
+  [safety](https://github.com/pyupio/safety)
+- Tests run with [pytest](https://github.com/pytest-dev/pytest) and plugins, with [coverage](https://github.com/nedbat/coveragepy) support
+- Support for GitHub workflow and Gitlab CI
 - Python 3.6 or above
-- Auto-generated CREDITS.md from Python dependencies
+- Auto-generated `CREDITS.md` from Python dependencies
 - All licenses from [choosealicense.com](https://choosealicense.com/appendix/)
 - Makefile for convenience
 
-### Makefile
-- `build`: Build the package wheel and sdist.
-- `check`: Run multiple checks.
-- `check-bandit`: Check for security warnings in code using bandit.
-- `check-black`: Check if code is formatted nicely using black.
-- `check-flake8`: Check for general warnings in code using flake8.
-- `check-isort`: Check if imports are correctly ordered using isort.
-- `check-pylint`: Check for more extensive code-smells with pylint.
-- `check-safety`: Check for vulnerabilities in dependencies using safety.
-- `check-spelling`: Check spelling in the documentation.
-- `clean`: Delete temporary files.
-- `clean-tests`: Delete temporary tests files.
-- `credits`: Regenerate CREDITS.md.
-- `docs`: Build the documentation locally.
-- `help`: Print this help.
-- `lint`: Run linting tools on the code.
-- `lint-black`: Lint the code using black.
-- `lint-isort`: Sort the imports using isort.
-- `publish`: Publish the latest built version on PyPI.
-- `readme`: Regenerate README.md.
-- `setup`: Setup the development environment (install dependencies).
-- `test`: Run the tests using pytest.
-- `update-spelling-wordlist`: Update the spelling word list.
-
-Typically, once the project is generated, you would run:
-
-```
-make setup
-make readme credits
-make check
-make test
-```
-
 ## Requirements
+
 - [git](https://git-scm.com/downloads)
 - [python](https://www.python.org/downloads/)
-- [cookiecutter](https://github.com/audreyr/cookiecutter)
+- [copier](https://github.com/pykong/copier)
 
-## Usage
-```
-cookiecutter gh:pawamoy/cookie-poetry
+I recommend using [`pipx`](https://github.com/pipxproject/pipx)
+to install Copier:
+
+```bash
+pip install --user pipx
 ```
 
-## Credits
-This cookiecutter was created with [cookiecutter-cookiecutter](https://github.com/pawamoy/cookiecutter-cookiecutter).
+## Generating a project
+
+:warning: This template requires Copier features that are not yet
+released not merged: [subdirectory](https://github.com/pykong/copier/pull/193)
+and [prompt templating](https://github.com/pykong/copier/pull/190).
+
+To try out this template, you'll have to install Copier from my own fork:
+
+```bash
+pipx install git+https://github.com/pawamoy/copier.git@_testing
+```
+
+And then run Copier normally:
+
+```bash
+copier https://github.com/pawamoy/copier-poetry /path/to/your/new/project
+```
+
+You can even run it directly (without installing it first) with
+
+```bash
+pipx run --spec git+https://github.com/pawamoy/copier.git@_testing \
+  copier https://github.com/pawamoy/copier-poetry /path/to/your/new/project
+```
+
+## Working on the generated project
+
+The entry-point is the Makefile:
+
+- `make changelog`: Print the new changelog to the standard output.
+- `make check`: Run all checks.
+- `make check-code-quality`: Check the code quality.
+- `make check-dependencies`: Check for vulnerabilities in dependencies.
+- `make check-docs`: Check if the documentation builds correctly.
+- `make check-types`: Check that the code is correctly typed.
+- `make clean`: Delete temporary files.
+- `make docs`: Build the documentation locally.
+- `make docs-regen`: Regenerate some documentation pages.
+- `make docs-serve`: Serve the documentation (localhost:8000).
+- `make docs-deploy`: Deploy the documentation on GitHub pages.
+- `make help`: Print this help.
+- `make format`: Run formatting tools on the code.
+- `make release`: Create a new release (commit, tag, push, build, publish, deploy docs).
+- `make setup`: Setup the development environment (install dependencies).
+- `make test`: Run the test suite and report coverage.
+
+After generating a project,
+and to ensure everything is propertly initialized,
+these actions will run automatically:
+
+```
+make setup check test
+```
