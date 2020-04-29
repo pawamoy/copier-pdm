@@ -1,4 +1,4 @@
-# Cookie Poetry
+# Copier Poetry
 
 Copier template for Poetry projects.
 
@@ -12,7 +12,8 @@ but feel free to try it out, or fork it!
 - [Features](#features)
 - [License: ISC License](LICENSE)
 - [Requirements](#requirements)
-- [Usage](#usage)
+- [Generating a project](#generating-a-project)
+- [Working on the generated project](#working-on-the-generated-project)
 - [Credits](#credits)
 
 ## Features
@@ -75,14 +76,18 @@ pipx run --spec git+https://github.com/pawamoy/copier.git@_testing \
 
 ## Working on the generated project
 
+The generated project has this structure:
+
+![tree](tree.png)
+
 The entry-point is the Makefile:
 
-- `make changelog`: Print the new changelog to the standard output.
+- `make changelog`: Update the changelog in-place with latest commits.
 - `make check`: Run all checks.
 - `make check-code-quality`: Check the code quality.
 - `make check-dependencies`: Check for vulnerabilities in dependencies.
 - `make check-docs`: Check if the documentation builds correctly.
-- `make check-types`: Check that the code is correctly typed.
+- `make check-types`: Check if the code is correctly typed.
 - `make clean`: Delete temporary files.
 - `make docs`: Build the documentation locally.
 - `make docs-regen`: Regenerate some documentation pages.
@@ -93,11 +98,3 @@ The entry-point is the Makefile:
 - `make release`: Create a new release (commit, tag, push, build, publish, deploy docs).
 - `make setup`: Setup the development environment (install dependencies).
 - `make test`: Run the test suite and report coverage.
-
-After generating a project,
-and to ensure everything is propertly initialized,
-these actions will run automatically:
-
-```
-make setup check test
-```

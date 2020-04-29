@@ -29,17 +29,17 @@ check-docs:
   <<: *quality
   script: make check-docs
 
-check-flake8:
+check-code-quality:
   <<: *quality
-  script: make check-flake8
+  script: make check-code-quality
 
-check-mypy:
+check-types:
   <<: *quality
-  script: make check-mypy
+  script: make check-types
 
-check-safety:
+check-dependencies:
   <<: *quality
-  script: make check-safety
+  script: make check-dependencies
 
 # Tests jobs
 

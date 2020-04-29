@@ -4,7 +4,6 @@
 import sys
 
 import requests
-from gen_cli_data import get_data as get_cli
 from gen_credits_data import get_data as get_credits
 from jinja2 import StrictUndefined
 from jinja2.exceptions import TemplateError
@@ -13,7 +12,6 @@ from jinja2.sandbox import SandboxedEnvironment
 URL_PREFIX = "https://raw.githubusercontent.com/pawamoy/jinja-templates/master/"
 REGEN = [
     ("docs/credits.md", get_credits, URL_PREFIX + "credits.md"),
-    ("docs/command_line_usage.md", get_cli, URL_PREFIX + "command_line_usage.md"),
 ]
 
 
