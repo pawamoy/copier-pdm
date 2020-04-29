@@ -23,11 +23,13 @@ jobs:
         python-version: [3.6,3.7,3.8]
 
     runs-on: ${{ matrix.os }}
+    continue-on-error: ${{ matrix.os == 'windows-latest' }}
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout
+      uses: actions/checkout@v2
 
-    - name: Setup git
+    - name: Set up git
       run: |
         git config --global user.email "pawamoy@pm.me"
         git config --global user.name "Timothée Mazzucotelli"
@@ -37,7 +39,7 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
 
-    - name: Cache Python packages
+    - name: Set up the cache
       uses: actions/cache@v1
       env:
         cache-name: cache-python-packages
@@ -48,7 +50,7 @@ jobs:
           ${{ matrix.os }}-${{ matrix.python-version }}-
           ${{ matrix.os }}-
 
-    - name: Setup the project
+    - name: Set up the project
       run: |
         pip install poetry safety
         pip install git+https://github.com/pawamoy/copier@_testing
