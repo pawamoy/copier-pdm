@@ -36,7 +36,8 @@ def copy_license():
                 .replace('"', "")
                 .replace("'", "")
                 .replace("/", "-")
-                .replace(" ", "_"))
+                .replace(" ", "_")
+                .replace("*", "_"))
         shutil.copyfile(source, target)
     rmdir("licenses")
 
@@ -66,3 +67,7 @@ if __name__ == "__main__":
     symlink_docs()
     clean_up_providers()
     delete_myself()
+
+    print("Project sucessfully generated!")
+    print("Run `make` to show the available actions.")
+
