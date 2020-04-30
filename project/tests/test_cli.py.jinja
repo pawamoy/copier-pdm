@@ -10,8 +10,8 @@ def test_main():
     assert cli.main([]) == 0
 
 
-def test_main_help(capsys):
-    """Basic CLI test."""
+def test_show_help(capsys):
+    """Shows help."""
     with pytest.raises(SystemExit):
         cli.main(["-h"])
     captured = capsys.readouterr()

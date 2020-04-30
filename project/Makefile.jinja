@@ -6,7 +6,7 @@ TESTING ?= false
 
 .PHONY: changelog
 changelog:  ## Update the changelog in-place with latest commits.
-	@poetry run failprint -- python scripts/update_changelog.py \
+	@poetry run failprint -t "Updating changelog" -- python scripts/update_changelog.py \
 		CHANGELOG.md "<!-- insertion marker -->" "^## \[(?P<version>[^\]]+)"
 
 .PHONY: check
@@ -14,7 +14,7 @@ check: check-docs check-code-quality check-types check-dependencies  ## Check it
 
 .PHONY: check-code-quality
 check-code-quality:  ## Check the code quality.
-	@poetry run failprint -t "Code quality" -- flake8 --config=config/flake8.ini $(PY_SRC)
+	@poetry run failprint -t "Checking code quality" -- flake8 --config=config/flake8.ini $(PY_SRC)
 
 .PHONY: check-dependencies
 check-dependencies:  ## Check for vulnerabilities in dependencies.
@@ -26,15 +26,15 @@ check-dependencies:  ## Check for vulnerabilities in dependencies.
 	fi; \
 	poetry run pip freeze 2>/dev/null | \
 		grep -v mkdocstrings | \
-		poetry run failprint --no-pty -t "Dependencies" -- $$SAFETY check --stdin --full-report
+		poetry run failprint --no-pty -t "Checking dependencies" -- $$SAFETY check --stdin --full-report
 
 .PHONY: check-docs
 check-docs:  ## Check if the documentation builds correctly.
-	@poetry run failprint -t "Documentation" -- mkdocs build -s
+	@poetry run failprint -t "Building documentation" -- mkdocs build -s
 
 .PHONY: check-types
 check-types:  ## Check that the code is correctly typed.
-	@poetry run failprint -t "Types" -- mypy --config-file config/mypy.ini $(PY_SRC)
+	@poetry run failprint -t "Type-checking" -- mypy --config-file config/mypy.ini $(PY_SRC)
 
 .PHONY: clean
 clean:  ## Delete temporary files.
@@ -72,24 +72,24 @@ help:  ## Print this help.
 
 .PHONY: format
 format:  ## Run formatting tools on the code.
-	@poetry run failprint -- black $(PY_SRC)
-	@poetry run failprint -- isort -y -rc $(PY_SRC)
+	@poetry run failprint -t "Formatting code" -- black $(PY_SRC)
+	@poetry run failprint -t "Ordering imports" -- isort -y -rc $(PY_SRC)
 
 .PHONY: release
 release:  ## Create a new release (commit, tag, push, build, publish, deploy docs).
 ifndef v
 	$(error Pass the new version with 'make release v=0.0.0')
 endif
-	@poetry run failprint -- poetry version $(v)
-	@poetry run failprint -- git add pyproject.toml CHANGELOG.md
-	@poetry run failprint -- git commit -m "chore: Prepare release $(v)"
-	@poetry run failprint -- git tag v$(v)
-	@poetry run failprint -- poetry build
+	@poetry run failprint -t "Bumping version" -- poetry version $(v)
+	@poetry run failprint -t "Staging files" -- git add pyproject.toml CHANGELOG.md
+	@poetry run failprint -t "Committing changes" -- git commit -m "chore: Prepare release $(v)"
+	@poetry run failprint -t "Tagging commit" -- git tag v$(v)
+	@poetry run failprint -t "Building dist/wheel" -- poetry build
 	-@if ! $(CI) && ! $(TESTING); then \
-		poetry run failprint -- git push; \
-		poetry run failprint -- git push --tags; \
-		poetry run failprint -- poetry publish; \
-		poetry run failprint -- poetry run mkdocs gh-deploy; \
+		poetry run failprint -t "Pushing commits" -- git push; \
+		poetry run failprint -t "Pushing tags" -- git push --tags; \
+		poetry run failprint -t "Publishing version" -- poetry publish; \
+		poetry run failprint -t "Deploying docs" -- poetry run mkdocs gh-deploy; \
 	fi
 
 .PHONY: setup
