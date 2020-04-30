@@ -1,4 +1,5 @@
 # [[ project_name ]]
+
 [% if repository_provider == "gitlab.com" %][![pipeline status](https://gitlab.com/[[ repository_namespace ]]/[[ repository_name ]]/badges/master/pipeline.svg)](https://gitlab.com/[[ repository_namespace ]]/[[ repository_name ]]/pipelines)
 [![coverage report](https://gitlab.com/[[ repository_namespace ]]/[[ repository_name ]]/badges/master/coverage.svg)](https://gitlab.com/[[ repository_namespace ]]/[[ repository_name ]]/commits/master)[% elif repository_provider == "github.com" %]![ci](https://github.com/[[ repository_namespace ]]/[[ repository_name ]]/workflows/ci/badge.svg)[% endif %]
 [![documentation](https://img.shields.io/readthedocs/[[ repository_name ]].svg?style=flat)](https://[[ repository_name ]].readthedocs.io/en/latest/index.html)
@@ -7,6 +8,7 @@
 [[ project_description ]]
 
 ## Requirements
+
 [[ project_name ]] requires Python 3.6 or above.
 
 <details>
@@ -30,6 +32,7 @@ pyenv global system 3.6.8
 </details>
 
 ## Installation
+
 With `pip`:
 ```bash
 python3.6 -m pip install [[ python_package_distribution_name ]]
