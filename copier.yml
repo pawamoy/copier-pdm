@@ -1,6 +1,9 @@
 # CONFIGURATION -------------------------
 _subdirectory: project
 _templates_suffix: .jinja
+_skip_if_exists:
+  - CHANGELOG.md
+  - CREDITS.md
 _tasks:
   - python scripts/post_generation.py
 
