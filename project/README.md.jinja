@@ -1,7 +1,7 @@
 # [[ project_name ]]
 
 [% if repository_provider == "gitlab.com" %][![pipeline status](https://gitlab.com/[[ repository_namespace ]]/[[ repository_name ]]/badges/master/pipeline.svg)](https://gitlab.com/[[ repository_namespace ]]/[[ repository_name ]]/pipelines)
-[![coverage report](https://gitlab.com/[[ repository_namespace ]]/[[ repository_name ]]/badges/master/coverage.svg)](https://gitlab.com/[[ repository_namespace ]]/[[ repository_name ]]/commits/master)[% elif repository_provider == "github.com" %]![ci](https://github.com/[[ repository_namespace ]]/[[ repository_name ]]/workflows/ci/badge.svg)[% endif %]
+[![coverage report](https://gitlab.com/[[ repository_namespace ]]/[[ repository_name ]]/badges/master/coverage.svg)](https://gitlab.com/[[ repository_namespace ]]/[[ repository_name ]]/commits/master)[% elif repository_provider == "github.com" %][![ci](https://github.com/[[ repository_namespace ]]/[[ repository_name ]]/workflows/ci/badge.svg)](https://github.com/[[ repository_namespace ]]/[[ repository_name ]]/actions?query=workflow%3Aci)[% endif %]
 [![documentation](https://img.shields.io/readthedocs/[[ repository_name ]].svg?style=flat)](https://[[ repository_name ]].readthedocs.io/en/latest/index.html)
 [![pypi version](https://img.shields.io/pypi/v/[[ repository_name ]].svg)](https://pypi.org/project/[[ repository_name ]]/)
 
