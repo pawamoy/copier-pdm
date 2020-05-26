@@ -51,9 +51,8 @@ pip install --user pipx
 
 ## Generating a project
 
-:warning: This template requires Copier features that are not yet
-released not merged: [subdirectory](https://github.com/pykong/copier/pull/193)
-and [prompt templating](https://github.com/pykong/copier/pull/190).
+:warning: This template requires Copier features that are not merged/released:
+[subdirectory](https://github.com/pykong/copier/pull/193).
 
 To try out this template, you'll have to install Copier from my own fork:
 
