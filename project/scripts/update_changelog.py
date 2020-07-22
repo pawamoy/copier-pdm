@@ -3,7 +3,7 @@
 import re
 import sys
 
-import requests
+import httpx
 from git_changelog.build import Changelog
 from jinja2.sandbox import SandboxedEnvironment
 
@@ -16,8 +16,14 @@ if __name__ == "__main__":
         sys.exit(1)
 
     env = SandboxedEnvironment(autoescape=True)
-    template = env.from_string(requests.get(TEMPLATE_URL).text)
+    template = env.from_string(httpx.get(TEMPLATE_URL).text)
     changelog = Changelog(".", style=COMMIT_STYLE)
+    if len(changelog.versions_list) == 1 and changelog.versions_list[0].planned_tag is None:
+        planned_tag = "0.1.0"
+        last_version = changelog.versions_list[0]
+        last_version.tag = planned_tag
+        last_version.url += planned_tag
+        last_version.compare_url = last_version.compare_url.replace("HEAD", planned_tag)
     inplace_file, marker, version_regex = sys.argv[1:]
     with open(inplace_file, "r") as fd:
         old_lines = fd.read().splitlines(keepends=False)
