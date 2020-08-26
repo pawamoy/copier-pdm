@@ -2,7 +2,6 @@
 
 import os
 from contextlib import contextmanager
-from datetime import datetime
 from functools import wraps
 from pathlib import Path
 
@@ -12,7 +11,7 @@ PY_SRC_PATHS = [Path("src"), Path("tests"), Path("tasks.py")]
 PY_SRC_LIST = [str(p) for p in PY_SRC_PATHS]
 PY_SRC = " ".join(PY_SRC_LIST)
 MAIN_PYTHON = "3.6"
-PYTHON_VERSIONS = ["3.6", "3.7", "3.8", "3.10"]
+PYTHON_VERSIONS = ["3.6", "3.7", "3.8"]
 
 
 def get_poetry_venv(python_version):
@@ -121,7 +120,7 @@ def clean(context):
 @invoke.task
 def docs_regen(context):
     """Regenerate some documentation pages."""
-    context.run(f"python scripts/regen_docs.py")
+    context.run("python scripts/regen_docs.py")
 
 
 @invoke.task(docs_regen)
@@ -154,7 +153,7 @@ def format(context):
 def release(context, version):
     """Release a new Python package."""
     context.run(f"failprint -t 'Bumping version in pyproject.toml' -- poetry version {version}")
-    context.run("failprint -t 'Staging files' -- git add pyproject.toml CHANGELOG.md setup.py")
+    context.run("failprint -t 'Staging files' -- git add pyproject.toml CHANGELOG.md")
     context.run(f"failprint -t 'Committing changes' -- git commit -m 'chore: Prepare release {version}'")
     context.run(f"failprint -t 'Tagging commit' -- git tag {version}")
     context.run("failprint -t 'Pushing commits' --no-pty -- git push")

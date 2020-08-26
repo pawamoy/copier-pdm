@@ -3,7 +3,7 @@
 
 import sys
 
-import requests
+import httpx
 from gen_credits_data import get_data as get_credits
 from jinja2 import StrictUndefined
 from jinja2.exceptions import TemplateError
@@ -21,7 +21,7 @@ def main():
     for target, get_data, template in REGEN:
         print("Regenerating", target)
         data = get_data()
-        template_text = requests.get(template).text
+        template_text = httpx.get(template).text
         try:
             rendered = env.from_string(template_text).render(**data)
         except TemplateError as error:

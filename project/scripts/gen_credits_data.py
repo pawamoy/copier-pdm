@@ -5,7 +5,7 @@ import json
 from itertools import chain
 from pathlib import Path
 
-import requests
+import httpx
 import toml
 from pip._internal.commands.show import search_packages_info
 
@@ -32,7 +32,7 @@ def get_data():
     for dependency in direct_dependencies + indirect_dependencies:
         # poetry.lock seems to always use lowercase for packages names
         if dependency not in [_.lower() for _ in package_info.keys()]:
-            info = requests.get(f"https://pypi.python.org/pypi/{dependency}/json").json()["info"]
+            info = httpx.get(f"https://pypi.python.org/pypi/{dependency}/json").json()["info"]
             package_info[info["name"]] = {
                 "name": info["name"],
                 "home-page": info["home_page"] or info["project_url"] or info["package_url"],
