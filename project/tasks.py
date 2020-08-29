@@ -12,6 +12,7 @@ PY_SRC_LIST = [str(p) for p in PY_SRC_PATHS]
 PY_SRC = " ".join(PY_SRC_LIST)
 MAIN_PYTHON = "3.6"
 PYTHON_VERSIONS = ["3.6", "3.7", "3.8"]
+TESTING = os.environ.get("TESTING", "0") in ("1", "true")
 
 
 def get_poetry_venv(python_version):
@@ -168,11 +169,12 @@ def release(context, version):
     context.run("failprint -t 'Staging files' -- git add pyproject.toml CHANGELOG.md")
     context.run(f"failprint -t 'Committing changes' -- git commit -m 'chore: Prepare release {version}'")
     context.run(f"failprint -t 'Tagging commit' -- git tag {version}")
-    context.run("failprint -t 'Pushing commits' --no-pty -- git push")
-    context.run("failprint -t 'Pushing tags' --no-pty -- git push --tags")
-    context.run("failprint -t 'Building dist/wheel' -- poetry build")
-    context.run("failprint -t 'Publishing version' -- poetry publish")
-    context.run("failprint -t 'Deploying docs' -- poetry run mkdocs gh-deploy")
+    if not TESTING:
+        context.run("failprint -t 'Pushing commits' --no-pty -- git push")
+        context.run("failprint -t 'Pushing tags' --no-pty -- git push --tags")
+        context.run("failprint -t 'Building dist/wheel' -- poetry build")
+        context.run("failprint -t 'Publishing version' -- poetry publish")
+        context.run("failprint -t 'Deploying docs' -- poetry run mkdocs gh-deploy")
 
 
 @invoke.task
