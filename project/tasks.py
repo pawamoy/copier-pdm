@@ -31,7 +31,7 @@ def setpath(path):
     os.environ["PATH"] = current_path
 
 
-def python(versions):
+def _python(versions):
     """Run a task onto multiple Python versions."""
     if not versions:
         return lambda _: _
@@ -43,14 +43,23 @@ def python(versions):
         @wraps(func)
         def wrapped(context, *args, **kwargs):
             for version in versions:
-                with setpath(Path(get_poetry_venv(version)) / "bin"):
-                    context.python_version = version
+                context.python_version = version
+                path = Path(get_poetry_venv(version)) / "bin"
+                if not path.exists():
+                    context.skip = True
                     func(context, *args, **kwargs)
-                    del context.python_version
+                else:
+                    context.skip = False
+                    with setpath(path):
+                        func(context, *args, **kwargs)
+                del context.python_version
+                del context.skip
 
         return wrapped
 
     return decorator
+
+invoke.python = _python
 
 
 @invoke.task
@@ -68,7 +77,7 @@ def check_code_quality(context):
     """Check the code quality."""
     from failprint.cli import run as failprint
 
-    code = failprint(title="Checking code quality", cmd=["flake8", "--config=config/flake8.ini", *PY_SRC_LIST])
+    code = failprint(title="Checking code quality", cmd=["flakehell", "lint", *PY_SRC_LIST])
     context.run("false" if code != 0 else "true")
 
 
@@ -89,13 +98,15 @@ def check_docs(context):
 
 
 @invoke.task
-@python(PYTHON_VERSIONS)
+@invoke.python(PYTHON_VERSIONS)
 def check_types(context):
     """Check that the code is correctly typed."""
-    context.run(
-        f"failprint -t 'Type-checking ({context.python_version})' -- mypy --config-file config/mypy.ini " + PY_SRC,
-        pty=True,
-    )
+    title = f"Type-checking ({context.python_version})"
+    command = "mypy --config-file config/mypy.ini " + PY_SRC
+    if context.skip:
+        title += " (missing interpreter)"
+        command = "true"
+    context.run(f"failprint -t '{title}' -- {command}", pty=True)
 
 
 @invoke.task(check_code_quality, check_types, check_docs, check_dependencies)
@@ -189,12 +200,12 @@ def coverage(context):
 
 
 @invoke.task(post=[combine])
-@python(PYTHON_VERSIONS)
+@invoke.python(PYTHON_VERSIONS)
 def test(context, match=""):
     """Run the test suite."""
-    context.run(
-        f"failprint -t 'Running tests ({context.python_version})' -- "
-        "coverage run --rcfile=config/coverage.ini -m "
-        f"pytest -c config/pytest.ini -k '{match}'",
-        pty=True,
-    )
+    title = f"Running tests ({context.python_version})"
+    command = "coverage run --rcfile=config/coverage.ini -m pytest -c config/pytest.ini -k '{match}'" + PY_SRC
+    if context.skip:
+        title += " (missing interpreter)"
+        command = "true"
+    context.run(f"failprint -t '{title}' -- {command}", pty=True)
