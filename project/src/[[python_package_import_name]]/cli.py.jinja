@@ -20,7 +20,11 @@ def get_parser():
 
 
 def main(args=None):
-    """The main function, which is executed when you type `[[ python_package_command_line_name ]]` or `python -m [[ python_package_import_name ]]`."""
+    """
+    Run the main program.
+
+    This function is executed when you type `[[ python_package_command_line_name ]]` or `python -m [[ python_package_import_name ]]`.
+    """
     parser = get_parser()
     opts = parser.parse_args(args=args)
     print(opts)

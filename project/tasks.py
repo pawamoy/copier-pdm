@@ -59,6 +59,7 @@ def _python(versions):
 
     return decorator
 
+
 invoke.python = _python
 
 
@@ -75,7 +76,7 @@ def changelog(context):
 @invoke.task
 def check_code_quality(context):
     """Check the code quality."""
-    from failprint.cli import run as failprint
+    from failprint.cli import run as failprint  # noqa: C0415 (not installed when running invoke directly)
 
     code = failprint(title="Checking code quality", cmd=["flakehell", "lint", *PY_SRC_LIST])
     context.run("false" if code != 0 else "true")
@@ -110,8 +111,8 @@ def check_types(context):
 
 
 @invoke.task(check_code_quality, check_types, check_docs, check_dependencies)
-def check(context):
-    """Check it all!"""
+def check(context):  # noqa: W0613 (no use for the context argument)
+    """Check it all!"""  # noqa: D400 (exclamation mark is funnier)
 
 
 @invoke.task
@@ -152,8 +153,8 @@ def docs_deploy(context):
     context.run("mkdocs gh-deploy")
 
 
-@invoke.task  # noqa: A001 (we don't mind shadowing the format builtin)
-def format(context):
+@invoke.task
+def format(context):  # noqa: W0622 (we don't mind shadowing the format builtin)
     """Run formatting tools on the code."""
     context.run("failprint -t 'Removing unused imports' -- autoflake -ir --remove-all-unused-imports " + PY_SRC)
     context.run("failprint -t 'Ordering imports' -- isort -y -rc " + PY_SRC)
@@ -176,7 +177,7 @@ def release(context, version):
 
 @invoke.task
 def setup(context):
-    """Setup the development environments (install dependencies)."""
+    """Set up the development environments (install dependencies)."""
     for python in PYTHON_VERSIONS:
         message = f"Setting up Python {python} environment"
         print(message + "\n" + "-" * len(message))
@@ -204,7 +205,9 @@ def coverage(context):
 def test(context, match=""):
     """Run the test suite."""
     title = f"Running tests ({context.python_version})"
-    command = "coverage run --rcfile=config/coverage.ini -m pytest -c config/pytest.ini -k '{match}'" + PY_SRC
+    command = (
+        f"coverage run --rcfile=config/coverage.ini -m pytest -c config/pytest.ini -k '{match}' {PY_SRC} 2>/dev/null"
+    )
     if context.skip:
         title += " (missing interpreter)"
         command = "true"
