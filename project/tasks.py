@@ -4,6 +4,7 @@ import os
 from contextlib import contextmanager
 from functools import wraps
 from pathlib import Path
+from shutil import which
 
 import invoke
 
@@ -13,6 +14,9 @@ PY_SRC = " ".join(PY_SRC_LIST)
 MAIN_PYTHON = "3.6"
 PYTHON_VERSIONS = ["3.6", "3.7", "3.8"]
 TESTING = os.environ.get("TESTING", "0") in ("1", "true")
+CI = os.environ.get("CI", "0") in ("1", "true")
+WINDOWS = os.name == "nt"
+PTY = not WINDOWS
 
 
 def get_poetry_venv(python_version):
@@ -37,10 +41,24 @@ def _python(versions):
     if not versions:
         return lambda _: _
 
+    if CI:
+
+        def decorator(func):
+            @wraps(func)
+            def wrapped(context, *args, **kwargs):
+                context.python_version = which("python")
+                context.skip = False
+                func(context, *args, **kwargs)
+                del context.python_version
+
+            return wrapped
+
+        return decorator
+
     if isinstance(versions, str):
         versions = [versions]
 
-    def decorator(func):
+    def decorator(func):  # noqa: E0102 (already defined but also returned)
         @wraps(func)
         def wrapped(context, *args, **kwargs):
             for version in versions:
@@ -70,7 +88,7 @@ def changelog(context):
     context.run(
         "failprint -t 'Updating changelog' -- python scripts/update_changelog.py "
         "CHANGELOG.md '<!-- insertion marker -->' '^## \\[v?(?P<version>[^\\]]+)'",
-        pty=True,
+        pty=PTY,
     )
 
 
@@ -86,17 +104,18 @@ def check_code_quality(context):
 @invoke.task
 def check_dependencies(context):
     """Check for vulnerabilities in dependencies."""
+    safety = "safety" if which("safety") else "pipx run safety"
     context.run(
         "poetry export -f requirements.txt --without-hashes |"
-        "failprint --no-pty -t 'Checking dependencies' -- pipx run safety check --stdin --full-report",
-        pty=True,
+        f"failprint --no-pty -t 'Checking dependencies' -- {safety} check --stdin --full-report",
+        pty=PTY,
     )
 
 
 @invoke.task
 def check_docs(context):
     """Check if the documentation builds correctly."""
-    context.run("failprint -t 'Building documentation' -- mkdocs build -s", pty=True)
+    context.run("failprint -t 'Building documentation' -- mkdocs build -s", pty=PTY)
 
 
 @invoke.task
@@ -108,7 +127,7 @@ def check_types(context):
     if context.skip:
         title += " (missing interpreter)"
         command = "true"
-    context.run(f"failprint -t '{title}' -- {command}", pty=True)
+    context.run(f"failprint -t '{title}' -- {command}", pty=PTY)
 
 
 @invoke.task(check_code_quality, check_types, check_docs, check_dependencies)
@@ -180,12 +199,16 @@ def release(context, version):
 @invoke.task
 def setup(context):
     """Set up the development environments (install dependencies)."""
+    if CI:
+        context.run("poetry install", pty=PTY)
+        return
     for python in PYTHON_VERSIONS:
         message = f"Setting up Python {python} environment"
         print(message + "\n" + "-" * len(message))
-        context.run(f"poetry env use {python} &>/dev/null")
+        context.run(f"poetry env use {python} >/dev/null")
         opts = "--no-dev --extras tests" if python != MAIN_PYTHON else ""
-        context.run(f"poetry install {opts} || true", pty=True)
+        context.run(f"poetry install {opts} || true", pty=PTY)
+        print()
     context.run("poetry env use system &>/dev/null")
 
 
@@ -213,4 +236,4 @@ def test(context, match=""):
     if context.skip:
         title += " (missing interpreter)"
         command = "true"
-    context.run(f"failprint -t '{title}' -- {command}", pty=True)
+    context.run(f"failprint -t '{title}' -- {command}", pty=PTY)

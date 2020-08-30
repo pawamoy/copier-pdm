@@ -52,8 +52,7 @@ jobs:
 
     - name: Set up the project
       run: |
-        pip install poetry safety
-        pip install git+https://github.com/pawamoy/copier@_testing
+        pip install poetry safety copier invoke
         poetry config virtualenvs.in-project true
 
     - name: Run the test suite
