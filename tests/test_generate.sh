@@ -28,7 +28,7 @@ git add -A .
 git commit -am "feat: Initial commit"
 git tag v0.1.0
 echo
-make --no-print-directory setup docs-regen check test format
+make --no-print-directory setup docs-regen format check test
 git commit -am "fix: Fix all bugs"
 poetry run invoke changelog release -v 0.1.1
 poetry run failprint -- grep 'v0\.1\.0' CHANGELOG.md

@@ -24,7 +24,7 @@ def get_poetry_venv(python_version):
     current_venv = os.environ["VIRTUAL_ENV"]
     if current_venv.endswith(f"py{python_version}"):
         return current_venv
-    return "-".join(current_venv.split("-")[:-1]) + f"-py{python_version}"
+    return current_venv[:current_venv.rfind("-")] + f"-py{python_version}"
 
 
 @contextmanager
@@ -209,7 +209,7 @@ def setup(context):
         opts = "--no-dev --extras tests" if python != MAIN_PYTHON else ""
         context.run(f"poetry install {opts} || true", pty=PTY)
         print()
-    context.run("poetry env use system &>/dev/null")
+    context.run(f"poetry env use {MAIN_PYTHON} &>/dev/null")
 
 
 @invoke.task
