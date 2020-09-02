@@ -10,7 +10,7 @@ from typing import Callable, Generator, Sequence
 import invoke
 
 PY_SRC_PATHS = (Path(_) for _ in ("src", "scripts", "tests", "tasks.py"))
-PY_SRC_LIST = (str(_) for _ in PY_SRC_PATHS)
+PY_SRC_LIST = tuple(str(_) for _ in PY_SRC_PATHS)
 PY_SRC = " ".join(PY_SRC_LIST)
 MAIN_PYTHON = "3.6"
 PYTHON_VERSIONS = ("3.6", "3.7", "3.8")
