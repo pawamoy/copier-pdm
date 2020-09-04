@@ -254,7 +254,10 @@ def format(context):  # noqa: W0622 (we don't mind shadowing the format builtin)
     Arguments:
         context: The context of the Invoke task.
     """
-    context.run("failprint -t 'Removing unused imports' -- autoflake -ir --remove-all-unused-imports " + PY_SRC)
+    context.run(
+        "failprint -t 'Removing unused imports' -- "
+        "autoflake -ir --exclude tests/fixtures --remove-all-unused-imports " + PY_SRC
+    )
     context.run("failprint -t 'Ordering imports' -- isort -y -rc " + PY_SRC)
     context.run("failprint -t 'Formatting code' -- black " + PY_SRC)
 

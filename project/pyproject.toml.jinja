@@ -66,6 +66,7 @@ wrapt = "^1.12.1"
 
 [tool.black]
 line-length = 120
+exclude = "tests/fixtures"
 
 [tool.isort]
 line_length = 120
@@ -81,6 +82,7 @@ include_trailing_comma = true
 format = "colored"
 max_line_length = 132
 show_source = false
+exclude = ["tests/fixtures"]
 
 [tool.flakehell.plugins]
 "*" = [
