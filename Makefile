@@ -3,3 +3,6 @@ clean:
 
 test: clean
 	@./runtests.sh
+
+update-deps:
+	@./update-deps.sh
