@@ -6,7 +6,7 @@ repo_name: "[[ repository_namespace ]]/[[ repository_name ]]"
 
 nav:
   - Overview: index.md
-  - Reference:
+  - API Reference:
     - cli.py: reference/cli.md
   - Contributing: contributing.md
   - Code of Conduct: code_of_conduct.md
@@ -23,8 +23,11 @@ markdown_extensions:
   - admonition
   - codehilite:
       guess_lang: false
-  - pymdownx.superfences
   - pymdownx.emoji
+  - pymdownx.magiclink
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.tasklist
   - toc:
       permalink: "¤"
 
