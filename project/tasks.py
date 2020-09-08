@@ -333,9 +333,7 @@ def test(context, match=""):
         match: A pytest expression to filter selected tests.
     """
     title = f"Running tests ({context.python_version})"
-    command = (
-        f"coverage run --rcfile=config/coverage.ini -m pytest -c config/pytest.ini -k '{match}' {PY_SRC} 2>/dev/null"
-    )
+    command = f"pytest -c config/pytest.ini -n auto -k '{match}' {PY_SRC} 2>/dev/null"
     if context.skip:
         title += " (missing interpreter)"
         command = "true"
