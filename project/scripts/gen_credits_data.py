@@ -40,13 +40,11 @@ def get_data() -> dict:
     direct_dependencies.remove("python")
 
     indirect_dependencies = sorted(
-        pkg["name"] for pkg in lock_data["package"] if pkg["name"] not in direct_dependencies
+        pkg["name"].lower() for pkg in lock_data["package"] if pkg["name"] not in direct_dependencies
     )
 
     dependencies = direct_dependencies + indirect_dependencies
-    packages = {pkg["name"]: clean_info(pkg) for pkg in search_packages_info(dependencies)}
-    # poetry.lock seems to always use lowercase for packages names
-    packages.update({name.lower(): pkg for name, pkg in packages.items()})  # noqa: WPS221 (not that complex)
+    packages = {pkg["name"].lower(): clean_info(pkg) for pkg in search_packages_info(dependencies)}
 
     for dependency in dependencies:
         if dependency not in packages:
