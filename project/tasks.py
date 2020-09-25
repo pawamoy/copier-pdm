@@ -53,7 +53,6 @@ def setpath(path: str) -> Generator:
     os.environ["PATH"] = current_path
 
 
-
 def _python_ci_decorator(func: Callable) -> Callable:
     """
     Decorate a task to add `python_version` and `skip` attributes to the context.
@@ -64,6 +63,7 @@ def _python_ci_decorator(func: Callable) -> Callable:
     Returns:
         The wrapped function.
     """
+
     @wraps(func)  # noqa: WPS430 (nested function)
     def wrapper(context, *args, **kwargs):
         context.python_version = which("python")
