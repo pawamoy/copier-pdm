@@ -6,7 +6,7 @@ if [ -n "${PYTHON_VERSIONS}" ]; then
                 echo "> Environment for Python ${python_version} not created, skipping" >&2
                 poetry env remove "${python_version}" &>/dev/null
             else
-                echo "> Using Python ${python_version} environment"
+                echo "> $@ (Python ${python_version})"
                 "$@"
             fi
         else
