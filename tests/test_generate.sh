@@ -2,9 +2,23 @@
 set -eu
 export TESTING=true
 
-template="$(realpath .)"
 output=tests/tmp
 
+echo "///////////////////////////////////////////"
+echo "             TAGGING TEMPLATE COPY"
+echo "///////////////////////////////////////////"
+echo
+template=$(mktemp -d)
+cp -rf . "${template}"
+(
+  cd "${template}" || exit 1
+  git add . -A || true
+  git commit -m "test" || true
+  git tag test
+)
+echo "Template copy located at ${template}"
+
+echo
 echo "///////////////////////////////////////////"
 echo "             GENERATING PROJECT"
 echo "///////////////////////////////////////////"
@@ -59,3 +73,11 @@ echo "             UPDATING PROJECT"
 echo "///////////////////////////////////////////"
 echo
 copier -f update
+
+echo
+echo "///////////////////////////////////////////"
+echo "             CLEANUP"
+echo "///////////////////////////////////////////"
+echo
+echo ">>> Removing ${template}"
+rm -rf "${template}"
