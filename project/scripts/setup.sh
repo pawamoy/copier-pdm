@@ -1,10 +1,18 @@
 #!/usr/bin/env bash
-if ! command -v poetry &>/dev/null; then
-    if ! command -v pipx &>/dev/null; then
-        python -m pip install --user pipx
+set -e
+
+install_with_pipx() {
+    if ! command -v "$1" &>/dev/null; then
+        if ! command -v pipx &>/dev/null; then
+            python3 -m pip install --user pipx
+        fi
+        pipx install "$1"
     fi
-    pipx install poetry
-fi
+}
+
+install_with_pipx poetry
+install_with_pipx invoke
+
 if [ -n "${PYTHON_VERSIONS}" ]; then
     for python_version in ${PYTHON_VERSIONS}; do
         if output=$(poetry env use "${python_version}" 2>&1); then
