@@ -37,11 +37,14 @@ help:
 setup:
 	@env PYTHON_VERSIONS="$(PYTHON_VERSIONS)" bash scripts/setup.sh
 
+.PHONY: $(POETRY_TASKS)
 $(POETRY_TASKS):
 	@$(INVOKE_AND_POETRY) $@ $(args)
 
+.PHONY: $(QUALITY_TASKS)
 $(QUALITY_TASKS):
 	@env PYTHON_VERSIONS="$(PYTHON_VERSIONS)" bash scripts/run_task.sh $(INVOKE_AND_POETRY) $@ $(args)
 
+.PHONY: $(INVOKE_TASKS)
 $(INVOKE_TASKS):
 	@$(INVOKE_OR_POETRY) $@ $(args)
