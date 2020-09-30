@@ -12,6 +12,12 @@ defaults:
   run:
     shell: bash
 
+env:
+  LANG: "en_US.utf-8"
+  LC_ALL: "en_US.utf-8"
+  POETRY_VIRTUALENVS_IN_PROJECT: "true"
+  PYTHONIOENCODING: "UTF-8"
+
 jobs:
 
   quality:
@@ -36,7 +42,6 @@ jobs:
     - name: Set up the project
       run: |
         pip install poetry invoke safety
-        poetry config virtualenvs.in-project true
         poetry install -v
 
     - name: Check if the documentation builds correctly
@@ -81,7 +86,6 @@ jobs:
     - name: Set up the project
       run: |
         pip install poetry invoke
-        poetry config virtualenvs.in-project true
         poetry install
 
     - name: Run the test suite
