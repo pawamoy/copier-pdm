@@ -21,16 +21,6 @@ include = [
 [tool.poetry.dependencies]
 python = "^3.6"
 
-mypy = {version = "^0.782", optional = true}
-pytest = {version = "^6.0.1", optional = true}
-pytest-cov = {version = "^2.10.1", optional = true}
-pytest-randomly = {version = "^3.4.1", optional = true}
-pytest-sugar = {version = "^0.9.4", optional = true}
-pytest-xdist = {version = "^2.1.0", optional = true}
-
-[tool.poetry.extras]
-tests = ["coverage", "invoke", "mypy", "pytest", "pytest-cov", "pytest-randomly", "pytest-sugar", "pytest-xdist"]
-
 [tool.poetry.dev-dependencies]
 autoflake = "^1.4"
 black = "^20.8b1"
@@ -58,8 +48,6 @@ pytest-sugar = "^0.9.4"
 pytest-xdist = "^2.1.0"
 toml = "^0.10.1"
 wemake-python-styleguide = "^0.14.1"
-# TODO: remove once https://github.com/python-poetry/poetry/issues/2728 is resolved
-wrapt = "^1.12.1"
 
 [tool.poetry.scripts]
 [[ python_package_command_line_name ]] = "[[ python_package_import_name ]].cli:main"

@@ -50,8 +50,7 @@ echo ">>> Running initial quality checks"
 make --no-print-directory check
 echo
 echo ">>> Generating docs, formatting, and re-running quality checks"
-poetry run duty docs_regen
-make --no-print-directory format check
+make --no-print-directory docs-regen format check
 echo
 echo ">>> Running tests"
 make --no-print-directory test

@@ -45,16 +45,16 @@ jobs:
         poetry install -v
 
     - name: Check if the documentation builds correctly
-      run: poetry run duty check_docs
+      run: poetry run duty check-docs
 
     - name: Check the code quality
-      run: poetry run duty check_code_quality
+      run: poetry run duty check-code-quality
 
     - name: Check if the code is correctly typed
-      run: poetry run duty check_types
+      run: poetry run duty check-types
 
     - name: Check for vulnerabilities in dependencies
-      run: poetry run duty check_dependencies
+      run: poetry run duty check-dependencies
 
   tests:
 
