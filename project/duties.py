@@ -9,12 +9,11 @@ from typing import List, Optional, Pattern
 
 import httpx
 import toml
+from duty import duty
 from git_changelog.build import Changelog, Version
 from jinja2 import StrictUndefined
 from jinja2.sandbox import SandboxedEnvironment
-from pip._internal.commands.show import search_packages_info  # noqa: WPS436 (better way?)
-
-from duty import duty
+from pip._internal.commands.show import search_packages_info  # noqa: WPS436 (no other way?)
 
 PY_SRC_PATHS = (Path(_) for _ in ("src", "tests", "duties.py"))
 PY_SRC_LIST = tuple(str(_) for _ in PY_SRC_PATHS)
@@ -23,10 +22,6 @@ TESTING = os.environ.get("TESTING", "0") in {"1", "true"}
 CI = os.environ.get("CI", "0") in {"1", "true"}
 WINDOWS = os.name == "nt"
 PTY = not WINDOWS
-
-
-TEMPLATE_URL = "https://raw.githubusercontent.com/pawamoy/jinja-templates/master/keepachangelog.md"
-COMMIT_STYLE = "angular"
 
 
 def latest(lines: List[str], regex: Pattern) -> Optional[str]:
@@ -90,7 +85,13 @@ def write_changelog(filepath: str, lines: List[str]) -> None:
         changelog_file.write("\n".join(lines).rstrip("\n") + "\n")
 
 
-def update_changelog(inplace_file: str, marker: str, version_regex: str) -> None:
+def update_changelog(
+    inplace_file: str,
+    marker: str,
+    version_regex: str,
+    template_url: str,
+    commit_style: str,
+) -> None:
     """
     Update the given changelog file in place.
 
@@ -98,10 +99,12 @@ def update_changelog(inplace_file: str, marker: str, version_regex: str) -> None
         inplace_file: The file to update in-place.
         marker: The line after which to insert new contents.
         version_regex: A regular expression to find currently documented versions in the file.
+        template_url: The URL to the Jinja template used to render contents.
+        commit_style: The style of commit messages to parse.
     """
     env = SandboxedEnvironment(autoescape=True)
-    template = env.from_string(httpx.get(TEMPLATE_URL).text)
-    changelog = Changelog(".", style=COMMIT_STYLE)  # noqa: W0621 (redefining changelog from outer scope)
+    template = env.from_string(httpx.get(template_url).text)
+    changelog = Changelog(".", style=commit_style)  # noqa: W0621 (shadowing changelog)
 
     if len(changelog.versions_list) == 1:
         last_version = changelog.versions_list[0]
@@ -134,6 +137,8 @@ def changelog(ctx):
             "inplace_file": "CHANGELOG.md",
             "marker": "<!-- insertion marker -->",
             "version_regex": r"^## \[v?(?P<version>[^\]]+)",
+            "template_url": "https://raw.githubusercontent.com/pawamoy/jinja-templates/master/keepachangelog.md",
+            "commit_style": "angular",
         },
         title="Updating changelog",
         pty=PTY,
@@ -171,7 +176,7 @@ def check_dependencies(ctx):
     """
     safety = "safety" if which("safety") else "pipx run safety"
     ctx.run(
-        "poetry export -f requirements.txt --without-hashes | " f"{safety} check --stdin --full-report",
+        f"poetry export -f requirements.txt --without-hashes | {safety} check --stdin --full-report",
         title="Checking dependencies",
         pty=PTY,
     )
