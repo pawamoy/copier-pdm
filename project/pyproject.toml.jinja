@@ -21,8 +21,6 @@ include = [
 [tool.poetry.dependencies]
 python = "^3.6"
 
-coverage = {version = "^5.2.1", optional = true}
-invoke = {version = "^1.4.1", optional = true}
 mypy = {version = "^0.782", optional = true}
 pytest = {version = "^6.0.1", optional = true}
 pytest-cov = {version = "^2.10.1", optional = true}
@@ -36,8 +34,7 @@ tests = ["coverage", "invoke", "mypy", "pytest", "pytest-cov", "pytest-randomly"
 [tool.poetry.dev-dependencies]
 autoflake = "^1.4"
 black = "^20.8b1"
-coverage = "^5.2.1"
-failprint = "^0.4.0"
+duty = "^0.3.0"
 flakehell = "^0.6.0"
 flake8-black = "^0.2.1"
 flake8-builtins = "^1.5.3"
@@ -46,7 +43,6 @@ flake8-variables-names = "^0.0.3"
 flake8-pytest-style = "^1.3.0"
 git-changelog = "^0.4.0"
 httpx = "^0.14.3"
-invoke = "^1.4.1"
 ipython = "^7.2"
 # TODO: accept v5 once https://github.com/wemake-services/wemake-python-styleguide/issues/1584 is resolved
 isort = {version = "<5", extras = ["pyproject"]}
