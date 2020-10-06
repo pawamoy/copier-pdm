@@ -12,11 +12,6 @@ def silence_errors(func):
 
 
 @silence_errors
-def symlink(source, target):
-    os.symlink(source, target)
-
-
-@silence_errors
 def rm(path):
     os.remove(path)
 
@@ -42,14 +37,6 @@ def copy_license():
     rmdir("licenses")
 
 
-def symlink_docs():
-    symlink("../README.md", "docs/index.md")
-    symlink("../CREDITS.md", "docs/credits.md")
-    symlink("../CHANGELOG.md", "docs/changelog.md")
-    symlink("../CONTRIBUTING.md", "docs/contributing.md")
-    symlink("../CODE_OF_CONDUCT.md", "docs/code_of_conduct.md")
-
-
 def clean_up_providers():
     provider = "[[ repository_provider ]]"
     if provider == "github.com":
@@ -64,7 +51,6 @@ def delete_myself():
 
 if __name__ == "__main__":
     copy_license()
-    symlink_docs()
     clean_up_providers()
     delete_myself()
 

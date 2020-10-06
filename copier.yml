@@ -6,6 +6,14 @@ _skip_if_exists:
   - CREDITS.md
 _tasks:
   - python scripts/post_generation.py
+_migrations:
+  - version: 0.1.0
+    before:
+      - rm docs/changelog.md
+      - rm docs/index.md
+      - rm docs/contributing.md
+      - rm docs/code_of_conduct.md
+      - rm docs/credits.md
 
 # PROMPT --------------------------------
 project_name:
