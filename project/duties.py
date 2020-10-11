@@ -174,11 +174,20 @@ def check_dependencies(ctx):
     Arguments:
         ctx: The [context][duty.logic.Context] instance (passed automatically).
     """
-    safety = "safety" if which("safety") else "pipx run safety"
+    nofail = False
+    safety = which("safety")
+    if not safety:
+        pipx = which("pipx")
+        if not pipx:
+            safety = "safety"
+            nofail = True
+        else:
+            safety = f"{pipx} run safety"
     ctx.run(
         f"poetry export -f requirements.txt --without-hashes | {safety} check --stdin --full-report",
         title="Checking dependencies",
         pty=PTY,
+        nofail=nofail,
     )
 
 
@@ -315,7 +324,7 @@ def docs_serve(ctx, host="127.0.0.1", port=8000):
         host: The host to serve the docs from.
         port: The port to serve the docs on.
     """
-    ctx.run(f"mkdocs serve -a {host}:{port}", title="Serving documentation", output_type="nocapture")
+    ctx.run(f"mkdocs serve -a {host}:{port}", title="Serving documentation", capture=False)
 
 
 @duty(pre=[docs_regen])
@@ -386,7 +395,7 @@ def coverage(ctx):
     Arguments:
         ctx: The [context][duty.logic.Context] instance (passed automatically).
     """
-    ctx.run("coverage report --rcfile=config/coverage.ini", output_type="nocapture")
+    ctx.run("coverage report --rcfile=config/coverage.ini", capture=False)
     ctx.run("coverage html --rcfile=config/coverage.ini")
 
 
