@@ -70,7 +70,7 @@ def read_changelog(filepath: str) -> List[str]:
         The changelog lines.
     """
     with open(filepath, "r") as changelog_file:
-        return changelog_file.read().splitlines(keepends=False)
+        return changelog_file.read().splitlines()
 
 
 def write_changelog(filepath: str, lines: List[str]) -> None:
@@ -156,14 +156,14 @@ def check(ctx):  # noqa: W0613 (no use for the context argument)
 
 
 @duty
-def check_code_quality(ctx):
+def check_code_quality(ctx, files=PY_SRC):
     """
     Check the code quality.
 
     Arguments:
         ctx: The [context][duty.logic.Context] instance (passed automatically).
     """
-    ctx.run(f"flakehell lint {PY_SRC}", title="Checking code quality", pty=PTY)
+    ctx.run(f"flakehell lint {files}", title="Checking code quality", pty=PTY)
 
 
 @duty
@@ -400,7 +400,7 @@ def test(ctx, match=""):
         match: A pytest expression to filter selected tests.
     """
     ctx.run(
-        ["pytest", "-c", "config/pytest.ini", "-n", "auto", "-k", match, *PY_SRC_LIST],
+        ["pytest", "-c", "config/pytest.ini", "-n", "auto", "-k", match, "tests"],
         title="Running tests",
         pty=PTY,
     )
