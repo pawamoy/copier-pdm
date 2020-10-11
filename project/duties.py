@@ -281,7 +281,7 @@ def docs_regen(ctx):
         ctx: The [context][duty.logic.Context] instance (passed automatically).
     """
     url_prefix = "https://raw.githubusercontent.com/pawamoy/jinja-templates/master/"
-    regen_list = (("docs/credits.md", get_credits_data, url_prefix + "credits.md"),)
+    regen_list = (("CREDITS.md", get_credits_data, url_prefix + "credits.md"),)
 
     def regen() -> int:  # noqa: WPS430 (nested function)
         """
