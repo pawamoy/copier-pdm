@@ -129,7 +129,7 @@ def changelog(ctx):
     Update the changelog in-place with latest commits.
 
     Arguments:
-        ctx: The [context][duty.logic.Context] instance (passed automatically).
+        ctx: The context instance (passed automatically).
     """
     ctx.run(
         update_changelog,
@@ -151,7 +151,7 @@ def check(ctx):  # noqa: W0613 (no use for the context argument)
     Check it all!
 
     Arguments:
-        ctx: The [context][duty.logic.Context] instance (passed automatically).
+        ctx: The context instance (passed automatically).
     """  # noqa: D400 (exclamation mark is funnier)
 
 
@@ -161,7 +161,8 @@ def check_code_quality(ctx, files=PY_SRC):
     Check the code quality.
 
     Arguments:
-        ctx: The [context][duty.logic.Context] instance (passed automatically).
+        ctx: The context instance (passed automatically).
+        files: The files to check.
     """
     ctx.run(f"flakehell lint {files}", title="Checking code quality", pty=PTY)
 
@@ -172,17 +173,17 @@ def check_dependencies(ctx):
     Check for vulnerabilities in dependencies.
 
     Arguments:
-        ctx: The [context][duty.logic.Context] instance (passed automatically).
+        ctx: The context instance (passed automatically).
     """
     nofail = False
     safety = which("safety")
     if not safety:
         pipx = which("pipx")
-        if not pipx:
+        if pipx:
+            safety = f"{pipx} run safety"
+        else:
             safety = "safety"
             nofail = True
-        else:
-            safety = f"{pipx} run safety"
     ctx.run(
         f"poetry export -f requirements.txt --without-hashes | {safety} check --stdin --full-report",
         title="Checking dependencies",
@@ -197,7 +198,7 @@ def check_docs(ctx):
     Check if the documentation builds correctly.
 
     Arguments:
-        ctx: The [context][duty.logic.Context] instance (passed automatically).
+        ctx: The context instance (passed automatically).
     """
     ctx.run("mkdocs build -s", title="Building documentation", pty=PTY)
 
@@ -208,7 +209,7 @@ def check_types(ctx):
     Check that the code is correctly typed.
 
     Arguments:
-        ctx: The [context][duty.logic.Context] instance (passed automatically).
+        ctx: The context instance (passed automatically).
     """
     ctx.run(f"mypy --config-file config/mypy.ini {PY_SRC}", title="Type-checking", pty=PTY)
 
@@ -219,7 +220,7 @@ def clean(ctx):
     Delete temporary files.
 
     Arguments:
-        ctx: The [context][duty.logic.Context] instance (passed automatically).
+        ctx: The context instance (passed automatically).
     """
     ctx.run("rm -rf .coverage*")
     ctx.run("rm -rf .mypy_cache")
@@ -278,7 +279,7 @@ def docs_regen(ctx):
     Regenerate some documentation pages.
 
     Arguments:
-        ctx: The [context][duty.logic.Context] instance (passed automatically).
+        ctx: The context instance (passed automatically).
     """
     url_prefix = "https://raw.githubusercontent.com/pawamoy/jinja-templates/master/"
     regen_list = (("CREDITS.md", get_credits_data, url_prefix + "credits.md"),)
@@ -309,7 +310,7 @@ def docs(ctx):
     Build the documentation locally.
 
     Arguments:
-        ctx: The [context][duty.logic.Context] instance (passed automatically).
+        ctx: The context instance (passed automatically).
     """
     ctx.run("mkdocs build", title="Building documentation")
 
@@ -320,7 +321,7 @@ def docs_serve(ctx, host="127.0.0.1", port=8000):
     Serve the documentation (localhost:8000).
 
     Arguments:
-        ctx: The [context][duty.logic.Context] instance (passed automatically).
+        ctx: The context instance (passed automatically).
         host: The host to serve the docs from.
         port: The port to serve the docs on.
     """
@@ -333,7 +334,7 @@ def docs_deploy(ctx):
     Deploy the documentation on GitHub pages.
 
     Arguments:
-        ctx: The [context][duty.logic.Context] instance (passed automatically).
+        ctx: The context instance (passed automatically).
     """
     ctx.run("mkdocs gh-deploy", title="Deploying documentation")
 
@@ -344,7 +345,7 @@ def format(ctx):  # noqa: W0622 (we don't mind shadowing the format builtin)
     Run formatting tools on the code.
 
     Arguments:
-        ctx: The [context][duty.logic.Context] instance (passed automatically).
+        ctx: The context instance (passed automatically).
     """
     ctx.run(
         f"autoflake -ir --exclude tests/fixtures --remove-all-unused-imports {PY_SRC}",
@@ -361,7 +362,7 @@ def release(ctx, version):
     Release a new Python package.
 
     Arguments:
-        ctx: The [context][duty.logic.Context] instance (passed automatically).
+        ctx: The context instance (passed automatically).
         version: The new version number to use.
     """
     ctx.run(f"poetry version {version}", title=f"Bumping version in pyproject.toml to {version}", pty=PTY)
@@ -382,7 +383,7 @@ def combine(ctx):
     Combine coverage data from multiple runs.
 
     Arguments:
-        ctx: The [context][duty.logic.Context] instance (passed automatically).
+        ctx: The context instance (passed automatically).
     """
     ctx.run("coverage combine --rcfile=config/coverage.ini")
 
@@ -393,7 +394,7 @@ def coverage(ctx):
     Report coverage as text and HTML.
 
     Arguments:
-        ctx: The [context][duty.logic.Context] instance (passed automatically).
+        ctx: The context instance (passed automatically).
     """
     ctx.run("coverage report --rcfile=config/coverage.ini", capture=False)
     ctx.run("coverage html --rcfile=config/coverage.ini")
@@ -405,7 +406,7 @@ def test(ctx, match=""):
     Run the test suite.
 
     Arguments:
-        ctx: The [context][duty.logic.Context] instance (passed automatically).
+        ctx: The context instance (passed automatically).
         match: A pytest expression to filter selected tests.
     """
     ctx.run(

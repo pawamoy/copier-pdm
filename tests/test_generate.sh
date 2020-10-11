@@ -14,7 +14,7 @@ cp -rf . "${template}"
   cd "${template}" || exit 1
   git add . -A || true
   git commit -m "test" || true
-  git tag test
+  git tag 99.99.99
 )
 echo "Template copy located at ${template}"
 
