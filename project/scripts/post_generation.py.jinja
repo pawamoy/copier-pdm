@@ -21,22 +21,6 @@ def rmdir(path):
     shutil.rmtree(path)
 
 
-def copy_license():
-    """Copy the selected rendered license to the LICENSE file."""
-    target = "LICENSE"
-    if not os.path.exists("LICENSE"):
-        source = os.path.join(
-            "licenses",
-            "[[ copyright_license ]]"
-                .replace('"', "")
-                .replace("'", "")
-                .replace("/", "-")
-                .replace(" ", "_")
-                .replace("*", "_"))
-        shutil.copyfile(source, target)
-    rmdir("licenses")
-
-
 def clean_up_providers():
     provider = "[[ repository_provider ]]"
     if provider == "github.com":
@@ -50,7 +34,6 @@ def delete_myself():
 
 
 if __name__ == "__main__":
-    copy_license()
     clean_up_providers()
     delete_myself()
 
