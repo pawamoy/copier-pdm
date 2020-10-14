@@ -59,7 +59,7 @@ echo ">>> Creating second commit (fix)"
 git commit -am "fix: Fix all bugs"
 echo
 echo ">>> Updating changelog and releasing version"
-poetry run duty changelog release version=0.1.1
+make --no-print-directory changelog release version=0.1.1
 echo
 echo ">>> Checking changelog's contents"
 poetry run failprint -- grep 'v0\.1\.0' CHANGELOG.md
