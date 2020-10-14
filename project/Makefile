@@ -6,7 +6,6 @@ DUTY = $(shell [ -n "${VIRTUAL_ENV}" ] || echo poetry run) duty
 BASIC_DUTIES = \
 	changelog \
 	clean \
-	combine \
 	coverage \
 	docs \
 	docs-deploy \
