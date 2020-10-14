@@ -1,5 +1,6 @@
 variables:
     PIP_CACHE_DIR: "${CI_PROJECT_DIR}/.cache/pip"
+    POETRY_VIRTUALENVS_IN_PROJECT: "true"
 
 cache:
   key: "${CI_JOB_NAME}"
@@ -15,7 +16,6 @@ stages:
   before_script:
     - pip install poetry
     - poetry --version
-    - poetry config virtualenvs.in-project true
     - poetry install -vv
 
 # Quality jobs
@@ -27,26 +27,26 @@ stages:
 
 check-docs:
   <<: *quality
-  script: make check-docs
+  script: poetry run duty check-docs
 
 check-code-quality:
   <<: *quality
-  script: make check-code-quality
+  script: poetry run duty check-code-quality
 
 check-types:
   <<: *quality
-  script: make check-types
+  script: poetry run duty check-types
 
 check-dependencies:
   <<: *quality
-  script: make check-dependencies
+  script: poetry run duty check-dependencies
 
 # Tests jobs
 
 .test-template: &test
   <<: *install-deps
   stage: tests
-  script: make test
+  script: poetry run duty test
 
 python3.6:
   <<: *test
