@@ -37,12 +37,12 @@ jobs:
       uses: actions/cache@v1
       with:
         path: .venv
-        key: cache-python-packages-2
+        key: cache-python-packages-3
 
     - name: Set up the project
       run: |
         pip install poetry safety
-        poetry install -v
+        poetry install -vvv
 
     - name: Check if the documentation builds correctly
       run: poetry run duty check-docs
@@ -77,16 +77,14 @@ jobs:
 
     - name: Set up the cache
       uses: actions/cache@v1
-      env:
-        cache-name: cache-python-packages
       with:
         path: .venv
-        key: ${{ matrix.os }}-${{ matrix.python-version }}-${{ env.cache-name }}-2
+        key: ${{ matrix.os }}-${{ matrix.python-version }}-cache-python-packages-3
 
     - name: Set up the project
       run: |
         pip install poetry
-        poetry install -v
+        poetry install -vvv
 
     - name: Run the test suite
       run: poetry run duty test
