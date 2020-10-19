@@ -28,25 +28,21 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: Set up Python 3.6
+    - name: Set up Python
       uses: actions/setup-python@v2
       with:
         python-version: 3.8
-      
-    - name: Install Poetry
-      run: |
-        pip install poetry
-        poetry_version=$(poetry --version | cut -d' ' -f3)
-        echo "::set-env name=poetry-version::$poetry_version"
 
     - name: Set up the cache
       uses: actions/cache@v1
       with:
         path: .venv
-        key: venv-cache-${{ env.poetry-version }}
+        key: venv-cache
 
     - name: Set up the project
-      run: poetry install -vvv
+      run: |
+        pip install poetry
+        poetry install -vvv || { rm -rf .venv; poetry install -vvv; }
 
     - name: Check if the documentation builds correctly
       run: poetry run duty check-docs
@@ -80,20 +76,16 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
 
-    - name: Install Poetry
-      run: |
-        pip install poetry
-        poetry_version=$(poetry --version | cut -d' ' -f3)
-        echo "::set-env name=poetry-version::$poetry_version"
-
     - name: Set up the cache
       uses: actions/cache@v1
       with:
         path: .venv
-        key: venv-cache-${{ matrix.os }}-${{ matrix.python-version }}-${{ env.poetry-version }}
+        key: venv-cache-${{ matrix.os }}-py${{ matrix.python-version }}
 
     - name: Set up the project
-      run: poetry install -vvv
+      run: |
+        pip install poetry
+        poetry install -vvv || { rm -rf .venv; poetry install -vvv; }
 
     - name: Run the test suite
       run: poetry run duty test
