@@ -3,8 +3,8 @@ Contributions are welcome, and they are greatly appreciated!
 Every little bit helps, and credit will always be given.
 
 Please note that this project is released with a
-[Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this
-project you agree to abide by its terms.
+[Contributor Code of Conduct](../code_of_conduct).
+By participating in this project you agree to abide by its terms.
 
 ## Bug Reports, Feature Requests, and Feedback
 Create a [new project issue][1]! Try to be as descriptive as possible.
