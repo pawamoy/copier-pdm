@@ -37,6 +37,10 @@ And the file looks like this:
 # Changes here will be overwritten by Copier
 ```
 
+If you want to use all previous answers
+without copier prompting you for each answer,
+run `copier --force update`.
+
 Since we are generally using Git in our projects,
 my recommendation is to not think at all
 and blindly apply every change Copier proposes.
