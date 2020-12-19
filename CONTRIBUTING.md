@@ -1,22 +1,23 @@
 # Contributing
+
 Contributions are welcome, and they are greatly appreciated!
 Every little bit helps, and credit will always be given.
 
-Please note that this project is released with a
-[Contributor Code of Conduct](../code_of_conduct).
-By participating in this project you agree to abide by its terms.
+## Environment setup
 
-## Bug Reports, Feature Requests, and Feedback
-Create a [new project issue][1]! Try to be as descriptive as possible.
+You only need two tools, [Poetry](https://github.com/python-poetry/poetry)
+and [Copier](https://github.com/copier-org/copier).
 
-## Bug Fixes, New Features and Documentation
-Create a [new merge/pull request][2]! Make sure to follow the guidelines.
+```bash
+python3 -m pip install --user pipx
+pipx install poetry
+pipx install copier
+```
 
-## Merge/Pull Request Guidelines
-Make sure to have atomic commits and contextual commit messages!
+## Running tests
 
-[Check out this awesome blog post by Chris Beams for more information.][3]
+To run the tests, use:
 
-[1]: https://github.com/pawamoy/cookie-poetry/issues/new
-[2]: https://github.com/pawamoy/cookie-poetry/compare
-[3]: http://chris.beams.io/posts/git-commit/
+```
+make test
+```
