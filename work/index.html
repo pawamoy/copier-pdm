@@ -14,7 +14,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.5">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.7">
     
     
       
@@ -22,7 +22,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.21aed14c.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.19753c6b.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.196e0c26.min.css">
@@ -432,6 +432,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    Workflow
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#quality-analysis" class="md-nav__link">
     Quality analysis
   </a>
@@ -484,25 +491,19 @@
     Continuous Integration
   </a>
   
-    <nav class="md-nav" aria-label="Continuous Integration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#github-workflow" class="md-nav__link">
-    GitHub Workflow
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changelog" class="md-nav__link">
+    Changelog
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#gitlab-ci" class="md-nav__link">
-    GitLab CI
+      
+        <li class="md-nav__item">
+  <a href="#releases" class="md-nav__link">
+    Releases
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -627,6 +628,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    Workflow
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#quality-analysis" class="md-nav__link">
     Quality analysis
   </a>
@@ -679,25 +687,19 @@
     Continuous Integration
   </a>
   
-    <nav class="md-nav" aria-label="Continuous Integration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#github-workflow" class="md-nav__link">
-    GitHub Workflow
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changelog" class="md-nav__link">
+    Changelog
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#gitlab-ci" class="md-nav__link">
-    GitLab CI
+      
+        <li class="md-nav__item">
+  <a href="#releases" class="md-nav__link">
+    Releases
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -783,7 +785,7 @@
 │   ├── 📄 multirun.sh ------------ # to run a command in multiple virtualenvs
 │   └── 📄 setup.sh --------------- # to install dependencies in multiple virtualenvs
 ├── 📁 src ------------------------ # the source code directory
-│   └── 📁 my_project ------------- # your package
+│   └── 📁 your_package ----------- # your package
 │       ├── 📄 cli.py ------------- # the command line entry point
 │       ├── 📄 __init__.py -------- # 
 │       └── 📄 __main__.py -------- # 
@@ -793,40 +795,458 @@
     └── 📄 test_cli.py ------------ # 
 </code></pre></div>
 <h2 id="dependencies-and-virtual-environments">Dependencies and virtual environments<a class="headerlink" href="#dependencies-and-virtual-environments" title="Permanent link">¤</a></h2>
-<h2 id="tasks">Tasks<a class="headerlink" href="#tasks" title="Permanent link">¤</a></h2>
-<h3 id="makefile">Makefile<a class="headerlink" href="#makefile" title="Permanent link">¤</a></h3>
-<p>The entry-point is the Makefile:</p>
+<p>Dependencies and virtual environments are managed by <a href="https://github.com/python-poetry/poetry">Poetry</a>.</p>
+<p>You don't have to -and you should not- create the virtualenvs yourself,
+or activate/deactivate them.</p>
+<p>Use <code>poetry install</code> to create the virtualenv the first time and install the dependencies.
+Re-run <code>poetry install</code> to re-install the dependencies into the virtualenv.</p>
+<p>Dependencies are written in <code>pyproject.toml</code>,
+under the <code>[tool.poetry.dependencies]</code> or <code>[tool.poetry.dev-dependencies]</code> sections.
+Example:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[tool.poetry.dependencies]</span>
+<span class="n">python</span> <span class="o">=</span> <span class="s">&quot;^3.6&quot;</span>
+<span class="n">fastapi</span> <span class="o">=</span> <span class="s">&quot;&lt;1.0&quot;</span>
+<span class="n">importlib-metadata</span> <span class="o">=</span> <span class="s">&quot;^2.0.0&quot;</span>
+</code></pre></div>
+<p>You can write them there manually, or use the commands provided by Poetry:</p>
+<div class="highlight"><pre><span></span><code>poetry add numpy  <span class="c1"># add as a production dependency</span>
+poetry add -D numpy  <span class="c1"># or add as a development dependency</span>
+
+<span class="c1"># the &quot;remove&quot; equivalent</span>
+poetry remove numpy
+poetry remove -D numpy
+</code></pre></div>
 <ul>
-<li><code>make changelog</code>: Update the changelog in-place with latest commits.</li>
-<li><code>make check</code>: Run all checks.</li>
-<li><code>make check-code-quality</code>: Check the code quality.</li>
-<li><code>make check-dependencies</code>: Check for vulnerabilities in dependencies.</li>
-<li><code>make check-docs</code>: Check if the documentation builds correctly.</li>
-<li><code>make check-types</code>: Check if the code is correctly typed.</li>
-<li><code>make clean</code>: Delete temporary files.</li>
-<li><code>make docs</code>: Build the documentation locally.</li>
-<li><code>make docs-regen</code>: Regenerate some documentation pages.</li>
-<li><code>make docs-serve</code>: Serve the documentation (localhost:8000).</li>
-<li><code>make docs-deploy</code>: Deploy the documentation on GitHub pages.</li>
-<li><code>make help</code>: Print this help.</li>
-<li><code>make format</code>: Run formatting tools on the code.</li>
-<li><code>make release</code>: Create a new release (commit, tag, push, build, publish, deploy docs).</li>
-<li><code>make setup</code>: Setup the development environment (install dependencies).</li>
-<li><code>make test</code>: Run the test suite and report coverage.</li>
+<li>Use <code>poetry update</code> the re-lock the dependencies
+  (write the complete dependency resolution in <code>poetry.lock</code>)
+  and install their updated version in the virtualenv.</li>
+<li>Use <code>poetry lock</code> to just re-lock the dependencies.</li>
+<li>Use <code>poetry run CMD [ARGS...]</code> to run a command in the virtualenv.</li>
+<li>Use <code>poetry shell</code> to activate/enter the virtualenv,
+  and <code>exit</code> to deactivate/exit the virtualenv.</li>
+<li>Use <code>poetry show</code> to show the list of dependencies.</li>
 </ul>
+<p>See <code>poetry COMMAND --help</code> for details about each command.</p>
+<h2 id="tasks">Tasks<a class="headerlink" href="#tasks" title="Permanent link">¤</a></h2>
+<p>The tasks are written in Python (for cross-platform compatibility),
+and based on the task-runner called <a href="https://github.com/pawamoy/duty">Duty</a>.
+They are written in the <code>duties.py</code> file,
+and decorated with the <code>@duty</code> decorator.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@duty</span>
+<span class="k">def</span> <span class="nf">check_docs</span><span class="p">(</span><span class="n">ctx</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Check if the documentation builds correctly.&quot;&quot;&quot;</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;mkdocs build -s&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Building documentation&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>To run a task, use <code>poetry run duty TASK [ARG=VALUE...]</code>.
+You can run multiple tasks at once: <code>poetry run duty TASK1 ARG=VALUE TASK2</code>.
+You can list the available tasks with <code>poetry run duty --list</code>.</p>
+<p>Available tasks:</p>
+<ul>
+<li><code>changelog</code>: Update the changelog in-place with latest commits.
+  See <a href="#changelog">the Changelog section</a>.</li>
+<li><code>check</code>: Check it all!
+  See <a href="#quality-analysis">the Quality Analysis section</a>.</li>
+<li><code>check-code-quality</code>: Check the code quality.
+  See <a href="#check-code-quality">the check-code-quality section</a>.</li>
+<li><code>check-dependencies</code>: Check for vulnerabilities in dependencies.
+  See <a href="#check-dependencies">the check-dependencies section</a>.</li>
+<li><code>check-docs</code>: Check if the documentation builds correctly.
+  See <a href="#check-docs">the check-docs section</a>.</li>
+<li><code>check-types</code>: Check that the code is correctly typed.
+  See <a href="#check-types">the check-types section</a>.</li>
+<li><code>clean</code>: Delete temporary files.</li>
+<li><code>coverage</code>: Report coverage as text and HTML.</li>
+<li><code>docs</code>: Build the documentation locally.
+  See <a href="#documentation">the Documentation section</a>.</li>
+<li><code>docs-serve</code>: Serve the documentation (localhost:8000). Arguments:<ul>
+<li><code>host="127.0.0.1"</code>: The host to serve the docs from.</li>
+<li><code>port=8000</code>: The port to serve the docs on.</li>
+</ul>
+</li>
+<li><code>format</code>: Run formatting tools on the code.</li>
+<li><code>release</code>: Release a new Python package (or Docker image).
+  See <a href="#releases">the Releases section</a>.
+  Arguments:<ul>
+<li><code>version</code> The Python package version (or Docker image version for webservices).</li>
+</ul>
+</li>
+<li><code>test</code>: Run the test suite. 
+  See <a href="#tests">the Tests section</a>.
+  Arguments:<ul>
+<li><code>match=""</code>: A pytest expression to filter selected tests.</li>
+</ul>
+</li>
+</ul>
+<h3 id="makefile">Makefile<a class="headerlink" href="#makefile" title="Permanent link">¤</a></h3>
+<p>A Makefile is available for convenience. It's just a shortcut to run duties.</p>
+<p>Available rules are the same, with two additional rules: <code>help</code> and <code>setup</code>.</p>
+<ul>
+<li><code>changelog</code></li>
+<li><code>check</code></li>
+<li><code>check-code-quality</code></li>
+<li><code>check-dependencies</code></li>
+<li><code>check-docs</code></li>
+<li><code>check-types</code></li>
+<li><code>clean</code></li>
+<li><code>coverage</code></li>
+<li><code>docs</code></li>
+<li><code>docs-serve</code></li>
+<li><code>format</code></li>
+<li><code>release</code></li>
+<li><code>setup</code></li>
+<li><code>test</code></li>
+</ul>
+<p>The default rule is <code>help</code>, so running <code>make</code> will show the available rules.
+The <code>setup</code> rule is explained below.</p>
+<h2 id="workflow">Workflow<a class="headerlink" href="#workflow" title="Permanent link">¤</a></h2>
+<p>The first thing you should run when entering your repository is:</p>
+<div class="highlight"><pre><span></span><code>make setup
+</code></pre></div>
+<p>This will install the project's dependencies in new Python virtualenvs:
+one virtualenv per chosen Python version.
+The chosen Python versions are defined
+in both scripts <code>setup.sh</code> and <code>multirun.sh</code>
+in the <code>scripts/</code> folder.
+You can change them here permanently,
+or temporarily with the <code>PYTHON_VERSIONS</code> environment variable.</p>
+<p>If you don't have the <code>make</code> command,
+you can use <code>bash scripts/setup.sh</code> instead,
+or even just <code>poetry install</code>
+if you don't plan on using multiple Python versions</p>
+<p>Now you can start writing and editing code in <code>src/your_package</code>.</p>
+<ul>
+<li>You can auto-format the code with <code>make format</code>.</li>
+<li>You can run a quality analysis with <code>make check</code>.</li>
+<li>Once you wrote tests for your new code,
+  you can run the test suite with <code>make test</code>.</li>
+<li>Once you are ready to publish a new release,
+  run <code>make changelog</code>, then <code>make release version=x.y.z</code>,
+  where <code>x.y.z</code> is the version added to the changelog.</li>
+</ul>
+<p>To summarize, the typical workflow is:</p>
+<div class="highlight"><pre><span></span><code>make setup  <span class="c1"># only once</span>
+
+&lt;write code&gt;
+make format  <span class="c1"># to auto-format the code</span>
+
+&lt;write tests&gt;
+make <span class="nb">test</span>  <span class="c1"># to run the test suite</span>
+
+make check  <span class="c1"># to check if everything is OK</span>
+
+&lt;commit your changes&gt;
+
+make changelog  <span class="c1"># to update the changelog</span>
+&lt;edit changelog <span class="k">if</span> needed&gt;
+
+make release <span class="nv">version</span><span class="o">=</span>x.y.z
+</code></pre></div>
 <h2 id="quality-analysis">Quality analysis<a class="headerlink" href="#quality-analysis" title="Permanent link">¤</a></h2>
+<p>The quality checks are started with:</p>
+<div class="highlight"><pre><span></span><code>make check
+</code></pre></div>
+<p>This action is actually a composition of several checks:</p>
+<ul>
+<li><code>check-code-quality</code>: Check the code quality.</li>
+<li><code>check-dependencies</code>: Check for vulnerabilities in dependencies.</li>
+<li><code>check-docs</code>: Check if the documentation builds correctly.</li>
+<li><code>check-types</code>: Check if the code is correctly typed.</li>
+</ul>
+<p>For example, if you are only interested in checking types,
+run <code>make check-types</code>.</p>
 <h3 id="check-code-quality">check-code-quality<a class="headerlink" href="#check-code-quality" title="Permanent link">¤</a></h3>
+<p>The code quality analysis is done
+with <a href="https://github.com/life4/flakehell">Flakehell</a>,
+a wrapper around <a href="https://flake8.pycqa.org/en/latest/">Flake8</a>,
+and a battery of Flake8 plugins.
+The analysis is configured in <code>pyproject.toml</code>, section <code>[tool.flakehell]</code>.
+In this file, you can deactivate rules
+or activate others to customize your analysis.
+Rules identifiers always start with one or more capital letters,
+like <code>D</code>, <code>S</code> or <code>BLK</code>, then followed by a number.
+You can ignore a rule on a specific code line by appending
+a <code>noqa</code> comment ("no quality analysis/assurance"):</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a code line that triggers a flake8 warning&quot;</span><span class="p">)</span>  <span class="c1"># noqa: ID</span>
+</code></pre></div>
+<p>...where ID is the identifier of the rule you want to ignore for this line.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># src/your_package/module.py</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="gp">$</span> make check-code-quality
+<span class="go">✗ Checking code quality (1)</span>
+<span class="go">  &gt; flake8 --config=config/flake8.ini src/ tests/ scripts/</span>
+<span class="go">  src/your_package/module.py:2:1: S404 Consider possible security implications associated with subprocess module.</span>
+</code></pre></div>
+<p>Now add a comment to ignore this warning.
+As a best-practice, and because rules identifiers
+are not self-explanatory, add a comment explaining
+why we ignore the warning:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># module.py</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>  <span class="c1"># noqa: S404 (we don&#39;t mind the security implications)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="gp">$</span> make check-code-quality
+<span class="go">✓ Checking code quality</span>
+</code></pre></div>
+<p>You can disable multiple different warnings on a single line
+by separating them with commas:</p>
+<div class="highlight"><pre><span></span><code><span class="n">markdown_docstring</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    Look at this docstring:</span>
+
+<span class="s2">    ```python</span>
+<span class="s2">    </span><span class="se">\&quot;\&quot;\&quot;</span><span class="s2"></span>
+<span class="s2">    print(&quot;code block&quot;)</span>
+<span class="s2">    </span><span class="se">\&quot;\&quot;\&quot;</span><span class="s2"></span>
+<span class="s2">    ```</span>
+<span class="s2">&quot;&quot;&quot;</span>  <span class="c1"># noqa: D300,D301 (escape sequences: it&#39;s not a regex)</span>
+</code></pre></div>
+<p>You can disable a warning globally by adding its ID
+into the list in <code>pyproject.toml</code>, section <code>[tool.flakehell.plugins]</code>.</p>
+<p>You can also disable warnings per file, like so:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># in pyproject.toml</span>
+<span class="k">[tool.flakehell.exceptions.&quot;src/your_package/your_module.py&quot;]</span>
+<span class="s">&quot;*&quot;</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s">&quot;-WPS407&quot;</span><span class="p">,</span>  <span class="c1"># mutable constant</span>
+<span class="p">]</span>
+</code></pre></div>
 <h3 id="check-dependencies">check-dependencies<a class="headerlink" href="#check-dependencies" title="Permanent link">¤</a></h3>
+<p>This action uses the tool <a href="https://github.com/pyupio/safety"><code>safety</code></a>
+to check if the <strong>production</strong> dependencies used in the project
+are subject to CVEs by querying an online database.</p>
+<p>An example of full report looks like the following:</p>
+<div class="highlight"><pre><span></span><code>+==============================================================================+
+| REPORT                                                                       |
++============================+===========+==========================+==========+
+| package                    | installed | affected                 | ID       |
++============================+===========+==========================+==========+
+| django                     | 1.2       | &lt;1.2.2                   | 25701    |
++==============================================================================+
+| Cross-site scripting (XSS) vulnerability in Django 1.2.x before 1.2.2 allows |
+|  remote attackers to inject arbitrary web script or HTML via a csrfmiddlewar |
+| etoken (aka csrf_token) cookie.                                              |
++==============================================================================+
+</code></pre></div>
 <h3 id="check-docs">check-docs<a class="headerlink" href="#check-docs" title="Permanent link">¤</a></h3>
+<p>This action builds the documentation with strict behavior:
+any warning will be considered an error and the command will fail.</p>
+<p>The warnings/errors can be about incorrect docstring format,
+or invalid cross-references.</p>
+<p>See the <a href="#documentation">Documentation section</a> for more information.</p>
 <h3 id="check-types">check-types<a class="headerlink" href="#check-types" title="Permanent link">¤</a></h3>
+<p>This action runs <a href="http://mypy-lang.org/"><code>mypy</code></a> on the source code
+to find potential typing errors.</p>
 <h2 id="tests">Tests<a class="headerlink" href="#tests" title="Permanent link">¤</a></h2>
+<p>Run the test suite with:</p>
+<div class="highlight"><pre><span></span><code>make test
+</code></pre></div>
+<p>Behind the scenes, it uses <a href="https://docs.pytest.org/en/stable/"><code>pytest</code></a>
+and plugins to collect and run the tests, and output a report.</p>
+<p>Code source coverage is computed thanks to
+<a href="https://coverage.readthedocs.io/en/coverage-5.1/">coveragepy</a>.</p>
+<p>Sometimes you don't want to run the whole test suite,
+but rather one particular test, or group of tests.
+Pytest provides a <code>-k</code> option to allow filtering the tests.
+The Makefile <code>test</code> rule therefore accept a <code>match=</code> argument
+to specify the value of Pytest's <code>-k</code> option:</p>
+<div class="highlight"><pre><span></span><code>make test match=training
+make test match=&quot;app and route2&quot;
+</code></pre></div>
+<p>Example of output:</p>
+<div class="highlight"><pre><span></span><code>Test session starts (platform: linux, Python 3.8.6, pytest 6.2.1, pytest-sugar 0.9.4)
+Using --randomly-seed=281943462
+rootdir: /home/pawamoy/data/dev/pawamoy/duty, configfile: config/pytest.ini
+plugins: randomly-3.5.0, xdist-2.2.0, forked-1.3.0, cov-2.10.1, sugar-0.9.4
+collecting ... 
+ tests/test_logic.py ✓✓✓✓✓✓✓✓✓✓✓✓                                          15% █▋        
+ tests/test_cli.py ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓ 86% ████████▋ 
+                   ✓✓✓✓✓✓✓✓✓✓✓                                            100% ██████████
+
+----------- coverage: platform linux, python 3.8.6-final-0 -----------
+Name                Stmts   Miss Branch BrPart     Cover
+--------------------------------------------------------
+src/duty/cli.py        62      0     20      0   100.00%
+src/duty/logic.py      71      0     18      0   100.00%
+--------------------------------------------------------
+TOTAL                 133      0     38      0   100.00%
+
+
+Results (0.76s):
+      78 passed
+</code></pre></div>
 <h2 id="continuous-integration">Continuous Integration<a class="headerlink" href="#continuous-integration" title="Permanent link">¤</a></h2>
-<h3 id="github-workflow">GitHub Workflow<a class="headerlink" href="#github-workflow" title="Permanent link">¤</a></h3>
-<h3 id="gitlab-ci">GitLab CI<a class="headerlink" href="#gitlab-ci" title="Permanent link">¤</a></h3>
+<p>The quality checks and tests are executed in parallel
+in a <a href="https://docs.github.com/en/enterprise-server@2.22/actions/reference/workflow-syntax-for-github-actions">GitHub Workflow</a>
+or in <a href="https://docs.gitlab.com/ee/ci/">GitLab CI</a>.</p>
+<p>For GitHub, the CI is configured in <code>.github/ci/workflow.yml</code>,
+and for GitLab it's configured in <code>.gitlab-ci.yml</code>.</p>
+<p>To force a step to pass even when it fails,
+add <code>nofail=CI</code> or <code>nofail=True</code> to the corresponding
+<code>ctx.run</code> instruction in <code>duties.py</code></p>
+<h2 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">¤</a></h2>
+<p>Changelogs are absolutely useful when your software
+is updated regularly, to inform your users about the new features
+that were added or the bugs that were fixed.</p>
+<p>But writing a changelog manually is a cumbersome process.</p>
+<p>This is why we offer, with this template,
+a way to automatically update the changelog.
+There is one requirement though for it to work:
+you must use the
+<a href="https://github.com/angular/angular/blob/master/CONTRIBUTING.md#commit">Angular commit message convention</a>.</p>
+<p>For a quick reference:</p>
+<div class="highlight"><pre><span></span><code>&lt;type&gt;[(scope)]: Subject
+
+[Body]
+</code></pre></div>
+<p>Scope and body are optional. Type can be:</p>
+<ul>
+<li><code>build</code>: About packaging, building wheels, etc.</li>
+<li><code>chore</code>: About packaging or repo/files management.</li>
+<li><code>ci</code>: About Continuous Integration.</li>
+<li><code>docs</code>: About documentation.</li>
+<li><code>feat</code>: New feature.</li>
+<li><code>fix</code>: Bug fix.</li>
+<li><code>perf</code>: About performance.</li>
+<li><code>refactor</code>: Changes which are not features nor bug fixes.</li>
+<li><code>style</code>: A change in code style/format.</li>
+<li><code>tests</code>: About tests.</li>
+</ul>
+<p>The two most important are <code>feat</code> and <code>fix</code> types.
+For other types of commits, you can do as you like.</p>
+<p>Subject (and body) must be valid Markdown.
+If you write a body, please add issues references at the end:</p>
+<div class="highlight"><pre><span></span><code>Body.
+
+References: #10, #11.
+Fixes #15.
+</code></pre></div>
+<p>Examples:</p>
+<div class="highlight"><pre><span></span><code>feat: Add training route
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>fix: Stop deleting user data
+</code></pre></div>
+<p>Following that convention will allow to generate
+new entries in the changelog while following the rules
+of <a href="https://semver.org/">semantic versioning</a>.</p>
+<p>Once you are ready to publish a new release of your package,
+run the following command:</p>
+<div class="highlight"><pre><span></span><code>make changelog
+</code></pre></div>
+<p>This will update the changelog in-place, using the latest,
+unpublished-yet commits.</p>
+<p>If this group of commits contains only bug fixes (<code>fix:</code>)
+and/or commits that are not interesting for users (<code>chore:</code>, <code>style:</code>, etc.),
+the changelog will gain a new <strong>patch</strong> entry.
+It means that the new suggested version will be a patch bump
+of the previous one: <code>0.1.1</code> becomes <code>0.1.2</code>.</p>
+<p>If this group of commits contains at least one feature (<code>feat:</code>),
+the changelog will gain a new <strong>minor</strong> entry.
+It means that the new suggested version will be a minor bump
+of the previous one: <code>0.1.1</code> becomes <code>0.2.0</code>.</p>
+<p>If there is, in this group, a commit whose body contains
+something like <code>Breaking change</code>,
+the changelog will gain a new <strong>major</strong> entry,
+unless the version is still an "alpha" version
+(starting with 0), in which case it gains a <strong>minor</strong> entry.
+It means that the new suggested version will be a major bump
+of the previous one: <code>1.2.1</code> becomes <code>2.0.0</code>,
+but <code>0.2.1</code> is only bumped up to <code>0.3.0</code>.
+Moving from "alpha" status to "beta" or "stable" status
+is a choice left to the developers,
+when they consider the package is ready for it.</p>
+<p>Finally, once your changelog has been updated,
+make sure its contents are correct (add, remove or edit anything
+you need), and use the new version (the one that was added
+into the changelog) to create a new release:</p>
+<div class="highlight"><pre><span></span><code>make release version=x.y.z
+</code></pre></div>
+<p>...where x.y.z is the version added in the changelog.</p>
+<h2 id="releases">Releases<a class="headerlink" href="#releases" title="Permanent link">¤</a></h2>
+<p>As seen in the previous section, you can use the <code>release</code> rule
+of the Makefile to publish new versions of the Python package.</p>
+<p>Usually, just before running <code>make release version=x.y.z</code>,
+you run <code>make changelog</code> to update the changelog and
+use the newly added version as the argument to <code>make release</code>.</p>
+<p>For example, if after running <code>make changelog</code>, the diff
+shows a new <code>0.5.1</code> entry in the changelog, you must
+release this exact same version with <code>make release version=0.5.1</code>.</p>
+<p>The <code>release</code> action does several things, in this order:</p>
+<ul>
+<li>Update the version in <code>pyproject.toml</code></li>
+<li>Stage the modified files (<code>pyproject.toml</code> and <code>CHANGELOG.md</code>)</li>
+<li>Commit the changes with a message like <code>chore: Prepare release 0.5.1</code></li>
+<li>Tag the commit with that version</li>
+<li>Push the commits</li>
+<li>Push the tags</li>
+<li>Build the package dist and wheel</li>
+<li>Publish the dist and wheel to PyPI.org</li>
+</ul>
 <h2 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">¤</a></h2>
+<p>The documentation is built with <a href="https://www.mkdocs.org/">Mkdocs</a>,
+the <a href="https://squidfunk.github.io/mkdocs-material/">Material for Mkdocs</a> theme,
+and the <a href="https://github.com/pawamoy/mkdocstrings">mkdocstrings</a> plugin.</p>
 <h3 id="writing">Writing<a class="headerlink" href="#writing" title="Permanent link">¤</a></h3>
+<p>The pages are written in Markdown, and thanks to <code>mkdocstrings</code>,
+even your Python docstrings can be written in Markdown.
+<code>mkdocstrings</code> particularly supports the
+<a href="https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html">Google-style</a>
+for docstrings.</p>
+<p>The documentation configuration is written into <code>mkdocs.yml</code>,
+at the root of the project. The Markdown pages are written
+in the <code>docs/</code> directory. You can use any level of nesting you want.
+The left-sidebar navigation is configured through the <code>nav</code> key
+in <code>mkdocs.yml</code>.</p>
+<p>For example, with these docs structure:</p>
+<div class="highlight"><pre><span></span><code>📁 docs
+├── 📄 changelog.md
+├── 📄 index.md
+└── 📁 reference
+    ├── 📄 cli.md
+    └── 📄 logic.md
+</code></pre></div>
+<p>...you can have these navigation items in <code>mkdocs.yml</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">nav</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">Overview</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">index.md</span>
+<span class="p p-Indicator">-</span> <span class="nt">Code Reference</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">cli.py</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">reference/cli.md</span>
+  <span class="p p-Indicator">-</span> <span class="nt">logic.py</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">reference/logic.md</span>
+<span class="p p-Indicator">-</span> <span class="nt">Changelog</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">changelog.md</span>
+</code></pre></div>
+<p>Note that we matched the sections in the navigation with the folder tree,
+but that is not mandatory.</p>
+<p><code>mkdocstrings</code> allows you to inject documentation of Python objects
+in Markdown pages with the following syntax:</p>
+<div class="highlight"><pre><span></span><code>::: path.to.object
+    OPTIONS
+</code></pre></div>
+<p>...where <code>OPTIONS</code> is a YAML block containing configuration options
+for both the selection of Python objects and their rendering.</p>
+<p>You can document an entire module or even package with a single instruction:</p>
+<div class="highlight"><pre><span></span><code>::: your_package
+</code></pre></div>
+<p>...but it's usually better to have each module injected in a separate page.</p>
+<p>For more information about <code>mkdocstrings</code>,
+check <a href="https://pawamoy.github.io/mkdocstrings">its documentation</a>.</p>
 <h3 id="serving">Serving<a class="headerlink" href="#serving" title="Permanent link">¤</a></h3>
+<p>MkDocs provides a development server with files watching and live-reload.
+Run <code>make docs-serve</code> to serve your documentation on <code>localhost:8000</code>.</p>
+<p>If you run it in a remote host (Linux VM) and would like to access it
+from your local browser, bind the server to 0.0.0.0 instead:</p>
+<div class="highlight"><pre><span></span><code>make docs-serve <span class="nv">host</span><span class="o">=</span><span class="m">0</span>.0.0.0
+</code></pre></div>
+<p>If needed, you can also change the port used:</p>
+<div class="highlight"><pre><span></span><code>make docs-serve <span class="nv">host</span><span class="o">=</span><span class="m">0</span>.0.0.0 <span class="nv">port</span><span class="o">=</span><span class="m">5000</span>
+</code></pre></div>
 <h3 id="deploying">Deploying<a class="headerlink" href="#deploying" title="Permanent link">¤</a></h3>
+<p>MkDocs has a <code>gh-deploy</code> command that will deploy
+you documentation on GitHub pages.
+We make use of this command in the <code>docs-deploy</code> action:</p>
+<div class="highlight"><pre><span></span><code>make docs-deploy
+</code></pre></div>
+<p>If you'd prefer to deploy on ReadTheDocs instead,
+you will likely have to write
+a <code>readthedocs.yml</code> configuration file
+and enable the project on ReadTheDocs.</p>
                 
               
               
@@ -893,8 +1313,8 @@
       
     </div>
     
-      <script src="../assets/javascripts/vendor.7e0ee788.min.js"></script>
-      <script src="../assets/javascripts/bundle.b3a72adc.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      <script src="../assets/javascripts/vendor.0ac82a11.min.js"></script>
+      <script src="../assets/javascripts/bundle.f81dfb4d.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
       
       <script>
         app = initialize({
