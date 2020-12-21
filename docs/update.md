@@ -35,6 +35,23 @@ And the file looks like this:
 
 ```yaml
 # Changes here will be overwritten by Copier
+_commit: 0.1.10
+_src_path: gh:pawamoy/copier-poetry
+author_email: pawamoy@pm.me
+author_fullname: "Timoth\xE9e Mazzucotelli"
+author_username: pawamoy
+copyright_date: '2020'
+copyright_holder: "Timoth\xE9e Mazzucotelli"
+copyright_holder_email: pawamoy@pm.me
+copyright_license: ISC License
+project_description: Automatic documentation from sources, for MkDocs.
+project_name: mkdocstrings
+python_package_command_line_name: mkdocstrings
+python_package_distribution_name: mkdocstrings
+python_package_import_name: mkdocstrings
+repository_name: mkdocstrings
+repository_namespace: pawamoy
+repository_provider: github.com
 ```
 
 If you want to use all previous answers
