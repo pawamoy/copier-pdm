@@ -127,10 +127,10 @@ Available tasks:
     - `host="127.0.0.1"`: The host to serve the docs from.
     - `port=8000`: The port to serve the docs on.
 - `format`: Run formatting tools on the code.
-- `release`: Release a new Python package (or Docker image).
+- `release`: Release a new Python package.
   See [the Releases section](#releases).
   Arguments:
-    - `version` The Python package version (or Docker image version for webservices).
+    - `version` The Python package version.
 - `test`: Run the test suite. 
   See [the Tests section](#tests).
   Arguments:
@@ -179,7 +179,7 @@ or temporarily with the `PYTHON_VERSIONS` environment variable.
 If you don't have the `make` command,
 you can use `bash scripts/setup.sh` instead,
 or even just `poetry install`
-if you don't plan on using multiple Python versions
+if you don't plan on using multiple Python versions.
 
 Now you can start writing and editing code in `src/your_package`.
 
@@ -211,6 +211,8 @@ make changelog  # to update the changelog
 
 make release version=x.y.z
 ```
+
+Remember that `make` is just a shortcut for `poetry run duty` here.
 
 ## Quality analysis
 
