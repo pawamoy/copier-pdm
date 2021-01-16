@@ -865,10 +865,10 @@ You can list the available tasks with <code>poetry run duty --list</code>.</p>
 </ul>
 </li>
 <li><code>format</code>: Run formatting tools on the code.</li>
-<li><code>release</code>: Release a new Python package (or Docker image).
+<li><code>release</code>: Release a new Python package.
   See <a href="#releases">the Releases section</a>.
   Arguments:<ul>
-<li><code>version</code> The Python package version (or Docker image version for webservices).</li>
+<li><code>version</code> The Python package version.</li>
 </ul>
 </li>
 <li><code>test</code>: Run the test suite. 
@@ -913,7 +913,7 @@ or temporarily with the <code>PYTHON_VERSIONS</code> environment variable.</p>
 <p>If you don't have the <code>make</code> command,
 you can use <code>bash scripts/setup.sh</code> instead,
 or even just <code>poetry install</code>
-if you don't plan on using multiple Python versions</p>
+if you don't plan on using multiple Python versions.</p>
 <p>Now you can start writing and editing code in <code>src/your_package</code>.</p>
 <ul>
 <li>You can auto-format the code with <code>make format</code>.</li>
@@ -942,6 +942,7 @@ make changelog  <span class="c1"># to update the changelog</span>
 
 make release <span class="nv">version</span><span class="o">=</span>x.y.z
 </code></pre></div>
+<p>Remember that <code>make</code> is just a shortcut for <code>poetry run duty</code> here.</p>
 <h2 id="quality-analysis">Quality analysis<a class="headerlink" href="#quality-analysis" title="Permanent link">¤</a></h2>
 <p>The quality checks are started with:</p>
 <div class="highlight"><pre><span></span><code>make check
@@ -974,7 +975,7 @@ a <code>noqa</code> comment ("no quality analysis/assurance"):</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># src/your_package/module.py</span>
 <span class="kn">import</span> <span class="nn">subprocess</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="gp">$</span> make check-code-quality
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>make check-code-quality
 <span class="go">✗ Checking code quality (1)</span>
 <span class="go">  &gt; flake8 --config=config/flake8.ini src/ tests/ scripts/</span>
 <span class="go">  src/your_package/module.py:2:1: S404 Consider possible security implications associated with subprocess module.</span>
@@ -986,7 +987,7 @@ why we ignore the warning:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># module.py</span>
 <span class="kn">import</span> <span class="nn">subprocess</span>  <span class="c1"># noqa: S404 (we don&#39;t mind the security implications)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="gp">$</span> make check-code-quality
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>make check-code-quality
 <span class="go">✓ Checking code quality</span>
 </code></pre></div>
 <p>You can disable multiple different warnings on a single line
