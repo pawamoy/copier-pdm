@@ -102,7 +102,7 @@ def update_changelog(
         template_url: The URL to the Jinja template used to render contents.
         commit_style: The style of commit messages to parse.
     """
-    env = SandboxedEnvironment(autoescape=True)
+    env = SandboxedEnvironment(autoescape=False)
     template = env.from_string(httpx.get(template_url).text)
     changelog = Changelog(".", style=commit_style)  # noqa: W0621 (shadowing changelog)
 
