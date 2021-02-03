@@ -2,7 +2,6 @@
 
 import os
 import re
-import sys
 from itertools import chain
 from pathlib import Path
 from shutil import which
@@ -201,9 +200,7 @@ def check_docs(ctx):
     Arguments:
         ctx: The context instance (passed automatically).
     """
-    # pytkdocs fails on Python 3.9 for now
-    nofail = sys.version.startswith("3.9")
-    ctx.run("mkdocs build -s", title="Building documentation", pty=PTY, nofail=nofail, quiet=nofail)
+    ctx.run("mkdocs build -s", title="Building documentation", pty=PTY)
 
 
 @duty
