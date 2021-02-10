@@ -6,15 +6,15 @@ repo_name: "[[ repository_namespace ]]/[[ repository_name ]]"
 
 nav:
 - Home:
-- Overview: index.md
+  - Overview: index.md
   - Changelog: changelog.md
   - Credits: credits.md
   - License: license.md
 - Code Reference:
   - cli.py: reference/cli.md
 - Development:
-- Contributing: contributing.md
-- Code of Conduct: code_of_conduct.md
+  - Contributing: contributing.md
+  - Code of Conduct: code_of_conduct.md
   - Coverage report: coverage.md
 
 theme:
@@ -48,3 +48,5 @@ plugins:
 - mkdocstrings:
     watch:
     - src/[[ python_package_import_name ]]
+- macros:
+    module_name: docs/macros

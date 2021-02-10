@@ -53,14 +53,16 @@ echo
 echo ">>> Running initial quality checks"
 make --no-print-directory check
 echo
-echo ">>> Generating docs, formatting, and re-running quality checks"
-make --no-print-directory docs-regen format check-code-quality
+echo ">>> Formatting, and re-running quality checks"
+make --no-print-directory format check-code-quality
 echo
 echo ">>> Running tests"
 make --no-print-directory test
 echo
 echo ">>> Creating second commit (fix)"
-git commit -am "fix: Fix all bugs"
+touch empty
+git add empty
+git commit -m "fix: Fix all bugs"
 echo
 echo ">>> Updating changelog and releasing version"
 make --no-print-directory changelog release version=0.1.1
