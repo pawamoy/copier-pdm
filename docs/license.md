@@ -1,7 +1,3 @@
-# License
-
-<pre>
-<code>
-{!LICENSE!}
-</code>
-</pre>
+```
+--8<-- "LICENSE"
+```
