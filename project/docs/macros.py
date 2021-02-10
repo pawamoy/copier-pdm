@@ -1,15 +1,11 @@
+"""Macros and filters made available in Markdown pages."""
+
 import asyncio
-import os
-import re
 from itertools import chain
 from pathlib import Path
-from shutil import which
-from typing import List, Optional, Pattern
 
 import httpx
 import toml
-from duty import duty
-from git_changelog.build import Changelog, Version
 from jinja2 import StrictUndefined
 from jinja2.sandbox import SandboxedEnvironment
 from pip._internal.commands.show import search_packages_info  # noqa: WPS436 (no other way?)
@@ -62,11 +58,20 @@ def get_credits_data() -> dict:
 
 
 def define_env(env):
-    @env.macro
-    def credits():
+    """
+    Add macros and filters into the Jinja2 environment.
+
+    This hook is called by `mkdocs-macros-plugin`
+    when building the documentation.
+
+    Arguments:
+        env: An object used to add macros and filters to the environment.
+    """
+
+    @env.macro  # noqa: WPS430 (nested function)
+    def credits():  # noqa: W0612,W0622,WPS430 (unused, shadows credits)
+        jinja_env = SandboxedEnvironment(undefined=StrictUndefined)
         template_url = "https://raw.githubusercontent.com/pawamoy/jinja-templates/master/credits.md"
-        env = SandboxedEnvironment(undefined=StrictUndefined)
         template_data = get_credits_data()
         template_text = httpx.get(template_url).text
-        rendered = env.from_string(template_text).render(**template_data)
-        return rendered
+        return jinja_env.from_string(template_text).render(**template_data)
