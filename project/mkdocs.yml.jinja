@@ -15,6 +15,7 @@ nav:
 - Development:
 - Contributing: contributing.md
 - Code of Conduct: code_of_conduct.md
+  - Coverage report: coverage.md
 
 theme:
   name: material
@@ -42,6 +43,8 @@ markdown_extensions:
 
 plugins:
 - search
+- coverage:
+    html_report_dir: build/coverage
 - mkdocstrings:
     watch:
     - src/[[ python_package_import_name ]]

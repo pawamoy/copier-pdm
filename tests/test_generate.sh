@@ -43,6 +43,10 @@ git add -A .
 git commit -am "feat: Initial commit"
 git tag v0.1.0
 echo
+echo ">>> Faking coverage HTML report"
+mkdir -p build/coverage
+touch build/coverage/index.html
+echo
 echo ">>> Setting up Python environments"
 make --no-print-directory setup
 echo
