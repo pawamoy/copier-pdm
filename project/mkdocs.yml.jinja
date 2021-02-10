@@ -5,16 +5,21 @@ repo_url: "https://github.com/[[ repository_namespace ]]/[[ repository_name ]]"
 repo_name: "[[ repository_namespace ]]/[[ repository_name ]]"
 
 nav:
+- Home:
 - Overview: index.md
+  - Changelog: changelog.md
+  - Credits: credits.md
+  - License: license.md
 - Code Reference:
   - cli.py: reference/cli.md
+- Development:
 - Contributing: contributing.md
 - Code of Conduct: code_of_conduct.md
-- Changelog: changelog.md
-- Credits: credits.md
 
 theme:
   name: material
+  features:
+  - navigation.tabs
   palette:
     scheme: slate
     primary: teal
