@@ -88,7 +88,7 @@ See `poetry COMMAND --help` for details about each command.
 ## Tasks
 
 The tasks are written in Python (for cross-platform compatibility),
-and based on the task-runner called [Duty](https://github.com/pawamoy/duty).
+and based on the task-runner called [duty](https://github.com/pawamoy/duty).
 They are written in the `duties.py` file,
 and decorated with the `@duty` decorator.
 
