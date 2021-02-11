@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.2.1](https://github.com/pawamoy/copier-poetry/releases/tag/0.2.1) - 2021-02-11
+
+<small>[Compare with 0.2.0](https://github.com/pawamoy/copier-poetry/compare/0.2.0...0.2.1)</small>
+
+### Performance Improvements
+- Don't query pypi.org to get missing packages info ([ac6fe27](https://github.com/pawamoy/copier-poetry/commit/ac6fe278d7a74babf7db9a35c9c2991b2006590d) by Timothée Mazzucotelli).
+
+
 ## [0.2.0](https://github.com/pawamoy/copier-poetry/releases/tag/0.2.0) - 2021-02-10
 
 <small>[Compare with 0.1.13](https://github.com/pawamoy/copier-poetry/compare/0.1.13...0.2.0)</small>
