@@ -6,3 +6,6 @@ test: clean
 
 update-deps:
 	@./update-deps.sh
+
+changelog:
+	@git-changelog . -s angular -t keepachangelog -o CHANGELOG.md
