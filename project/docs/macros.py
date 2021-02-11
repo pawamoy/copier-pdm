@@ -1,6 +1,6 @@
 """Macros and filters made available in Markdown pages."""
 
-import asyncio
+import functools
 from itertools import chain
 from pathlib import Path
 
@@ -35,19 +35,11 @@ def get_credits_data() -> dict:
         pkg = {_: pkg[_] for _ in ("name", "home-page")}
         packages[pkg["name"].lower()] = pkg
 
-    loop = asyncio.get_event_loop()
-    client = httpx.AsyncClient()
-    to_get = [dep for dep in dependencies if dep not in packages]
-    coroutines = [client.get(f"https://pypi.python.org/pypi/{dep}/json") for dep in to_get]
-    responses = loop.run_until_complete(asyncio.gather(*coroutines))
-    loop.run_until_complete(client.aclose())
-
-    for response in responses:
-        pkg_data = response.json()["info"]
-        home_page = pkg_data["home_page"] or pkg_data["project_url"] or pkg_data["package_url"]
-        pkg_name = pkg_data["name"]
-        package = {"name": pkg_name, "home-page": home_page}
-        packages.update({pkg_name.lower(): package})
+    # all packages might not be credited,
+    # like the ones that are now part of the standard library
+    # or the ones that are only used on other operating systems,
+    # and therefore are not installed,
+    # but it's not that important
 
     return {
         "project_name": project_name,
@@ -55,6 +47,22 @@ def get_credits_data() -> dict:
         "indirect_dependencies": sorted(indirect_dependencies),
         "package_info": packages,
     }
+
+
+@functools.lru_cache(maxsize=None)
+def get_credits():
+    """
+    Return credits as Markdown.
+
+    Returns:
+        The credits page Markdown.
+    """
+    jinja_env = SandboxedEnvironment(undefined=StrictUndefined)
+    commit = "166758a98d5e544aaa94fda698128e00733497f4"
+    template_url = f"https://raw.githubusercontent.com/pawamoy/jinja-templates/{commit}/credits.md"
+    template_data = get_credits_data()
+    template_text = httpx.get(template_url).text
+    return jinja_env.from_string(template_text).render(**template_data)
 
 
 def define_env(env):
@@ -70,8 +78,4 @@ def define_env(env):
 
     @env.macro  # noqa: WPS430 (nested function)
     def credits():  # noqa: W0612,W0622,WPS430 (unused, shadows credits)
-        jinja_env = SandboxedEnvironment(undefined=StrictUndefined)
-        template_url = "https://raw.githubusercontent.com/pawamoy/jinja-templates/master/credits.md"
-        template_data = get_credits_data()
-        template_text = httpx.get(template_url).text
-        return jinja_env.from_string(template_text).render(**template_data)
+        return get_credits()
