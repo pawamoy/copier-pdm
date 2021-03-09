@@ -11,6 +11,7 @@ cache:
 stages:
   - quality
   - tests
+  - deploy
 
 .install-deps-template: &install-deps
   before_script:
@@ -27,7 +28,10 @@ stages:
 
 check-docs:
   <<: *quality
-  script: poetry run duty check-docs
+  script:
+    - mkdir -p build/coverage 
+    - touch build/coverage/index.html 
+    - poetry run duty check-docs
 
 check-code-quality:
   <<: *quality
@@ -59,3 +63,28 @@ python3.7:
 python3.8:
   <<: *test
   image: python:3.8
+
+python3.9:
+  <<: *test
+  image: python:3.9
+
+
+pages:
+  stage: deploy
+  <<: *install-deps
+  image: python:3.6
+  dependencies:
+  - python3.6
+  - python3.7
+  - python3.8
+  - python3.9
+  script:
+  - poetry run duty test
+  - poetry run duty coverage
+  - poetry run duty docs
+  coverage: '/^TOTAL.+?(\d+\.\d+\%)$/'
+  artifacts:
+    paths:
+    - public
+  only:
+  - master

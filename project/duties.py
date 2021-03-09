@@ -221,6 +221,7 @@ def clean(ctx):
     ctx.run("rm -rf .coverage*")
     ctx.run("rm -rf .mypy_cache")
     ctx.run("rm -rf .pytest_cache")
+    ctx.run("rm -rf tests/.pytest_cache")
     ctx.run("rm -rf build")
     ctx.run("rm -rf dist")
     ctx.run("rm -rf pip-wheel-metadata")
@@ -263,6 +264,18 @@ def docs_deploy(ctx):
     """
     ctx.run("mkdocs gh-deploy", title="Deploying documentation")
 
+ 
+@duty
+def docs_deploy_gitlab(ctx):
+    """
+    Deploy the documentation on Gitlab Pages.
+
+    Arguments:
+        ctx: The context instance (passed automatically).
+    """
+    ctx.run("mkdocs build -s --site-dir public", title="Deploying documentation")
+
+    
 
 @duty
 def format(ctx):  # noqa: W0622 (we don't mind shadowing the format builtin)
@@ -299,7 +312,8 @@ def release(ctx, version):
         ctx.run("git push --tags", title="Pushing tags", pty=False)
         ctx.run("poetry build", title="Building dist/wheel", pty=PTY)
         ctx.run("poetry publish", title="Publishing version", pty=PTY)
-        ctx.run("mkdocs gh-deploy", title="Deploying documentation", pty=PTY)
+        # building docs with the site_dir specified in mkdocs.yml ensures the proper path 'site' or 'public' is used and this will work
+        ctx.run("mkdocs build", title="Deploying documentation")
 
 
 @duty(silent=True)
