@@ -12,6 +12,13 @@ defaults:
   run:
     shell: bash
 
+env:
+  LANG: "en_US.utf-8"
+  LC_ALL: "en_US.utf-8"
+  POETRY_VIRTUALENVS_IN_PROJECT: "true"
+  PYTHONIOENCODING: "UTF-8"
+  PYTHON_VERSIONS: ""
+
 jobs:
 
   tests:
@@ -19,11 +26,11 @@ jobs:
     strategy:
       max-parallel: 6
       matrix:
-        os: [ubuntu-latest, windows-latest]
-        python-version: [3.6,3.7,3.8]
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python-version: [3.6,3.7,3.8,3.9]
 
     runs-on: ${{ matrix.os }}
-    continue-on-error: ${{ matrix.os == 'windows-latest' }}
+    continue-on-error: ${{ matrix.os != 'ubuntu-latest' }}
 
     steps:
     - name: Checkout
@@ -52,7 +59,7 @@ jobs:
 
     - name: Set up the project
       run: |
-        pip install poetry safety copier invoke
+        pip install poetry safety copier
         poetry config virtualenvs.in-project true
 
     - name: Run the test suite
