@@ -5,19 +5,19 @@ variables:
 cache:
   key: "${CI_JOB_NAME}"
   paths:
-    - .cache/pip
-    - .venv
+  - .cache/pip
+  - .venv
 
 stages:
-  - quality
-  - tests
-  - deploy
+- quality
+- tests
+- deploy
 
 .install-deps-template: &install-deps
   before_script:
-    - pip install poetry
-    - poetry --version
-    - poetry install -vv
+  - pip install poetry
+  - poetry --version
+  - poetry install -vv
 
 # Quality jobs
 
@@ -28,10 +28,7 @@ stages:
 
 check-docs:
   <<: *quality
-  script:
-    - mkdir -p build/coverage 
-    - touch build/coverage/index.html 
-    - poetry run duty check-docs
+  script: poetry run duty check-docs
 
 check-code-quality:
   <<: *quality
@@ -51,6 +48,9 @@ check-dependencies:
   <<: *install-deps
   stage: tests
   script: poetry run duty test
+  artifacts:
+    paths:
+    - .coverage-*
 
 python3.6:
   <<: *test
@@ -79,7 +79,6 @@ pages:
   - python3.8
   - python3.9
   script:
-  - poetry run duty test
   - poetry run duty coverage
   - poetry run duty docs
   coverage: '/^TOTAL.+?(\d+\.\d+\%)$/'
