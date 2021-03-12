@@ -4,6 +4,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.3.0](https://github.com/pawamoy/copier-poetry/releases/tag/0.3.0) - 2021-03-12
+
+<small>[Compare with 0.2.1](https://github.com/pawamoy/copier-poetry/compare/0.2.1...0.3.0)</small>
+
+### Features
+- Add precommit option and cleanup hook ([ba8cfd4](https://github.com/pawamoy/copier-poetry/commit/ba8cfd4959c2e4b7a207c6d388771769318374d4) by Timothée Mazzucotelli).
+
+### Performance Improvements
+- Reduce installation time in GitHub CI ([4a2a3b4](https://github.com/pawamoy/copier-poetry/commit/4a2a3b459accdadcafb55f856c1307f5906d1a61) by Timothée Mazzucotelli).
+
+### Bug Fixes
+- Stop including README and pyproject.toml in package ([54ea35b](https://github.com/pawamoy/copier-poetry/commit/54ea35b20ddd6112db9f3d312f6f41c142f9258d) by Timothée Mazzucotelli).
+- Fix parameter expansion not to override empty `PYTHON_VERSIONS` ([0837d9c](https://github.com/pawamoy/copier-poetry/commit/0837d9c6b0d743b7c46544ae1d851c3c283bc917) by Timothée Mazzucotelli). Related issues/PRs: [#11](https://github.com/pawamoy/copier-poetry/issues/11)
+- Fix license file being generated empty ([b5f0fb3](https://github.com/pawamoy/copier-poetry/commit/b5f0fb3210cbe6f91ac4d5fc65e3261613b96126) by Timothée Mazzucotelli). Related issues/PRs: [#8](https://github.com/pawamoy/copier-poetry/issues/8), [#10](https://github.com/pawamoy/copier-poetry/issues/10)
+- Use repository provider in mkdocs `site_url` and `repo_url` ([24f57a4](https://github.com/pawamoy/copier-poetry/commit/24f57a4490efec27852dd9eebd5be62182b0ba51) by WhatTheServer).
+
+### Code Refactoring
+- Make templated badges more readable ([4d3922d](https://github.com/pawamoy/copier-poetry/commit/4d3922d2e3179f97de87a8aaad4c71e6e970ed97) by Timothée Mazzucotelli).
+- Drop bitbucket support ([9ac3b03](https://github.com/pawamoy/copier-poetry/commit/9ac3b03fb9c3ea00285cc495142fe6e5a76cec52) by Timothée Mazzucotelli).
+- Rework test coverage combining ([10a1410](https://github.com/pawamoy/copier-poetry/commit/10a1410643101db94271d48c26bb090b7c149bd6) by Timothée Mazzucotelli).
+- Set `site_dir` in mkdocs.yml accordingly to chosen provider ([452b6b7](https://github.com/pawamoy/copier-poetry/commit/452b6b723fbe35694d349eaf98789c2e7add490b) by WhatTheServer). Related issues/PRs: [#12](https://github.com/pawamoy/copier-poetry/issues/12)
+- Various tweaks and improvements ([56e4973](https://github.com/pawamoy/copier-poetry/commit/56e49738a7b56c680f179157d1e93d8fd5dfe085) by WhatTheServer).
+
+
 ## [0.2.1](https://github.com/pawamoy/copier-poetry/releases/tag/0.2.1) - 2021-02-11
 
 <small>[Compare with 0.2.0](https://github.com/pawamoy/copier-poetry/compare/0.2.0...0.2.1)</small>
