@@ -43,7 +43,6 @@ repository_provider:
   choices:
     - github.com
     - gitlab.com
-    - bitbucket.org
 
 repository_namespace:
   type: str
