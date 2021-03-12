@@ -29,12 +29,19 @@ def clean_up_providers():
         rmdir(".github")
 
 
+def clean_up_precommit():
+    use_precommit = [[ use_precommit ]]
+    if not use_precommit:
+        rm(".pre-commit-config.yaml")
+
+
 def delete_myself():
     rm(__file__)
 
 
 if __name__ == "__main__":
     clean_up_providers()
+    clean_up_precommit()
     delete_myself()
 
     print("Project sucessfully generated!")
