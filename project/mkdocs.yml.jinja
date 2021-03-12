@@ -3,7 +3,7 @@ site_description: "[[ project_description ]]"
 site_url: "https://[[ repository_namespace ]].[[ repository_provider.rsplit('.', 1)[0] ]].io/[[ repository_name ]]"
 repo_url: "https://[[ repository_provider ]]/[[ repository_namespace ]]/[[ repository_name ]]"
 repo_name: "[[ repository_namespace ]]/[[ repository_name ]]"
-site_dir: '[% if repository_provider == "gitlab.com" %]public[% elif repository_provider == "github.com" %]site[% endif %]'
+site_dir: "[% if repository_provider == 'gitlab.com' %]public[% elif repository_provider == 'github.com' %]site[% endif %]"
 
 nav:
 - Home:
