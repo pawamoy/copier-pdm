@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.3.1](https://github.com/pawamoy/copier-poetry/releases/tag/0.3.1) - 2021-03-14
+
+<small>[Compare with 0.3.0](https://github.com/pawamoy/copier-poetry/compare/0.3.0...0.3.1)</small>
+
+### Code Refactoring
+- Stop using flakehell, use wps-light ([228a424](https://github.com/pawamoy/copier-poetry/commit/228a42468ca708afbf3fe999020d6f8de6634e61) by Timothée Mazzucotelli).
+- Exclude fixtures from mypy checks ([584d3d8](https://github.com/pawamoy/copier-poetry/commit/584d3d83787500cc50cbfbba1c21fd510e606649) by Timothée Mazzucotelli).
+
+
 ## [0.3.0](https://github.com/pawamoy/copier-poetry/releases/tag/0.3.0) - 2021-03-12
 
 <small>[Compare with 0.2.1](https://github.com/pawamoy/copier-poetry/compare/0.2.1...0.3.0)</small>
