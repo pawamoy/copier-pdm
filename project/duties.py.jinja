@@ -101,7 +101,7 @@ def update_changelog(
     """
     env = SandboxedEnvironment(autoescape=False)
     template = env.from_string(httpx.get(template_url).text)
-    changelog = Changelog(".", style=commit_style)  # noqa: W0621 (shadowing changelog)
+    changelog = Changelog(".", style=commit_style)
 
     if len(changelog.versions_list) == 1:
         last_version = changelog.versions_list[0]
@@ -143,13 +143,13 @@ def changelog(ctx):
 
 
 @duty(pre=["check_code_quality", "check_types", "check_docs", "check_dependencies"])
-def check(ctx):  # noqa: W0613 (no use for the context argument)
+def check(ctx):
     """
     Check it all!
 
     Arguments:
         ctx: The context instance (passed automatically).
-    """  # noqa: D400 (exclamation mark is funnier)
+    """
 
 
 @duty
@@ -161,7 +161,7 @@ def check_code_quality(ctx, files=PY_SRC):
         ctx: The context instance (passed automatically).
         files: The files to check.
     """
-    ctx.run(f"flakehell lint {files}", title="Checking code quality", pty=PTY)
+    ctx.run(f"flake8 --config=config/flake8.ini {files}", title="Checking code quality", pty=PTY)
 
 
 @duty
@@ -271,7 +271,7 @@ def docs_deploy(ctx):
 
 [% endif -%]
 @duty
-def format(ctx):  # noqa: W0622 (we don't mind shadowing the format builtin)
+def format(ctx):
     """
     Run formatting tools on the code.
 
@@ -283,7 +283,7 @@ def format(ctx):  # noqa: W0622 (we don't mind shadowing the format builtin)
         title="Removing unused imports",
         pty=PTY,
     )
-    ctx.run(f"isort -y -rc {PY_SRC}", title="Ordering imports", pty=PTY)
+    ctx.run(f"isort {PY_SRC}", title="Ordering imports", pty=PTY)
     ctx.run(f"black {PY_SRC}", title="Formatting code", pty=PTY)
 
 
@@ -306,7 +306,7 @@ def release(ctx, version):
         ctx.run("poetry build", title="Building dist/wheel", pty=PTY)
         ctx.run("poetry publish", title="Publishing version", pty=PTY)
         [%- if repository_provider == "github.com" %]
-        docs_deploy.run()
+        docs_deploy.run()  # type: ignore
         [%- endif %]
 
 

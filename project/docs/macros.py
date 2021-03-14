@@ -77,5 +77,5 @@ def define_env(env):
     """
 
     @env.macro  # noqa: WPS430 (nested function)
-    def credits():  # noqa: W0612,W0622,WPS430 (unused, shadows credits)
+    def credits():  # noqa: WPS430
         return get_credits()
