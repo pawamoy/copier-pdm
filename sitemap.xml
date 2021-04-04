@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
-     <loc>https://pawamoy.github.io/copier-poetry/</loc>
-     <lastmod>2021-01-16</lastmod>
+     <loc>https://pawamoy.github.io/copier-pdm/</loc>
+     <lastmod>2021-04-04</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://pawamoy.github.io/copier-poetry/contributing/</loc>
-     <lastmod>2021-01-16</lastmod>
+     <loc>https://pawamoy.github.io/copier-pdm/contributing/</loc>
+     <lastmod>2021-04-04</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://pawamoy.github.io/copier-poetry/code_of_conduct/</loc>
-     <lastmod>2021-01-16</lastmod>
+     <loc>https://pawamoy.github.io/copier-pdm/code_of_conduct/</loc>
+     <lastmod>2021-04-04</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://pawamoy.github.io/copier-poetry/changelog/</loc>
-     <lastmod>2021-01-16</lastmod>
+     <loc>https://pawamoy.github.io/copier-pdm/changelog/</loc>
+     <lastmod>2021-04-04</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://pawamoy.github.io/copier-poetry/license/</loc>
-     <lastmod>2021-01-16</lastmod>
+     <loc>https://pawamoy.github.io/copier-pdm/license/</loc>
+     <lastmod>2021-04-04</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://pawamoy.github.io/copier-poetry/requirements/</loc>
-     <lastmod>2021-01-16</lastmod>
+     <loc>https://pawamoy.github.io/copier-pdm/requirements/</loc>
+     <lastmod>2021-04-04</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://pawamoy.github.io/copier-poetry/generate/</loc>
-     <lastmod>2021-01-16</lastmod>
+     <loc>https://pawamoy.github.io/copier-pdm/generate/</loc>
+     <lastmod>2021-04-04</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://pawamoy.github.io/copier-poetry/work/</loc>
-     <lastmod>2021-01-16</lastmod>
+     <loc>https://pawamoy.github.io/copier-pdm/work/</loc>
+     <lastmod>2021-04-04</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://pawamoy.github.io/copier-poetry/update/</loc>
-     <lastmod>2021-01-16</lastmod>
+     <loc>https://pawamoy.github.io/copier-pdm/update/</loc>
+     <lastmod>2021-04-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
