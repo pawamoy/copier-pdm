@@ -15,7 +15,6 @@ defaults:
 env:
   LANG: "en_US.utf-8"
   LC_ALL: "en_US.utf-8"
-  POETRY_VIRTUALENVS_IN_PROJECT: "true"
   PYTHONIOENCODING: "UTF-8"
   PYTHON_VERSIONS: ""
 
@@ -59,8 +58,7 @@ jobs:
 
     - name: Set up the project
       run: |
-        pip install poetry safety copier
-        poetry config virtualenvs.in-project true
+        pip install pdm safety copier
 
     - name: Run the test suite
       run: make test

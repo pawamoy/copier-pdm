@@ -64,10 +64,10 @@ echo ">>> Updating changelog and releasing version"
 make --no-print-directory changelog release version=0.1.1
 echo
 echo ">>> Checking changelog's contents"
-poetry run failprint -- grep 'v0\.1\.0' CHANGELOG.md
-poetry run failprint -- grep 'v0\.1\.1' CHANGELOG.md
-poetry run failprint -- grep 'Features' CHANGELOG.md
-poetry run failprint -- grep 'Bug Fixes' CHANGELOG.md
+pdm run failprint -- grep 'v0\.1\.0' CHANGELOG.md
+pdm run failprint -- grep 'v0\.1\.1' CHANGELOG.md
+pdm run failprint -- grep 'Features' CHANGELOG.md
+pdm run failprint -- grep 'Bug Fixes' CHANGELOG.md
 
 echo
 echo "///////////////////////////////////////////"

@@ -1,7 +1,11 @@
 clean:
 	@rm -rf tests/tmp
 
-test: clean
+cleantests:
+	@rm -rf tests/tmp/.git
+	@rm -rf tests/tmp/empty
+
+test: cleantests
 	@./runtests.sh
 
 update-deps:

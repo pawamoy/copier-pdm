@@ -36,7 +36,7 @@ And the file looks like this:
 ```yaml
 # Changes here will be overwritten by Copier
 _commit: 0.1.10
-_src_path: gh:pawamoy/copier-poetry
+_src_path: gh:pawamoy/copier-pdm
 author_email: pawamoy@pm.me
 author_fullname: "Timoth\xE9e Mazzucotelli"
 author_username: pawamoy

@@ -44,46 +44,50 @@ The generated project has this structure:
 
 ## Dependencies and virtual environments
 
-Dependencies and virtual environments are managed by [Poetry](https://github.com/python-poetry/poetry).
+Dependencies and virtual environments are managed by [PDM](https://github.com/pdm-project/pdm).
 
 You don't have to -and you should not- create the virtualenvs yourself,
 or activate/deactivate them.
 
-Use `poetry install` to create the virtualenv the first time and install the dependencies.
-Re-run `poetry install` to re-install the dependencies into the virtualenv.
+Use `pdm install -d` to create the virtualenv the first time and install the dependencies.
+Re-run `pdm install` to re-install the dependencies into the virtualenv.
 
 Dependencies are written in `pyproject.toml`,
-under the `[tool.poetry.dependencies]` or `[tool.poetry.dev-dependencies]` sections.
+under the `[project]`, `[project.optional-dependencies]`
+and `[tool.pdm.dev-dependencies]` sections.
 Example:
 
 ```toml
-[tool.poetry.dependencies]
-python = "^3.6"
-fastapi = "<1.0"
-importlib-metadata = "^2.0.0"
+[project]
+dependencies = [
+  "fastapi~=1.0",
+  "importlib-metadata~=2.0",
+]
 ```
 
-You can write them there manually, or use the commands provided by Poetry:
+You can write them there manually, or use the commands provided by PDM:
 
 ```bash
-poetry add numpy  # add as a production dependency
-poetry add -D numpy  # or add as a development dependency
+pdm add numpy  # add as a required dependency
+pdm add -s math numpy  # add as an optional dependency in the "math" section
+pdm add -d numpy  # or add as a development dependency in the "dev" section
+pdm add -ds stats numpy  # or add as a development dependency in the "stats" section
 
 # the "remove" equivalent
-poetry remove numpy
-poetry remove -D numpy
+pdm remove numpy
+pdm remove -s math numpy
+pdm remove -d numpy
+pdm remove -ds stats numpy
 ```
 
-- Use `poetry update` the re-lock the dependencies
-  (write the complete dependency resolution in `poetry.lock`)
+- Use `pdm update` the re-lock the dependencies
+  (write the complete dependency resolution in `pdm.lock`)
   and install their updated version in the virtualenv.
-- Use `poetry lock` to just re-lock the dependencies.
-- Use `poetry run CMD [ARGS...]` to run a command in the virtualenv.
-- Use `poetry shell` to activate/enter the virtualenv,
-  and `exit` to deactivate/exit the virtualenv.
-- Use `poetry show` to show the list of dependencies.
+- Use `pdm lock` to just re-lock the dependencies.
+- Use `pdm run CMD [ARGS...]` to run a command installed in `__pypackages__`
+- Use `pdm list` to show the list of dependencies.
 
-See `poetry COMMAND --help` for details about each command.
+See `pdm COMMAND --help` for details about each command.
 
 ## Tasks
 
@@ -101,9 +105,9 @@ def check_docs(ctx):
     ctx.run("mkdocs build -s", title="Building documentation")
 ```
 
-To run a task, use `poetry run duty TASK [ARG=VALUE...]`.
-You can run multiple tasks at once: `poetry run duty TASK1 ARG=VALUE TASK2`.
-You can list the available tasks with `poetry run duty --list`.
+To run a task, use `pdm run duty TASK [ARG=VALUE...]`.
+You can run multiple tasks at once: `pdm run duty TASK1 ARG=VALUE TASK2`.
+You can list the available tasks with `pdm run duty --list`.
 
 Available tasks:
 
@@ -178,7 +182,7 @@ or temporarily with the `PYTHON_VERSIONS` environment variable.
 
 If you don't have the `make` command,
 you can use `bash scripts/setup.sh` instead,
-or even just `poetry install`
+or even just `pdm install -d`
 if you don't plan on using multiple Python versions.
 
 Now you can start writing and editing code in `src/your_package`.
@@ -212,7 +216,7 @@ make changelog  # to update the changelog
 make release version=x.y.z
 ```
 
-Remember that `make` is just a shortcut for `poetry run duty` here.
+Remember that `make` is just a shortcut for `pdm run duty` here.
 
 ## Quality analysis
 

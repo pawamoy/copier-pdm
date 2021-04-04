@@ -22,7 +22,7 @@ repos:
     hooks:
       - id: pytest
         name: Check pytest unit tests pass
-        entry: poetry run duty test
+        entry: pdm run duty test
         pass_filenames: false
         language: system
         types: [python]

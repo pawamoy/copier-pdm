@@ -1,12 +1,10 @@
 variables:
     PIP_CACHE_DIR: "${CI_PROJECT_DIR}/.cache/pip"
-    POETRY_VIRTUALENVS_IN_PROJECT: "true"
 
 cache:
   key: "${CI_JOB_NAME}"
   paths:
   - .cache/pip
-  - .venv
 
 stages:
 - quality
@@ -15,9 +13,9 @@ stages:
 
 .install-deps-template: &install-deps
   before_script:
-  - pip install poetry
-  - poetry --version
-  - poetry install -vv
+  - pip install pdm
+  - pdm --version
+  - pdm install -d
 
 # Quality jobs
 
@@ -28,26 +26,26 @@ stages:
 
 check-docs:
   <<: *quality
-  script: poetry run duty check-docs
+  script: pdm run duty check-docs
 
 check-code-quality:
   <<: *quality
-  script: poetry run duty check-code-quality
+  script: pdm run duty check-code-quality
 
 check-types:
   <<: *quality
-  script: poetry run duty check-types
+  script: pdm run duty check-types
 
 check-dependencies:
   <<: *quality
-  script: poetry run duty check-dependencies
+  script: pdm run duty check-dependencies
 
 # Tests jobs
 
 .test-template: &test
   <<: *install-deps
   stage: tests
-  script: poetry run duty test
+  script: pdm run duty test
   artifacts:
     paths:
     - .coverage-*
@@ -79,8 +77,8 @@ pages:
   - python3.8
   - python3.9
   script:
-  - poetry run duty coverage
-  - poetry run duty docs
+  - pdm run duty coverage
+  - pdm run duty docs
   coverage: '/^TOTAL.+?(\d+\.\d+\%)$/'
   artifacts:
     paths:
