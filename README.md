@@ -5,7 +5,9 @@ Copier template for Python projects managed by PDM.
 This copier template is mainly for my own usage,
 but feel free to try it out, or fork it!
 
-Also checkout [copier-poetry](https://github.com/pawamoy/copier-poetry).
+Also checkout [copier-poetry](https://github.com/pawamoy/copier-poetry),
+which is the same template
+but with [Poetry](https://github.com/python-poetry/poetry) instead of PDM.
 
 ## Features
 
