@@ -12,7 +12,7 @@ install_with_pipx() {
     fi
 }
 
-install_with_pipx pdm
+install_with_pipx pdm==1.5.0b1
 
 if [ -n "${PYTHON_VERSIONS}" ]; then
     for python_version in ${PYTHON_VERSIONS}; do
