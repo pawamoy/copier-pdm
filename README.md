@@ -32,6 +32,8 @@ but with [Poetry](https://github.com/python-poetry/poetry) instead of PDM.
 
 ## Quick setup and usage
 
+:warning: You need PDM version 1.5.0b1 for this template to work.
+
 Make sure all the
 [requirements](https://pawamoy.github.io/copier-pdm/requirements)
 are met, then:
