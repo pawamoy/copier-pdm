@@ -15,7 +15,7 @@ stages:
   before_script:
   - pip install pdm
   - pdm --version
-  - pdm install -d
+  - pdm install
 
 # Quality jobs
 

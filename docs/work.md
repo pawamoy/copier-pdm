@@ -29,8 +29,8 @@ The generated project has this structure:
 ├── 📄 pyproject.toml ------------- # project metadata and dependencies
 ├── 📄 README.md ------------------ # 
 ├── 📁 scripts -------------------- # helper scripts
-│   ├── 📄 multirun.sh ------------ # to run a command in multiple virtualenvs
-│   └── 📄 setup.sh --------------- # to install dependencies in multiple virtualenvs
+│   ├── 📄 multirun.sh ------------ # to run a command against multiple Python versions
+│   └── 📄 setup.sh --------------- # to install dependencies for multiple Python versions
 ├── 📁 src ------------------------ # the source code directory
 │   └── 📁 your_package ----------- # your package
 │       ├── 📄 cli.py ------------- # the command line entry point
@@ -44,13 +44,9 @@ The generated project has this structure:
 
 ## Dependencies and virtual environments
 
-Dependencies and virtual environments are managed by [PDM](https://github.com/pdm-project/pdm).
+Dependencies are managed by [PDM](https://github.com/pdm-project/pdm).
 
-You don't have to -and you should not- create the virtualenvs yourself,
-or activate/deactivate them.
-
-Use `pdm install -d` to create the virtualenv the first time and install the dependencies.
-Re-run `pdm install` to re-install the dependencies into the virtualenv.
+Use `pdm install` to install the dependencies.
 
 Dependencies are written in `pyproject.toml`,
 under the `[project]`, `[project.optional-dependencies]`
@@ -82,7 +78,7 @@ pdm remove -ds stats numpy
 
 - Use `pdm update` the re-lock the dependencies
   (write the complete dependency resolution in `pdm.lock`)
-  and install their updated version in the virtualenv.
+  and install their updated version.
 - Use `pdm lock` to just re-lock the dependencies.
 - Use `pdm run CMD [ARGS...]` to run a command installed in `__pypackages__`
 - Use `pdm list` to show the list of dependencies.
@@ -172,8 +168,8 @@ The first thing you should run when entering your repository is:
 make setup
 ```
 
-This will install the project's dependencies in new Python virtualenvs:
-one virtualenv per chosen Python version.
+This will install the project's dependencies in `__pypackages__`:
+one folder per chosen Python version.
 The chosen Python versions are defined
 in both scripts `setup.sh` and `multirun.sh`
 in the `scripts/` folder.
@@ -182,7 +178,7 @@ or temporarily with the `PYTHON_VERSIONS` environment variable.
 
 If you don't have the `make` command,
 you can use `bash scripts/setup.sh` instead,
-or even just `pdm install -d`
+or even just `pdm install`
 if you don't plan on using multiple Python versions.
 
 Now you can start writing and editing code in `src/your_package`.

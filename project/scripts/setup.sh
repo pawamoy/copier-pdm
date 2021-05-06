@@ -12,17 +12,17 @@ install_with_pipx() {
     fi
 }
 
-install_with_pipx pdm==1.5.0b1
+install_with_pipx pdm
 
 if [ -n "${PYTHON_VERSIONS}" ]; then
     for python_version in ${PYTHON_VERSIONS}; do
         if pdm use -f "${python_version}" &>/dev/null; then
             echo "> Using Python ${python_version} environment"
-            pdm install -d
+            pdm install
         else
             echo "> pdm use -f ${python_version}: Python version not available?" >&2
         fi
     done
 else
-    pdm install -d
+    pdm install
 fi

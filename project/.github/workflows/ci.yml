@@ -51,23 +51,23 @@ jobs:
 
     - name: Check if the documentation builds correctly
       run: |
-        pdm install -ds duty -s docs
+        pdm install -s duty -s docs
         pdm run duty check-docs
 
     - name: Check the code quality
       run: |
-        pdm install -ds duty -s quality --no-default
+        pdm install -s duty -s quality --no-default
         pdm run duty check-code-quality
 
     - name: Check if the code is correctly typed
       run: |
-        pdm install -ds duty -s typing --no-default
+        pdm install -s duty -s typing --no-default
         pdm run duty check-types
 
     - name: Check for vulnerabilities in dependencies
       run: |
         pip install safety
-        pdm install -ds duty --no-default
+        pdm install -s duty --no-default
         pdm run duty check-dependencies
 
   tests:
@@ -105,7 +105,7 @@ jobs:
     - name: Install dependencies
       run: |
         pdm use -f ${{ matrix.python-version }}
-        pdm install -ds duty -s tests
+        pdm install -s duty -s tests
 
     - name: Run the test suite
       run: pdm run duty test
