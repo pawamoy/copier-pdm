@@ -32,7 +32,7 @@ def get_credits_data() -> dict:
     indirect_dependencies -= direct_dependencies
 
     packages = {}
-    for pkg in search_packages_info(direct_dependencies | indirect_dependencies):
+    for pkg in search_packages_info(direct_dependencies | indirect_dependencies):  # type: ignore
         pkg = {_: pkg[_] for _ in ("name", "home-page")}
         packages[pkg["name"].lower()] = pkg
 
