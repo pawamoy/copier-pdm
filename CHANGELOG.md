@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.2.0](https://github.com/pawamoy/copier-pdm/releases/tag/0.2.0) - 2021-05-08
+
+<small>[Compare with 0.1.3](https://github.com/pawamoy/copier-pdm/compare/0.1.3...0.2.0)</small>
+
+### Features
+- Add a `py.typed` file to enable MyPy annotations discovery ([94b64c2](https://github.com/pawamoy/copier-pdm/commit/94b64c26ead8fa3fb64b8170bdabbab908eaa180) by Timothée Mazzucotelli).
+
+
+### Code Refactoring
+- Install all dependencies at once before quality in CI ([64e231a](https://github.com/pawamoy/copier-pdm/commit/64e231aec5eb9cfcee10acd66a092f79b3544297) by Timothée Mazzucotelli).
+- Improve and simplify coverage configuration ([f622786](https://github.com/pawamoy/copier-pdm/commit/f62278607d47ddeb6526c9e9f087d02ee3aef0c1) by Timothée Mazzucotelli).
+
 ## [0.1.3](https://github.com/pawamoy/copier-pdm/releases/tag/0.1.3) - 2021-05-06
 
 <small>[Compare with 0.1.2](https://github.com/pawamoy/copier-pdm/compare/0.1.2...0.1.3)</small>
