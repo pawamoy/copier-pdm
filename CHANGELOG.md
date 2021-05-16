@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.2.2](https://github.com/pawamoy/copier-pdm/releases/tag/0.2.2) - 2021-05-16
+
+<small>[Compare with 0.2.1](https://github.com/pawamoy/copier-pdm/compare/0.2.1...0.2.2)</small>
+
+### Bug Fixes
+- Fix combining coverage on shells without globbing ([a2d7e17](https://github.com/pawamoy/copier-pdm/commit/a2d7e179c14b11f511d03fbe81a9b7a687ad6651) by Timothée Mazzucotelli).
+
+
 ## [0.2.1](https://github.com/pawamoy/copier-pdm/releases/tag/0.2.1) - 2021-05-08
 
 <small>[Compare with 0.2.0](https://github.com/pawamoy/copier-pdm/compare/0.2.0...0.2.1)</small>
