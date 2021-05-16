@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.2.4](https://github.com/pawamoy/copier-pdm/releases/tag/0.2.4) - 2021-05-16
+
+<small>[Compare with 0.2.3](https://github.com/pawamoy/copier-pdm/compare/0.2.3...0.2.4)</small>
+
+### Bug Fixes
+- Append missing trailing new lines ([f382682](https://github.com/pawamoy/copier-pdm/commit/f3826822e8527f117a82042e55d93022cf978cba) by Timothée Mazzucotelli).
+
+
 ## [0.2.3](https://github.com/pawamoy/copier-pdm/releases/tag/0.2.3) - 2021-05-16
 
 <small>[Compare with 0.2.2](https://github.com/pawamoy/copier-pdm/compare/0.2.2...0.2.3)</small>
