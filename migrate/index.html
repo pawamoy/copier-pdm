@@ -11,14 +11,14 @@
       
       
       
-        <link rel="canonical" href="https://pawamoy.github.io/copier-pdm/generate/">
+        <link rel="canonical" href="https://pawamoy.github.io/copier-pdm/migrate/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.4">
     
     
       
-        <title>Generating a project - Copier PDM</title>
+        <title>Migrating from copier-poetry - Copier PDM</title>
       
     
     
@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#generating-a-project" class="md-skip">
+        <a href="#migrate-from-copier-poetry" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Generating a project
+              Migrating from copier-poetry
             
           </span>
         </div>
@@ -405,58 +405,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Generating a project
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../generate/" class="md-nav__link">
         Generating a project
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#questions" class="md-nav__link">
-    Questions
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#output" class="md-nav__link">
-    Output
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -488,11 +441,21 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../migrate/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Migrating from copier-poetry
       </a>
+      
     </li>
   
 
@@ -537,28 +500,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#questions" class="md-nav__link">
-    Questions
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#output" class="md-nav__link">
-    Output
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -569,217 +510,31 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/pawamoy/copier-pdm/edit/master/docs/generate.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/pawamoy/copier-pdm/edit/master/docs/migrate.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="generating-a-project">Generating a project<a class="headerlink" href="#generating-a-project" title="Permanent link">¤</a></h1>
-<p>To generate a project, run the following command:</p>
-<div class="highlight"><pre><span></span><code>copier <span class="s2">&quot;https://github.com/pawamoy/copier-pdm.git&quot;</span> /path/to/your/new/project
-</code></pre></div>
-<p>Or with a shorter command:</p>
-<div class="highlight"><pre><span></span><code>copier <span class="s2">&quot;gh:pawamoy/copier-pdm&quot;</span> /path/to/your/new/project
-</code></pre></div>
-<p>You can even generate a project without installing copier, using <code>pipx</code>:</p>
-<div class="highlight"><pre><span></span><code>pipx run copier <span class="s2">&quot;gh:pawamoy/copier-pdm&quot;</span> /path/to/your/new/project
-</code></pre></div>
-<h2 id="questions">Questions<a class="headerlink" href="#questions" title="Permanent link">¤</a></h2>
-<p>Copier will then ask you to answer some questions:</p>
-<div class="highlight"><pre><span></span><code>Your project name
-project_name? Format: str
-🎤 [None]: My Project
-</code></pre></div>
-<p>The project name can use spaces and capitals.
-It will be used as the main heading in the README for example.</p>
-<hr />
-<div class="highlight"><pre><span></span><code>Your project description
-project_description? Format: str
-🎤 [None]: My super project!
-</code></pre></div>
-<p>The project description can be as long as you want,
-and use any character you want.</p>
-<hr />
-<div class="highlight"><pre><span></span><code>Your full name
-author_fullname? Format: str
-🎤 [None]: Timothée Mazzucotelli
-</code></pre></div>
-<p>The full name will appear as "author" in the project's metadata.</p>
-<hr />
-<div class="highlight"><pre><span></span><code>Your email
-author_email? Format: str
-🎤 [None]: pawamoy@pm.me
-</code></pre></div>
-<p>The full name will appear as "author email" in the project's metadata.</p>
-<hr />
-<div class="highlight"><pre><span></span><code>Your username (e.g. on GitHub)
-author_username? Format: str
-🎤 [None]: pawamoy
-</code></pre></div>
-<p>The username you are using on the git repository provider.</p>
-<hr />
-<div class="highlight"><pre><span></span><code>Your repository provider
-repository_provider? Format: str
-🎤
-(1) github.com
-(2) gitlab.com
-(3) bitbucket.org
-Choice [1]: 
-</code></pre></div>
-<p>The repository provider on which you plan to store your project.
-By default it chooses github.com.</p>
-<hr />
-<div class="highlight"><pre><span></span><code>Your repository namespace
-repository_namespace? Format: str
-🎤 [pawamoy]: 
-</code></pre></div>
-<p>The namespace (or account) on which the project will be stored.
-It defaults to the username you provided.</p>
-<hr />
-<div class="highlight"><pre><span></span><code>Your repository name
-repository_name? Format: str
-🎤 [my-project]: 
-</code></pre></div>
-<p>The repository name on the selected provider.
-It defaults to a slugified version of your project's name.</p>
-<hr />
-<div class="highlight"><pre><span></span><code>The name of the person/entity holding the copyright
-copyright_holder? Format: str
-🎤 [Timothée Mazzucotelli]: 
-</code></pre></div>
-<p>The name of the person or entity holding the copyright on the project.
-It defaults to the full name your provided.</p>
-<hr />
-<div class="highlight"><pre><span></span><code>The email of the person/entity holding the copyright
-copyright_holder_email? Format: str
-🎤 [pawamoy@pm.me]: 
-</code></pre></div>
-<p>The email of the person or entity holding the copyright on the project.
-It defaults to the email your provided.</p>
-<hr />
-<div class="highlight"><pre><span></span><code>The copyright date
-copyright_date? Format: str
-🎤 [2020]: 
-</code></pre></div>
-<p>The date to apply to the copyright.
-It defaults to the current year.</p>
-<hr />
-<div class="highlight"><pre><span></span><code>Your project&#39;s license
-copyright_license? Format: str
-🎤
-(1) Academic Free License v3.0
-(2) Apache License 2.0
-(3) Artistic License 2.0
-(4) BSD 2-Clause &quot;Simplified&quot; License
-(5) BSD 3-Clause Clear License
-(6) BSD 3-Clause &quot;New&quot; or &quot;Revised&quot; License
-(7) Boost Software License 1.0
-(8) Creative Commons Attribution 4.0
-(9) Creative Commons Attribution Share Alike 4.0
-(10) Creative Commons Zero v1.0 Universal
-(11) Do What The F*ck You Want To Public License
-(12) Educational Community License v2.0
-(13) Eclipse Public License 1.0
-(14) Eclipse Public License 2.0
-(15) European Union Public License 1.1
-(16) European Union Public License 1.2
-(17) GNU Affero General Public License v3.0
-(18) GNU General Public License v2.0
-(19) GNU General Public License v3.0
-(20) GNU Lesser General Public License v2.1
-(21) GNU Lesser General Public License v3.0
-(22) ISC License
-(23) LaTeX Project Public License v1.3c
-(24) MIT License
-(25) Mozilla Public License 2.0
-(26) Microsoft Public License
-(27) Microsoft Reciprocal License
-(28) University of Illinois/NCSA Open Source License
-(29) SIL Open Font License 1.1
-(30) Open Software License 3.0
-(31) PostgreSQL License
-(32) The Unlicense
-(33) zlib License
-Choice [22]: 
-</code></pre></div>
-<p>A license from choosealicence.com.
-It defaults to ISC License (my personal preference).</p>
-<hr />
-<div class="highlight"><pre><span></span><code>Your Python package distribution name (for `pip install NAME`)
-python_package_distribution_name? Format: str
-🎤 [my-project]: 
-</code></pre></div>
-<p>The name under which your Python package will be distributed.
-This will be the name of your project on pypi.org for example.</p>
-<hr />
-<div class="highlight"><pre><span></span><code>Your Python package import name (for `import NAME` in Python code)
-python_package_import_name? Format: str
-🎤 [my_project]: 
-</code></pre></div>
-<p>The name that will be used to import your package in Python code.
-Yes, distribution name and import name can be different!</p>
-<hr />
-<div class="highlight"><pre><span></span><code>Your CLI name if any (for use in the shell)
-python_package_command_line_name? Format: str
-🎤 [my-project]: 
-</code></pre></div>
-<p>The name of the command users will type in the command line
-to run your program.</p>
-<h2 id="output">Output<a class="headerlink" href="#output" title="Permanent link">¤</a></h2>
-<p>At this point, Copier will generate the project in the specified directory:</p>
-<div class="highlight"><pre><span></span><code>    create  pyproject.toml
-    create  mkdocs.yml
-    create  duties.py
-    create  .copier-answers.yml
-    create  README.md
-    create  Makefile
-    create  LICENSE
-    create  CREDITS.md
-    create  CONTRIBUTING.md
-    create  CODE_OF_CONDUCT.md
-    create  CHANGELOG.md
-    create  .gitlab-ci.yml
-    create  .gitignore
-    create  tests/
-    create  tests/test_cli.py
-    create  tests/conftest.py
-    create  tests/__init__.py
-    create  src/
-    create  src/my_project/
-    create  src/my_project/cli.py
-    create  src/my_project/__main__.py
-    create  src/my_project/__init__.py
-    create  scripts/
-    create  scripts/setup.sh
-    create  scripts/post_generation.py
-    create  scripts/multirun.sh
-    create  docs/
-    create  docs/index.md
-    create  docs/credits.md
-    create  docs/contributing.md
-    create  docs/code_of_conduct.md
-    create  docs/changelog.md
-    create  docs/reference/
-    create  docs/reference/cli.md
-    create  docs/css/
-    create  docs/css/mkdocstrings.css
-    create  config/
-    create  config/pytest.ini
-    create  config/mypy.ini
-    create  config/coverage.ini
-    create  .github/
-    create  .github/FUNDING.yml
-    create  .github/workflows/
-    create  .github/workflows/ci.yml
-    create  .github/ISSUE_TEMPLATE/
-    create  .github/ISSUE_TEMPLATE/feature_request.md
-    create  .github/ISSUE_TEMPLATE/bug_report.md
+                <h1 id="migrate-from-copier-poetry">Migrate from copier-poetry<a class="headerlink" href="#migrate-from-copier-poetry" title="Permanent link">¤</a></h1>
+<p>If you were using <code>copier-poetry</code> before,
+and would like to migrate to this template
+based on PDM, here is how:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># go into your project</span>
+<span class="nb">cd</span> my_project
 
- &gt; Running task 1 of 1: python scripts/post_generation.py
-Project sucessfully generated!
-Run `make` to show the available actions.
+<span class="c1"># upgrade to the latest of copier-poetry</span>
+copier -f update
 </code></pre></div>
-<p>See the next chapter to learn how to work on this new project.</p>
+<p>Reference the new template in <code>.copier-answers.yml</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">_commit</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">e9e472d</span>
+<span class="nt">_src_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gh:pawamoy/copier-pdm.git</span>
+</code></pre></div>
+<p>Now clean up your repository, commit the changes,
+and update again:</p>
+<div class="highlight"><pre><span></span><code>copier -f update
+</code></pre></div>
+<p>That's it! You should now be up-to-date
+with the latest <code>copier-pdm</code> stuff!</p>
                 
               
               
@@ -802,7 +557,7 @@ Run `make` to show the available actions.
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../requirements/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../update/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -811,25 +566,11 @@ Run `make` to show the available actions.
               <span class="md-footer__direction">
                 Previous
               </span>
-              Requirements
+              Updating a project
             </div>
           </div>
         </a>
       
-      
-        <a href="../work/" class="md-footer__link md-footer__link--next" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Working on a project
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
       
     </nav>
   
