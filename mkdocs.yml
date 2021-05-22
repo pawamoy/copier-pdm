@@ -16,17 +16,31 @@ nav:
   - Generating a project: generate.md
   - Working on a project: work.md
   - Updating a project: update.md
+  - Migrating from copier-poetry: migrate.md
 - Author's website: https://pawamoy.github.io/
 
 theme:
   name: material
-  palette:
-    scheme: slate
-    primary: teal
-    accent: purple
+  icon:
+    logo: material/currency-sign
   features:
-  - navigation.instant
   - navigation.tabs
+  - navigation.top
+  palette:
+  - media: "(prefers-color-scheme: light)"
+    scheme: default
+    primary: teal
+    accent: pink
+    toggle:
+      icon: material/weather-sunny
+      name: Switch to dark mode
+  - media: "(prefers-color-scheme: dark)"
+    scheme: slate
+    primary: black
+    accent: lime
+    toggle:
+      icon: material/weather-night
+      name: Switch to light mode
 
 markdown_extensions:
 - admonition

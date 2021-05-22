@@ -9,6 +9,8 @@ Also checkout [copier-poetry](https://github.com/pawamoy/copier-poetry),
 which is the same template
 but with [Poetry](https://github.com/python-poetry/poetry) instead of PDM.
 
+See [how to migrate to copier-pdm](https://pawamoy.github.io/copier-pdm/migrate).
+
 ## Features
 
 - [PDM](https://github.com/pdm-project/pdm) setup, with pre-defined `pyproject.toml`
@@ -31,8 +33,6 @@ but with [Poetry](https://github.com/python-poetry/poetry) instead of PDM.
 - Makefile for convenience
 
 ## Quick setup and usage
-
-:warning: You need PDM version 1.5.0b1 for this template to work.
 
 Make sure all the
 [requirements](https://pawamoy.github.io/copier-pdm/requirements)
