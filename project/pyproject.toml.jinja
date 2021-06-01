@@ -9,17 +9,26 @@ description = "[[ project_description ]]"
 authors = [{name = "[[ author_fullname ]]", email = "[[ author_email ]]"}]
 license = {file = "LICENSE"}
 readme = "README.md"
-requires-python = ">=3.6.1"
+requires-python = ">=3.6"
+keywords = []
 dynamic = ["version", "classifiers"]
 classifiers = ["Development Status :: 4 - Beta"]
 dependencies = []
 
+[project.urls]
+Homepage = "https://[[ repository_namespace ]].[[ repository_provider.rsplit('.', 1)[0] ]].io/[[ repository_name ]]"
+Documentation = "https://[[ repository_namespace ]].[[ repository_provider.rsplit('.', 1)[0] ]].io/[[ repository_name ]]"
+Changelog = "https://[[ repository_namespace ]].[[ repository_provider.rsplit('.', 1)[0] ]].io/[[ repository_name ]]/changelog"
+Repository = "https://[[ repository_provider ]]/[[ repository_namespace ]]/[[ repository_name ]]"
+Issues = "https://[[ repository_provider ]]/[[ repository_namespace ]]/[[ repository_name ]]/issues"
+Discussions = "https://[[ repository_provider ]]/[[ repository_namespace ]]/[[ repository_name ]]/discussions"
+Gitter = "https://gitter.im/[[ repository_name ]]/community"
+[%- if repository_provider == "github.com" %]
+Funding = "https://[[ repository_provider ]]/sponsors/[[ repository_namespace ]]"
+[%- endif %]
+
 [project.scripts]
 [[ python_package_command_line_name ]] = "[[ python_package_import_name ]].cli:main"
-
-[project.urls]
-Repository = "https://[[ repository_provider ]]/[[ repository_namespace ]]/[[ repository_name ]]"
-Homepage = "https://[[ repository_provider ]]/[[ repository_namespace ]]/[[ repository_name ]]"
 
 [tool.pdm]
 package-dir = "src"
