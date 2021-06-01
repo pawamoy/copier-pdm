@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.3.0](https://github.com/pawamoy/copier-pdm/releases/tag/0.3.0) - 2021-06-01
+
+<small>[Compare with 0.2.5](https://github.com/pawamoy/copier-pdm/compare/0.2.5...0.3.0)</small>
+
+### Features
+- Generate code reference nav automatically ([802fdeb](https://github.com/pawamoy/copier-pdm/commit/802fdeb527612b3115b92908bc13d463fd443982) by Timothée Mazzucotelli).
+
+### Code Refactoring
+- Add project URLs ([e604106](https://github.com/pawamoy/copier-pdm/commit/e6041062ce59951174a6ddc7d6aa6986cf03887e) by Timothée Mazzucotelli).
+- Clean up CI instructions ([90babd9](https://github.com/pawamoy/copier-pdm/commit/90babd904df015e74aee659395514310e433f9c2) by Timothée Mazzucotelli).
+- Upgrade setup-pdm action version ([c66b2e8](https://github.com/pawamoy/copier-pdm/commit/c66b2e8492364b9ad4b75527ce8506841110d2c1) by Timothée Mazzucotelli).
+
+
 ## [0.2.5](https://github.com/pawamoy/copier-pdm/releases/tag/0.2.5) - 2021-05-22
 
 <small>[Compare with 0.2.4](https://github.com/pawamoy/copier-pdm/compare/0.2.4...0.2.5)</small>
