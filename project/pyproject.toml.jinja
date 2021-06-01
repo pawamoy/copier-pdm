@@ -27,12 +27,13 @@ package-dir = "src"
 [tool.pdm.dev-dependencies]
 duty = ["duty~=0.6"]
 docs = [
-    "mkdocs~=1.1",
-    "mkdocs-coverage~=0.2",
-    "mkdocs-macros-plugin~=0.5",
-    "mkdocs-material~=7.1",
-    "mkdocstrings~=0.15",
-    "toml~=0.10",
+    "mkdocs~=1.1; python_version >= '3.7'",
+    "mkdocs-coverage~=0.2; python_version >= '3.7'",
+    "mkdocs-gen-files~=0.3; python_version >= '3.7'",
+    "mkdocs-literate-nav~=0.4; python_version >= '3.7'",
+    "mkdocs-material~=7.1; python_version >= '3.7'",
+    "mkdocstrings~=0.15; python_version >= '3.7'",
+    "toml~=0.10; python_version >= '3.7'",
 ]
 format = [
     "autoflake~=1.4",

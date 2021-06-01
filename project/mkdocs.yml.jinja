@@ -11,8 +11,8 @@ nav:
   - Changelog: changelog.md
   - Credits: credits.md
   - License: license.md
-- Code Reference:
-  - cli.py: reference/cli.md
+# defer to gen-files + literate-nav
+- Code Reference: reference/
 - Development:
   - Contributing: contributing.md
   - Code of Conduct: code_of_conduct.md
@@ -56,9 +56,13 @@ markdown_extensions:
 
 plugins:
 - search
+- gen-files:
+    scripts:
+    - docs/gen_credits.py
+    - docs/gen_ref_nav.py
+- literate-nav:
+    nav_file: SUMMARY.md
 - coverage
 - mkdocstrings:
     watch:
     - src/[[ python_package_import_name ]]
-- macros:
-    module_name: docs/macros
