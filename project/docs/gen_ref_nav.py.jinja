@@ -12,7 +12,7 @@ for path in sorted(Path("src").glob("**/*.py")):
     full_doc_path = Path("reference", doc_path)
 
     parts = list(module_path.parts)
-    parts[-1] = f"`{parts[-1]}.py`"
+    parts[-1] = f"{parts[-1]}.py"
     nav[parts] = doc_path
 
     with mkdocs_gen_files.open(full_doc_path, "w") as fd:
