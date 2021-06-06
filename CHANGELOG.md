@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.3.1](https://github.com/pawamoy/copier-pdm/releases/tag/0.3.1) - 2021-06-06
+
+<small>[Compare with 0.3.0](https://github.com/pawamoy/copier-pdm/compare/0.3.0...0.3.1)</small>
+
+### Bug Fixes
+- Fix generated code reference navigation ([61be4e3](https://github.com/pawamoy/copier-pdm/commit/61be4e3e88d6504d2ef7dd567cb17472130eed8c) by Timothée Mazzucotelli).
+
+### Code Refactoring
+- Add more personal branding to docs ([1b171c8](https://github.com/pawamoy/copier-pdm/commit/1b171c80375b3ae756b29c4a025ce8eb2debbc57) by Timothée Mazzucotelli).
+
+
 ## [0.3.0](https://github.com/pawamoy/copier-pdm/releases/tag/0.3.0) - 2021-06-01
 
 <small>[Compare with 0.2.5](https://github.com/pawamoy/copier-pdm/compare/0.2.5...0.3.0)</small>
