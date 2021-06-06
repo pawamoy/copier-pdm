@@ -17,9 +17,16 @@ nav:
   - Contributing: contributing.md
   - Code of Conduct: code_of_conduct.md
   - Coverage report: coverage.md
+[%- if author_username == "pawamoy" %]
+- Author's website: https://[[ author_username ]].[[ repository_provider.rsplit('.', 1)[0] ]].io/
+[%- endif %]
 
 theme:
   name: material
+  [%- if author_username == "pawamoy" %]
+  icon:
+    logo: material/currency-sign
+  [%- endif %]
   features:
   - navigation.tabs
   - navigation.top
@@ -27,7 +34,7 @@ theme:
   - media: "(prefers-color-scheme: light)"
     scheme: default
     primary: teal
-    accent: pink
+    accent: purple
     toggle:
       icon: material/weather-sunny
       name: Switch to dark mode
@@ -52,7 +59,7 @@ markdown_extensions:
 - pymdownx.tabbed
 - pymdownx.tasklist
 - toc:
-    permalink: "¤"
+    permalink: [% if author_username == "pawamoy" %]"¤"[% else %]true[% endif %]
 
 plugins:
 - search
@@ -66,3 +73,12 @@ plugins:
 - mkdocstrings:
     watch:
     - src/[[ python_package_import_name ]]
+
+extra:
+  social:
+  - icon: fontawesome/brands/[[ repository_provider.rsplit(".", 1)[0] ]]
+    link: https://[[ repository_provider ]]/[[ author_username ]]
+  [%- if author_username == "pawamoy" %]
+  - icon: fontawesome/brands/twitter
+    link: https://twitter.com/[[ author_username ]]
+  [%- endif %]
