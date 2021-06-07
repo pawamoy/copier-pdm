@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.3.2](https://github.com/pawamoy/copier-pdm/releases/tag/0.3.2) - 2021-06-07
+
+<small>[Compare with 0.3.1](https://github.com/pawamoy/copier-pdm/compare/0.3.1...0.3.2)</small>
+
+### Bug Fixes
+- Add migration to remove old files ([ee48c18](https://github.com/pawamoy/copier-pdm/commit/ee48c18d27b4f6d9adaa44b8fa12ef7360232b05) by Timothée Mazzucotelli).
+
+
 ## [0.3.1](https://github.com/pawamoy/copier-pdm/releases/tag/0.3.1) - 2021-06-06
 
 <small>[Compare with 0.3.0](https://github.com/pawamoy/copier-pdm/compare/0.3.0...0.3.1)</small>
