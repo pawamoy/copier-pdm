@@ -2,18 +2,23 @@
 _subdirectory: project
 _templates_suffix: .jinja
 _skip_if_exists:
-  - CHANGELOG.md
-  - CREDITS.md
+- CHANGELOG.md
+- CREDITS.md
 _tasks:
-  - python scripts/post_generation.py
+- python scripts/post_generation.py
 _migrations:
   - version: 0.1.0
     before:
-      - rm docs/changelog.md
-      - rm docs/index.md
-      - rm docs/contributing.md
-      - rm docs/code_of_conduct.md
-      - rm docs/credits.md
+    - rm docs/changelog.md
+    - rm docs/index.md
+    - rm docs/contributing.md
+    - rm docs/code_of_conduct.md
+    - rm docs/credits.md
+  - version: 0.3.0
+    after:
+    - rm -f docs/macros.py
+    - rm -f docs/credits.md
+    - rm -rf docs/reference
 
 # PROMPT --------------------------------
 project_name:
