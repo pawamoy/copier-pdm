@@ -21,15 +21,15 @@ env:
 jobs:
 
   tests:
-
     strategy:
       max-parallel: 6
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
         python-version: [3.6,3.7,3.8,3.9]
+        copier-version: [5.1.0, 6.0.0a6]
 
     runs-on: ${{ matrix.os }}
-    continue-on-error: ${{ matrix.os != 'ubuntu-latest' }}
+    continue-on-error: ${{ matrix.os == 'windows-latest'}}
 
     steps:
     - name: Checkout
@@ -60,7 +60,7 @@ jobs:
         git config --global user.name "Timothée Mazzucotelli"
 
     - name: Set up the project
-      run: pip install safety copier
+      run: pip install safety copier==${{ matrix.copier-version }}
 
     - name: Run the test suite
       run: make test
