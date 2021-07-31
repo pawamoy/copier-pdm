@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.3.3](https://github.com/pawamoy/copier-pdm/releases/tag/0.3.3) - 2021-07-31
+
+<small>[Compare with 0.3.2](https://github.com/pawamoy/copier-pdm/compare/0.3.2...0.3.3)</small>
+
+### Code Refactoring
+- Silmplify credits generation ([a47b30f](https://github.com/pawamoy/copier-pdm/commit/a47b30f34d4b19649e237bab7102d83368db036e) by Timothée Mazzucotelli).
+
+
 ## [0.3.2](https://github.com/pawamoy/copier-pdm/releases/tag/0.3.2) - 2021-06-07
 
 <small>[Compare with 0.3.1](https://github.com/pawamoy/copier-pdm/compare/0.3.1...0.3.2)</small>
