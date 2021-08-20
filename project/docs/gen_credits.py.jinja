@@ -2,9 +2,9 @@
 
 import functools
 import re
-import urllib
 from itertools import chain
 from pathlib import Path
+from urllib.request import urlopen
 
 import mkdocs_gen_files
 import toml
@@ -52,10 +52,10 @@ def get_credits():
         The credits page Markdown.
     """
     jinja_env = SandboxedEnvironment(undefined=StrictUndefined)
-    commit = "398879aba2a365049870709116a689618afeb5b7"
+    commit = "c78c29caa345b6ace19494a98b1544253cbaf8c1"
     template_url = f"https://raw.githubusercontent.com/pawamoy/jinja-templates/{commit}/credits.md"
     template_data = get_credits_data()
-    template_text = urllib.request.urlopen(template_url).read().decode("utf8")  # noqa: S310
+    template_text = urlopen(template_url).read().decode("utf8")  # noqa: S310
     return jinja_env.from_string(template_text).render(**template_data)
 
 
