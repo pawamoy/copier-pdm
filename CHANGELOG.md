@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.4.0](https://github.com/pawamoy/copier-pdm/releases/tag/0.4.0) - 2021-08-20
+
+<small>[Compare with 0.3.4](https://github.com/pawamoy/copier-pdm/compare/0.3.4...0.4.0)</small>
+
+### Features
+- Set up license classifier according to user's answers ([9e1ff5c](https://github.com/pawamoy/copier-pdm/commit/9e1ff5c4cab3b7711cc57b60eff4cda3051293b8) by Timothée Mazzucotelli).
+
+### Bug Fixes
+- Fix credits building ([bb9eacc](https://github.com/pawamoy/copier-pdm/commit/bb9eaccd15182dc39b1945c8c665c82fed5c5000) by Timothée Mazzucotelli).
+
+
 ## [0.3.4](https://github.com/pawamoy/copier-pdm/releases/tag/0.3.4) - 2021-08-01
 
 <small>[Compare with 0.3.3](https://github.com/pawamoy/copier-pdm/compare/0.3.3...0.3.4)</small>
