@@ -12,7 +12,77 @@ readme = "README.md"
 requires-python = ">=3.6"
 keywords = []
 dynamic = ["version", "classifiers"]
-classifiers = ["Development Status :: 4 - Beta"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    [%- if copyright_license == "Academic Free License v3.0" %]
+    "License :: OSI Approved :: Academic Free License (AFL)",
+    [%- elif copyright_license == "Apache License 2.0" %]
+    "License :: OSI Approved :: Apache Software License",
+    [%- elif copyright_license == "Artistic License 2.0" %]
+    "License :: OSI Approved :: Artistic License",
+    [%- elif copyright_license == "BSD 2-Clause \"Simplified\" License" %]
+    "License :: OSI Approved :: BSD License",
+    [%- elif copyright_license == "BSD 3-Clause Clear License" %]
+    "License :: OSI Approved :: BSD License",
+    [%- elif copyright_license == "BSD 3-Clause \"New\" or \"Revised\" License" %]
+    "License :: OSI Approved :: BSD License",
+    [%- elif copyright_license == "Boost Software License 1.0" %]
+    "License :: OSI Approved :: Boost Software License 1.0 (BSL-1.0)",
+    [%- elif copyright_license == "Creative Commons Attribution 4.0" %]
+    "License :: OSI Approved :: Common Public License",
+    [%- elif copyright_license == "Creative Commons Attribution Share Alike 4.0" %]
+    "License :: OSI Approved :: Common Public License",
+    [%- elif copyright_license == "Creative Commons Zero v1.0 Universal" %]
+    "License :: OSI Approved :: Common Public License",
+    [%- elif copyright_license == "Do What The F*ck You Want To Public License" %]
+    "License :: Other/Proprietary License",
+    [%- elif copyright_license == "Educational Community License v2.0" %]
+    "License :: Other/Proprietary License",
+    [%- elif copyright_license == "Eclipse Public License 1.0" %]
+    "License :: OSI Approved :: Eclipse Public License 1.0 (EPL-1.0)",
+    [%- elif copyright_license == "Eclipse Public License 2.0" %]
+    "License :: OSI Approved :: Eclipse Public License 2.0 (EPL-2.0)",
+    [%- elif copyright_license == "European Union Public License 1.1" %]
+    "License :: OSI Approved :: European Union Public Licence 1.1 (EUPL 1.1)",
+    [%- elif copyright_license == "European Union Public License 1.2" %]
+    "License :: OSI Approved :: European Union Public Licence 1.2 (EUPL 1.2)",
+    [%- elif copyright_license == "GNU Affero General Public License v3.0" %]
+    "License :: OSI Approved :: GNU Affero General Public License v3",
+    [%- elif copyright_license == "GNU General Public License v2.0" %]
+    "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
+    [%- elif copyright_license == "GNU General Public License v3.0" %]
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    [%- elif copyright_license == "GNU Lesser General Public License v2.1" %]
+    "License :: OSI Approved :: GNU Lesser General Public License v2 (LGPLv2)",
+    [%- elif copyright_license == "GNU Lesser General Public License v3.0" %]
+    "License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)",
+    [%- elif copyright_license == "ISC License" %]
+    "License :: OSI Approved :: ISC License (ISCL)",
+    [%- elif copyright_license == "LaTeX Project Public License v1.3c" %]
+    "License :: Other/Proprietary License",
+    [%- elif copyright_license == "MIT License" %]
+    "License :: OSI Approved :: MIT License",
+    [%- elif copyright_license == "Mozilla Public License 2.0" %]
+    "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)",
+    [%- elif copyright_license == "Microsoft Public License" %]
+    "License :: Other/Proprietary License",
+    [%- elif copyright_license == "Microsoft Reciprocal License" %]
+    "License :: Other/Proprietary License",
+    [%- elif copyright_license == "University of Illinois/NCSA Open Source License" %]
+    "License :: OSI Approved :: University of Illinois/NCSA Open Source License",
+    [%- elif copyright_license == "SIL Open Font License 1.1" %]
+    "License :: OSI Approved :: SIL Open Font License 1.1 (OFL-1.1)",
+    [%- elif copyright_license == "Open Software License 3.0" %]
+    "License :: OSI Approved :: Open Software License 3.0 (OSL-3.0)",
+    [%- elif copyright_license == "PostgreSQL License" %]
+    "License :: OSI Approved :: PostgreSQL License",
+    [%- elif copyright_license == "The Unlicense" %]
+    "License :: OSI Approved :: The Unlicense (Unlicense)",
+    [%- elif copyright_license == "zlib License" %]
+    "License :: OSI Approved :: zlib/libpng License",
+    [%- endif %]
+    "Typing :: Typed",
+]
 dependencies = []
 
 [project.urls]
