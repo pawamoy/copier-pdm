@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.4.1](https://github.com/pawamoy/copier-pdm/releases/tag/0.4.1) - 2021-08-20
+
+<small>[Compare with 0.4.0](https://github.com/pawamoy/copier-pdm/compare/0.4.0...0.4.1)</small>
+
+### Code Refactoring
+- Use new PDM 'group' option ('section' is deprecated) ([4e4f5fb](https://github.com/pawamoy/copier-pdm/commit/4e4f5fb85dff71e780986d14b7945ecf351ed67b) by Timothée Mazzucotelli).
+
+
 ## [0.4.0](https://github.com/pawamoy/copier-pdm/releases/tag/0.4.0) - 2021-08-20
 
 <small>[Compare with 0.3.4](https://github.com/pawamoy/copier-pdm/compare/0.3.4...0.4.0)</small>
