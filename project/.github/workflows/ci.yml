@@ -51,7 +51,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pdm install -s duty -s docs -s quality -s typing
+        pdm install -G duty -G docs -G quality -G typing
         pip install safety
 
     - name: Check if the documentation builds correctly
@@ -99,7 +99,7 @@ jobs:
         key: tests-cache-${{ runner.os }}-${{ matrix.python-version }}
 
     - name: Install dependencies
-      run: pdm install -s duty -s tests
+      run: pdm install -G duty -G tests
 
     - name: Run the test suite
       run: pdm run duty test
