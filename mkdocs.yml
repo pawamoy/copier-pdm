@@ -60,3 +60,6 @@ extra:
     link: https://github.com/pawamoy
   - icon: fontawesome/brands/twitter
     link: https://twitter.com/pawamoy
+
+extra_css:
+  - css/custom.css
