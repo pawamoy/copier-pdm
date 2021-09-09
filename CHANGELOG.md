@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.4.3](https://github.com/pawamoy/copier-pdm/releases/tag/0.4.3) - 2021-09-09
+
+<small>[Compare with 0.4.2](https://github.com/pawamoy/copier-pdm/compare/0.4.2...0.4.3)</small>
+
+### Code Refactoring
+- Add more space at bottom of docs pages ([2fd54b1](https://github.com/pawamoy/copier-pdm/commit/2fd54b175957c1a74b8bd5201bc3f43c1a831f29) by Victor B).
+
+
 ## [0.4.2](https://github.com/pawamoy/copier-pdm/releases/tag/0.4.2) - 2021-09-09
 
 <small>[Compare with 0.4.1](https://github.com/pawamoy/copier-pdm/compare/0.4.1...0.4.2)</small>
