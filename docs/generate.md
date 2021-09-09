@@ -274,7 +274,7 @@ At this point, Copier will generate the project in the specified directory:
     create  .github/ISSUE_TEMPLATE/bug_report.md
 
  > Running task 1 of 1: python scripts/post_generation.py
-Project sucessfully generated!
+Project successfully generated!
 Run `make` to show the available actions.
 ```
 
