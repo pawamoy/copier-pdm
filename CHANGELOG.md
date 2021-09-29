@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.4.4](https://github.com/pawamoy/copier-pdm/releases/tag/0.4.4) - 2021-09-29
+
+<small>[Compare with 0.4.3](https://github.com/pawamoy/copier-pdm/compare/0.4.3...0.4.4)</small>
+
+### Code Refactoring
+- Add Python 3.10 and 3.11 to locally used versions ([94a1150](https://github.com/pawamoy/copier-pdm/commit/94a1150a68baea7eb5079f729bdf860b9e725985) by Timothée Mazzucotelli).
+- Prevent float conversion of Python versions ([5e97e87](https://github.com/pawamoy/copier-pdm/commit/5e97e87e504fdcfd59ad2e9f41b148dcfc0ef06a) by Timothée Mazzucotelli).
+- Improve detection of Python interpreters ([5dab9e5](https://github.com/pawamoy/copier-pdm/commit/5dab9e5c0de223ce3b7e2e459f1a9afdd70970c2) by Timothée Mazzucotelli).
+
+
 ## [0.4.3](https://github.com/pawamoy/copier-pdm/releases/tag/0.4.3) - 2021-09-09
 
 <small>[Compare with 0.4.2](https://github.com/pawamoy/copier-pdm/compare/0.4.2...0.4.3)</small>
