@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.5.0](https://github.com/pawamoy/copier-pdm/releases/tag/0.5.0) - 2021-11-14
+
+### Features
+- Add make lock recipe ([1d88d93](https://github.com/pawamoy/copier-pdm/commit/1d88d939dca22120d12e3b8143da7efd77015e1e) by Timothée Mazzucotelli).
+
+<small>[Compare with 0.4.4](https://github.com/pawamoy/copier-pdm/compare/0.4.4...0.5.0)</small>
+
+### Code Refactoring
+- Add Python 3.11-dev in CI ([281e038](https://github.com/pawamoy/copier-pdm/commit/281e038949a0bd98bcff79921e19bda08989c65e) by Timothée Mazzucotelli).
+- Add Python 3.10 in CI ([47e381d](https://github.com/pawamoy/copier-pdm/commit/47e381dd46e3f7e95c00185e903c97dd4a71e082) by Michael Ramsey).
+- Run dependencies check only once ([3278aec](https://github.com/pawamoy/copier-pdm/commit/3278aecbf37e728e409087eaccf09ffa11ade18e) by Timothée Mazzucotelli).
+- Upgrade dev-dependencies ([9f14bb6](https://github.com/pawamoy/copier-pdm/commit/9f14bb66d0616c2ba770f6df0a1c353fd5e0b986) by Timothée Mazzucotelli).
+- Rename check-code-quality to check-quality ([9ae0489](https://github.com/pawamoy/copier-pdm/commit/9ae0489964bb53e3e960f5f48299c8326111582e) by Timothée Mazzucotelli).
+
+
 ## [0.4.4](https://github.com/pawamoy/copier-pdm/releases/tag/0.4.4) - 2021-09-29
 
 <small>[Compare with 0.4.3](https://github.com/pawamoy/copier-pdm/compare/0.4.3...0.4.4)</small>
