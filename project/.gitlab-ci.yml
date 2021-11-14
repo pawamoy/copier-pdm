@@ -68,7 +68,7 @@ python3.9:
 
 python3.10:
   <<: *test
-  image: python:3.10.0
+  image: python:3.10
 
 pages:
   stage: deploy
@@ -88,4 +88,4 @@ pages:
     paths:
     - public
   only:
-  - main
+  - master
