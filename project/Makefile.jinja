@@ -11,6 +11,7 @@ test_args = match
 
 BASIC_DUTIES = \
 	changelog \
+	check-dependencies \
 	clean \
 	coverage \
 	docs \
@@ -26,7 +27,6 @@ BASIC_DUTIES = \
 QUALITY_DUTIES = \
 	check \
 	check-quality \
-	check-dependencies \
 	check-docs \
 	check-types \
 	test
@@ -42,6 +42,11 @@ lock:
 .PHONY: setup
 setup:
 	@bash scripts/setup.sh
+
+.PHONY: check
+check:
+	@bash scripts/multirun.sh duty check-quality check-types check-docs
+	@$(DUTY) check-dependencies
 
 .PHONY: $(BASIC_DUTIES)
 $(BASIC_DUTIES):
