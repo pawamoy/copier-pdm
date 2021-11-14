@@ -66,6 +66,5 @@ un-apply changes on whole files with `git checkout -- FILE`
 if they are not relevant,
 or do partial, interactive commits with `git add -p`
 or within your IDE interface
-(PyCharm at least has very good support and UX
+(PyCharm and VSCode have good support and UX
 for selecting and committing changes).
-

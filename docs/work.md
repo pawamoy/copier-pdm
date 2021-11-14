@@ -8,20 +8,20 @@ The generated project has this structure:
 ├── 📄 CODE_OF_CONDUCT.md --------- # 
 ├── 📁 config --------------------- # tools configuration files
 │   ├── 📄 coverage.ini ----------- # 
+│   ├── 📄 flake8.ini ------------- # 
 │   ├── 📄 mypy.ini --------------- # 
 │   └── 📄 pytest.ini ------------- # 
 ├── 📄 CONTRIBUTING.md ------------ # 
-├── 📄 CREDITS.md ----------------- # 
 ├── 📁 docs ----------------------- # documentation pages
 │   ├── 📄 changelog.md ----------- # 
 │   ├── 📄 code_of_conduct.md ----- # 
 │   ├── 📄 contributing.md -------- # 
-│   ├── 📄 credits.md ------------- # 
 │   ├── 📁 css -------------------- # extra CSS files
 │   │   └── 📄 mkdocstrings.css --- # 
+│   ├── 📄 gen_credits.py --------- # script to generate credits
+│   ├── 📄 gen_ref_nav.py --------- # script to generate code reference nav
 │   ├── 📄 index.md --------------- # 
-│   └── 📁 reference -------------- # code reference pages
-│       └── 📄 cli.md ------------- # 
+│   ├── 📄 license.md ------------- # 
 ├── 📄 duties.py ------------------ # the project's tasks
 ├── 📄 LICENSE -------------------- # 
 ├── 📄 Makefile ------------------- # 
@@ -53,7 +53,7 @@ under the `[project]`, `[project.optional-dependencies]`
 and `[tool.pdm.dev-dependencies]` sections.
 Example:
 
-```toml
+```toml title="pyproject.toml"
 [project]
 dependencies = [
   "fastapi~=1.0",
@@ -65,15 +65,15 @@ You can write them there manually, or use the commands provided by PDM:
 
 ```bash
 pdm add numpy  # add as a required dependency
-pdm add -s math numpy  # add as an optional dependency in the "math" section
-pdm add -d numpy  # or add as a development dependency in the "dev" section
-pdm add -ds stats numpy  # or add as a development dependency in the "stats" section
+pdm add -G math numpy  # add as an optional dependency in the "math" group
+pdm add -d numpy  # or add as a development dependency in the "dev" group
+pdm add -dG stats numpy  # or add as a development dependency in the "stats" group
 
 # the "remove" equivalent
 pdm remove numpy
-pdm remove -s math numpy
+pdm remove -G math numpy
 pdm remove -d numpy
-pdm remove -ds stats numpy
+pdm remove -dG stats numpy
 ```
 
 - Use `pdm update` the re-lock the dependencies
@@ -94,7 +94,7 @@ and decorated with the `@duty` decorator.
 
 Example:
 
-```python
+```python title="duties.py"
 @duty
 def check_docs(ctx):
     """Check if the documentation builds correctly."""
@@ -140,7 +140,7 @@ Available tasks:
 
 A Makefile is available for convenience. It's just a shortcut to run duties.
 
-Available rules are the same, with two additional rules: `help` and `setup`.
+Available rules are the same, with additional rules: `help`, `lock` and `setup`.
 
 - `changelog`
 - `check`
@@ -153,6 +153,7 @@ Available rules are the same, with two additional rules: `help` and `setup`.
 - `docs`
 - `docs-serve`
 - `format`
+- `lock`
 - `release`
 - `setup`
 - `test`
@@ -235,18 +236,18 @@ run `make check-types`.
 ### check-quality
 
 The code quality analysis is done
-with [Flakehell](https://github.com/life4/flakehell),
-a wrapper around [Flake8](https://flake8.pycqa.org/en/latest/),
+with [Flake8](https://flake8.pycqa.org/en/latest/),
 and a battery of Flake8 plugins.
-The analysis is configured in `pyproject.toml`, section `[tool.flakehell]`.
+The analysis is configured in `config/flake8.ini`.
 In this file, you can deactivate rules
 or activate others to customize your analysis.
 Rules identifiers always start with one or more capital letters,
 like `D`, `S` or `BLK`, then followed by a number.
+
 You can ignore a rule on a specific code line by appending
 a `noqa` comment ("no quality analysis/assurance"):
 
-```python
+```python title="src/your_package/module.py"
 print("a code line that triggers a flake8 warning")  # noqa: ID
 ```
 
@@ -254,8 +255,7 @@ print("a code line that triggers a flake8 warning")  # noqa: ID
 
 Example:
 
-```python
-# src/your_package/module.py
+```python title="src/your_package/module.py"
 import subprocess
 ```
 
@@ -271,8 +271,7 @@ As a best-practice, and because rules identifiers
 are not self-explanatory, add a comment explaining
 why we ignore the warning:
 
-```python
-# module.py
+```python title="src/your_package/module.py"
 import subprocess  # noqa: S404 (we don't mind the security implications)
 ```
 
@@ -284,7 +283,7 @@ $ make check-quality
 You can disable multiple different warnings on a single line
 by separating them with commas:
 
-```python
+```python title="src/your_package/module.py"
 markdown_docstring = """
     Look at this docstring:
 
@@ -301,12 +300,10 @@ into the list in `pyproject.toml`, section `[tool.flakehell.plugins]`.
 
 You can also disable warnings per file, like so:
 
-```toml
-# in pyproject.toml
-[tool.flakehell.exceptions."src/your_package/your_module.py"]
-"*" = [
-    "-WPS407",  # mutable constant
-]
+```ini title="config/flake8.ini"
+per-file-ignores =
+    # mutable constant
+    src/your_package/your_module.py:WPS407
 ```
 
 ### check-dependencies
@@ -345,6 +342,13 @@ See the [Documentation section](#documentation) for more information.
 
 This action runs [`mypy`](http://mypy-lang.org/) on the source code
 to find potential typing errors.
+
+If you cannot or don't know how to fix a typing error in your code,
+as a last resort you can ignore this specific error with a comment:
+
+```python title="src/your_package/module.py"
+result = data_dict.get(key, None).value  # type: ignore
+```
 
 ## Tests
 
@@ -399,10 +403,10 @@ Results (0.76s):
 ## Continuous Integration
 
 The quality checks and tests are executed in parallel
-in a [GitHub Workflow](https://docs.github.com/en/enterprise-server@2.22/actions/reference/workflow-syntax-for-github-actions)
+in a [GitHub Workflow](https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions)
 or in [GitLab CI](https://docs.gitlab.com/ee/ci/).
 
-For GitHub, the CI is configured in `.github/ci/workflow.yml`,
+For GitHub, the CI is configured in `.github/workflows/ci.yml`,
 and for GitLab it's configured in `.gitlab-ci.yml`.
 
 To force a step to pass even when it fails,
@@ -572,7 +576,7 @@ For example, with these docs structure:
 
 ...you can have these navigation items in `mkdocs.yml`:
 
-```yaml
+```yaml title="mkdocs.yml"
 nav:
 - Overview: index.md
 - Code Reference:

@@ -72,7 +72,7 @@ copyright_holder_email:
 copyright_date:
   type: str
   help: The copyright date
-  default: "2020"
+  default: "2021"
 
 copyright_license:
   type: str

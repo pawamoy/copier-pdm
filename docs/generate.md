@@ -60,7 +60,7 @@ author_email? Format: str
 🎤 [None]: pawamoy@pm.me
 ```
 
-The full name will appear as "author email" in the project's metadata.
+The email will appear as "author email" in the project's metadata.
 
 ---
 
@@ -80,7 +80,6 @@ repository_provider? Format: str
 🎤
 (1) github.com
 (2) gitlab.com
-(3) bitbucket.org
 Choice [1]: 
 ```
 
@@ -136,7 +135,7 @@ It defaults to the email your provided.
 ```
 The copyright date
 copyright_date? Format: str
-🎤 [2020]: 
+🎤 [2021]: 
 ```
 
 The date to apply to the copyright.
