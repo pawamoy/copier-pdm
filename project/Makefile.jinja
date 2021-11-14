@@ -20,6 +20,7 @@ BASIC_DUTIES = \
 	docs-regen \
 	docs-serve \
 	format \
+	lock \
 	release
 
 QUALITY_DUTIES = \
@@ -33,6 +34,10 @@ QUALITY_DUTIES = \
 .PHONY: help
 help:
 	@$(DUTY) --list
+
+.PHONY: lock
+lock:
+	@pdm lock
 
 .PHONY: setup
 setup:
