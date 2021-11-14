@@ -3,10 +3,10 @@ name: ci
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
     branches:
-      - main
+      - master
 
 defaults:
   run:
@@ -79,7 +79,7 @@ jobs:
         - "3.7"
         - "3.8"
         - "3.9"
-        - "3.10.0"
+        - "3.10"
 
     runs-on: ${{ matrix.os }}
 
