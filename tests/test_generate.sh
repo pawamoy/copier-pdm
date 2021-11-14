@@ -50,7 +50,7 @@ echo ">>> Running initial quality checks"
 make --no-print-directory check
 echo
 echo ">>> Formatting, and re-running quality checks"
-make --no-print-directory format check-code-quality
+make --no-print-directory format check-quality
 echo
 echo ">>> Running tests"
 make --no-print-directory test

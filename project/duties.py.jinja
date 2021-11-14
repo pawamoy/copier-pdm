@@ -105,7 +105,7 @@ def changelog(ctx):
     )
 
 
-@duty(pre=["check_code_quality", "check_types", "check_docs", "check_dependencies"])
+@duty(pre=["check_quality", "check_types", "check_docs", "check_dependencies"])
 def check(ctx):
     """
     Check it all!
@@ -116,7 +116,7 @@ def check(ctx):
 
 
 @duty
-def check_code_quality(ctx, files=PY_SRC):
+def check_quality(ctx, files=PY_SRC):
     """
     Check the code quality.
 

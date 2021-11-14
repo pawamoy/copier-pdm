@@ -28,9 +28,9 @@ check-docs:
   <<: *quality
   script: pdm run duty check-docs
 
-check-code-quality:
+check-quality:
   <<: *quality
-  script: pdm run duty check-code-quality
+  script: pdm run duty check-quality
 
 check-types:
   <<: *quality

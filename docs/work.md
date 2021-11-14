@@ -111,8 +111,8 @@ Available tasks:
   See [the Changelog section](#changelog).
 - `check`: Check it all!
   See [the Quality Analysis section](#quality-analysis).
-- `check-code-quality`: Check the code quality.
-  See [the check-code-quality section](#check-code-quality).
+- `check-quality`: Check the code quality.
+  See [the check-quality section](#check-quality).
 - `check-dependencies`: Check for vulnerabilities in dependencies.
   See [the check-dependencies section](#check-dependencies).
 - `check-docs`: Check if the documentation builds correctly.
@@ -144,7 +144,7 @@ Available rules are the same, with two additional rules: `help` and `setup`.
 
 - `changelog`
 - `check`
-- `check-code-quality`
+- `check-quality`
 - `check-dependencies`
 - `check-docs`
 - `check-types`
@@ -224,7 +224,7 @@ make check
 
 This action is actually a composition of several checks:
 
-- `check-code-quality`: Check the code quality.
+- `check-quality`: Check the code quality.
 - `check-dependencies`: Check for vulnerabilities in dependencies.
 - `check-docs`: Check if the documentation builds correctly.
 - `check-types`: Check if the code is correctly typed.
@@ -232,7 +232,7 @@ This action is actually a composition of several checks:
 For example, if you are only interested in checking types,
 run `make check-types`.
 
-### check-code-quality
+### check-quality
 
 The code quality analysis is done
 with [Flakehell](https://github.com/life4/flakehell),
@@ -260,7 +260,7 @@ import subprocess
 ```
 
 ```console
-$ make check-code-quality
+$ make check-quality
 ✗ Checking code quality (1)
   > flake8 --config=config/flake8.ini src/ tests/ scripts/
   src/your_package/module.py:2:1: S404 Consider possible security implications associated with subprocess module.
@@ -277,7 +277,7 @@ import subprocess  # noqa: S404 (we don't mind the security implications)
 ```
 
 ```console
-$ make check-code-quality
+$ make check-quality
 ✓ Checking code quality
 ```
 
