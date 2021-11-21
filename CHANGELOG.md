@@ -4,12 +4,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.6.0](https://github.com/pawamoy/copier-pdm/releases/tag/0.6.0) - 2021-11-21
+
+<small>[Compare with 0.5.0](https://github.com/pawamoy/copier-pdm/compare/0.5.0...0.6.0)</small>
+
+### Features
+- Support stubs for typing checks ([6482a6b](https://github.com/pawamoy/copier-pdm/commit/6482a6b3f0e3e7349341c4c78f9dcfe23e67872b) by Timothée Mazzucotelli).
+
+### Code Refactoring
+- Support depending on safety directly ([94a1ce6](https://github.com/pawamoy/copier-pdm/commit/94a1ce62b27a39f1785aabab7ad61b8dd963bbc2) by Timothée Mazzucotelli).
+
+
 ## [0.5.0](https://github.com/pawamoy/copier-pdm/releases/tag/0.5.0) - 2021-11-14
+
+<small>[Compare with 0.4.4](https://github.com/pawamoy/copier-pdm/compare/0.4.4...0.5.0)</small>
 
 ### Features
 - Add make lock recipe ([1d88d93](https://github.com/pawamoy/copier-pdm/commit/1d88d939dca22120d12e3b8143da7efd77015e1e) by Timothée Mazzucotelli).
-
-<small>[Compare with 0.4.4](https://github.com/pawamoy/copier-pdm/compare/0.4.4...0.5.0)</small>
 
 ### Code Refactoring
 - Add Python 3.11-dev in CI ([281e038](https://github.com/pawamoy/copier-pdm/commit/281e038949a0bd98bcff79921e19bda08989c65e) by Timothée Mazzucotelli).
