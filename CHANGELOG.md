@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.7.0](https://github.com/pawamoy/copier-pdm/releases/tag/0.7.0) - 2021-11-30
+
+<small>[Compare with 0.6.1](https://github.com/pawamoy/copier-pdm/compare/0.6.1...0.7.0)</small>
+
+### Features
+- Add gitpod configuration ([88b9e54](https://github.com/pawamoy/copier-pdm/commit/88b9e5458aef3fa020f802127250a14381e57083) by Timothée Mazzucotelli).
+
+
 ## [0.6.1](https://github.com/pawamoy/copier-pdm/releases/tag/0.6.1) - 2021-11-30
 
 <small>[Compare with 0.6.0](https://github.com/pawamoy/copier-pdm/compare/0.6.0...0.6.1)</small>
