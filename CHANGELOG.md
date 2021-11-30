@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.6.1](https://github.com/pawamoy/copier-pdm/releases/tag/0.6.1) - 2021-11-30
+
+<small>[Compare with 0.6.0](https://github.com/pawamoy/copier-pdm/compare/0.6.0...0.6.1)</small>
+
+### Code Refactoring
+- Prepare for strict PEP 621, add classifiers ([d886bc1](https://github.com/pawamoy/copier-pdm/commit/d886bc10d207213fa4b106b842071ca2f882b1a3) by Timothée Mazzucotelli).
+- Ignore D417 (does not support parameters sections) ([7198ec4](https://github.com/pawamoy/copier-pdm/commit/7198ec47da04c2a2e49f1678a19e6b28bd073c9f) by Timothée Mazzucotelli).
+
+
 ## [0.6.0](https://github.com/pawamoy/copier-pdm/releases/tag/0.6.0) - 2021-11-21
 
 <small>[Compare with 0.5.0](https://github.com/pawamoy/copier-pdm/compare/0.5.0...0.6.0)</small>
