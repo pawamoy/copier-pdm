@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.7.1](https://github.com/pawamoy/copier-pdm/releases/tag/0.7.1) - 2021-12-15
+
+<small>[Compare with 0.7.0](https://github.com/pawamoy/copier-pdm/compare/0.7.0...0.7.1)</small>
+
+### Code Refactoring
+- Remove dependencies upper bounds ([89f6df5](https://github.com/pawamoy/copier-pdm/commit/89f6df50db9bbfbd6a4d8788dae5e2a5ede6a6a9) by Timothée Mazzucotelli). See https://iscinumpy.dev/post/bound-version-constraints/.
+
+
 ## [0.7.0](https://github.com/pawamoy/copier-pdm/releases/tag/0.7.0) - 2021-11-30
 
 <small>[Compare with 0.6.1](https://github.com/pawamoy/copier-pdm/compare/0.6.1...0.7.0)</small>
