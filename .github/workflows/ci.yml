@@ -24,9 +24,19 @@ jobs:
     strategy:
       max-parallel: 6
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-        python-version: [3.6,3.7,3.8,3.9]
-        copier-version: [5.1.0, 6.0.0a6]
+        os:
+        - ubuntu-latest
+        - macos-latest
+        - windows-latest
+        python-version:
+        - "3.7"
+        - "3.8"
+        - "3.9"
+        - "3.10"
+        - "3.11-dev"
+        copier-version:
+        - "5.1.0"
+        - "6.0.0a9"
 
     runs-on: ${{ matrix.os }}
     continue-on-error: ${{ matrix.os == 'windows-latest'}}
@@ -60,7 +70,7 @@ jobs:
         git config --global user.name "Timothée Mazzucotelli"
 
     - name: Set up the project
-      run: pip install safety copier==${{ matrix.copier-version }}
+      run: pip install copier==${{ matrix.copier-version }}
 
     - name: Run the test suite
       run: make test
