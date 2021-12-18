@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.8.1](https://github.com/pawamoy/copier-pdm/releases/tag/0.8.1) - 2021-12-18
+
+<small>[Compare with 0.8.0](https://github.com/pawamoy/copier-pdm/compare/0.8.0...0.8.1)</small>
+
+### Code Refactoring
+- Use section index to improve reference navigation ([2ec50a4](https://github.com/pawamoy/copier-pdm/commit/2ec50a45ff2211ccbc19f5b2c4e283540e5499ea) by Timothée Mazzucotelli).
+- Remove useless markers ([ceb534b](https://github.com/pawamoy/copier-pdm/commit/ceb534be820abe223db8734ab710d2f31f2f897a) by Timothée Mazzucotelli).
+
+
 ## [0.8.0](https://github.com/pawamoy/copier-pdm/releases/tag/0.8.0) - 2021-12-18
 
 <small>[Compare with 0.7.3](https://github.com/pawamoy/copier-pdm/compare/0.7.3...0.8.0)</small>
