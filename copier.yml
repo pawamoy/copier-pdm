@@ -1,4 +1,14 @@
 # CONFIGURATION -------------------------
+_min_copier_version: "5.1.0"
+_envops:
+  autoescape: false
+  block_end_string: "%}"
+  block_start_string: "{%"
+  comment_end_string: "#}"
+  comment_start_string: "{#"
+  keep_trailing_newline: true
+  variable_end_string: "}}"
+  variable_start_string: "{{"
 _subdirectory: project
 _templates_suffix: .jinja
 _skip_if_exists:
@@ -52,22 +62,22 @@ repository_provider:
 repository_namespace:
   type: str
   help: Your repository namespace
-  default: "[[ author_username ]]"
+  default: "{{ author_username }}"
 
 repository_name:
   type: str
   help: Your repository name
-  default: "[[ project_name|lower|replace('_', '-')|replace(' ', '-') ]]"
+  default: "{{ project_name|lower|replace('_', '-')|replace(' ', '-') }}"
 
 copyright_holder:
   type: str
   help: The name of the person/entity holding the copyright
-  default: "[[ author_fullname ]]"
+  default: "{{ author_fullname }}"
 
 copyright_holder_email:
   type: str
   help: The email of the person/entity holding the copyright
-  default: "[[ author_email ]]"
+  default: "{{ author_email }}"
 
 copyright_date:
   type: str
@@ -116,17 +126,17 @@ copyright_license:
 python_package_distribution_name:
   type: str
   help: Your Python package distribution name (for `pip install NAME`)
-  default: "[[ project_name|lower|replace('_', '-')|replace(' ', '-') ]]"
+  default: "{{ project_name|lower|replace('_', '-')|replace(' ', '-') }}"
 
 python_package_import_name:
   type: str
   help: Your Python package import name (for `import NAME` in Python code)
-  default: "[[ project_name|lower|replace('-', '_')|replace(' ', '_') ]]"
+  default: "{{ project_name|lower|replace('-', '_')|replace(' ', '_') }}"
 
 python_package_command_line_name:
   type: str
   help: Your CLI name if any (for use in the shell)
-  default: "[[ project_name|lower|replace('_', '-')|replace(' ', '-') ]]"
+  default: "{{ project_name|lower|replace('_', '-')|replace(' ', '-') }}"
 
 use_precommit:
   type: bool

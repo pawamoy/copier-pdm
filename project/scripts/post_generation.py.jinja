@@ -22,7 +22,7 @@ def rmdir(path):
 
 
 def clean_up_providers():
-    provider = "[[ repository_provider ]]"
+    provider = "{{ repository_provider }}"
     if provider == "github.com":
         rm(".gitlab-ci.yml")
     elif provider == "gitlab.com":
@@ -30,7 +30,7 @@ def clean_up_providers():
 
 
 def clean_up_precommit():
-    use_precommit = [[ use_precommit ]]
+    use_precommit = {{ use_precommit }}
     if not use_precommit:
         rm(".pre-commit-config.yaml")
 

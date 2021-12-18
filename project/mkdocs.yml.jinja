@@ -1,9 +1,9 @@
-site_name: "[[ project_name ]]"
-site_description: "[[ project_description ]]"
-site_url: "https://[[ repository_namespace ]].[[ repository_provider.rsplit('.', 1)[0] ]].io/[[ repository_name ]]"
-repo_url: "https://[[ repository_provider ]]/[[ repository_namespace ]]/[[ repository_name ]]"
-repo_name: "[[ repository_namespace ]]/[[ repository_name ]]"
-site_dir: "[% if repository_provider == 'gitlab.com' %]public[% elif repository_provider == 'github.com' %]site[% endif %]"
+site_name: "{{ project_name }}"
+site_description: "{{ project_description }}"
+site_url: "https://{{ repository_namespace }}.{{ repository_provider.rsplit('.', 1)[0] }}.io/{{ repository_name }}"
+repo_url: "https://{{ repository_provider }}/{{ repository_namespace }}/{{ repository_name }}"
+repo_name: "{{ repository_namespace }}/{{ repository_name }}"
+site_dir: "{% if repository_provider == 'gitlab.com' %}public{% elif repository_provider == 'github.com' %}site{% endif %}"
 
 nav:
 - Home:
@@ -17,16 +17,16 @@ nav:
   - Contributing: contributing.md
   - Code of Conduct: code_of_conduct.md
   - Coverage report: coverage.md
-[%- if author_username == "pawamoy" %]
-- Author's website: https://[[ author_username ]].[[ repository_provider.rsplit('.', 1)[0] ]].io/
-[%- endif %]
+{%- if author_username == "pawamoy" %}
+- Author's website: https://{{ author_username }}.{{ repository_provider.rsplit('.', 1)[0] }}.io/
+{%- endif %}
 
 theme:
   name: material
-  [%- if author_username == "pawamoy" %]
+  {%- if author_username == "pawamoy" %}
   icon:
     logo: material/currency-sign
-  [%- endif %]
+  {%- endif %}
   features:
   - navigation.tabs
   - navigation.top
@@ -60,7 +60,7 @@ markdown_extensions:
 - pymdownx.tabbed
 - pymdownx.tasklist
 - toc:
-    permalink: [% if author_username == "pawamoy" %]"¤"[% else %]true[% endif %]
+    permalink: {% if author_username == "pawamoy" %}"¤"{% else %}true{% endif %}
 
 plugins:
 - search
@@ -73,13 +73,13 @@ plugins:
 - coverage
 - mkdocstrings:
     watch:
-    - src/[[ python_package_import_name ]]
+    - src/{{ python_package_import_name }}
 
 extra:
   social:
-  - icon: fontawesome/brands/[[ repository_provider.rsplit(".", 1)[0] ]]
-    link: https://[[ repository_provider ]]/[[ author_username ]]
-  [%- if author_username == "pawamoy" %]
+  - icon: fontawesome/brands/{{ repository_provider.rsplit(".", 1)[0] }}
+    link: https://{{ repository_provider }}/{{ author_username }}
+  {%- if author_username == "pawamoy" %}
   - icon: fontawesome/brands/twitter
-    link: https://twitter.com/[[ author_username ]]
-  [%- endif %]
+    link: https://twitter.com/{{ author_username }}
+  {%- endif %}

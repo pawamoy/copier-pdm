@@ -38,9 +38,9 @@ def get_credits_data() -> dict:
         "project_name": project_name,
         "direct_dependencies": sorted(direct_dependencies),
         "indirect_dependencies": sorted(indirect_dependencies),
-        [%- if author_username == "pawamoy" %]
+        {%- if author_username == "pawamoy" %}
         "more_credits": "http://pawamoy.github.io/credits/",
-        [%- endif %]
+        {%- endif %}
     }
 
 

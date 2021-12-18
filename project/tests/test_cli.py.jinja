@@ -2,7 +2,7 @@
 
 import pytest
 
-from [[ python_package_import_name ]] import cli
+from {{ python_package_import_name }} import cli
 
 
 def test_main():
@@ -20,4 +20,4 @@ def test_show_help(capsys):
     with pytest.raises(SystemExit):
         cli.main(["-h"])
     captured = capsys.readouterr()
-    assert "[[ python_package_command_line_name ]]" in captured.out
+    assert "{{ python_package_command_line_name }}" in captured.out
