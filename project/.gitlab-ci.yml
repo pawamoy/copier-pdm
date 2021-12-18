@@ -21,7 +21,7 @@ stages:
 
 .quality-template: &quality
   <<: *install-deps
-  image: python:3.6
+  image: python:3.8
   stage: quality
 
 check-docs:
@@ -50,10 +50,6 @@ check-dependencies:
     paths:
     - .coverage-*
 
-python3.6:
-  <<: *test
-  image: python:3.6
-
 python3.7:
   <<: *test
   image: python:3.7
@@ -77,9 +73,8 @@ python3.11:
 pages:
   stage: deploy
   <<: *install-deps
-  image: python:3.6
+  image: python:3.8
   dependencies:
-  - python3.6
   - python3.7
   - python3.8
   - python3.9
