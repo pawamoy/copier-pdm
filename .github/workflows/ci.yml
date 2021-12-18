@@ -39,7 +39,7 @@ jobs:
         - "6.0.0a9"
 
     runs-on: ${{ matrix.os }}
-    continue-on-error: ${{ matrix.os == 'windows-latest'}}
+    continue-on-error: ${{ matrix.os == 'windows-latest' || matrix.python-version == '3.11-dev'}}
 
     steps:
     - name: Checkout
