@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.8.0](https://github.com/pawamoy/copier-pdm/releases/tag/0.8.0) - 2021-12-18
+
+<small>[Compare with 0.7.3](https://github.com/pawamoy/copier-pdm/compare/0.7.3...0.8.0)</small>
+
+### Features
+- Support Copier v6 (while keeping support for v5) ([918bc1a](https://github.com/pawamoy/copier-pdm/commit/918bc1a4429e76ccf79077f8633d58c3c3519660) by Timothée Mazzucotelli).
+
+### Code Refactoring
+- Drop support for Python 3.6 ([d248116](https://github.com/pawamoy/copier-pdm/commit/d248116eabbf662502251beb7660994ba052585d) by Timothée Mazzucotelli).
+
+
 ## [0.7.3](https://github.com/pawamoy/copier-pdm/releases/tag/0.7.3) - 2021-12-16
 
 <small>[Compare with 0.7.2](https://github.com/pawamoy/copier-pdm/compare/0.7.2...0.7.3)</small>
