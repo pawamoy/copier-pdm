@@ -6,10 +6,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [0.9.0](https://github.com/pawamoy/copier-pdm/releases/tag/0.9.0) - 2022-02-04
 
-<small>[Compare with 0.8.0](https://github.com/pawamoy/copier-pdm/compare/0.8.0...0.9.0)</small>
+<small>[Compare with 0.8.1](https://github.com/pawamoy/copier-pdm/compare/0.8.1...0.9.0)</small>
 
 ### Features
 - Restore the PDM-selected Python interpreter after a multi-run ([d664759](https://github.com/pawamoy/copier-pdm/commit/d664759ac02d781dbb06fb7cab152ce617d22a28) by Timothée Mazzucotelli).
+
+### Bug Fixes
+- Add missing section-index plugin in mkdocs.yml ([611e99b](https://github.com/pawamoy/copier-pdm/commit/611e99b5398b0369d8517155eba252d9f72bc462) by Timothée Mazzucotelli).
+
+
+## [0.8.1](https://github.com/pawamoy/copier-pdm/releases/tag/0.8.1) - 2021-12-18
+
+<small>[Compare with 0.8.0](https://github.com/pawamoy/copier-pdm/compare/0.8.0...0.8.1)</small>
 
 ### Code Refactoring
 - Use section index to improve reference navigation ([2ec50a4](https://github.com/pawamoy/copier-pdm/commit/2ec50a45ff2211ccbc19f5b2c4e283540e5499ea) by Timothée Mazzucotelli).
