@@ -4,12 +4,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.9.1](https://github.com/pawamoy/copier-pdm/releases/tag/0.9.1) - 2022-02-18
+
+<small>[Compare with 0.9.0](https://github.com/pawamoy/copier-pdm/compare/0.9.0...0.9.1)</small>
+
+### Bug Fixes
+- Fix docs tabs and pypi badge ([d7b0f3a](https://github.com/pawamoy/copier-pdm/commit/d7b0f3aba49a7c6f2807e56b9804d680e286edf6) by Timothée Mazzucotelli).
+- Fix jinja "undefined" error when user is not "pawamoy" ([01dcf3b](https://github.com/pawamoy/copier-pdm/commit/01dcf3b3f32f38e77e48c20a8c21e66c6674fed5) by Francisco Perez-Sorrosal). [Issue #17](https://github.com/pawamoy/copier-pdm/issues/17), [PR #18](https://github.com/pawamoy/copier-pdm/issues/18)
+
+
 ## [0.9.0](https://github.com/pawamoy/copier-pdm/releases/tag/0.9.0) - 2022-02-04
 
 <small>[Compare with 0.8.0](https://github.com/pawamoy/copier-pdm/compare/0.8.0...0.9.0)</small>
 
 ### Features
-- Restore the PDM-selected Python interpreter after a multi-run ([d664759](https://github.com/pawamoy/copier-pdm/commit/d664759ac02d781dbb06fb7cab152ce617d22a28) by Timothée Mazzucotelli).
+- Restore the pdm-selected python interpreter after a multi-run ([d664759](https://github.com/pawamoy/copier-pdm/commit/d664759ac02d781dbb06fb7cab152ce617d22a28) by Timothée Mazzucotelli).
+
+### Bug Fixes
+- Add missing section-index plugin in mkdocs.yml ([611e99b](https://github.com/pawamoy/copier-pdm/commit/611e99b5398b0369d8517155eba252d9f72bc462) by Timothée Mazzucotelli).
 
 ### Code Refactoring
 - Use section index to improve reference navigation ([2ec50a4](https://github.com/pawamoy/copier-pdm/commit/2ec50a45ff2211ccbc19f5b2c4e283540e5499ea) by Timothée Mazzucotelli).
