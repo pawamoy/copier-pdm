@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.9.3](https://github.com/pawamoy/copier-pdm/releases/tag/0.9.3) - 2022-02-19
+
+<small>[Compare with 0.9.2](https://github.com/pawamoy/copier-pdm/compare/0.9.2...0.9.3)</small>
+
+### Bug Fixes
+- Fix (really) PyPI badge ([d7dc73f](https://github.com/pawamoy/copier-pdm/commit/d7dc73fb6cdba9d886ec8e72b247a43d7265c102) by Timothée Mazzucotelli).
+
+### Code Refactoring
+- Also save and restore interpreter in setup script ([c7887a7](https://github.com/pawamoy/copier-pdm/commit/c7887a7fc4fbcb61f6e6d56301f9cba8defabee0) by Timothée Mazzucotelli).
+
+
 ## [0.9.2](https://github.com/pawamoy/copier-pdm/releases/tag/0.9.2) - 2022-02-19
 
 <small>[Compare with 0.9.1](https://github.com/pawamoy/copier-pdm/compare/0.9.1...0.9.2)</small>
