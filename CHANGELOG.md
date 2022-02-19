@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.9.2](https://github.com/pawamoy/copier-pdm/releases/tag/0.9.2) - 2022-02-19
+
+<small>[Compare with 0.9.1](https://github.com/pawamoy/copier-pdm/compare/0.9.1...0.9.2)</small>
+
+### Code Refactoring
+- Upgrade setup-pdm action to 2.6 ([129aa62](https://github.com/pawamoy/copier-pdm/commit/129aa62da2bba267a320cc3c88500cabf154fafa) by Timothée Mazzucotelli).
+
+
 ## [0.9.1](https://github.com/pawamoy/copier-pdm/releases/tag/0.9.1) - 2022-02-18
 
 <small>[Compare with 0.9.0](https://github.com/pawamoy/copier-pdm/compare/0.9.0...0.9.1)</small>
