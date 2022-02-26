@@ -16,7 +16,7 @@ changelog:
 
 release:
 	@git add CHANGELOG.md
-	@git commit -am "docs: Update changelog for version $(version)"
+	@git commit -m "docs: Update changelog for version $(version)"
 	@git tag $(version)
 	@git push
 	@git push --tags
