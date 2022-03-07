@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.9.6](https://github.com/pawamoy/copier-pdm/releases/tag/0.9.6) - 2022-03-07
+
+<small>[Compare with 0.9.5](https://github.com/pawamoy/copier-pdm/compare/0.9.5...0.9.6)</small>
+
+### Bug Fixes
+- Fix setup script for first time use ([7ab9adc](https://github.com/pawamoy/copier-pdm/commit/7ab9adc28d275ef57674ac948ea6595e3c172edb) by Timothée Mazzucotelli).
+
+### Code Refactoring
+- Improve packaging issues detection ([529e2fe](https://github.com/pawamoy/copier-pdm/commit/529e2fee0328f1b241451a0fa024636e9c297978) by Timothée Mazzucotelli).
+- Remove useless docs reference folder ([a60e13b](https://github.com/pawamoy/copier-pdm/commit/a60e13b1f8613237f4aad8e7f026817755aa321f) by Timothée Mazzucotelli).
+
+
 ## [0.9.5](https://github.com/pawamoy/copier-pdm/releases/tag/0.9.5) - 2022-02-26
 
 <small>[Compare with 0.9.4](https://github.com/pawamoy/copier-pdm/compare/0.9.4...0.9.5)</small>
