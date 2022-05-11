@@ -4,6 +4,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.9.7](https://github.com/pawamoy/copier-pdm/releases/tag/0.9.7) - 2022-05-11
+
+<small>[Compare with 0.9.6](https://github.com/pawamoy/copier-pdm/compare/0.9.6...0.9.7)</small>
+
+### Code Refactoring
+- Use license-expression instead of classifier ([78a03d2](https://github.com/pawamoy/copier-pdm/commit/78a03d27e3b1772ed565f8f1d5368032dbbe8559) by Timothée Mazzucotelli).
+- Use markdown-exec instead of gen-files to generate credits ([c30be4d](https://github.com/pawamoy/copier-pdm/commit/c30be4db19a6bd28f6eb3365db67716db7ac3b19) by Timothée Mazzucotelli).
+- Use sticky tabs in docs ([44db5e7](https://github.com/pawamoy/copier-pdm/commit/44db5e75cc39d14c2b6221e481bda14520498336) by Timothée Mazzucotelli).
+- Use MkDocs built-in watch feature ([32f075b](https://github.com/pawamoy/copier-pdm/commit/32f075b6b673c32053b2ef070cbfaae21a025cff) by Timothée Mazzucotelli).
+- Use markdown-callouts instead of admonitions ([d6dd181](https://github.com/pawamoy/copier-pdm/commit/d6dd1816e806228b999cd624f6b63d64690f647a) by Timothée Mazzucotelli).
+- Improve docs reference generation script ([f5fb2af](https://github.com/pawamoy/copier-pdm/commit/f5fb2afe861c36b58250e97e324def148052b4cb) by Timothée Mazzucotelli).
+- Stop using pytest-sugar ([eb8bf81](https://github.com/pawamoy/copier-pdm/commit/eb8bf81cbc15c403e52032c45e8cae0aee312fbd) by Timothée Mazzucotelli).
+- Use new mkdocstrings python handler ([b707890](https://github.com/pawamoy/copier-pdm/commit/b707890caccaa7f8d33c9a4b9f5811ec2c68f9ce) by Timothée Mazzucotelli).
+- Reduce number of funding options ([bcca05d](https://github.com/pawamoy/copier-pdm/commit/bcca05d8fd9c396936aebfad1c54b47b7ddfcd7a) by Timothée Mazzucotelli).
+
+
 ## [0.9.6](https://github.com/pawamoy/copier-pdm/releases/tag/0.9.6) - 2022-03-07
 
 <small>[Compare with 0.9.5](https://github.com/pawamoy/copier-pdm/compare/0.9.5...0.9.6)</small>
