@@ -4,6 +4,7 @@ site_url: "https://{{ repository_namespace }}.{{ repository_provider.rsplit('.',
 repo_url: "https://{{ repository_provider }}/{{ repository_namespace }}/{{ repository_name }}"
 repo_name: "{{ repository_namespace }}/{{ repository_name }}"
 site_dir: "{% if repository_provider == 'gitlab.com' %}public{% elif repository_provider == 'github.com' %}site{% endif %}"
+watch: [README.md, CONTRIBUTING.md, CHANGELOG.md, src/{{ python_package_import_name }}]
 
 nav:
 - Home:
@@ -74,9 +75,7 @@ plugins:
     nav_file: SUMMARY.md
 - coverage
 - section-index
-- mkdocstrings:
-    watch:
-    - src/{{ python_package_import_name }}
+- mkdocstrings
 
 extra:
   social:
