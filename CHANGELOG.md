@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.9.8](https://github.com/pawamoy/copier-pdm/releases/tag/0.9.8) - 2022-06-13
+
+<small>[Compare with 0.9.7](https://github.com/pawamoy/copier-pdm/compare/0.9.7...0.9.8)</small>
+
+### Bug Fixes
+- Fix import error on Python 3.7 when generating credits ([0f12894](https://github.com/pawamoy/copier-pdm/commit/0f12894e980e8ea001a4a8908c46fb074091650a) by Timothée Mazzucotelli).
+
+
 ## [0.9.7](https://github.com/pawamoy/copier-pdm/releases/tag/0.9.7) - 2022-05-11
 
 <small>[Compare with 0.9.6](https://github.com/pawamoy/copier-pdm/compare/0.9.6...0.9.7)</small>
