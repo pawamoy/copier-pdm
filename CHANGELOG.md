@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.9.10](https://github.com/pawamoy/copier-pdm/releases/tag/0.9.10) - 2022-08-17
+
+<small>[Compare with 0.9.9](https://github.com/pawamoy/copier-pdm/compare/0.9.9...0.9.10)</small>
+
+### Bug Fixes
+- Fix PDM configuration for dynamic version ([86bde7c](https://github.com/pawamoy/copier-pdm/commit/86bde7cf3382b9a5a14d61b90d0ad977b8f3b7b7) by Timothée Mazzucotelli).
+
+
 ## [0.9.9](https://github.com/pawamoy/copier-pdm/releases/tag/0.9.9) - 2022-08-17
 
 <small>[Compare with 0.9.8](https://github.com/pawamoy/copier-pdm/compare/0.9.8...0.9.9)</small>
