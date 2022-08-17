@@ -112,8 +112,10 @@ Funding = "https://{{ repository_provider }}/sponsors/{{ repository_namespace }}
 [project.scripts]
 {{ python_package_command_line_name }} = "{{ python_package_import_name }}.cli:main"
 
-[tool.pdm.build]
+[tool.pdm]
 version = {source = "scm"}
+
+[tool.pdm.build]
 package-dir = "src"
 editable-backend = "editables"
 
