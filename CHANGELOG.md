@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.9.9](https://github.com/pawamoy/copier-pdm/releases/tag/0.9.9) - 2022-08-17
+
+<small>[Compare with 0.9.8](https://github.com/pawamoy/copier-pdm/compare/0.9.8...0.9.9)</small>
+
+### Code Refactoring
+- Support pdm 2.0 ([fef08ce](https://github.com/pawamoy/copier-pdm/commit/fef08ce0a58e1b86620e42df449990e525a11f88) by Timothée Mazzucotelli).
+
+
 ## [0.9.8](https://github.com/pawamoy/copier-pdm/releases/tag/0.9.8) - 2022-06-13
 
 <small>[Compare with 0.9.7](https://github.com/pawamoy/copier-pdm/compare/0.9.7...0.9.8)</small>
