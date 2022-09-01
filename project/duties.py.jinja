@@ -145,7 +145,8 @@ def check_dependencies(ctx):
     importlib.invalidate_caches()
 
     # reload original, unpatched safety
-    from safety.formatter import report
+    from safety.formatter import SafetyFormatter
+    from safety.safety import calculate_remediations
     from safety.safety import check as safety_check
     from safety.util import read_requirements
 
@@ -159,8 +160,15 @@ def check_dependencies(ctx):
     # check using safety as a library
     def safety():  # noqa: WPS430
         packages = list(read_requirements(StringIO(requirements)))
-        vulns = safety_check(packages=packages, ignore_ids="", key="", db_mirror="", cached=False, proxy={})
-        output_report = report(vulns=vulns, full=True, checked_packages=len(packages))
+        vulns, db_full = safety_check(packages=packages, ignore_vulns="")
+        remediations = calculate_remediations(vulns, db_full)
+        output_report = SafetyFormatter("text").render_vulnerabilities(
+            announcements=[],
+            vulnerabilities=vulns,
+            remediations=remediations,
+            full=True,
+            packages=packages,
+        )
         if vulns:
             print(output_report)
 
