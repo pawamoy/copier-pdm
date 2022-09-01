@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.10.0](https://github.com/pawamoy/copier-pdm/releases/tag/0.10.0) - 2022-09-01
+
+<small>[Compare with 0.9.10](https://github.com/pawamoy/copier-pdm/compare/0.9.10...0.10.0)</small>
+
+### Features
+- Support safety v2 ([d580bbd](https://github.com/pawamoy/copier-pdm/commit/d580bbddedd7b3359931d72e25f7ec4a2f77ab93) by Timothée Mazzucotelli).
+
+### Code Refactoring
+- Remove mypy workaround ([128e3a4](https://github.com/pawamoy/copier-pdm/commit/128e3a4828763fd7cb11b83563e20ef4ba2c88f8) by Timothée Mazzucotelli).
+- Temporary fix for importlib-metadata version conflicts ([6da68a9](https://github.com/pawamoy/copier-pdm/commit/6da68a900b5a52d545cee6d2f234f2bd3cb000fe) by Timothée Mazzucotelli).
+
+
 ## [0.9.10](https://github.com/pawamoy/copier-pdm/releases/tag/0.9.10) - 2022-08-17
 
 <small>[Compare with 0.9.9](https://github.com/pawamoy/copier-pdm/compare/0.9.9...0.9.10)</small>
