@@ -1,34 +1,14 @@
 # CONFIGURATION -------------------------
-_min_copier_version: "5.1.0"
+_min_copier_version: "6"
 _envops:
   autoescape: false
-  block_end_string: "%}"
-  block_start_string: "{%"
-  comment_end_string: "#}"
-  comment_start_string: "{#"
   keep_trailing_newline: true
-  variable_end_string: "}}"
-  variable_start_string: "{{"
 _subdirectory: project
 _templates_suffix: .jinja
 _skip_if_exists:
 - CHANGELOG.md
-- CREDITS.md
 _tasks:
 - python scripts/post_generation.py
-_migrations:
-  - version: 0.1.0
-    before:
-    - rm docs/changelog.md
-    - rm docs/index.md
-    - rm docs/contributing.md
-    - rm docs/code_of_conduct.md
-    - rm docs/credits.md
-  - version: 0.3.0
-    after:
-    - rm -f docs/macros.py
-    - rm -f docs/credits.md
-    - rm -rf docs/reference
 
 # PROMPT --------------------------------
 project_name:
