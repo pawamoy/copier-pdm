@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.10.1](https://github.com/pawamoy/copier-pdm/releases/tag/0.10.1) - 2022-09-03
+
+<small>[Compare with 0.10.0](https://github.com/pawamoy/copier-pdm/compare/0.10.0...0.10.1)</small>
+
+### Configuration
+- Clean up configuration
+- Require Copier v6
+
+
 ## [0.10.0](https://github.com/pawamoy/copier-pdm/releases/tag/0.10.0) - 2022-09-01
 
 <small>[Compare with 0.9.10](https://github.com/pawamoy/copier-pdm/compare/0.9.10...0.10.0)</small>
