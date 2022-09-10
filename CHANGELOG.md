@@ -4,25 +4,29 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.10.2](https://github.com/pawamoy/copier-pdm/releases/tag/0.10.2) - 2022-09-10
+
+<small>[Compare with 0.10.1](https://github.com/pawamoy/copier-pdm/compare/0.10.1...0.10.2)</small>
+
+### Bug Fixes
+- Fix safety duty never failing ([3a4bdc8](https://github.com/pawamoy/copier-pdm/commit/3a4bdc8be6d37e6b0c0c61331683084bda32dc8b) by Timothée Mazzucotelli).
+
+
 ## [0.10.1](https://github.com/pawamoy/copier-pdm/releases/tag/0.10.1) - 2022-09-03
 
 <small>[Compare with 0.10.0](https://github.com/pawamoy/copier-pdm/compare/0.10.0...0.10.1)</small>
-
-### Configuration
-- Clean up configuration
-- Require Copier v6
 
 
 ## [0.10.0](https://github.com/pawamoy/copier-pdm/releases/tag/0.10.0) - 2022-09-01
 
 <small>[Compare with 0.9.10](https://github.com/pawamoy/copier-pdm/compare/0.9.10...0.10.0)</small>
 
-### Features
-- Support safety v2 ([d580bbd](https://github.com/pawamoy/copier-pdm/commit/d580bbddedd7b3359931d72e25f7ec4a2f77ab93) by Timothée Mazzucotelli).
-
 ### Code Refactoring
 - Remove mypy workaround ([128e3a4](https://github.com/pawamoy/copier-pdm/commit/128e3a4828763fd7cb11b83563e20ef4ba2c88f8) by Timothée Mazzucotelli).
 - Temporary fix for importlib-metadata version conflicts ([6da68a9](https://github.com/pawamoy/copier-pdm/commit/6da68a900b5a52d545cee6d2f234f2bd3cb000fe) by Timothée Mazzucotelli).
+
+### Features
+- Support safety v2 ([d580bbd](https://github.com/pawamoy/copier-pdm/commit/d580bbddedd7b3359931d72e25f7ec4a2f77ab93) by Timothée Mazzucotelli).
 
 
 ## [0.9.10](https://github.com/pawamoy/copier-pdm/releases/tag/0.9.10) - 2022-08-17
@@ -30,7 +34,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 <small>[Compare with 0.9.9](https://github.com/pawamoy/copier-pdm/compare/0.9.9...0.9.10)</small>
 
 ### Bug Fixes
-- Fix PDM configuration for dynamic version ([86bde7c](https://github.com/pawamoy/copier-pdm/commit/86bde7cf3382b9a5a14d61b90d0ad977b8f3b7b7) by Timothée Mazzucotelli).
+- Fix pdm configuration for dynamic version ([86bde7c](https://github.com/pawamoy/copier-pdm/commit/86bde7cf3382b9a5a14d61b90d0ad977b8f3b7b7) by Timothée Mazzucotelli).
 
 
 ## [0.9.9](https://github.com/pawamoy/copier-pdm/releases/tag/0.9.9) - 2022-08-17
@@ -46,7 +50,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 <small>[Compare with 0.9.7](https://github.com/pawamoy/copier-pdm/compare/0.9.7...0.9.8)</small>
 
 ### Bug Fixes
-- Fix import error on Python 3.7 when generating credits ([0f12894](https://github.com/pawamoy/copier-pdm/commit/0f12894e980e8ea001a4a8908c46fb074091650a) by Timothée Mazzucotelli).
+- Fix import error on python 3.7 when generating credits ([0f12894](https://github.com/pawamoy/copier-pdm/commit/0f12894e980e8ea001a4a8908c46fb074091650a) by Timothée Mazzucotelli).
 
 
 ## [0.9.7](https://github.com/pawamoy/copier-pdm/releases/tag/0.9.7) - 2022-05-11
@@ -57,7 +61,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Use license-expression instead of classifier ([78a03d2](https://github.com/pawamoy/copier-pdm/commit/78a03d27e3b1772ed565f8f1d5368032dbbe8559) by Timothée Mazzucotelli).
 - Use markdown-exec instead of gen-files to generate credits ([c30be4d](https://github.com/pawamoy/copier-pdm/commit/c30be4db19a6bd28f6eb3365db67716db7ac3b19) by Timothée Mazzucotelli).
 - Use sticky tabs in docs ([44db5e7](https://github.com/pawamoy/copier-pdm/commit/44db5e75cc39d14c2b6221e481bda14520498336) by Timothée Mazzucotelli).
-- Use MkDocs built-in watch feature ([32f075b](https://github.com/pawamoy/copier-pdm/commit/32f075b6b673c32053b2ef070cbfaae21a025cff) by Timothée Mazzucotelli).
+- Use mkdocs built-in watch feature ([32f075b](https://github.com/pawamoy/copier-pdm/commit/32f075b6b673c32053b2ef070cbfaae21a025cff) by Timothée Mazzucotelli).
 - Use markdown-callouts instead of admonitions ([d6dd181](https://github.com/pawamoy/copier-pdm/commit/d6dd1816e806228b999cd624f6b63d64690f647a) by Timothée Mazzucotelli).
 - Improve docs reference generation script ([f5fb2af](https://github.com/pawamoy/copier-pdm/commit/f5fb2afe861c36b58250e97e324def148052b4cb) by Timothée Mazzucotelli).
 - Stop using pytest-sugar ([eb8bf81](https://github.com/pawamoy/copier-pdm/commit/eb8bf81cbc15c403e52032c45e8cae0aee312fbd) by Timothée Mazzucotelli).
@@ -98,7 +102,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 <small>[Compare with 0.9.2](https://github.com/pawamoy/copier-pdm/compare/0.9.2...0.9.3)</small>
 
 ### Bug Fixes
-- Fix (really) PyPI badge ([d7dc73f](https://github.com/pawamoy/copier-pdm/commit/d7dc73fb6cdba9d886ec8e72b247a43d7265c102) by Timothée Mazzucotelli).
+- Fix (really) pypi badge ([d7dc73f](https://github.com/pawamoy/copier-pdm/commit/d7dc73fb6cdba9d886ec8e72b247a43d7265c102) by Timothée Mazzucotelli).
 
 ### Code Refactoring
 - Also save and restore interpreter in setup script ([c7887a7](https://github.com/pawamoy/copier-pdm/commit/c7887a7fc4fbcb61f6e6d56301f9cba8defabee0) by Timothée Mazzucotelli).
@@ -118,15 +122,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Bug Fixes
 - Fix docs tabs and pypi badge ([d7b0f3a](https://github.com/pawamoy/copier-pdm/commit/d7b0f3aba49a7c6f2807e56b9804d680e286edf6) by Timothée Mazzucotelli).
-- Fix jinja "undefined" error when user is not "pawamoy" ([01dcf3b](https://github.com/pawamoy/copier-pdm/commit/01dcf3b3f32f38e77e48c20a8c21e66c6674fed5) by Francisco Perez-Sorrosal). [Issue #17](https://github.com/pawamoy/copier-pdm/issues/17), [PR #18](https://github.com/pawamoy/copier-pdm/issues/18)
+- Fix jinja "undefined" error when user is not "pawamoy" ([01dcf3b](https://github.com/pawamoy/copier-pdm/commit/01dcf3b3f32f38e77e48c20a8c21e66c6674fed5) by Francisco Perez-Sorrosal). Related issues/PRs: [#17](https://github.com/pawamoy/copier-pdm/issues/17), [#18](https://github.com/pawamoy/copier-pdm/issues/18)
 
 
 ## [0.9.0](https://github.com/pawamoy/copier-pdm/releases/tag/0.9.0) - 2022-02-04
 
 <small>[Compare with 0.8.0](https://github.com/pawamoy/copier-pdm/compare/0.8.0...0.9.0)</small>
-
-### Features
-- Restore the pdm-selected python interpreter after a multi-run ([d664759](https://github.com/pawamoy/copier-pdm/commit/d664759ac02d781dbb06fb7cab152ce617d22a28) by Timothée Mazzucotelli).
 
 ### Bug Fixes
 - Add missing section-index plugin in mkdocs.yml ([611e99b](https://github.com/pawamoy/copier-pdm/commit/611e99b5398b0369d8517155eba252d9f72bc462) by Timothée Mazzucotelli).
@@ -135,16 +136,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Use section index to improve reference navigation ([2ec50a4](https://github.com/pawamoy/copier-pdm/commit/2ec50a45ff2211ccbc19f5b2c4e283540e5499ea) by Timothée Mazzucotelli).
 - Remove useless markers ([ceb534b](https://github.com/pawamoy/copier-pdm/commit/ceb534be820abe223db8734ab710d2f31f2f897a) by Timothée Mazzucotelli).
 
+### Features
+- Restore the pdm-selected python interpreter after a multi-run ([d664759](https://github.com/pawamoy/copier-pdm/commit/d664759ac02d781dbb06fb7cab152ce617d22a28) by Timothée Mazzucotelli).
+
 
 ## [0.8.0](https://github.com/pawamoy/copier-pdm/releases/tag/0.8.0) - 2021-12-18
 
 <small>[Compare with 0.7.3](https://github.com/pawamoy/copier-pdm/compare/0.7.3...0.8.0)</small>
 
-### Features
-- Support Copier v6 (while keeping support for v5) ([918bc1a](https://github.com/pawamoy/copier-pdm/commit/918bc1a4429e76ccf79077f8633d58c3c3519660) by Timothée Mazzucotelli).
-
 ### Code Refactoring
-- Drop support for Python 3.6 ([d248116](https://github.com/pawamoy/copier-pdm/commit/d248116eabbf662502251beb7660994ba052585d) by Timothée Mazzucotelli).
+- Drop support for python 3.6 ([d248116](https://github.com/pawamoy/copier-pdm/commit/d248116eabbf662502251beb7660994ba052585d) by Timothée Mazzucotelli).
+
+### Features
+- Support copier v6 (while keeping support for v5) ([918bc1a](https://github.com/pawamoy/copier-pdm/commit/918bc1a4429e76ccf79077f8633d58c3c3519660) by Timothée Mazzucotelli).
 
 
 ## [0.7.3](https://github.com/pawamoy/copier-pdm/releases/tag/0.7.3) - 2021-12-16
@@ -168,7 +172,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 <small>[Compare with 0.7.0](https://github.com/pawamoy/copier-pdm/compare/0.7.0...0.7.1)</small>
 
 ### Code Refactoring
-- Remove dependencies upper bounds ([89f6df5](https://github.com/pawamoy/copier-pdm/commit/89f6df50db9bbfbd6a4d8788dae5e2a5ede6a6a9) by Timothée Mazzucotelli). See https://iscinumpy.dev/post/bound-version-constraints/.
+- Remove dependencies upper bounds ([89f6df5](https://github.com/pawamoy/copier-pdm/commit/89f6df50db9bbfbd6a4d8788dae5e2a5ede6a6a9) by Timothée Mazzucotelli).
 
 
 ## [0.7.0](https://github.com/pawamoy/copier-pdm/releases/tag/0.7.0) - 2021-11-30
@@ -184,34 +188,34 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 <small>[Compare with 0.6.0](https://github.com/pawamoy/copier-pdm/compare/0.6.0...0.6.1)</small>
 
 ### Code Refactoring
-- Prepare for strict PEP 621, add classifiers ([d886bc1](https://github.com/pawamoy/copier-pdm/commit/d886bc10d207213fa4b106b842071ca2f882b1a3) by Timothée Mazzucotelli).
-- Ignore D417 (does not support parameters sections) ([7198ec4](https://github.com/pawamoy/copier-pdm/commit/7198ec47da04c2a2e49f1678a19e6b28bd073c9f) by Timothée Mazzucotelli).
+- Prepare for strict pep 621, add classifiers ([d886bc1](https://github.com/pawamoy/copier-pdm/commit/d886bc10d207213fa4b106b842071ca2f882b1a3) by Timothée Mazzucotelli).
+- Ignore d417 (does not support parameters sections) ([7198ec4](https://github.com/pawamoy/copier-pdm/commit/7198ec47da04c2a2e49f1678a19e6b28bd073c9f) by Timothée Mazzucotelli).
 
 
 ## [0.6.0](https://github.com/pawamoy/copier-pdm/releases/tag/0.6.0) - 2021-11-21
 
 <small>[Compare with 0.5.0](https://github.com/pawamoy/copier-pdm/compare/0.5.0...0.6.0)</small>
 
-### Features
-- Support stubs for typing checks ([6482a6b](https://github.com/pawamoy/copier-pdm/commit/6482a6b3f0e3e7349341c4c78f9dcfe23e67872b) by Timothée Mazzucotelli).
-
 ### Code Refactoring
 - Support depending on safety directly ([94a1ce6](https://github.com/pawamoy/copier-pdm/commit/94a1ce62b27a39f1785aabab7ad61b8dd963bbc2) by Timothée Mazzucotelli).
+
+### Features
+- Support stubs for typing checks ([6482a6b](https://github.com/pawamoy/copier-pdm/commit/6482a6b3f0e3e7349341c4c78f9dcfe23e67872b) by Timothée Mazzucotelli).
 
 
 ## [0.5.0](https://github.com/pawamoy/copier-pdm/releases/tag/0.5.0) - 2021-11-14
 
 <small>[Compare with 0.4.4](https://github.com/pawamoy/copier-pdm/compare/0.4.4...0.5.0)</small>
 
-### Features
-- Add make lock recipe ([1d88d93](https://github.com/pawamoy/copier-pdm/commit/1d88d939dca22120d12e3b8143da7efd77015e1e) by Timothée Mazzucotelli).
-
 ### Code Refactoring
-- Add Python 3.11-dev in CI ([281e038](https://github.com/pawamoy/copier-pdm/commit/281e038949a0bd98bcff79921e19bda08989c65e) by Timothée Mazzucotelli).
-- Add Python 3.10 in CI ([47e381d](https://github.com/pawamoy/copier-pdm/commit/47e381dd46e3f7e95c00185e903c97dd4a71e082) by Michael Ramsey).
+- Add python 3.11-dev in ci ([281e038](https://github.com/pawamoy/copier-pdm/commit/281e038949a0bd98bcff79921e19bda08989c65e) by Timothée Mazzucotelli).
+- Add python 3.10 to ci ([47e381d](https://github.com/pawamoy/copier-pdm/commit/47e381dd46e3f7e95c00185e903c97dd4a71e082) by Michael Ramsey).
 - Run dependencies check only once ([3278aec](https://github.com/pawamoy/copier-pdm/commit/3278aecbf37e728e409087eaccf09ffa11ade18e) by Timothée Mazzucotelli).
 - Upgrade dev-dependencies ([9f14bb6](https://github.com/pawamoy/copier-pdm/commit/9f14bb66d0616c2ba770f6df0a1c353fd5e0b986) by Timothée Mazzucotelli).
 - Rename check-code-quality to check-quality ([9ae0489](https://github.com/pawamoy/copier-pdm/commit/9ae0489964bb53e3e960f5f48299c8326111582e) by Timothée Mazzucotelli).
+
+### Features
+- Add make lock recipe ([1d88d93](https://github.com/pawamoy/copier-pdm/commit/1d88d939dca22120d12e3b8143da7efd77015e1e) by Timothée Mazzucotelli).
 
 
 ## [0.4.4](https://github.com/pawamoy/copier-pdm/releases/tag/0.4.4) - 2021-09-29
@@ -219,9 +223,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 <small>[Compare with 0.4.3](https://github.com/pawamoy/copier-pdm/compare/0.4.3...0.4.4)</small>
 
 ### Code Refactoring
-- Add Python 3.10 and 3.11 to locally used versions ([94a1150](https://github.com/pawamoy/copier-pdm/commit/94a1150a68baea7eb5079f729bdf860b9e725985) by Timothée Mazzucotelli).
-- Prevent float conversion of Python versions ([5e97e87](https://github.com/pawamoy/copier-pdm/commit/5e97e87e504fdcfd59ad2e9f41b148dcfc0ef06a) by Timothée Mazzucotelli).
-- Improve detection of Python interpreters ([5dab9e5](https://github.com/pawamoy/copier-pdm/commit/5dab9e5c0de223ce3b7e2e459f1a9afdd70970c2) by Timothée Mazzucotelli).
+- Add python 3.10 and 3.11 to locally used versions ([94a1150](https://github.com/pawamoy/copier-pdm/commit/94a1150a68baea7eb5079f729bdf860b9e725985) by Timothée Mazzucotelli).
+- Prevent float conversion of python versions ([5e97e87](https://github.com/pawamoy/copier-pdm/commit/5e97e87e504fdcfd59ad2e9f41b148dcfc0ef06a) by Timothée Mazzucotelli).
+- Improve detection of python interpreters ([5dab9e5](https://github.com/pawamoy/copier-pdm/commit/5dab9e5c0de223ce3b7e2e459f1a9afdd70970c2) by Timothée Mazzucotelli).
 
 
 ## [0.4.3](https://github.com/pawamoy/copier-pdm/releases/tag/0.4.3) - 2021-09-09
@@ -229,7 +233,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 <small>[Compare with 0.4.2](https://github.com/pawamoy/copier-pdm/compare/0.4.2...0.4.3)</small>
 
 ### Code Refactoring
-- Add more space at bottom of docs pages ([2fd54b1](https://github.com/pawamoy/copier-pdm/commit/2fd54b175957c1a74b8bd5201bc3f43c1a831f29) by Victor B).
+- Add more space at bottom of docs pages ([2fd54b1](https://github.com/pawamoy/copier-pdm/commit/2fd54b175957c1a74b8bd5201bc3f43c1a831f29) by Timothée Mazzucotelli).
 
 
 ## [0.4.2](https://github.com/pawamoy/copier-pdm/releases/tag/0.4.2) - 2021-09-09
@@ -245,18 +249,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 <small>[Compare with 0.4.0](https://github.com/pawamoy/copier-pdm/compare/0.4.0...0.4.1)</small>
 
 ### Code Refactoring
-- Use new PDM 'group' option ('section' is deprecated) ([4e4f5fb](https://github.com/pawamoy/copier-pdm/commit/4e4f5fb85dff71e780986d14b7945ecf351ed67b) by Timothée Mazzucotelli).
+- Use new pdm 'group' option ('section' is deprecated) ([4e4f5fb](https://github.com/pawamoy/copier-pdm/commit/4e4f5fb85dff71e780986d14b7945ecf351ed67b) by Timothée Mazzucotelli).
 
 
 ## [0.4.0](https://github.com/pawamoy/copier-pdm/releases/tag/0.4.0) - 2021-08-20
 
 <small>[Compare with 0.3.4](https://github.com/pawamoy/copier-pdm/compare/0.3.4...0.4.0)</small>
 
-### Features
-- Set up license classifier according to user's answers ([9e1ff5c](https://github.com/pawamoy/copier-pdm/commit/9e1ff5c4cab3b7711cc57b60eff4cda3051293b8) by Timothée Mazzucotelli).
-
 ### Bug Fixes
 - Fix credits building ([bb9eacc](https://github.com/pawamoy/copier-pdm/commit/bb9eaccd15182dc39b1945c8c665c82fed5c5000) by Timothée Mazzucotelli).
+
+### Features
+- Set up license classifier according to user's answers ([9e1ff5c](https://github.com/pawamoy/copier-pdm/commit/9e1ff5c4cab3b7711cc57b60eff4cda3051293b8) by Timothée Mazzucotelli).
 
 
 ## [0.3.4](https://github.com/pawamoy/copier-pdm/releases/tag/0.3.4) - 2021-08-01
