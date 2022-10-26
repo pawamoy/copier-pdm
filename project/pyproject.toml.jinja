@@ -6,7 +6,7 @@ build-backend = "pdm.pep517.api"
 name = "{{ python_package_distribution_name }}"
 description = "{{ project_description }}"
 authors = [{name = "{{ author_fullname }}", email = "{{ author_email }}"}]
-license-expression = "
+license = "
     {%- if copyright_license == "Academic Free License v3.0" -%}
     AFL-3.0
     {%- elif copyright_license == "Apache License 2.0" -%}
