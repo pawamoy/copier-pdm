@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.10.5](https://github.com/pawamoy/copier-pdm/releases/tag/0.10.5) - 2022-10-26
+
+<small>[Compare with 0.10.4](https://github.com/pawamoy/copier-pdm/compare/0.10.4...0.10.5)</small>
+
+### Bug Fixes
+- Another patch for flake8/importlib-metadata conflicts ([cc97999](https://github.com/pawamoy/copier-pdm/commit/cc97999f0574f05e7a1a8b8495dac17e91f68c5e) by Timothée Mazzucotelli).
+
+
 ## [0.10.4](https://github.com/pawamoy/copier-pdm/releases/tag/0.10.4) - 2022-10-26
 
 <small>[Compare with 0.10.3](https://github.com/pawamoy/copier-pdm/compare/0.10.3...0.10.4)</small>
