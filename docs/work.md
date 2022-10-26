@@ -131,7 +131,7 @@ Available tasks:
   See [the Releases section](#releases).
   Arguments:
     - `version` The Python package version.
-- `test`: Run the test suite. 
+- `test`: Run the test suite.
   See [the Tests section](#tests).
   Arguments:
     - `match=""`: A pytest expression to filter selected tests.
