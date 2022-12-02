@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.10.7](https://github.com/pawamoy/copier-pdm/releases/tag/0.10.7) - 2022-12-02
+
+<small>[Compare with 0.10.6](https://github.com/pawamoy/copier-pdm/compare/0.10.6...0.10.7)</small>
+
+### Code Refactoring
+- Improve CSS for mkdocstrings ([0792012](https://github.com/pawamoy/copier-pdm/commit/0792012c966bae66ad5a9a4c602b612eaf42ad95) by Timothée Mazzucotelli).
+
+
 ## [0.10.6](https://github.com/pawamoy/copier-pdm/releases/tag/0.10.6) - 2022-10-26
 
 <small>[Compare with 0.10.5](https://github.com/pawamoy/copier-pdm/compare/0.10.5...0.10.6)</small>
@@ -36,7 +44,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Use `license` field again (instead of `license-expression`) ([d65665a](https://github.com/pawamoy/copier-pdm/commit/d65665a48140624e4b1d7e120bac80b6f1ef6562) by Timothée Mazzucotelli).
 
 ### Code Refactoring
-- Update CI workflow actions ([47131a2](https://github.com/pawamoy/copier-pdm/commit/47131a23d1e974010b6207377c5fec564acc1c0c) by Timothée Mazzucotelli).
+- Update ci workflow actions ([47131a2](https://github.com/pawamoy/copier-pdm/commit/47131a23d1e974010b6207377c5fec564acc1c0c) by Timothée Mazzucotelli).
 
 
 ## [0.10.2](https://github.com/pawamoy/copier-pdm/releases/tag/0.10.2) - 2022-09-10
