@@ -4,12 +4,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.10.9](https://github.com/pawamoy/copier-pdm/releases/tag/0.10.9) - 2022-12-02
+
+<small>[Compare with 0.10.8](https://github.com/pawamoy/copier-pdm/compare/0.10.8...0.10.9)</small>
+
+### Code Refactoring
+- Remove CI cache, do verbose lock ([a565534](https://github.com/pawamoy/copier-pdm/commit/a565534a8402c0ff534b489bf778ba03fbb35893) by Timothée Mazzucotelli).
+
+
 ## [0.10.8](https://github.com/pawamoy/copier-pdm/releases/tag/0.10.8) - 2022-12-02
 
 <small>[Compare with 0.10.7](https://github.com/pawamoy/copier-pdm/compare/0.10.7...0.10.8)</small>
 
 ### Bug Fixes
-- Fix credits for PDM 2.3.0 (and hide ToC) ([adc8fd5](https://github.com/pawamoy/copier-pdm/commit/adc8fd5793db4f8d4c2179a0d71b84f3a7c15b74) by Timothée Mazzucotelli).
+- Fix credits for pdm 2.3.0 (and hide toc) ([adc8fd5](https://github.com/pawamoy/copier-pdm/commit/adc8fd5793db4f8d4c2179a0d71b84f3a7c15b74) by Timothée Mazzucotelli).
 
 
 ## [0.10.7](https://github.com/pawamoy/copier-pdm/releases/tag/0.10.7) - 2022-12-02
@@ -17,7 +25,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 <small>[Compare with 0.10.6](https://github.com/pawamoy/copier-pdm/compare/0.10.6...0.10.7)</small>
 
 ### Code Refactoring
-- Improve CSS for mkdocstrings ([0792012](https://github.com/pawamoy/copier-pdm/commit/0792012c966bae66ad5a9a4c602b612eaf42ad95) by Timothée Mazzucotelli).
+- Improve css for mkdocstrings ([0792012](https://github.com/pawamoy/copier-pdm/commit/0792012c966bae66ad5a9a4c602b612eaf42ad95) by Timothée Mazzucotelli).
 
 
 ## [0.10.6](https://github.com/pawamoy/copier-pdm/releases/tag/0.10.6) - 2022-10-26
@@ -25,7 +33,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 <small>[Compare with 0.10.5](https://github.com/pawamoy/copier-pdm/compare/0.10.5...0.10.6)</small>
 
 ### Bug Fixes
-- Use Python 3.11 now that it was released ([6ff9511](https://github.com/pawamoy/copier-pdm/commit/6ff951165bcbef5720ff03d90c53b27e6515a520) by Timothée Mazzucotelli).
+- Use python 3.11 now that it was released ([6ff9511](https://github.com/pawamoy/copier-pdm/commit/6ff951165bcbef5720ff03d90c53b27e6515a520) by Timothée Mazzucotelli).
 
 
 ## [0.10.5](https://github.com/pawamoy/copier-pdm/releases/tag/0.10.5) - 2022-10-26
