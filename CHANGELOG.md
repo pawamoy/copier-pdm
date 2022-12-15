@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.10.10](https://github.com/pawamoy/copier-pdm/releases/tag/0.10.10) - 2022-12-15
+
+<small>[Compare with 0.10.9](https://github.com/pawamoy/copier-pdm/compare/0.10.9...0.10.10)</small>
+
+### Bug Fixes
+- Rename summary file to prevent breaking sitemap ([e9c788d](https://github.com/pawamoy/copier-pdm/commit/e9c788ddc748507443576b5df670a6ad7a93c51e) by Timothée Mazzucotelli).
+
+
 ## [0.10.9](https://github.com/pawamoy/copier-pdm/releases/tag/0.10.9) - 2022-12-02
 
 <small>[Compare with 0.10.8](https://github.com/pawamoy/copier-pdm/compare/0.10.8...0.10.9)</small>
