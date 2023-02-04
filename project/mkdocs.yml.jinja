@@ -73,7 +73,7 @@ plugins:
 - markdown-exec
 - gen-files:
     scripts:
-    - docs/gen_ref_nav.py
+    - scripts/gen_ref_nav.py
 - literate-nav:
     nav_file: SUMMARY.txt
 - coverage
@@ -85,6 +85,8 @@ extra:
   - icon: fontawesome/brands/{{ repository_provider.rsplit(".", 1)[0] }}
     link: https://{{ repository_provider }}/{{ author_username }}
   {%- if author_username == "pawamoy" %}
+  - icon: fontawesome/brands/mastodon
+    link: https://fosstodon.org/@{{ author_username }}
   - icon: fontawesome/brands/twitter
     link: https://twitter.com/{{ author_username }}
   {%- endif %}
