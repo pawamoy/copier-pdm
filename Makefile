@@ -12,7 +12,7 @@ update-deps:
 	@./update-deps.sh
 
 changelog:
-	@git-changelog . -s angular -t keepachangelog -o CHANGELOG.md
+	@git-changelog -Tbio CHANGELOG.md -c angular
 
 release:
 	@git add CHANGELOG.md
