@@ -6,6 +6,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [0.10.12](https://github.com/pawamoy/copier-pdm/releases/tag/0.10.12) - 2023-02-04
+
+<small>[Compare with 0.10.11](https://github.com/pawamoy/copier-pdm/compare/0.10.11...0.10.12)</small>
+
+### Code Refactoring
+
+- Fix quality warnings in credits script ([21ea994](https://github.com/pawamoy/copier-pdm/commit/21ea9942be839425e9e45de304f7f77625286c6b) by Timothée Mazzucotelli).
+- Use git-changelog 1.0 ([b015bba](https://github.com/pawamoy/copier-pdm/commit/b015bba7bf13bd55c8e435031960aef688645624) by Timothée Mazzucotelli).
+- Move docs navigation script outside of docs ([1995ae1](https://github.com/pawamoy/copier-pdm/commit/1995ae1ddd52216f8cb6fc357e313c4150647c20) by Timothée Mazzucotelli).
+- Update code of conduct ([c271793](https://github.com/pawamoy/copier-pdm/commit/c2717933c21c58d73c58a66e13db9f6941e55a88) by Timothée Mazzucotelli).
+
 ## [0.10.11](https://github.com/pawamoy/copier-pdm/releases/tag/0.10.11) - 2023-01-07
 
 <small>[Compare with 0.10.10](https://github.com/pawamoy/copier-pdm/compare/0.10.10...0.10.11)</small>
@@ -515,5 +526,3 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Reduce installation time in CI ([4a2a3b4](https://github.com/pawamoy/copier-pdm/commit/4a2a3b459accdadcafb55f856c1307f5906d1a61) by Timothée Mazzucotelli).
 - Don't query pypi.org to get missing packages info ([ac6fe27](https://github.com/pawamoy/copier-pdm/commit/ac6fe278d7a74babf7db9a35c9c2991b2006590d) by Timothée Mazzucotelli).
-
-
