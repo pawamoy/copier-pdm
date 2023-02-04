@@ -83,10 +83,9 @@ def update_changelog(
 
 @duty
 def changelog(ctx):
-    """
-    Update the changelog in-place with latest commits.
+    """Update the changelog in-place with latest commits.
 
-    Arguments:
+    Parameters:
         ctx: The context instance (passed automatically).
     """
     commit = "166758a98d5e544aaa94fda698128e00733497f4"
@@ -106,20 +105,18 @@ def changelog(ctx):
 
 @duty(pre=["check_quality", "check_types", "check_docs", "check_dependencies"])
 def check(ctx):
-    """
-    Check it all!
+    """Check it all!
 
-    Arguments:
+    Parameters:
         ctx: The context instance (passed automatically).
     """
 
 
 @duty
 def check_quality(ctx, files=PY_SRC):
-    """
-    Check the code quality.
+    """Check the code quality.
 
-    Arguments:
+    Parameters:
         ctx: The context instance (passed automatically).
         files: The files to check.
     """
@@ -128,10 +125,9 @@ def check_quality(ctx, files=PY_SRC):
 
 @duty
 def check_dependencies(ctx):
-    """
-    Check for vulnerabilities in dependencies.
+    """Check for vulnerabilities in dependencies.
 
-    Arguments:
+    Parameters:
         ctx: The context instance (passed automatically).
     """
     # undo possible patching
@@ -177,10 +173,9 @@ def check_dependencies(ctx):
 
 @duty
 def check_docs(ctx):
-    """
-    Check if the documentation builds correctly.
+    """Check if the documentation builds correctly.
 
-    Arguments:
+    Parameters:
         ctx: The context instance (passed automatically).
     """
     Path("htmlcov").mkdir(parents=True, exist_ok=True)
@@ -193,7 +188,7 @@ def check_types(ctx):  # noqa: WPS231
     """
     Check that the code is correctly typed.
 
-    Arguments:
+    Parameters:
         ctx: The context instance (passed automatically).
     """
     ctx.run(f"mypy --config-file config/mypy.ini {PY_SRC}", title="Type-checking", pty=PTY)
@@ -201,10 +196,9 @@ def check_types(ctx):  # noqa: WPS231
 
 @duty(silent=True)
 def clean(ctx):
-    """
-    Delete temporary files.
+    """Delete temporary files.
 
-    Arguments:
+    Parameters:
         ctx: The context instance (passed automatically).
     """
     ctx.run("rm -rf .coverage*")
@@ -222,10 +216,9 @@ def clean(ctx):
 
 @duty
 def docs(ctx):
-    """
-    Build the documentation locally.
+    """Build the documentation locally.
 
-    Arguments:
+    Parameters:
         ctx: The context instance (passed automatically).
     """
     ctx.run("mkdocs build", title="Building documentation")
@@ -233,10 +226,9 @@ def docs(ctx):
 
 @duty
 def docs_serve(ctx, host="127.0.0.1", port=8000):
-    """
-    Serve the documentation (localhost:8000).
+    """Serve the documentation (localhost:8000).
 
-    Arguments:
+    Parameters:
         ctx: The context instance (passed automatically).
         host: The host to serve the docs from.
         port: The port to serve the docs on.
@@ -247,10 +239,9 @@ def docs_serve(ctx, host="127.0.0.1", port=8000):
 {% if repository_provider == "github.com" -%}
 @duty
 def docs_deploy(ctx):
-    """
-    Deploy the documentation on GitHub pages.
+    """Deploy the documentation on GitHub pages.
 
-    Arguments:
+    Parameters:
         ctx: The context instance (passed automatically).
     """
     ctx.run("mkdocs gh-deploy", title="Deploying documentation")
@@ -259,10 +250,9 @@ def docs_deploy(ctx):
 {% endif -%}
 @duty
 def format(ctx):
-    """
-    Run formatting tools on the code.
+    """Run formatting tools on the code.
 
-    Arguments:
+    Parameters:
         ctx: The context instance (passed automatically).
     """
     ctx.run(
@@ -276,10 +266,9 @@ def format(ctx):
 
 @duty
 def release(ctx, version):
-    """
-    Release a new Python package.
+    """Release a new Python package.
 
-    Arguments:
+    Parameters:
         ctx: The context instance (passed automatically).
         version: The new version number to use.
     """
@@ -298,10 +287,9 @@ def release(ctx, version):
 
 @duty(silent=True)
 def coverage(ctx):
-    """
-    Report coverage as text and HTML.
+    """Report coverage as text and HTML.
 
-    Arguments:
+    Parameters:
         ctx: The context instance (passed automatically).
     """
     ctx.run("coverage combine", nofail=True)
@@ -311,10 +299,9 @@ def coverage(ctx):
 
 @duty
 def test(ctx, match: str = ""):
-    """
-    Run the test suite.
+    """Run the test suite.
 
-    Arguments:
+    Parameters:
         ctx: The context instance (passed automatically).
         match: A pytest expression to filter selected tests.
     """
