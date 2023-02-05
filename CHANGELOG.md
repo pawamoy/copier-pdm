@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [0.10.13](https://github.com/pawamoy/copier-pdm/releases/tag/0.10.13) - 2023-02-05
+
+<small>[Compare with 0.10.12](https://github.com/pawamoy/copier-pdm/compare/0.10.12...0.10.13)</small>
+
+### Code Refactoring
+
+- Treat warnings as errors during tests ([25d3722](https://github.com/pawamoy/copier-pdm/commit/25d372248afce91a031f567c0f38db4a6489e0ff) by Timothée Mazzucotelli).
+
 ## [0.10.12](https://github.com/pawamoy/copier-pdm/releases/tag/0.10.12) - 2023-02-04
 
 <small>[Compare with 0.10.11](https://github.com/pawamoy/copier-pdm/compare/0.10.11...0.10.12)</small>
