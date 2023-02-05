@@ -6,6 +6,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [0.10.14](https://github.com/pawamoy/copier-pdm/releases/tag/0.10.14) - 2023-02-05
+
+<small>[Compare with 0.10.13](https://github.com/pawamoy/copier-pdm/compare/0.10.13...0.10.14)</small>
+
+### Code Refactoring
+
+- Prefix duties with Python version during multiruns ([59db6d9](https://github.com/pawamoy/copier-pdm/commit/59db6d93fa63ad01d357297f6290e3798028fd63) by Timothée Mazzucotelli). [Issue #22](https://github.com/pawamoy/copier-pdm/issues/22)
+- Use PDM Multirun ([84febe5](https://github.com/pawamoy/copier-pdm/commit/84febe5969b0013d7a92a8af69ef8b224e3398e2) by Timothée Mazzucotelli).
+
 ## [0.10.13](https://github.com/pawamoy/copier-pdm/releases/tag/0.10.13) - 2023-02-05
 
 <small>[Compare with 0.10.12](https://github.com/pawamoy/copier-pdm/compare/0.10.12...0.10.13)</small>
