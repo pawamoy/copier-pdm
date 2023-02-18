@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [0.11.1](https://github.com/pawamoy/copier-pdm/releases/tag/0.11.1) - 2023-02-18
+
+<small>[Compare with 0.11.0](https://github.com/pawamoy/copier-pdm/compare/0.11.0...0.11.1)</small>
+
+### Bug Fixes
+
+- Fix format in duties.py ([0f843b8](https://github.com/pawamoy/copier-pdm/commit/0f843b8a8e3f21d049087f38c9c87032bd5018a5) by Timothée Mazzucotelli).
+
 ## [0.11.0](https://github.com/pawamoy/copier-pdm/releases/tag/0.11.0) - 2023-02-18
 
 <small>[Compare with 0.10.14](https://github.com/pawamoy/copier-pdm/compare/0.10.14...0.11.0)</small>
