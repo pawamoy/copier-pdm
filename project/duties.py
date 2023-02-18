@@ -114,8 +114,8 @@ def check_types(ctx: Context) -> None:
     Parameters:
         ctx: The context instance (passed automatically).
     """
-    ctx.run(mypy.run(
-        *PY_SRC_LIST, config_file="config/mypy.ini"),
+    ctx.run(
+        mypy.run(*PY_SRC_LIST, config_file="config/mypy.ini"),
         title=pyprefix("Type-checking"),
     )
 
