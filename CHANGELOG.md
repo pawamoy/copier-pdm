@@ -6,6 +6,18 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [0.11.0](https://github.com/pawamoy/copier-pdm/releases/tag/0.11.0) - 2023-02-18
+
+<small>[Compare with 0.10.14](https://github.com/pawamoy/copier-pdm/compare/0.10.14...0.11.0)</small>
+
+### Code Refactoring
+
+- Remove CLI related files when no CLI name is given ([84118a6](https://github.com/pawamoy/copier-pdm/commit/84118a6b3a2f5532ebfc8406ca4dafd851a0f722) by Timothée Mazzucotelli).
+- Don't generate docs pages for private modules ([9ac968f](https://github.com/pawamoy/copier-pdm/commit/9ac968f590d86e1ca815967713a72c867416e23e) by Timothée Mazzucotelli).
+- Ignore type guarded lines in coverage report ([680b2c1](https://github.com/pawamoy/copier-pdm/commit/680b2c16c510c709660f64d25e323ecf9e4acc95) by Timothée Mazzucotelli).
+- Basic configuration for mkdocstrings ([3a7b08a](https://github.com/pawamoy/copier-pdm/commit/3a7b08aec9456bdbd197cedac9228ead1bdb5cf2) by Timothée Mazzucotelli).
+- Use callables in duties, use Ruff instead of Flake8, use blacken-docs ([4270331](https://github.com/pawamoy/copier-pdm/commit/42703311c763b26a43679f3b8e7c7d93a5fda70c) by Timothée Mazzucotelli).
+
 ## [0.10.14](https://github.com/pawamoy/copier-pdm/releases/tag/0.10.14) - 2023-02-05
 
 <small>[Compare with 0.10.13](https://github.com/pawamoy/copier-pdm/compare/0.10.13...0.10.14)</small>
