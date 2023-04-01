@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [0.11.2](https://github.com/pawamoy/copier-pdm/releases/tag/0.11.2) - 2023-04-01
+
+<small>[Compare with 0.11.1](https://github.com/pawamoy/copier-pdm/compare/0.11.1...0.11.2)</small>
+
+### Code Refactoring
+
+- Update Ruff config ([3ef05ae](https://github.com/pawamoy/copier-pdm/commit/3ef05aed132031628af3d538e23e4b82fbfb02f2) by Timothée Mazzucotelli).
+
 ## [0.11.1](https://github.com/pawamoy/copier-pdm/releases/tag/0.11.1) - 2023-02-18
 
 <small>[Compare with 0.11.0](https://github.com/pawamoy/copier-pdm/compare/0.11.0...0.11.1)</small>
