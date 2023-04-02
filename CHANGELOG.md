@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [0.11.3](https://github.com/pawamoy/copier-pdm/releases/tag/0.11.3) - 2023-04-02
+
+<small>[Compare with 0.11.2](https://github.com/pawamoy/copier-pdm/compare/0.11.2...0.11.3)</small>
+
+### Bug Fixes
+
+- Add black to docs dependencies, to format signatures ([9fa3f8d](https://github.com/pawamoy/copier-pdm/commit/9fa3f8dec717252e01a8f34a5e5d30e725f48281) by Timothée Mazzucotelli).
+
 ## [0.11.2](https://github.com/pawamoy/copier-pdm/releases/tag/0.11.2) - 2023-04-01
 
 <small>[Compare with 0.11.1](https://github.com/pawamoy/copier-pdm/compare/0.11.1...0.11.2)</small>
