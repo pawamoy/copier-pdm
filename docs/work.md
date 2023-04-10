@@ -403,11 +403,8 @@ Results (0.76s):
 ## Continuous Integration
 
 The quality checks and tests are executed in parallel
-in a [GitHub Workflow](https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions)
-or in [GitLab CI](https://docs.gitlab.com/ee/ci/).
-
-For GitHub, the CI is configured in `.github/workflows/ci.yml`,
-and for GitLab it's configured in `.gitlab-ci.yml`.
+in a [GitHub Workflow](https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions).
+The CI is configured in `.github/workflows/ci.yml`.
 
 To force a step to pass even when it fails,
 add `nofail=CI` or `nofail=True` to the corresponding

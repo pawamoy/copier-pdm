@@ -79,12 +79,12 @@ Your repository provider
 repository_provider? Format: str
 🎤
 (1) github.com
-(2) gitlab.com
 Choice [1]: 
 ```
 
 The repository provider on which you plan to store your project.
-By default it chooses github.com.
+This template only supports GitHub, but the question is left in
+case we add support for more providers in the future.
 
 ---
 
@@ -235,7 +235,6 @@ At this point, Copier will generate the project in the specified directory:
     create  CONTRIBUTING.md
     create  CODE_OF_CONDUCT.md
     create  CHANGELOG.md
-    create  .gitlab-ci.yml
     create  .gitignore
     create  tests/
     create  tests/test_cli.py

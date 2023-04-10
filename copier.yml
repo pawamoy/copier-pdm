@@ -36,8 +36,7 @@ repository_provider:
   help: Your repository provider
   default: github.com
   choices:
-    - github.com
-    - gitlab.com
+  - github.com
 
 repository_namespace:
   type: str
@@ -117,8 +116,3 @@ python_package_command_line_name:
   type: str
   help: Your CLI name if any (for use in the shell)
   default: "{{ project_name|lower|replace('_', '-')|replace(' ', '-') }}"
-
-use_precommit:
-  type: bool
-  help: Do you want to use pre-commit?
-  default: no

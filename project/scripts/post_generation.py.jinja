@@ -21,20 +21,6 @@ def rmdir(path):
     shutil.rmtree(path)
 
 
-def clean_up_providers():
-    provider = "{{ repository_provider }}"
-    if provider == "github.com":
-        rm(".gitlab-ci.yml")
-    elif provider == "gitlab.com":
-        rmdir(".github")
-
-
-def clean_up_precommit():
-    use_precommit = {{ use_precommit }}
-    if not use_precommit:
-        rm(".pre-commit-config.yaml")
-
-
 def clean_up_cli():
     cli_name = "{{ python_package_command_line_name }}"
     if not cli_name:
@@ -42,16 +28,14 @@ def clean_up_cli():
         rm("src/{{ python_package_import_name }}/cli.py")
         rm("tests/test_cli.py")
 
+
 def delete_myself():
     rm(__file__)
 
 
 if __name__ == "__main__":
-    clean_up_providers()
-    clean_up_precommit()
     clean_up_cli()
     delete_myself()
 
     print("Project successfully generated!")
     print("Run `make` to show the available actions.")
-
