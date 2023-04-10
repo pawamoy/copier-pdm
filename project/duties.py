@@ -141,17 +141,7 @@ def clean(ctx: Context) -> None:
 
 
 @duty
-def docs(ctx: Context) -> None:
-    """Build the documentation locally.
-
-    Parameters:
-        ctx: The context instance (passed automatically).
-    """
-    ctx.run(mkdocs.build, title="Building documentation")
-
-
-@duty
-def docs_serve(ctx: Context, host: str = "127.0.0.1", port: int = 8000) -> None:
+def docs(ctx: Context, host: str = "127.0.0.1", port: int = 8000) -> None:
     """Serve the documentation (localhost:8000).
 
     Parameters:

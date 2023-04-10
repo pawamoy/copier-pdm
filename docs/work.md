@@ -121,9 +121,9 @@ Available tasks:
   See [the check-types section](#check-types).
 - `clean`: Delete temporary files.
 - `coverage`: Report coverage as text and HTML.
-- `docs`: Build the documentation locally.
+- `docs`: Serve the documentation (localhost:8000).
   See [the Documentation section](#documentation).
-- `docs-serve`: Serve the documentation (localhost:8000). Arguments:
+  Arguments:
     - `host="127.0.0.1"`: The host to serve the docs from.
     - `port=8000`: The port to serve the docs on.
 - `format`: Run formatting tools on the code.
@@ -151,7 +151,6 @@ Available rules are the same, with additional rules: `help`, `lock` and `setup`.
 - `clean`
 - `coverage`
 - `docs`
-- `docs-serve`
 - `format`
 - `lock`
 - `release`
@@ -172,8 +171,7 @@ make setup
 This will install the project's dependencies in `__pypackages__`:
 one folder per chosen Python version.
 The chosen Python versions are defined
-in both scripts `setup.sh` and `multirun.sh`
-in the `scripts/` folder.
+in the script `setup.sh` in the `scripts/` folder.
 You can change them here permanently,
 or temporarily with the `PYTHON_VERSIONS` environment variable.
 
@@ -610,19 +608,19 @@ check [its documentation](https://pawamoy.github.io/mkdocstrings).
 ### Serving
 
 MkDocs provides a development server with files watching and live-reload.
-Run `make docs-serve` to serve your documentation on `localhost:8000`.
+Run `make docs` to serve your documentation on `localhost:8000`.
 
 If you run it in a remote host (Linux VM) and would like to access it
 from your local browser, bind the server to 0.0.0.0 instead:
 
 ```bash
-make docs-serve host=0.0.0.0
+make docs host=0.0.0.0
 ```
 
 If needed, you can also change the port used:
 
 ```bash
-make docs-serve host=0.0.0.0 port=5000
+make docs host=0.0.0.0 port=5000
 ```
 
 ### Deploying
