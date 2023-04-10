@@ -19,8 +19,9 @@ If you are using it, see [how to migrate to copier-pdm](https://pawamoy.github.i
   and "autodoc" [mkdocstrings plugin](https://github.com/mkdocstrings/mkdocstrings))
 - Pre-configured tools for code formatting, quality analysis and testing:
     - [black](https://github.com/psf/black),
-    - [flake8](https://gitlab.com/pycqa/flake8) and plugins,
-    - [isort](https://github.com/timothycrosley/isort),
+    - [blacken-docs](https://github.com/adamchainz/blacken-docs),
+    - [ssort](https://github.com/bwhmather/ssort),
+    - [ruff](https://github.com/charliermarsh/ruff),
     - [mypy](https://github.com/python/mypy),
     - [safety](https://github.com/pyupio/safety)
 - Tests run with [pytest](https://github.com/pytest-dev/pytest) and plugins, with [coverage](https://github.com/nedbat/coveragepy) support
