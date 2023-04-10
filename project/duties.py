@@ -130,7 +130,13 @@ def check_api(ctx: Context) -> None:
     from griffe.cli import check
 
     griffe_check = lazy(check, name="griffe.check")
-    ctx.run(griffe_check("griffe", search_paths=["src"]), title="Checking API", nofail=True)
+    for pkg in Path("src").glob("*"):
+        if pkg.is_dir():
+            ctx.run(
+                griffe_check(pkg.name, search_paths=["src"]),
+                title=f"Checking {pkg.name} for API breaking changes",
+                nofail=True,
+            )
 
 
 @duty(silent=True)
