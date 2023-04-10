@@ -227,6 +227,7 @@ This action is actually a composition of several checks:
 - `check-dependencies`: Check for vulnerabilities in dependencies.
 - `check-docs`: Check if the documentation builds correctly.
 - `check-types`: Check if the code is correctly typed.
+- `check-api`: Check for breaking changes in your Python API.
 
 For example, if you are only interested in checking types,
 run `make check-types`.
@@ -347,6 +348,13 @@ as a last resort you can ignore this specific error with a comment:
 ```python title="src/your_package/module.py"
 result = data_dict.get(key, None).value  # type: ignore
 ```
+
+### check-api
+
+This actions runs [Griffe](https://github.com/mkdocstrings/griffe)
+to search for API breaking changes since latest version. It is set
+to allow failures, and is more about providing information than
+preventing CI to pass.
 
 ## Tests
 

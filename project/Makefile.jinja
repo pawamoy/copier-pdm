@@ -11,6 +11,7 @@ test_args = match
 
 BASIC_DUTIES = \
 	changelog \
+	check-api \
 	check-dependencies \
 	clean \
 	coverage \
@@ -42,7 +43,7 @@ setup:
 .PHONY: check
 check:
 	@pdm multirun duty check-quality check-types check-docs
-	@$(DUTY) check-dependencies
+	@$(DUTY) check-dependencies check-api
 
 .PHONY: $(BASIC_DUTIES)
 $(BASIC_DUTIES):

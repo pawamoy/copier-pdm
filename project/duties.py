@@ -56,7 +56,7 @@ def changelog(ctx: Context) -> None:
     )
 
 
-@duty(pre=["check_quality", "check_types", "check_docs", "check_dependencies"])
+@duty(pre=["check_quality", "check_types", "check_docs", "check_dependencies", "check-api"])
 def check(ctx: Context) -> None:  # noqa: ARG001
     """Check it all!
 
@@ -118,6 +118,19 @@ def check_types(ctx: Context) -> None:
         mypy.run(*PY_SRC_LIST, config_file="config/mypy.ini"),
         title=pyprefix("Type-checking"),
     )
+
+
+@duty
+def check_api(ctx: Context) -> None:
+    """Check for API breaking changes.
+
+    Parameters:
+        ctx: The context instance (passed automatically).
+    """
+    from griffe.cli import check
+
+    griffe_check = lazy(check, name="griffe.check")
+    ctx.run(griffe_check("griffe", search_paths=["src"]), title="Checking API", nofail=True)
 
 
 @duty(silent=True)
