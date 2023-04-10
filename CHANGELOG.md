@@ -6,6 +6,23 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [0.12.0](https://github.com/pawamoy/copier-pdm/releases/tag/0.12.0) - 2023-04-10
+
+<small>[Compare with 0.11.3](https://github.com/pawamoy/copier-pdm/compare/0.11.3...0.12.0)</small>
+
+### Features
+
+- Add check-api duty (using Griffe) ([dad5341](https://github.com/pawamoy/copier-pdm/commit/dad53419e5a69b67ad56bff1924619f48f588e78) by Timothée Mazzucotelli).
+- Support PDM 2.5, use `pdm-backend` instead of `pdm-pep517` ([af1d81f](https://github.com/pawamoy/copier-pdm/commit/af1d81f09610ca0c053e5dba7ca02e2fa37d3bc7) by Timothée Mazzucotelli).
+
+### Code Refactoring
+
+- Upgrade duty ([b38016b](https://github.com/pawamoy/copier-pdm/commit/b38016bbe51f33ecc6470ebd105e11578b23d056) by Timothée Mazzucotelli).
+- Fix test module quality ([d595e40](https://github.com/pawamoy/copier-pdm/commit/d595e4089651f8c121e5bc8242987d7f97152195) by Timothée Mazzucotelli).
+- Rename `docs-serve` duty to `docs` ([45926f2](https://github.com/pawamoy/copier-pdm/commit/45926f26fcf24f18b419d62a5809f0fc9de225c9) by Timothée Mazzucotelli).
+- Update default copyright date to 2023 ([672da68](https://github.com/pawamoy/copier-pdm/commit/672da68af4ba3fddb22d6eaaf2f17d7b5a3428b8) by Timothée Mazzucotelli).
+- Drop support for GitLab and pre-commit ([d820f6b](https://github.com/pawamoy/copier-pdm/commit/d820f6b104fecf670db5a8d7b3d6ab1dc67fd17b) by Timothée Mazzucotelli).
+
 ## [0.11.3](https://github.com/pawamoy/copier-pdm/releases/tag/0.11.3) - 2023-04-02
 
 <small>[Compare with 0.11.2](https://github.com/pawamoy/copier-pdm/compare/0.11.2...0.11.3)</small>
