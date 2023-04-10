@@ -1,12 +1,12 @@
 [build-system]
-requires = ["pdm-pep517"]
-build-backend = "pdm.pep517.api"
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
 
 [project]
 name = "{{ python_package_distribution_name }}"
 description = "{{ project_description }}"
 authors = [{name = "{{ author_fullname }}", email = "{{ author_email }}"}]
-license = "
+license = {text = "
     {%- if copyright_license == "Academic Free License v3.0" -%}
     AFL-3.0
     {%- elif copyright_license == "Apache License 2.0" -%}
@@ -73,7 +73,7 @@ license = "
     Unlicense
     {%- elif copyright_license == "zlib License" -%}
     Zlib
-    {%- endif %}"
+    {%- endif %}"}
 readme = "README.md"
 requires-python = ">=3.7"
 keywords = []
