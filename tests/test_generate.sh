@@ -8,6 +8,11 @@ echo "///////////////////////////////////////////"
 echo "             TAGGING TEMPLATE COPY"
 echo "///////////////////////////////////////////"
 echo
+if find . | grep -Eve '^./(site|\.git|tests/tmp|project)/' |
+    grep -e '{{' -e '{%' -e '\.jinja$'; then
+  echo "error: templated files and directories should only appear under 'project'" >&2
+  exit 1
+fi
 template=$(mktemp -d)
 cp -rf . "${template}"
 (
