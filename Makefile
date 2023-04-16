@@ -23,3 +23,21 @@ release:
 	@git tag $(version)
 	@git push
 	@git push --tags
+
+DUTIES = \
+	test-changelog \
+	test-check-api \
+	test-check-dependencies \
+	test-clean \
+	test-coverage \
+	test-docs \
+	test-docs-deploy \
+	test-format \
+	test-release \
+	test-check-quality \
+	test-check-docs \
+	test-check-types \
+	test-test
+
+$(DUTIES):
+	@cd tests/tmp && make $(subst test-,,$@)
