@@ -2,38 +2,16 @@
 set -eu
 export TESTING=true
 
-output=tests/tmp
+. tests/helpers.sh
 
-echo "///////////////////////////////////////////"
-echo "             TAGGING TEMPLATE COPY"
-echo "///////////////////////////////////////////"
-echo
-if find . | grep -Eve '^./(site|\.git|tests/tmp|project)/' |
-    grep -e '{{' -e '{%' -e '\.jinja$'; then
-  echo "error: templated files and directories should only appear under 'project'" >&2
-  exit 1
-fi
-template=$(mktemp -d)
-cp -rf . "${template}"
-(
-  cd "${template}" || exit 1
-  git add . -A || true
-  git commit -m "test" || true
-  git tag 99.99.99
-)
-echo "Template copy located at ${template}"
+output=tests/tmp
 
 echo
 echo "///////////////////////////////////////////"
 echo "             GENERATING PROJECT"
 echo "///////////////////////////////////////////"
 echo
-copier -f "${template}" "${output}" \
-  -d project_name="Pawamoy Testing" \
-  -d project_description='Testing this great template' \
-  -d author_fullname="Timothee Mazzucotelli" \
-  -d author_username="pawamoy" \
-  -d author_email="pawamoy@pm.me"
+generate "${PWD}" "${output}"
 cd "${output}"
 git init .
 git remote add origin https://github.com/pawamoy/pawamoy-testing

@@ -5,6 +5,9 @@ cleantests:
 	@rm -rf tests/tmp/.git
 	@rm -rf tests/tmp/empty
 
+generate:
+	@bash -c 'source tests/helpers.sh && generate ${PWD} tests/tmp'
+
 test: cleantests
 	@./runtests.sh
 
