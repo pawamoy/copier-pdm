@@ -108,8 +108,11 @@ Gitter = "https://gitter.im/{{ repository_name }}/community"
 Funding = "https://{{ repository_provider }}/sponsors/{{ repository_namespace }}"
 {%- endif %}
 
+{% if python_package_command_line_name -%}
 [project.scripts]
 {{ python_package_command_line_name }} = "{{ python_package_import_name }}.cli:main"
+
+{% endif -%}
 
 [tool.pdm]
 version = {source = "scm"}

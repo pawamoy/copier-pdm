@@ -46,7 +46,7 @@ copyright_holder_email: pawamoy@pm.me
 copyright_license: ISC License
 project_description: Automatic documentation from sources, for MkDocs.
 project_name: mkdocstrings
-python_package_command_line_name: mkdocstrings
+python_package_command_line_name: ""
 python_package_distribution_name: mkdocstrings
 python_package_import_name: mkdocstrings
 repository_name: mkdocstrings

@@ -26,7 +26,7 @@ git add -A .
 git commit -am "feat: Initial commit"
 git tag v0.1.0
 echo
-if [ -z "${SKIP_SETUP}" ]; then
+if [ -z "${SKIP_SETUP:-}" ]; then
     echo ">>> Setting up Python environments"
     make --no-print-directory setup
     echo
