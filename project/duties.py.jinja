@@ -191,7 +191,7 @@ def docs_deploy(ctx: Context) -> None:
     Parameters:
         ctx: The context instance (passed automatically).
     """
-    os.environ["DEPLOY"] = "1"
+    os.environ["DEPLOY"] = "true"
     ctx.run(mkdocs.gh_deploy(config_file=mkdocs_config()), title="Deploying documentation")
 
 
