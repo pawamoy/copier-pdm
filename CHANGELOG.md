@@ -6,6 +6,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [0.13.0](https://github.com/pawamoy/copier-pdm/releases/tag/0.13.0) - 2023-04-26
+
+<small>[Compare with 0.12.1](https://github.com/pawamoy/copier-pdm/compare/0.12.1...0.13.0)</small>
+
+### Features
+
+- Add Insiders option, and use Material for MkDocs Insiders ([34c26ef](https://github.com/pawamoy/copier-pdm/commit/34c26eff40e078f1e4406a02d7e4417498cf6b8a) by Timothée Mazzucotelli).
+
+### Code Refactoring
+
+- Update minimum Copier version ([927cd20](https://github.com/pawamoy/copier-pdm/commit/927cd206a844674e175baacc709dfb24a8f4e2f8) by Timothée Mazzucotelli).
+- Ignore Ruff's ERA001 ([c9b54a3](https://github.com/pawamoy/copier-pdm/commit/c9b54a32d46b8b3b38e03a84c5056c9fd2218094) by Timothée Mazzucotelli).
+- Always install all dependency groups ([0d1e398](https://github.com/pawamoy/copier-pdm/commit/0d1e39892c27fe1b813b258ed24776cfaca8aba1) by Timothée Mazzucotelli).
+
 ## [0.12.1](https://github.com/pawamoy/copier-pdm/releases/tag/0.12.1) - 2023-04-10
 
 <small>[Compare with 0.12.0](https://github.com/pawamoy/copier-pdm/compare/0.12.0...0.12.1)</small>
