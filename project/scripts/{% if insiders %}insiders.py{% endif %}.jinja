@@ -186,7 +186,7 @@ def print_join_sponsors_button() -> None:  # noqa: D103
 
 
 def print_sponsors() -> None:  # noqa: D103
-    private_sponsors_count = sponsors_count - len(sponsors) + 10
+    private_sponsors_count = sponsors_count - len(sponsors)
     for sponsor in sponsors:
         print(
             f"""<a href="{sponsor['url']}" class="sponsorship-item" title="@{sponsor['name']}">"""
