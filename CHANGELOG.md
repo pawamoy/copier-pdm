@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [0.13.3](https://github.com/pawamoy/copier-pdm/releases/tag/0.13.3) - 2023-04-26
+
+<small>[Compare with 0.13.2](https://github.com/pawamoy/copier-pdm/compare/0.13.2...0.13.3)</small>
+
+### Bug Fixes
+
+- Replace XML entity with actual char in generated heading (buggy in Markdown Exec) ([cc55595](https://github.com/pawamoy/copier-pdm/commit/cc555959aa52e2a836317d5449d6e02e0212cae6) by Timothée Mazzucotelli).
+
 ## [0.13.2](https://github.com/pawamoy/copier-pdm/releases/tag/0.13.2) - 2023-04-26
 
 <small>[Compare with 0.13.1](https://github.com/pawamoy/copier-pdm/compare/0.13.1...0.13.2)</small>
