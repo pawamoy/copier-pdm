@@ -6,6 +6,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [0.13.1](https://github.com/pawamoy/copier-pdm/releases/tag/0.13.1) - 2023-04-26
+
+<small>[Compare with 0.13.0](https://github.com/pawamoy/copier-pdm/compare/0.13.0...0.13.1)</small>
+
+### Bug Fixes
+
+- Don't hardcode ISC license ([43f1dc7](https://github.com/pawamoy/copier-pdm/commit/43f1dc77a33af77f192228d5100dde4f5517c8df) by Timothée Mazzucotelli).
+- Support empty command line name ([c55faba](https://github.com/pawamoy/copier-pdm/commit/c55faba15a89d0c47d39edd143f1b7954aa20e9c) by Timothée Mazzucotelli).
+- Remove test code for printing sponsors ([22262f8](https://github.com/pawamoy/copier-pdm/commit/22262f88cb2bf3dad00bc2075425021346f95f12) by Timothée Mazzucotelli).
+- Remove unused dependency ([5e771a7](https://github.com/pawamoy/copier-pdm/commit/5e771a7b829893aab674d1df432257d4fda826a4) by Timothée Mazzucotelli).
+
 ## [0.13.0](https://github.com/pawamoy/copier-pdm/releases/tag/0.13.0) - 2023-04-26
 
 <small>[Compare with 0.12.1](https://github.com/pawamoy/copier-pdm/compare/0.12.1...0.13.0)</small>
