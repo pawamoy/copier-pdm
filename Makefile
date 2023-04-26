@@ -5,14 +5,14 @@ cleantests:
 	@rm -rf tests/tmp/.git
 	@rm -rf tests/tmp/empty
 
-generate:
+gen generate:
 	@bash -c 'source tests/helpers.sh && generate ${PWD} tests/tmp'
+
+reset-history: gen
+	@./reset-history.sh
 
 test: cleantests
 	@./runtests.sh
-
-update-deps:
-	@./update-deps.sh
 
 changelog:
 	@git-changelog -Tbio CHANGELOG.md -c angular
@@ -26,17 +26,21 @@ release:
 
 DUTIES = \
 	test-changelog \
+	test-check \
 	test-check-api \
 	test-check-dependencies \
+	test-check-docs \
+	test-check-quality \
+	test-check-types \
 	test-clean \
 	test-coverage \
 	test-docs \
 	test-docs-deploy \
 	test-format \
+	test-help \
+	test-lock \
 	test-release \
-	test-check-quality \
-	test-check-docs \
-	test-check-types \
+	test-setup \
 	test-test
 
 $(DUTIES):
