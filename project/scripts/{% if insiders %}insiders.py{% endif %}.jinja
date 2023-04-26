@@ -60,7 +60,7 @@ class Goal:
         return human_readable_amount(self.amount)
 
     def render(self) -> None:  # noqa: D102
-        print(f"#### $ {self.human_readable_amount} &mdash; {self.name}\n")
+        print(f"#### $ {self.human_readable_amount} — {self.name}\n")
         for feature in self.features:
             print(f"- [{'x' if feature.since else ' '}] [{feature.name}]({feature.ref})")
         print("")
