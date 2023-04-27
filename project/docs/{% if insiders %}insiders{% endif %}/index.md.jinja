@@ -66,7 +66,8 @@ print(f"""The moment you <a href="#how-to-become-a-sponsor">become a sponsor</a>
 access to {len(completed_features)} additional features** that you can start using right away, and
 which are currently exclusively available to sponsors:\n""")
 
-print_features(completed_features)
+for feature in completed_features:
+    feature.render(badge=True)
 ```
 
 ## How to become a sponsor
