@@ -13,6 +13,7 @@ If you are using it, see [how to migrate to copier-pdm](https://pawamoy.github.i
 
 ## Features
 
+- Support for Insiders versions of projects (e.g. see [@pawamoy's insiders](https://pawamoy.github.io/insiders/))
 - [PDM](https://github.com/pdm-project/pdm) setup, with pre-defined `pyproject.toml`
 - Documentation built with [MkDocs](https://github.com/mkdocs/mkdocs)
   ([Material theme](https://github.com/squidfunk/mkdocs-material)
