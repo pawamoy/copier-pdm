@@ -6,6 +6,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [0.15.1](https://github.com/pawamoy/copier-pdm/releases/tag/0.15.1) - 2023-05-01
+
+<small>[Compare with 0.15.0](https://github.com/pawamoy/copier-pdm/compare/0.15.0...0.15.1)</small>
+
+### Bug Fixes
+
+- Prevent error when generating credits ([747c3dd](https://github.com/pawamoy/copier-pdm/commit/747c3dde362e88cec02b0f5682855566e218c8b9) by Timothée Mazzucotelli).
+- Only run dists workflow in insiders repo ([24200e9](https://github.com/pawamoy/copier-pdm/commit/24200e9511e53b15b44b25cda7d5739dcff656a9) by Timothée Mazzucotelli).
+
 ## [0.15.0](https://github.com/pawamoy/copier-pdm/releases/tag/0.15.0) - 2023-04-27
 
 <small>[Compare with 0.14.1](https://github.com/pawamoy/copier-pdm/compare/0.14.1...0.15.0)</small>
