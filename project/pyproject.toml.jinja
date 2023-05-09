@@ -116,6 +116,9 @@ Funding = "https://{{ repository_provider }}/sponsors/{{ repository_namespace }}
 
 [tool.pdm]
 version = {source = "scm"}
+plugins = [
+    "pdm-multirun",
+]
 
 [tool.pdm.build]
 package-dir = "src"
