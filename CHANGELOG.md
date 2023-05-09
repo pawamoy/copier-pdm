@@ -6,6 +6,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [0.15.3](https://github.com/pawamoy/copier-pdm/releases/tag/0.15.3) - 2023-05-09
+
+<small>[Compare with 0.15.2](https://github.com/pawamoy/copier-pdm/compare/0.15.2...0.15.3)</small>
+
+### Code Refactoring
+
+- Switch back to list for MkDocs plugins ([ee69af0](https://github.com/pawamoy/copier-pdm/commit/ee69af02de47a4a6b7c83f2f8e30de0d6be4ff78) by Timothée Mazzucotelli).
+- Don't cross-platform lock ([5261ca5](https://github.com/pawamoy/copier-pdm/commit/5261ca5e34093bbcc795d665fd705edd802f307f) by Timothée Mazzucotelli).
+- Specify PDM plugins in pyproject.toml ([794f53a](https://github.com/pawamoy/copier-pdm/commit/794f53a465f979599190c30540a3fbddfb8bdca6) by Timothée Mazzucotelli).
+
 ## [0.15.2](https://github.com/pawamoy/copier-pdm/releases/tag/0.15.2) - 2023-05-01
 
 <small>[Compare with 0.15.1](https://github.com/pawamoy/copier-pdm/compare/0.15.1...0.15.2)</small>
