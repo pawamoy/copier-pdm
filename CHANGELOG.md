@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [0.15.5](https://github.com/pawamoy/copier-pdm/releases/tag/0.15.5) - 2023-05-10
+
+<small>[Compare with 0.15.4](https://github.com/pawamoy/copier-pdm/compare/0.15.4...0.15.5)</small>
+
+### Bug Fixes
+
+- Improve style for autorefs external links ([315e385](https://github.com/pawamoy/copier-pdm/commit/315e38551727487682655065da9ade9823a822c2) by Timothée Mazzucotelli).
+
 ## [0.15.4](https://github.com/pawamoy/copier-pdm/releases/tag/0.15.4) - 2023-05-10
 
 <small>[Compare with 0.15.3](https://github.com/pawamoy/copier-pdm/compare/0.15.3...0.15.4)</small>
