@@ -6,6 +6,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [0.15.7](https://github.com/pawamoy/copier-pdm/releases/tag/0.15.7) - 2023-05-11
+
+<small>[Compare with 0.15.6](https://github.com/pawamoy/copier-pdm/compare/0.15.6...0.15.7)</small>
+
+### Bug Fixes
+
+- Fix Gitter badge URL ([105715b](https://github.com/pawamoy/copier-pdm/commit/105715b209a057c466483c826b2c657678403ffd) by Timothée Mazzucotelli).
+- Fix project URLs (Gitter/Funding) ([4d90e98](https://github.com/pawamoy/copier-pdm/commit/4d90e980fd3f6580e6d2942c3c02fbf7c18ec771) by Timothée Mazzucotelli).
+
+### Code Refactoring
+
+- Allow passing local and online data sources for insiders goals ([b02df28](https://github.com/pawamoy/copier-pdm/commit/b02df28c6162752c1dc288ad7a14f66c25b39bf7) by Timothée Mazzucotelli).
+
 ## [0.15.6](https://github.com/pawamoy/copier-pdm/releases/tag/0.15.6) - 2023-05-11
 
 <small>[Compare with 0.15.5](https://github.com/pawamoy/copier-pdm/compare/0.15.5...0.15.6)</small>
