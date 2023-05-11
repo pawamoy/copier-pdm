@@ -6,7 +6,7 @@
 [![documentation](https://img.shields.io/badge/docs-mkdocs%20material-blue.svg?style=flat)](https://{{ repository_namespace }}.{{ repository_provider[:-4] }}.io/{{ repository_name }}/)
 [![pypi version](https://img.shields.io/pypi/v/{{ python_package_distribution_name }}.svg)](https://pypi.org/project/{{ python_package_distribution_name }}/)
 [![gitpod](https://img.shields.io/badge/gitpod-workspace-blue.svg?style=flat)](https://gitpod.io/#https://github.com/{{ repository_namespace }}/{{ repository_name }})
-[![gitter](https://badges.gitter.im/join%20chat.svg)](https://gitter.im/{{ repository_name }}/community)
+[![gitter](https://badges.gitter.im/join%20chat.svg)](https://gitter.im/{% if repository_namespace != author_username %}{{ repository_namespace }}/{{ repository_name }}{% else %}{{ repository_name }}/community{% endif %})
 
 {{ project_description }}
 
