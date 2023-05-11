@@ -6,6 +6,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [0.15.6](https://github.com/pawamoy/copier-pdm/releases/tag/0.15.6) - 2023-05-11
+
+<small>[Compare with 0.15.5](https://github.com/pawamoy/copier-pdm/compare/0.15.5...0.15.6)</small>
+
+### Bug Fixes
+
+- Fix mdash position in announcement bar ([812dc1d](https://github.com/pawamoy/copier-pdm/commit/812dc1d8bf2567628203cdbeacc839d4320a1fad) by Timothée Mazzucotelli).
+- Lock with cross-platform locally (takes Python version into account otherwise) ([f6d5e1f](https://github.com/pawamoy/copier-pdm/commit/f6d5e1f4af959985d93ab1d23a48e96d96e73a31) by Timothée Mazzucotelli).
+
+### Code Refactoring
+
+- Limit concurrent jobs to 4 ([88223d7](https://github.com/pawamoy/copier-pdm/commit/88223d7622f7ffb41dc17c307a0dc478a3618436) by Timothée Mazzucotelli).
+- Define helper groups for CI, lock/install using those in CI ([5432e2c](https://github.com/pawamoy/copier-pdm/commit/5432e2cf224272e382a36f56ebb51b62da57ba4c) by Timothée Mazzucotelli).
+
 ## [0.15.5](https://github.com/pawamoy/copier-pdm/releases/tag/0.15.5) - 2023-05-10
 
 <small>[Compare with 0.15.4](https://github.com/pawamoy/copier-pdm/compare/0.15.4...0.15.5)</small>
