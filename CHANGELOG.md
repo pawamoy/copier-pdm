@@ -6,6 +6,22 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [0.15.8](https://github.com/pawamoy/copier-pdm/releases/tag/0.15.8) - 2023-06-02
+
+<small>[Compare with 0.15.7](https://github.com/pawamoy/copier-pdm/compare/0.15.7...0.15.8)</small>
+
+### Bug Fixes
+
+- Fix edit URI for docs pages ([90ba486](https://github.com/pawamoy/copier-pdm/commit/90ba4867ff3ed7f41372129ba21daeeb10e8724b) by Timothée Mazzucotelli).
+- Build insiders dists with full Git history ([2bfa741](https://github.com/pawamoy/copier-pdm/commit/2bfa7415b36d76cb0532bd9379fdd9eb3a857900) by Timothée Mazzucotelli).
+
+### Code Refactoring
+
+- Reduce CI minutes used by insiders repositories ([71b4d4e](https://github.com/pawamoy/copier-pdm/commit/71b4d4e557cc9934ee10ed93adf3043e4f09613b) by Timothée Mazzucotelli).
+- Add mod symbol type in navigation ([cf605f9](https://github.com/pawamoy/copier-pdm/commit/cf605f93ce1427dee9a51afb7a4182fdfe8272f2) by Timothée Mazzucotelli).
+- Improve external links styling ([c9e6f48](https://github.com/pawamoy/copier-pdm/commit/c9e6f48d9846525e8017313c28c7684ecec77a4b) by Timothée Mazzucotelli).
+- Improve virtualenv check ([17a2ef2](https://github.com/pawamoy/copier-pdm/commit/17a2ef236cb0d7ce29b0c8737fa7ec03d887c4b5) by Timothée Mazzucotelli).
+
 ## [0.15.7](https://github.com/pawamoy/copier-pdm/releases/tag/0.15.7) - 2023-05-11
 
 <small>[Compare with 0.15.6](https://github.com/pawamoy/copier-pdm/compare/0.15.6...0.15.7)</small>
