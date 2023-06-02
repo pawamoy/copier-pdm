@@ -53,8 +53,29 @@ jobs:
     - name: Check for breaking changes in the API
       run: pdm run duty check-api
 
+  exclude-test-jobs:
+    runs-on: ubuntu-latest
+    outputs:
+      jobs: {% raw %}${{ steps.exclude-jobs.outputs.jobs }}{% endraw %}
+    steps:
+    - id: exclude-jobs
+      run: |
+        if ${{ "{{" }} github.repository_owner == '{{ author_username }}-insiders' {{ "}}" }}; then
+          echo 'jobs=[
+            {"os": "macos-latest"},
+            {"os": "windows-latest"},
+            {"python-version": "3.8"},
+            {"python-version": "3.9"},
+            {"python-version": "3.10"},
+            {"python-version": "3.11"}
+          ]' | tr -d '[:space:]' >> $GITHUB_OUTPUT
+        else
+          echo 'jobs=[]' >> $GITHUB_OUTPUT
+        fi
+
   tests:
 
+    needs: exclude-test-jobs
     strategy:
       max-parallel: 4
       matrix:
@@ -68,8 +89,9 @@ jobs:
         - "3.9"
         - "3.10"
         - "3.11"
+        exclude: {% raw %}${{ fromJSON(needs.exclude-test-jobs.outputs.jobs) }}{% endraw %}
 
-    runs-on: ${{ matrix.os }}
+    runs-on: {% raw %}${{ matrix.os }}{% endraw %}
 
     steps:
     - name: Checkout
@@ -78,7 +100,7 @@ jobs:
     - name: Set up PDM
       uses: pdm-project/setup-pdm@v3
       with:
-        python-version: ${{ matrix.python-version }}
+        python-version: {% raw %}${{ matrix.python-version }}{% endraw %}
 
     - name: Resolving dependencies
       run: pdm lock -v --no-cross-platform -G ci-tests
