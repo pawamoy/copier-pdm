@@ -6,6 +6,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [0.15.11](https://github.com/pawamoy/copier-pdm/releases/tag/0.15.11) - 2023-06-09
+
+<small>[Compare with 0.15.10](https://github.com/pawamoy/copier-pdm/compare/0.15.10...0.15.11)</small>
+
+### Code Refactoring
+
+- Add bronze sponsors ([000bec8](https://github.com/pawamoy/copier-pdm/commit/000bec898ec442429e0f319a18d0c01eb0e1b2ef) by Timothée Mazzucotelli).
+- Add titles to license and credits ([7133977](https://github.com/pawamoy/copier-pdm/commit/7133977f724b25a9f8b781f8e3d9c4c76bac7479) by Timothée Mazzucotelli).
+
 ## [0.15.10](https://github.com/pawamoy/copier-pdm/releases/tag/0.15.10) - 2023-06-04
 
 <small>[Compare with 0.15.9](https://github.com/pawamoy/copier-pdm/compare/0.15.9...0.15.10)</small>
