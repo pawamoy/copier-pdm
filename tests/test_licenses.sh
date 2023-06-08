@@ -48,7 +48,7 @@ cp -rf . "${template}"
 )
 
 for license in "${LICENSES[@]}"; do
-  copier -f "${template}" "${output}" \
+  copier copy -f --UNSAFE "${template}" "${output}" \
     -d project_name="Pawamoy Testing" \
     -d project_description='Testing this great template' \
     -d author_fullname="Timothée Mazzucotelli" \
