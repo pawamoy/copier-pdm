@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [0.15.13](https://github.com/pawamoy/copier-pdm/releases/tag/0.15.13) - 2023-06-09
+
+<small>[Compare with 0.15.12](https://github.com/pawamoy/copier-pdm/compare/0.15.12...0.15.13)</small>
+
+### Bug Fixes
+
+- Only show unreleased insiders features, not implemented ones ([5a46c98](https://github.com/pawamoy/copier-pdm/commit/5a46c987b92696fa97eaa8852b9163090ede5093) by Timothée Mazzucotelli).
+
 ## [0.15.12](https://github.com/pawamoy/copier-pdm/releases/tag/0.15.12) - 2023-06-09
 
 <small>[Compare with 0.15.11](https://github.com/pawamoy/copier-pdm/compare/0.15.11...0.15.12)</small>
