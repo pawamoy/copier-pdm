@@ -191,27 +191,3 @@ completed_features = sorted(
     key=lambda ft: cast(date, ft.since),
     reverse=True,
 )
-
-{% raw %}
-def print_join_sponsors_button() -> None:  # noqa: D103
-    btn_classes = "{ .md-button .md-button--primary }"
-    print(
-        dedent(
-            f"""
-            [:octicons-heart-fill-24:{{ .pulse }}
-            &nbsp; Join our {sponsors_count} awesome sponsors]({sponsor_url}){btn_classes}
-            """,
-        ),
-    )
-
-
-def print_sponsors() -> None:  # noqa: D103
-    private_sponsors_count = sponsors_count - len(sponsors)
-    for sponsor in sponsors:
-        print(
-            f"""<a href="{sponsor['url']}" class="sponsorship-item" title="@{sponsor['name']}">"""
-            f"""<img src="{sponsor['image']}&size=72"></a>""",
-        )
-    if private_sponsors_count:
-        print(f"""<a href="{sponsor_url}" class="sponsorship-item private">+{private_sponsors_count}</a>""")
-{%- endraw %}
