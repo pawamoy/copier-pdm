@@ -65,10 +65,10 @@ jobs:
           echo 'jobs=[
             {"os": "macos-latest"},
             {"os": "windows-latest"},
-            {"python-version": "3.8"},
             {"python-version": "3.9"},
             {"python-version": "3.10"},
-            {"python-version": "3.11"}
+            {"python-version": "3.11"},
+            {"python-version": "3.12"}
           ]' | tr -d '[:space:]' >> $GITHUB_OUTPUT
         else
           echo 'jobs=[]' >> $GITHUB_OUTPUT
@@ -88,14 +88,14 @@ jobs:
         - macos-latest
         - windows-latest
         python-version:
-        - "3.7"
         - "3.8"
         - "3.9"
         - "3.10"
         - "3.11"
-        {% if insiders -%}
+        - "3.12"
+        {%- if insiders %}
         exclude: {% raw %}${{ fromJSON(needs.exclude-test-jobs.outputs.jobs) }}{% endraw %}
-        {% endif -%}
+        {%- endif %}
 
     runs-on: {% raw %}${{ matrix.os }}{% endraw %}
 

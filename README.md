@@ -28,7 +28,7 @@ If you are using it, see [how to migrate to copier-pdm](https://pawamoy.github.i
 - Tests run with [pytest](https://github.com/pytest-dev/pytest) and plugins, with [coverage](https://github.com/nedbat/coveragepy) support
 - Cross-platform tasks with [duty](https://github.com/pawamoy/duty)
 - Support for GitHub workflows
-- Python 3.7 or above
+- Python 3.8 or above
 - Auto-generated `CHANGELOG.md` from git commits (using Angular message style)
 - All licenses from [choosealicense.com](https://choosealicense.com/appendix/)
 - Makefile for convenience
