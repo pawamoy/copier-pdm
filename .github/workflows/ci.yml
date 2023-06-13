@@ -42,17 +42,21 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
+      with:
+        depth: 0
 
     - name: Set up PDM
-      uses: pdm-project/setup-pdm@v2.5
+      uses: pdm-project/setup-pdm@v3
       with:
         python-version: ${{ matrix.python-version }}
 
-    - name: Set up git
+    - name: Set up tools
       run: |
+        git config --global init.defaultBranch main
         git config --global user.email "pawamoy@pm.me"
         git config --global user.name "Timothée Mazzucotelli"
+        pdm config python.use_venv false
 
     - name: Set up the project
       run: pip install copier==${{ matrix.copier-version }}
