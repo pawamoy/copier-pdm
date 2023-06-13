@@ -6,6 +6,21 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [0.15.14](https://github.com/pawamoy/copier-pdm/releases/tag/0.15.14) - 2023-06-13
+
+<small>[Compare with 0.15.13](https://github.com/pawamoy/copier-pdm/compare/0.15.13...0.15.14)</small>
+
+### Bug Fixes
+
+- Fix quality ([abd744f](https://github.com/pawamoy/copier-pdm/commit/abd744f313147e1bfd2ffd577f741348a5cb7a16) by Timothée Mazzucotelli).
+
+### Code Refactoring
+
+- Update minimum Python version to 3.8, add 3.12 support ([8a51b4c](https://github.com/pawamoy/copier-pdm/commit/8a51b4c37d4b66fb5a314e2d8ac7f023f12a67db) by Timothée Mazzucotelli).
+- Update minimum Copier version to 8 ([ffda3b6](https://github.com/pawamoy/copier-pdm/commit/ffda3b6d7e007c261cc50137ab2c9a935c607ebb) by Timothée Mazzucotelli).
+- Only filter test jobs if insiders is enabled ([5f37d87](https://github.com/pawamoy/copier-pdm/commit/5f37d87791ced8774122fad7d8e18d37780d784d) by Timothée Mazzucotelli).
+- Use main branch ([716e38e](https://github.com/pawamoy/copier-pdm/commit/716e38ee053ea55276e18d060cec2477a7605558) by Timothée Mazzucotelli).
+
 ## [0.15.13](https://github.com/pawamoy/copier-pdm/releases/tag/0.15.13) - 2023-06-09
 
 <small>[Compare with 0.15.12](https://github.com/pawamoy/copier-pdm/compare/0.15.12...0.15.13)</small>
