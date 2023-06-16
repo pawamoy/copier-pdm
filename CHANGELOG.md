@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [0.15.15](https://github.com/pawamoy/copier-pdm/releases/tag/0.15.15) - 2023-06-16
+
+<small>[Compare with 0.15.14](https://github.com/pawamoy/copier-pdm/compare/0.15.14...0.15.15)</small>
+
+### Code Refactoring
+
+- Reconfigure mkdocstrings ([bf43d1c](https://github.com/pawamoy/copier-pdm/commit/bf43d1c00a1edecfe52700f7aea8228430474367) by Timothée Mazzucotelli).
+
 ## [0.15.14](https://github.com/pawamoy/copier-pdm/releases/tag/0.15.14) - 2023-06-13
 
 <small>[Compare with 0.15.13](https://github.com/pawamoy/copier-pdm/compare/0.15.13...0.15.14)</small>
