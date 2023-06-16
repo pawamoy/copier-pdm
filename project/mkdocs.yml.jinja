@@ -117,10 +117,17 @@ plugins:
         import:
         - https://docs.python.org/3/objects.inv
         options:
-          separate_signature: true
-          merge_init_into_class: true
           docstring_options:
             ignore_init_summary: true
+          docstring_section_style: list
+          merge_init_into_class: true
+          separate_signature: true
+          show_root_heading: true
+          show_root_full_path: false
+          show_signature_annotations: true
+          show_symbol_type_heading: true
+          show_symbol_type_toc: true
+          signature_crossrefs: true
 - git-committers:
     enabled: !ENV [DEPLOY, false]
     repository: {{ repository_namespace }}/{{ repository_name }}
