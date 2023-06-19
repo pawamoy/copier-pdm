@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [0.15.17](https://github.com/pawamoy/copier-pdm/releases/tag/0.15.17) - 2023-06-19
+
+<small>[Compare with 0.15.16](https://github.com/pawamoy/copier-pdm/compare/0.15.16...0.15.17)</small>
+
+### Code Refactoring
+
+- Create insiders.js conditionally ([b98c845](https://github.com/pawamoy/copier-pdm/commit/b98c845bb9c54eaa8b780e1725da916c912752fb) by Timothée Mazzucotelli).
+
 ## [0.15.16](https://github.com/pawamoy/copier-pdm/releases/tag/0.15.16) - 2023-06-19
 
 <small>[Compare with 0.15.15](https://github.com/pawamoy/copier-pdm/compare/0.15.15...0.15.16)</small>
