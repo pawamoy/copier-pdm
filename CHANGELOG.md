@@ -6,6 +6,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [0.15.18](https://github.com/pawamoy/copier-pdm/releases/tag/0.15.18) - 2023-06-19
+
+<small>[Compare with 0.15.17](https://github.com/pawamoy/copier-pdm/compare/0.15.17...0.15.18)</small>
+
+### Code Refactoring
+
+- Rename Code to API reference ([e622fde](https://github.com/pawamoy/copier-pdm/commit/e622fdedafdefc7f0b971a2e935c96f2cf494c96) by Timothée Mazzucotelli).
+- Colorize pytest output ([1d77983](https://github.com/pawamoy/copier-pdm/commit/1d779838c5404be3caee405071bb90a8947a7c93) by Timothée Mazzucotelli).
+
 ## [0.15.17](https://github.com/pawamoy/copier-pdm/releases/tag/0.15.17) - 2023-06-19
 
 <small>[Compare with 0.15.16](https://github.com/pawamoy/copier-pdm/compare/0.15.16...0.15.17)</small>
