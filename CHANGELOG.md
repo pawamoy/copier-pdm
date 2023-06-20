@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [0.15.20](https://github.com/pawamoy/copier-pdm/releases/tag/0.15.20) - 2023-06-20
+
+<small>[Compare with 0.15.19](https://github.com/pawamoy/copier-pdm/compare/0.15.19...0.15.20)</small>
+
+### Code Refactoring
+
+- Allow CI failure on Python 3.12 ([8a99244](https://github.com/pawamoy/copier-pdm/commit/8a992447a6be6ee4dd6b4cc12e03ea06d4894d6a) by Timothée Mazzucotelli).
+
 ## [0.15.19](https://github.com/pawamoy/copier-pdm/releases/tag/0.15.19) - 2023-06-20
 
 <small>[Compare with 0.15.18](https://github.com/pawamoy/copier-pdm/compare/0.15.18...0.15.19)</small>
