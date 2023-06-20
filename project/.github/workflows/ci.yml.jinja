@@ -107,6 +107,7 @@ jobs:
       uses: pdm-project/setup-pdm@v3
       with:
         python-version: {% raw %}${{ matrix.python-version }}{% endraw %}
+        prerelease: true
 
     - name: Resolving dependencies
       run: pdm lock -v --no-cross-platform -G ci-tests
