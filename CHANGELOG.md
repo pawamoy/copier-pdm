@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [0.15.19](https://github.com/pawamoy/copier-pdm/releases/tag/0.15.19) - 2023-06-20
+
+<small>[Compare with 0.15.18](https://github.com/pawamoy/copier-pdm/compare/0.15.18...0.15.19)</small>
+
+### Bug Fixes
+
+- Allow Python prerelease through setup-pdm action ([b2c91e4](https://github.com/pawamoy/copier-pdm/commit/b2c91e4b2c07ac96d86cd75403be4e258913b925) by Timothée Mazzucotelli).
+
 ## [0.15.18](https://github.com/pawamoy/copier-pdm/releases/tag/0.15.18) - 2023-06-19
 
 <small>[Compare with 0.15.17](https://github.com/pawamoy/copier-pdm/compare/0.15.17...0.15.18)</small>
