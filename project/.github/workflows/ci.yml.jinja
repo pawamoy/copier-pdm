@@ -96,8 +96,8 @@ jobs:
         {%- if insiders %}
         exclude: {% raw %}${{ fromJSON(needs.exclude-test-jobs.outputs.jobs) }}{% endraw %}
         {%- endif %}
-
     runs-on: {% raw %}${{ matrix.os }}{% endraw %}
+    continue-on-error: {% raw %}${{ matrix.python-version == '3.12' }}{% endraw %}
 
     steps:
     - name: Checkout
