@@ -44,6 +44,7 @@ theme:
 
 markdown_extensions:
 - admonition
+- callouts
 - pymdownx.emoji
 - pymdownx.magiclink
 - pymdownx.snippets:

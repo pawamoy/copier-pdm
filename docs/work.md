@@ -7,35 +7,39 @@ The generated project has this structure:
 ├── 📄 CHANGELOG.md --------------- # 
 ├── 📄 CODE_OF_CONDUCT.md --------- # 
 ├── 📁 config --------------------- # tools configuration files
+│   ├── 📄 black.toml ------------- # 
 │   ├── 📄 coverage.ini ----------- # 
-│   ├── 📄 flake8.ini ------------- # 
 │   ├── 📄 mypy.ini --------------- # 
-│   └── 📄 pytest.ini ------------- # 
+│   ├── 📄 pytest.ini ------------- # 
+│   └── 📄 ruff.toml -------------- # 
 ├── 📄 CONTRIBUTING.md ------------ # 
 ├── 📁 docs ----------------------- # documentation pages
 │   ├── 📄 changelog.md ----------- # 
 │   ├── 📄 code_of_conduct.md ----- # 
 │   ├── 📄 contributing.md -------- # 
+│   ├── 📄 credits.md ------------- # 
 │   ├── 📁 css -------------------- # extra CSS files
+│   │   ├── 📄 material.css ------- # 
 │   │   └── 📄 mkdocstrings.css --- # 
-│   ├── 📄 gen_credits.py --------- # script to generate credits
-│   ├── 📄 gen_ref_nav.py --------- # script to generate code reference nav
 │   ├── 📄 index.md --------------- # 
-│   ├── 📄 license.md ------------- # 
+│   └── 📄 license.md ------------- # 
 ├── 📄 duties.py ------------------ # the project's tasks
 ├── 📄 LICENSE -------------------- # 
 ├── 📄 Makefile ------------------- # 
+├── 📄 mkdocs.insiders.yml -------- # 
 ├── 📄 mkdocs.yml ----------------- # docs configuration
 ├── 📄 pyproject.toml ------------- # project metadata and dependencies
 ├── 📄 README.md ------------------ # 
 ├── 📁 scripts -------------------- # helper scripts
-│   ├── 📄 multirun.sh ------------ # to run a command against multiple Python versions
+│   ├── 📄 gen_credits.py --------- # script to generate credits
+│   ├── 📄 gen_ref_nav.py --------- # script to generate code reference nav
 │   └── 📄 setup.sh --------------- # to install dependencies for multiple Python versions
 ├── 📁 src ------------------------ # the source code directory
 │   └── 📁 your_package ----------- # your package
 │       ├── 📄 cli.py ------------- # the command line entry point
 │       ├── 📄 __init__.py -------- # 
-│       └── 📄 __main__.py -------- # 
+│       ├── 📄 __main__.py -------- # 
+│       └── 📄 py.typed ----------- # 
 └── 📁 tests ---------------------- # the tests directory
     ├── 📄 conftest.py ------------ # pytest fixtures, etc.
     ├── 📄 __init__.py ------------ # 
@@ -84,6 +88,25 @@ pdm remove -dG stats numpy
 - Use `pdm list` to show the list of dependencies.
 
 See `pdm COMMAND --help` for details about each command.
+
+### Installing in `__pypackages__` (PEP 582)
+
+Configure PDM to install dependencies in `__pypackages__`:
+
+```bash
+pdm config python.use_venv false
+```
+
+### Installing in virtualenvs
+
+WARNING: **Our "PDM Multirun" plugin does not support virtualenvs yet!**
+
+Configure PDM to create the different virtualenvs outside of the project:
+
+```bash
+pdm config python.use_venv true
+pdm config venv.in_project false
+```
 
 ## Tasks
 
