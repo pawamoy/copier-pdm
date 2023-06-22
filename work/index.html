@@ -1246,10 +1246,7 @@ The <code>setup</code> rule is explained below.</p>
 </code></pre></div>
 <p>This will install the project's dependencies in <code>__pypackages__</code>:
 one folder per chosen Python version.
-The chosen Python versions are defined
-in the script <code>setup.sh</code> in the <code>scripts/</code> folder.
-You can change them here permanently,
-or temporarily with the <code>PYTHON_VERSIONS</code> environment variable.</p>
+The chosen Python versions are defined in the Makefile.</p>
 <p>If you don't have the <code>make</code> command,
 you can use <code>bash scripts/setup.sh</code> instead,
 or even just <code>pdm install</code>
