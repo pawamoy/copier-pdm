@@ -136,6 +136,153 @@ Available tasks:
   Arguments:
     - `match=""`: A pytest expression to filter selected tests.
 
+### VSCode setup
+
+If you work in VSCode, here are some pre-defined tasks and run configurations:
+
+<details><summary>Click to see <code>.vscode/tasks.json</code></summary>
+
+```json
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "changelog",
+            "type": "shell",
+            "command": "pdm run duty changelog",
+        },
+        {
+            "label": "check",
+            "type": "process",
+            "command": "pdm run duty check",
+        },
+        {
+            "label": "check-quality",
+            "type": "process",
+            "command": "pdm run duty check-quality",
+        },
+        {
+            "label": "check-types",
+            "type": "process",
+            "command": "pdm run duty check-types",
+        },
+        {
+            "label": "check-docs",
+            "type": "process",
+            "command": "pdm run duty check-docs",
+        },
+        {
+            "label": "check-dependencies",
+            "type": "process",
+            "command": "pdm run duty check-dependencies",
+        },
+        {
+            "label": "check-api",
+            "type": "process",
+            "command": "pdm run duty check-api",
+        },
+        {
+            "label": "clean",
+            "type": "process",
+            "command": "pdm run duty clean",
+        },
+        {
+            "label": "docs",
+            "type": "process",
+            "command": "pdm run duty docs",
+        },
+        {
+            "label": "docs-deploy",
+            "type": "process",
+            "command": "pdm run duty docs-deploy",
+        },
+        {
+            "label": "format",
+            "type": "process",
+            "command": "pdm run duty format",
+        },
+        {
+            "label": "lock",
+            "type": "process",
+            "command": "pdm lock -G:all",
+        },
+        {
+            "label": "release",
+            "type": "process",
+            "command": "pdm run duty release ${input:version}",
+        },
+        {
+            "label": "setup",
+            "type": "process",
+            "command": "bash scripts/setup.sh",
+        },
+        {
+            "label": "test",
+            "type": "process",
+            "command": "pdm run duty test coverage",
+            "group": "test",
+        }
+    ],
+    "inputs": [
+        {
+            "id": "version",
+            "type": "promptString",
+            "description": "Version"
+        }
+    ]
+}
+```
+
+</details>
+
+<details><summary>Click to see <code>.vscode/launch.json</code></summary>
+
+```json
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "python (current file)",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": false
+        },
+        {
+            "name": "test",
+            "type": "python",
+            "request": "launch",
+            "module": "pytest",
+            "justMyCode": false,
+            "args": [
+                "-c=config/pytest.ini",
+                "-vvv",
+                "--no-cov",
+                "--dist=no",
+                "tests",
+                "-k=${input:selection}"
+            ]
+        }
+    ],
+    "inputs": [
+        {
+            "id": "selection",
+            "type": "promptString",
+            "description": "Tests selection",
+            "default": "",
+        }
+    ]
+}
+```
+
+</details>
+
 ### Makefile
 
 A Makefile is available for convenience. It's just a shortcut to run duties.
