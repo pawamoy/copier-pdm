@@ -10,6 +10,9 @@ cleantests:
 docs:
 	@mkdocs serve
 
+docs-deploy:
+	@mkdocs gh-deploy
+
 gen generate:
 	@bash -c 'source tests/helpers.sh && generate ${PWD} tests/tmp'
 
