@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [0.15.21](https://github.com/pawamoy/copier-pdm/releases/tag/0.15.21) - 2023-06-22
+
+<small>[Compare with 0.15.20](https://github.com/pawamoy/copier-pdm/compare/0.15.20...0.15.21)</small>
+
+### Code Refactoring
+
+- Use PDM_MULTIRUN_VERSIONS environment variable directly ([d028e07](https://github.com/pawamoy/copier-pdm/commit/d028e07914e420dc8f19251d05afcca8c17d251a) by Timothée Mazzucotelli).
+
 ## [0.15.20](https://github.com/pawamoy/copier-pdm/releases/tag/0.15.20) - 2023-06-20
 
 <small>[Compare with 0.15.19](https://github.com/pawamoy/copier-pdm/compare/0.15.19...0.15.20)</small>
