@@ -1,9 +1,14 @@
+.PHONY: $(MAKECMDGOALS)
+
 clean:
 	@rm -rf tests/tmp
 
 cleantests:
 	@rm -rf tests/tmp/.git
 	@rm -rf tests/tmp/empty
+
+docs:
+	@mkdocs serve
 
 gen generate:
 	@bash -c 'source tests/helpers.sh && generate ${PWD} tests/tmp'
