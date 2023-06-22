@@ -494,6 +494,26 @@
     Dependencies and virtual environments
   </a>
   
+    <nav class="md-nav" aria-label="Dependencies and virtual environments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installing-in-__pypackages__-pep-582" class="md-nav__link">
+    Installing in __pypackages__ (PEP 582)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-in-virtualenvs" class="md-nav__link">
+    Installing in virtualenvs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -729,6 +749,26 @@
     Dependencies and virtual environments
   </a>
   
+    <nav class="md-nav" aria-label="Dependencies and virtual environments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installing-in-__pypackages__-pep-582" class="md-nav__link">
+    Installing in __pypackages__ (PEP 582)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-in-virtualenvs" class="md-nav__link">
+    Installing in virtualenvs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -901,35 +941,39 @@
 ├── 📄 CHANGELOG.md --------------- # 
 ├── 📄 CODE_OF_CONDUCT.md --------- # 
 ├── 📁 config --------------------- # tools configuration files
+│   ├── 📄 black.toml ------------- # 
 │   ├── 📄 coverage.ini ----------- # 
-│   ├── 📄 flake8.ini ------------- # 
 │   ├── 📄 mypy.ini --------------- # 
-│   └── 📄 pytest.ini ------------- # 
+│   ├── 📄 pytest.ini ------------- # 
+│   └── 📄 ruff.toml -------------- # 
 ├── 📄 CONTRIBUTING.md ------------ # 
 ├── 📁 docs ----------------------- # documentation pages
 │   ├── 📄 changelog.md ----------- # 
 │   ├── 📄 code_of_conduct.md ----- # 
 │   ├── 📄 contributing.md -------- # 
+│   ├── 📄 credits.md ------------- # 
 │   ├── 📁 css -------------------- # extra CSS files
+│   │   ├── 📄 material.css ------- # 
 │   │   └── 📄 mkdocstrings.css --- # 
-│   ├── 📄 gen_credits.py --------- # script to generate credits
-│   ├── 📄 gen_ref_nav.py --------- # script to generate code reference nav
 │   ├── 📄 index.md --------------- # 
-│   ├── 📄 license.md ------------- # 
+│   └── 📄 license.md ------------- # 
 ├── 📄 duties.py ------------------ # the project&#39;s tasks
 ├── 📄 LICENSE -------------------- # 
 ├── 📄 Makefile ------------------- # 
+├── 📄 mkdocs.insiders.yml -------- # 
 ├── 📄 mkdocs.yml ----------------- # docs configuration
 ├── 📄 pyproject.toml ------------- # project metadata and dependencies
 ├── 📄 README.md ------------------ # 
 ├── 📁 scripts -------------------- # helper scripts
-│   ├── 📄 multirun.sh ------------ # to run a command against multiple Python versions
+│   ├── 📄 gen_credits.py --------- # script to generate credits
+│   ├── 📄 gen_ref_nav.py --------- # script to generate code reference nav
 │   └── 📄 setup.sh --------------- # to install dependencies for multiple Python versions
 ├── 📁 src ------------------------ # the source code directory
 │   └── 📁 your_package ----------- # your package
 │       ├── 📄 cli.py ------------- # the command line entry point
 │       ├── 📄 __init__.py -------- # 
-│       └── 📄 __main__.py -------- # 
+│       ├── 📄 __main__.py -------- # 
+│       └── 📄 py.typed ----------- # 
 └── 📁 tests ---------------------- # the tests directory
     ├── 📄 conftest.py ------------ # pytest fixtures, etc.
     ├── 📄 __init__.py ------------ # 
@@ -969,6 +1013,18 @@ pdm remove -dG stats numpy
 <li>Use <code>pdm list</code> to show the list of dependencies.</li>
 </ul>
 <p>See <code>pdm COMMAND --help</code> for details about each command.</p>
+<h3 id="installing-in-__pypackages__-pep-582">Installing in <code>__pypackages__</code> (PEP 582)<a class="headerlink" href="#installing-in-__pypackages__-pep-582" title="Permanent link">¤</a></h3>
+<p>Configure PDM to install dependencies in <code>__pypackages__</code>:</p>
+<div class="highlight"><pre><span></span><code>pdm config python.use_venv <span class="nb">false</span>
+</code></pre></div>
+<h3 id="installing-in-virtualenvs">Installing in virtualenvs<a class="headerlink" href="#installing-in-virtualenvs" title="Permanent link">¤</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Our "PDM Multirun" plugin does not support virtualenvs yet!</p>
+</div>
+<p>Configure PDM to create the different virtualenvs outside of the project:</p>
+<div class="highlight"><pre><span></span><code>pdm config python.use_venv <span class="nb">true</span>
+pdm config venv.in_project <span class="nb">false</span>
+</code></pre></div>
 <h2 id="tasks">Tasks<a class="headerlink" href="#tasks" title="Permanent link">¤</a></h2>
 <p>The tasks are written in Python (for cross-platform compatibility),
 and based on the task-runner called <a href="https://github.com/pawamoy/duty">duty</a>.
