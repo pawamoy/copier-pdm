@@ -340,10 +340,7 @@ make setup
 
 This will install the project's dependencies in `__pypackages__`:
 one folder per chosen Python version.
-The chosen Python versions are defined
-in the script `setup.sh` in the `scripts/` folder.
-You can change them here permanently,
-or temporarily with the `PYTHON_VERSIONS` environment variable.
+The chosen Python versions are defined in the Makefile.
 
 If you don't have the `make` command,
 you can use `bash scripts/setup.sh` instead,
