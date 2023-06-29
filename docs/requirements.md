@@ -44,3 +44,9 @@ pip install --user copier
 pip install --user pipx
 pipx install copier
 ```
+
+This template also requires Jinja extensions:
+
+```bash
+pipx inject copier copier-templates-extensions
+```
