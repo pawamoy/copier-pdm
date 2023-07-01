@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [0.15.23](https://github.com/pawamoy/copier-pdm/releases/tag/0.15.23) - 2023-07-01
+
+<small>[Compare with 0.15.22](https://github.com/pawamoy/copier-pdm/compare/0.15.22...0.15.23)</small>
+
+### Code Refactoring
+
+- Fetch all tags in CI to allow Griffe to detect API breaking changes ([2d18fb9](https://github.com/pawamoy/copier-pdm/commit/2d18fb9250ad4fd649771b3a9e262b97d157ac55) by Timothée Mazzucotelli).
+
 ## [0.15.22](https://github.com/pawamoy/copier-pdm/releases/tag/0.15.22) - 2023-06-30
 
 <small>[Compare with 0.15.21](https://github.com/pawamoy/copier-pdm/compare/0.15.21...0.15.22)</small>
