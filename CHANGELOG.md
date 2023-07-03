@@ -6,6 +6,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [0.16.0](https://github.com/pawamoy/copier-pdm/releases/tag/0.16.0) - 2023-07-03
+
+<small>[Compare with 0.15.23](https://github.com/pawamoy/copier-pdm/compare/0.15.23...0.16.0)</small>
+
+### Features
+
+- Always create releases on tags, with release notes (and dists for insiders) ([58013f8](https://github.com/pawamoy/copier-pdm/commit/58013f81a398839e8236231c58d9b2211cd9212e) by Timothée Mazzucotelli).
+
+### Code Refactoring
+
+- Improve release workflow ([a27aa29](https://github.com/pawamoy/copier-pdm/commit/a27aa29d123f1c19fab0d6cd3efc95d6122c7715) by Timothée Mazzucotelli).
+- Don't test on Python 3.12 until lxml supports it ([4e1b1c7](https://github.com/pawamoy/copier-pdm/commit/4e1b1c7041818a5030a28dea1887d6e57d0b14da) by Timothée Mazzucotelli).
+- Run CI on all branches push, not just main ([067de31](https://github.com/pawamoy/copier-pdm/commit/067de315c1d05bab002f465190acf89d7120c7ab) by Timothée Mazzucotelli).
+
 ## [0.15.23](https://github.com/pawamoy/copier-pdm/releases/tag/0.15.23) - 2023-07-01
 
 <small>[Compare with 0.15.22](https://github.com/pawamoy/copier-pdm/compare/0.15.22...0.15.23)</small>
