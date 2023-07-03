@@ -28,17 +28,29 @@ jobs:
       with:
         name: {{ repository_name }}-insiders
         path: ./dist/*
+    - name: Install git-changelog
+      if: github.repository_owner != '{{ author_username }}-insiders'
+      run: pip install git-changelog
+    - name: Prepare release notes
+      if: github.repository_owner != '{{ author_username }}-insiders'
+      run: git-changelog --release-notes > release-notes.md
+    - name: Create release with assets
+      uses: softprops/action-gh-release@v1
+      if: github.repository_owner == '{{ author_username }}-insiders'
+      with:
+        files: ./dist/*
+    - name: Create release
+      uses: softprops/action-gh-release@v1
+      if: github.repository_owner != '{{ author_username }}-insiders'
+      with:
+        body_path: release-notes.md
     {%- else %}
     - name: Install git-changelog
       run: pip install git-changelog
     - name: Prepare release notes
       run: git-changelog --release-notes > release-notes.md
-    {%- endif %}
-    - name: Create release and upload assets
+    - name: Create release
       uses: softprops/action-gh-release@v1
       with:
-        {%- if insiders %}
-        files: ./dist/*
-        {%- else %}
         body_path: release-notes.md
-        {%- endif %}
+    {%- endif %}
