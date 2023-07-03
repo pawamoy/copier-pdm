@@ -9,7 +9,7 @@ based on PDM, here is how:
 cd my_project
 
 # upgrade to the latest of copier-poetry
-copier -f update
+copier update -f
 ```
 
 Reference the new template in `.copier-answers.yml`:
@@ -23,7 +23,7 @@ Now clean up your repository, commit the changes,
 and update again:
 
 ```bash
-copier -f update
+copier update -f
 ```
 
 That's it! You should now be up-to-date

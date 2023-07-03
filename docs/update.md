@@ -56,7 +56,7 @@ repository_provider: github.com
 
 If you want to use all previous answers
 without copier prompting you for each answer,
-run `copier --force update`.
+run `copier update --force`.
 
 Since we are generally using Git in our projects,
 my recommendation is to not think at all

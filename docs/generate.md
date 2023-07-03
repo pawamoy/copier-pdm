@@ -3,19 +3,19 @@
 To generate a project, run the following command:
 
 ```bash
-copier "https://github.com/pawamoy/copier-pdm.git" /path/to/your/new/project
+copier copy "https://github.com/pawamoy/copier-pdm.git" /path/to/your/new/project
 ```
 
 Or with a shorter command:
 
 ```bash
-copier "gh:pawamoy/copier-pdm" /path/to/your/new/project
+copier copy "gh:pawamoy/copier-pdm" /path/to/your/new/project
 ```
 
 You can even generate a project without installing copier, using `pipx`:
 
 ```bash
-pipx run copier "gh:pawamoy/copier-pdm" /path/to/your/new/project
+pipx run copier copy "gh:pawamoy/copier-pdm" /path/to/your/new/project
 ```
 
 ## Questions
