@@ -6,6 +6,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [0.16.2](https://github.com/pawamoy/copier-pdm/releases/tag/0.16.2) - 2023-07-08
+
+<small>[Compare with 0.16.1](https://github.com/pawamoy/copier-pdm/compare/0.16.1...0.16.2)</small>
+
+### Code Refactoring
+
+- Make Ruff target Python 3.8 ([20b78d7](https://github.com/pawamoy/copier-pdm/commit/20b78d729341e30eaf7d9844980e64327ac47b82) by Timothée Mazzucotelli).
+- Add equivalent CLI commands to duties ([7e76465](https://github.com/pawamoy/copier-pdm/commit/7e76465da74d72a10af577eb0e177d421aee0177) by Timothée Mazzucotelli).
+
 ## [0.16.1](https://github.com/pawamoy/copier-pdm/releases/tag/0.16.1) - 2023-07-03
 
 <small>[Compare with 0.16.0](https://github.com/pawamoy/copier-pdm/compare/0.16.0...0.16.1)</small>
