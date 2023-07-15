@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [0.16.3](https://github.com/pawamoy/copier-pdm/releases/tag/0.16.3) - 2023-07-15
+
+<small>[Compare with 0.16.2](https://github.com/pawamoy/copier-pdm/compare/0.16.2...0.16.3)</small>
+
+### Bug Fixes
+
+- Use main branch for edit URIs in docs ([ebb9ddf](https://github.com/pawamoy/copier-pdm/commit/ebb9ddf7c9b96f9b7354dfa688c6f6b9cdeb2552) by Timothée Mazzucotelli).
+
 ## [0.16.2](https://github.com/pawamoy/copier-pdm/releases/tag/0.16.2) - 2023-07-08
 
 <small>[Compare with 0.16.1](https://github.com/pawamoy/copier-pdm/compare/0.16.1...0.16.2)</small>
