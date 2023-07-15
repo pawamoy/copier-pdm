@@ -6,6 +6,7 @@ repo_name: "{{ repository_namespace }}/{{ repository_name }}"
 site_dir: "{% if repository_provider == 'github.com' %}site{% endif %}"
 watch: [mkdocs.yml, README.md, CONTRIBUTING.md, CHANGELOG.md, src/{{ python_package_import_name }}]
 copyright: Copyright &copy; {{ copyright_date }} {{ copyright_holder }}
+edit_uri: edit/main/docs/
 
 nav:
 - Home:
