@@ -6,6 +6,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [0.16.4](https://github.com/pawamoy/copier-pdm/releases/tag/0.16.4) - 2023-07-15
+
+<small>[Compare with 0.16.3](https://github.com/pawamoy/copier-pdm/compare/0.16.3...0.16.4)</small>
+
+### Code Refactoring
+
+- Mention PyPI Insiders in installation methods ([8cc0c2a](https://github.com/pawamoy/copier-pdm/commit/8cc0c2a9ef3b44ec9bc4472618ff5d3a7df7bb88) by Timothée Mazzucotelli).
+- Add back Python 3.12 to Makefile ([ed61be5](https://github.com/pawamoy/copier-pdm/commit/ed61be52e3f1e53c9f1ca214a187633b060ce0fa) by Timothée Mazzucotelli).
+
 ## [0.16.3](https://github.com/pawamoy/copier-pdm/releases/tag/0.16.3) - 2023-07-15
 
 <small>[Compare with 0.16.2](https://github.com/pawamoy/copier-pdm/compare/0.16.2...0.16.3)</small>
