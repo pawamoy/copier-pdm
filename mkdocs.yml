@@ -4,6 +4,11 @@ site_url: "https://pawamoy.github.io/copier-pdm"
 repo_url: "https://github.com/pawamoy/copier-pdm"
 repo_name: "pawamoy/copier-pdm"
 
+validation:
+  omitted_files: warn
+  absolute_links: warn
+  unrecognized_links: warn
+
 nav:
 - Home:
   - Overview: index.md

@@ -8,6 +8,11 @@ watch: [mkdocs.yml, README.md, CONTRIBUTING.md, CHANGELOG.md, src/{{ python_pack
 copyright: Copyright &copy; {{ copyright_date }} {{ copyright_holder }}
 edit_uri: edit/main/docs/
 
+validation:
+  omitted_files: warn
+  absolute_links: warn
+  unrecognized_links: warn
+
 nav:
 - Home:
   - Overview: index.md

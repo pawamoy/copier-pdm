@@ -53,10 +53,10 @@ def merge(d1: Any, d2: Any) -> Any:  # noqa: D103
 
 
 def mkdocs_config() -> str:  # noqa: D103
-    from mkdocs import utils
+    import mergedeep
 
-    # patch YAML loader to merge arrays
-    utils.merge = merge
+    # force YAML loader to merge arrays
+    mergedeep.merge = merge
 
     if "+insiders" in pkgversion("mkdocs-material"):
         return "mkdocs.insiders.yml"
@@ -160,7 +160,7 @@ def check_types(ctx: Context) -> None:
     ctx.run(
         mypy.run(*PY_SRC_LIST, config_file="config/mypy.ini"),
         title=pyprefix("Type-checking"),
-        command=f"mypy --config-file config/mypy.ini {PY_SRC}"
+        command=f"mypy --config-file config/mypy.ini {PY_SRC}",
     )
 
 
