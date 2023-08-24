@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [0.16.6](https://github.com/pawamoy/copier-pdm/releases/tag/0.16.6) - 2023-08-24
+
+<small>[Compare with 0.16.5](https://github.com/pawamoy/copier-pdm/compare/0.16.5...0.16.6)</small>
+
+### Bug Fixes
+
+- Fix external link indicator for Chrome ([72c59d9](https://github.com/pawamoy/copier-pdm/commit/72c59d91949f4c6eb51de6ccc57bb05fe4c9fc9d) by Timothée Mazzucotelli).
+
 ## [0.16.5](https://github.com/pawamoy/copier-pdm/releases/tag/0.16.5) - 2023-07-28
 
 <small>[Compare with 0.16.4](https://github.com/pawamoy/copier-pdm/compare/0.16.4...0.16.5)</small>
