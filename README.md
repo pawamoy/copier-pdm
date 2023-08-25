@@ -40,13 +40,13 @@ Make sure all the
 are met, then:
 
 ```bash
-copier copy "https://github.com/pawamoy/copier-pdm.git" /path/to/your/new/project
+copier copy --trust "https://github.com/pawamoy/copier-pdm.git" /path/to/your/new/project
 ```
 
 Or even shorter:
 
 ```bash
-copier copy "gh:pawamoy/copier-pdm" /path/to/your/new/project
+copier copy --trust "gh:pawamoy/copier-pdm" /path/to/your/new/project
 ```
 
 See the [documentation](https://pawamoy.github.io/copier-pdm)
