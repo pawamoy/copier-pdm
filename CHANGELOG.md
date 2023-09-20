@@ -6,6 +6,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [0.16.10](https://github.com/pawamoy/copier-pdm/releases/tag/0.16.10) - 2023-09-20
+
+<small>[Compare with 0.16.9](https://github.com/pawamoy/copier-pdm/compare/0.16.9...0.16.10)</small>
+
+### Bug Fixes
+
+- Don't use double-quotes in filenames ([6c4749e](https://github.com/pawamoy/copier-pdm/commit/6c4749ea12cddb268aa0157cdce503f47e7e3424) by Timothée Mazzucotelli). [Issue #32](https://github.com/pawamoy/copier-pdm/issues/32)
+
+### Code Refactoring
+
+- Prevent blacken-docs from formatting code blocks containing snippets ([909cf37](https://github.com/pawamoy/copier-pdm/commit/909cf3756223ac4669ba67706a1e3afae6f61e2d) by Timothée Mazzucotelli). [Issue #31](https://github.com/pawamoy/copier-pdm/issues/31)
+- Format code ([ca2fe86](https://github.com/pawamoy/copier-pdm/commit/ca2fe8698c5585251dee3f9c262fdade0b922b63) by Timothée Mazzucotelli).
+
 ## [0.16.9](https://github.com/pawamoy/copier-pdm/releases/tag/0.16.9) - 2023-09-05
 
 <small>[Compare with 0.16.8](https://github.com/pawamoy/copier-pdm/compare/0.16.8...0.16.9)</small>
