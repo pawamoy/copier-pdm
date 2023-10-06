@@ -6,6 +6,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [1.0.0](https://github.com/pawamoy/copier-pdm/releases/tag/1.0.0) - 2023-10-07
+
+<small>[Compare with 0.16.10](https://github.com/pawamoy/copier-pdm/compare/0.16.10...1.0.0)</small>
+
+### Features
+
+- Add version and debug-info flags to CLI, improve issue templates ([081bb07](https://github.com/pawamoy/copier-pdm/commit/081bb07f8269168d0de662850ac7e639500a6e11) by Timothée Mazzucotelli).
+- Hide badges and update installation instructions for Insiders-only projects (not yet released publicly) ([e0d7694](https://github.com/pawamoy/copier-pdm/commit/e0d7694df8f572bb0f022426f80024246deb0944) by Timothée Mazzucotelli).
+- Add `ssort` to code formatting task ([0951e28](https://github.com/pawamoy/copier-pdm/commit/0951e28b8690a776b9b8ef0fb171011bef59cc48) by Timothée Mazzucotelli).
+
+### Code Refactoring
+
+- Set username default to `pawamoy` ([55ddbd4](https://github.com/pawamoy/copier-pdm/commit/55ddbd4c01d311cb4e9748dbcbd83eea505acb19) by Timothée Mazzucotelli).
+
 ## [0.16.10](https://github.com/pawamoy/copier-pdm/releases/tag/0.16.10) - 2023-09-20
 
 <small>[Compare with 0.16.9](https://github.com/pawamoy/copier-pdm/compare/0.16.9...0.16.10)</small>
