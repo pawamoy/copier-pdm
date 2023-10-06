@@ -128,3 +128,9 @@ insiders:
   type: bool
   help: Does this project have an Insiders version?
   default: false
+
+public_release:
+  type: bool
+  help: Is this project already released publicly?
+  default: false
+  when: "{{ insiders }}"
