@@ -59,4 +59,4 @@ echo "///////////////////////////////////////////"
 echo "             UPDATING PROJECT"
 echo "///////////////////////////////////////////"
 echo
-copier update -f --UNSAFE
+copier update -f --trust
