@@ -36,6 +36,7 @@ author_email:
 author_username:
   type: str
   help: Your username (e.g. on GitHub)
+  default: pawamoy
 
 repository_provider:
   type: str
