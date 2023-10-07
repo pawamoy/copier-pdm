@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [1.0.1](https://github.com/pawamoy/copier-pdm/releases/tag/1.0.1) - 2023-10-07
+
+<small>[Compare with 1.0.0](https://github.com/pawamoy/copier-pdm/compare/1.0.0...1.0.1)</small>
+
+### Code Refactoring
+
+- Revert addition of `ssort` ([d182802](https://github.com/pawamoy/copier-pdm/commit/d1828029ecc60710599deb66ec277c5df481f13c) by Timothée Mazzucotelli).
+
 ## [1.0.0](https://github.com/pawamoy/copier-pdm/releases/tag/1.0.0) - 2023-10-07
 
 <small>[Compare with 0.16.10](https://github.com/pawamoy/copier-pdm/compare/0.16.10...1.0.0)</small>
