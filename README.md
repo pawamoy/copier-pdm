@@ -21,7 +21,6 @@ If you are using it, see [how to migrate to copier-pdm](https://pawamoy.github.i
 - Pre-configured tools for code formatting, quality analysis and testing:
     - [black](https://github.com/psf/black),
     - [blacken-docs](https://github.com/adamchainz/blacken-docs),
-    - [ssort](https://github.com/bwhmather/ssort),
     - [ruff](https://github.com/charliermarsh/ruff),
     - [mypy](https://github.com/python/mypy),
     - [safety](https://github.com/pyupio/safety)
