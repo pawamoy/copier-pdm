@@ -129,6 +129,12 @@ insiders:
   help: Does this project have an Insiders version?
   default: false
 
+insiders_repository_name:
+  type: str
+  help: Your Insiders repository name
+  default: "{{ repository_name }}"
+  when: "{{ insiders }}"
+
 public_release:
   type: bool
   help: Is this project already released publicly?
