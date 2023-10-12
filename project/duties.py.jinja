@@ -317,3 +317,27 @@ def test(ctx: Context, match: str = "") -> None:
         title=pyprefix("Running tests"),
         command=f"pytest -c config/pytest.ini -n auto -k{match!r} --color=yes tests",
     )
+
+
+@duty
+def vscode(ctx: Context) -> None:
+    """Configure VSCode.
+
+    This task will overwrite the following files,
+    so make sure to back them up:
+
+    - `.vscode/launch.json`
+    - `.vscode/settings.json`
+    - `.vscode/tasks.json`
+
+    Parameters:
+        ctx: The context instance (passed automatically).
+    """
+    def update_config(filename: str) -> None:
+        source_file = Path("config", "vscode", filename)
+        target_file = Path(".vscode", filename)
+        target_file.parent.mkdir(exist_ok=True)
+        target_file.write_text(source_file.read_text())
+
+    for filename in ("launch.json", "settings.json", "tasks.json"):
+        ctx.run(update_config, args=[filename], title=f"Update .vscode/{filename}")
