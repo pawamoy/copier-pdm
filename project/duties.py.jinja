@@ -319,6 +319,7 @@ def vscode(ctx: Context) -> None:
     Parameters:
         ctx: The context instance (passed automatically).
     """
+
     def update_config(filename: str) -> None:
         source_file = Path("config", "vscode", filename)
         target_file = Path(".vscode", filename)
