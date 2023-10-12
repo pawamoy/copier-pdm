@@ -78,7 +78,7 @@ def changelog(ctx: Context) -> None:
             parse_trailers=True,
             parse_refs=False,
             sections=["build", "deps", "feat", "fix", "refactor"],
-            bump_latest=True,
+            bump="auto",
             in_place=True,
         ),
         title="Updating changelog",
