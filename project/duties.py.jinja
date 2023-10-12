@@ -4,9 +4,10 @@ from __future__ import annotations
 
 import os
 import sys
+from contextlib import contextmanager
 from importlib.metadata import version as pkgversion
 from pathlib import Path
-from typing import TYPE_CHECKING, Any
+from typing import TYPE_CHECKING, Iterator
 
 from duty import duty
 from duty.callables import black, blacken_docs, coverage, lazy, mkdocs, mypy, pytest, ruff, safety
@@ -31,32 +32,16 @@ def pyprefix(title: str) -> str:  # noqa: D103
     return title
 
 
-def merge(d1: Any, d2: Any) -> Any:  # noqa: D103
-    basic_types = (int, float, str, bool, complex)
-    if isinstance(d1, dict) and isinstance(d2, dict):
-        for key, value in d2.items():
-            if key in d1:
-                if isinstance(d1[key], basic_types):
-                    d1[key] = value
-                else:
-                    d1[key] = merge(d1[key], value)
-            else:
-                d1[key] = value
-        return d1
-    if isinstance(d1, list) and isinstance(d2, list):
-        return d1 + d2
-    return d2
-
-
-def mkdocs_config() -> str:  # noqa: D103
-    import mergedeep
-
-    # force YAML loader to merge arrays
-    mergedeep.merge = merge
-
+@contextmanager
+def material_insiders() -> Iterator[bool]:  # noqa: D103
     if "+insiders" in pkgversion("mkdocs-material"):
-        return "mkdocs.insiders.yml"
-    return "mkdocs.yml"
+        os.environ["MATERIAL_INSIDERS"] = "true"
+        try:
+            yield True
+        finally:
+            os.environ.pop("MATERIAL_INSIDERS")
+    else:
+        yield False
 
 
 @duty
@@ -138,12 +123,12 @@ def check_docs(ctx: Context) -> None:
     """
     Path("htmlcov").mkdir(parents=True, exist_ok=True)
     Path("htmlcov/index.html").touch(exist_ok=True)
-    config = mkdocs_config()
-    ctx.run(
-        mkdocs.build(strict=True, config_file=config, verbose=True),
-        title=pyprefix("Building documentation"),
-        command=f"mkdocs build -vsf {config}",
-    )
+    with material_insiders():
+        ctx.run(
+            mkdocs.build(strict=True, verbose=True),
+            title=pyprefix("Building documentation"),
+            command="mkdocs build -vs",
+        )
 
 
 @duty
@@ -207,11 +192,12 @@ def docs(ctx: Context, host: str = "127.0.0.1", port: int = 8000) -> None:
         host: The host to serve the docs from.
         port: The port to serve the docs on.
     """
-    ctx.run(
-        mkdocs.serve(dev_addr=f"{host}:{port}", config_file=mkdocs_config()),
-        title="Serving documentation",
-        capture=False,
-    )
+    with material_insiders():
+        ctx.run(
+            mkdocs.serve(dev_addr=f"{host}:{port}"),
+            title="Serving documentation",
+            capture=False,
+        )
 
 
 @duty
@@ -222,26 +208,26 @@ def docs_deploy(ctx: Context) -> None:
         ctx: The context instance (passed automatically).
     """
     os.environ["DEPLOY"] = "true"
-    config_file = mkdocs_config()
-    if config_file == "mkdocs.yml":
-        ctx.run(lambda: False, title="Not deploying docs without Material for MkDocs Insiders!")
-    {%- if insiders %}
-    origin = ctx.run("git config --get remote.origin.url", silent=True)
-    if "{{ author_username }}-insiders/{{ repository_name }}" in origin:
-        ctx.run("git remote add upstream git@github.com:{{ repository_namespace }}/{{ repository_name }}", silent=True, nofail=True)
-        ctx.run(
-            mkdocs.gh_deploy(config_file=config_file, remote_name="upstream", force=True),
-            title="Deploying documentation",
-        )
-    else:
-        ctx.run(
-            lambda: False,
-            title="Not deploying docs from public repository (do that from insiders instead!)",
-            nofail=True,
-        )
-    {%- else %}
-    ctx.run(mkdocs.gh_deploy(config_file=config_file), title="Deploying documentation")
-    {%- endif %}
+    with material_insiders() as insiders:
+        if not insiders:
+            ctx.run(lambda: False, title="Not deploying docs without Material for MkDocs Insiders!")
+        {%- if insiders %}
+        origin = ctx.run("git config --get remote.origin.url", silent=True)
+        if "{{ author_username }}-insiders/{{ insiders_repository_name }}" in origin:
+            ctx.run("git remote add upstream git@github.com:{{ repository_namespace }}/{{ repository_name }}", silent=True, nofail=True)
+            ctx.run(
+                mkdocs.gh_deploy(remote_name="upstream", force=True),
+                title="Deploying documentation",
+            )
+        else:
+            ctx.run(
+                lambda: False,
+                title="Not deploying docs from public repository (do that from insiders instead!)",
+                nofail=True,
+            )
+        {%- else %}
+        ctx.run(mkdocs.gh_deploy(), title="Deploying documentation")
+        {%- endif %}
 
 
 @duty
