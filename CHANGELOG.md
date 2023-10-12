@@ -6,6 +6,26 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [1.1.0](https://github.com/pawamoy/copier-pdm/releases/tag/1.1.0) - 2023-10-12
+
+<small>[Compare with 1.0.1](https://github.com/pawamoy/copier-pdm/compare/1.0.1...1.1.0)</small>
+
+### Features
+
+- Add `vscode` duty ([c7cd278](https://github.com/pawamoy/copier-pdm/commit/c7cd278a36e3658b90a06cdd5b73e8e00b6ae13e) by Timothée Mazzucotelli).
+
+### Bug Fixes
+
+- Have a dedicated question for insiders repository name ([e2bccde](https://github.com/pawamoy/copier-pdm/commit/e2bccdebbf1e14f93fe44c9c2a4f22c1f0890878) by Timothée Mazzucotelli).
+
+### Code Refactoring
+
+- Disable blacken-docs temporarily ([7c110ca](https://github.com/pawamoy/copier-pdm/commit/7c110cab288d2490378a383259c4b2079a063940) by Timothée Mazzucotelli).
+- Update minimum dev-deps versions ([19aebe1](https://github.com/pawamoy/copier-pdm/commit/19aebe1e69c070d64ed6653f803bac6735722305) by Timothée Mazzucotelli).
+- Use `tomllib` from standard library and `tomli` on Python less than 3.11 instead of `toml` ([b5115ed](https://github.com/pawamoy/copier-pdm/commit/b5115edbf8f48c5e9739380b7abf73d0d50c9da0) by Timothée Mazzucotelli).
+- Use mkdocs-material's group plugin instead of list-merging hack ([67ec274](https://github.com/pawamoy/copier-pdm/commit/67ec27456e0437ca1b052d7178ff8b21a395ebd1) by Timothée Mazzucotelli).
+- Use latest git-changelog ([dceea95](https://github.com/pawamoy/copier-pdm/commit/dceea95f9444a560f179ead937826f7d289e846c) by Timothée Mazzucotelli).
+
 ## [1.0.1](https://github.com/pawamoy/copier-pdm/releases/tag/1.0.1) - 2023-10-07
 
 <small>[Compare with 1.0.0](https://github.com/pawamoy/copier-pdm/compare/1.0.0...1.0.1)</small>
