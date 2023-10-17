@@ -143,9 +143,9 @@ plugins:
 - git-committers:
     enabled: !ENV [DEPLOY, false]
     repository: {{ repository_namespace }}/{{ repository_name }}
-{# - git-revision-date-localized:
-  enable_creation_date: true
-  type: timeago #}
+{#- - git-revision-date-localized:
+    enable_creation_date: true
+    type: timeago #}
 - minify:
     minify_html: !ENV [DEPLOY, false]
 - group:
