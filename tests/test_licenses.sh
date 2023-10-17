@@ -63,5 +63,5 @@ for license in "${LICENSES[@]}"; do
       echo "${license}: EMPTY!"
     fi
   )
-  rm -rf "${output}"
+  make --no-print-directory cleantests
 done
