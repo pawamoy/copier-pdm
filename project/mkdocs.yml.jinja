@@ -149,7 +149,7 @@ plugins:
 - minify:
     minify_html: !ENV [DEPLOY, false]
 - group:
-    enabled: !ENV MATERIAL_INSIDERS
+    enabled: !ENV [MATERIAL_INSIDERS, false]
     plugins:
     - typeset
 
