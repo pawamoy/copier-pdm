@@ -29,9 +29,25 @@ theme:
   icon:
     logo: material/currency-sign
   features:
+  - content.action.edit
+  - content.action.view
+  - content.code.annotate
+  - content.code.copy
+  - content.tooltips
+  - navigation.footer
+  - navigation.indexes
+  - navigation.sections
   - navigation.tabs
+  - navigation.tabs.sticky
   - navigation.top
+  - search.highlight
+  - search.suggest
+  - toc.follow
   palette:
+  - media: "(prefers-color-scheme)"
+    toggle:
+      icon: material/brightness-auto
+      name: Switch to light mode
   - media: "(prefers-color-scheme: light)"
     scheme: default
     primary: teal
@@ -45,7 +61,7 @@ theme:
     accent: lime
     toggle:
       icon: material/weather-night
-      name: Switch to light mode
+      name: Switch to system preference
 
 markdown_extensions:
 - admonition
@@ -64,8 +80,12 @@ extra:
   social:
   - icon: fontawesome/brands/github
     link: https://github.com/pawamoy
+  - icon: fontawesome/brands/mastodon
+    link: https://fosstodon.org/@pawamoy
   - icon: fontawesome/brands/twitter
     link: https://twitter.com/pawamoy
+  - icon: fontawesome/brands/gitter
+    link: https://app.gitter.im/#/room/#copier-pdm/community:gitter.im
 
 extra_css:
   - css/custom.css

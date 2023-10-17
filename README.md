@@ -1,5 +1,9 @@
 # Copier PDM
 
+[![ci](https://github.com/pawamoy/copier-pdm/workflows/ci/badge.svg)](https://github.com/pawamoy/copier-pdm/actions?query=workflow%3Aci)
+[![documentation](https://img.shields.io/badge/docs-mkdocs%20material-blue.svg?style=flat)](https://pawamoy.github.io/copier-pdm/)
+[![gitter](https://badges.gitter.im/join%20chat.svg)](https://app.gitter.im/#/room/#copier-pdm/community:gitter.im)
+
 [Copier](https://github.com/copier-org/copier) template
 for Python projects managed by [PDM](https://github.com/pdm-project/pdm).
 

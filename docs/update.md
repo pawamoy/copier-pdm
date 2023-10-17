@@ -38,10 +38,10 @@ And the file looks like this:
 _commit: 0.1.10
 _src_path: gh:pawamoy/copier-pdm
 author_email: pawamoy@pm.me
-author_fullname: "Timoth\xE9e Mazzucotelli"
+author_fullname: "Timothée Mazzucotelli"
 author_username: pawamoy
 copyright_date: '2020'
-copyright_holder: "Timoth\xE9e Mazzucotelli"
+copyright_holder: "Timothée Mazzucotelli"
 copyright_holder_email: pawamoy@pm.me
 copyright_license: ISC License
 project_description: Automatic documentation from sources, for MkDocs.

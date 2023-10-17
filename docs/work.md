@@ -46,6 +46,20 @@ The generated project has this structure:
     └── 📄 test_cli.py ------------ # 
 ```
 
+## Python versions
+
+To specify which Python versions you would like to work with,
+define the `PDM_MULTIRUN_VERSIONS` environment variable:
+
+```bash
+export PDM_MULTIRUN_VERSIONS="3.10 3.11 3.12"
+```
+
+By default it is set to active versions of Python
+(non-EOL, in development).
+
+See [PDM Multirun](https://pawamoy.github.io/pdm-multirun/).
+
 ## Dependencies and virtual environments
 
 Dependencies are managed by [PDM](https://github.com/pdm-project/pdm).
@@ -60,8 +74,8 @@ Example:
 ```toml title="pyproject.toml"
 [project]
 dependencies = [
-  "fastapi~=1.0",
-  "importlib-metadata~=2.0",
+  "fastapi>=1.0",
+  "importlib-metadata>=2.0",
 ]
 ```
 
@@ -99,14 +113,26 @@ pdm config python.use_venv false
 
 ### Installing in virtualenvs
 
-WARNING: **Our "PDM Multirun" plugin does not support virtualenvs yet!**
-
 Configure PDM to create the different virtualenvs outside of the project:
 
 ```bash
 pdm config python.use_venv true
 pdm config venv.in_project false
 ```
+
+Then create some virtualenvs:
+
+```bash
+pdm venv create 3.8
+pdm venv create 3.9
+pdm venv create 3.10
+pdm venv create 3.11
+pdm venv create 3.12
+```
+
+And export the `PDM_MULTIRUN_USE_VENVS=1` environment variable.
+You can hardcode it in `Makefile` or the `duties.py`
+to make it permanent.
 
 ## Tasks
 
