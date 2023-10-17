@@ -6,6 +6,21 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [1.1.1](https://github.com/pawamoy/copier-pdm/releases/tag/1.1.1) - 2023-10-17
+
+<small>[Compare with 1.1.0](https://github.com/pawamoy/copier-pdm/compare/1.1.0...1.1.1)</small>
+
+### Bug Fixes
+
+- Fix spacing after sponsors in insiders page ([d82c5eb](https://github.com/pawamoy/copier-pdm/commit/d82c5eb54d10fc0cf1751fa123322517ec9f9f51) by Timothée Mazzucotelli).
+- Fix relative paths (to work with MkDocs `-f` option) ([eb7d954](https://github.com/pawamoy/copier-pdm/commit/eb7d954177dd94412f19cf014a3d18a29ee35d16) by Timothée Mazzucotelli).
+
+### Code Refactoring
+
+- Add default value to docs env var ([1d18f77](https://github.com/pawamoy/copier-pdm/commit/1d18f77e40fa213891c462aee26224afa115f91d) by Timothée Mazzucotelli).
+- Switch back to SUMMARY.md now that it is fixed ([60ba2cf](https://github.com/pawamoy/copier-pdm/commit/60ba2cf77d57b8f955b8b6d1fc5412f8d3a0d43f) by Timothée Mazzucotelli).
+- Use new Material extension paths ([78411c0](https://github.com/pawamoy/copier-pdm/commit/78411c03611a5866eaf99af9122ead95de41ff4f) by Timothée Mazzucotelli).
+
 ## [1.1.0](https://github.com/pawamoy/copier-pdm/releases/tag/1.1.0) - 2023-10-12
 
 <small>[Compare with 1.0.1](https://github.com/pawamoy/copier-pdm/compare/1.0.1...1.1.0)</small>
