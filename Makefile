@@ -24,7 +24,7 @@ test: cleantests
 	@./runtests.sh
 
 changelog:
-	@git-changelog -Tbio CHANGELOG.md -c angular
+	@git-changelog -Tio CHANGELOG.md -Bauto -c angular
 
 release:
 	@git add CHANGELOG.md
