@@ -161,7 +161,7 @@ def funding_goals(source: str | list[str | tuple[str, str, str]], funding: int =
                 goals[amount] = goal
             else:
                 goals[amount].features.extend(goal.features)
-    return goals
+    return {amount: goals[amount] for amount in sorted(goals)}
 
 
 def feature_list(goals: Iterable[Goal]) -> list[Feature]:
