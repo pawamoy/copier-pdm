@@ -6,6 +6,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [1.1.2](https://github.com/pawamoy/copier-pdm/releases/tag/1.1.2) - 2023-11-08
+
+<small>[Compare with 1.1.1](https://github.com/pawamoy/copier-pdm/compare/1.1.1...1.1.2)</small>
+
+### Bug Fixes
+
+- Fix links to Insiders in README ([5f36ca4](https://github.com/pawamoy/copier-pdm/commit/5f36ca4060d0c6ab450823b35cf5fdfa62a7749c) by Timothée Mazzucotelli).
+- Fix link in Gitter badge ([7130f45](https://github.com/pawamoy/copier-pdm/commit/7130f45ade180caa311f163d53cfeeb145680cff) by Timothée Mazzucotelli).
+
+### Code Refactoring
+
+- Sort funding goals ([400993f](https://github.com/pawamoy/copier-pdm/commit/400993f1109e858818ae5d0bd868eb15be663f1e) by Timothée Mazzucotelli).
+- Use config file for git-changelog ([1b58d0b](https://github.com/pawamoy/copier-pdm/commit/1b58d0bf6191cb118157b839cd17b9d555067902) by Timothée Mazzucotelli).
+
 ## [1.1.1](https://github.com/pawamoy/copier-pdm/releases/tag/1.1.1) - 2023-10-17
 
 <small>[Compare with 1.1.0](https://github.com/pawamoy/copier-pdm/compare/1.1.0...1.1.1)</small>
