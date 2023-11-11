@@ -32,18 +32,6 @@ def pyprefix(title: str) -> str:  # noqa: D103
     return title
 
 
-@contextmanager
-def material_insiders() -> Iterator[bool]:  # noqa: D103
-    if "+insiders" in pkgversion("mkdocs-material"):
-        os.environ["MATERIAL_INSIDERS"] = "true"
-        try:
-            yield True
-        finally:
-            os.environ.pop("MATERIAL_INSIDERS")
-    else:
-        yield False
-
-
 @duty
 def changelog(ctx: Context) -> None:
     """Update the changelog in-place with latest commits.
@@ -123,12 +111,11 @@ def check_docs(ctx: Context) -> None:
     """
     Path("htmlcov").mkdir(parents=True, exist_ok=True)
     Path("htmlcov/index.html").touch(exist_ok=True)
-    with material_insiders():
-        ctx.run(
-            mkdocs.build(strict=True, verbose=True),
-            title=pyprefix("Building documentation"),
-            command="mkdocs build -vs",
-        )
+    ctx.run(
+        mkdocs.build(strict=True, verbose=True),
+        title=pyprefix("Building documentation"),
+        command="mkdocs build -vs",
+    )
 
 
 @duty
@@ -192,12 +179,11 @@ def docs(ctx: Context, host: str = "127.0.0.1", port: int = 8000) -> None:
         host: The host to serve the docs from.
         port: The port to serve the docs on.
     """
-    with material_insiders():
-        ctx.run(
-            mkdocs.serve(dev_addr=f"{host}:{port}"),
-            title="Serving documentation",
-            capture=False,
-        )
+    ctx.run(
+        mkdocs.serve(dev_addr=f"{host}:{port}"),
+        title="Serving documentation",
+        capture=False,
+    )
 
 
 @duty
@@ -208,26 +194,7 @@ def docs_deploy(ctx: Context) -> None:
         ctx: The context instance (passed automatically).
     """
     os.environ["DEPLOY"] = "true"
-    with material_insiders() as insiders:
-        if not insiders:
-            ctx.run(lambda: False, title="Not deploying docs without Material for MkDocs Insiders!")
-        {%- if insiders %}
-        origin = ctx.run("git config --get remote.origin.url", silent=True)
-        if "{{ author_username }}-insiders/{{ insiders_repository_name }}" in origin:
-            ctx.run("git remote add upstream git@github.com:{{ repository_namespace }}/{{ repository_name }}", silent=True, nofail=True)
-            ctx.run(
-                mkdocs.gh_deploy(remote_name="upstream", force=True),
-                title="Deploying documentation",
-            )
-        else:
-            ctx.run(
-                lambda: False,
-                title="Not deploying docs from public repository (do that from insiders instead!)",
-                nofail=True,
-            )
-        {%- else %}
-        ctx.run(mkdocs.gh_deploy(), title="Deploying documentation")
-        {%- endif %}
+    ctx.run(mkdocs.gh_deploy(), title="Deploying documentation")
 
 
 @duty
@@ -257,14 +224,6 @@ def release(ctx: Context, version: str) -> None:
         ctx: The context instance (passed automatically).
         version: The new version number to use.
     """
-    {%- if insiders %}
-    origin = ctx.run("git config --get remote.origin.url", silent=True)
-    if "{{ author_username }}-insiders/{{ repository_name }}" in origin:
-        ctx.run(
-            lambda: False,
-            title="Not releasing from insiders repository (do that from public repo instead!)",
-        )
-    {%- endif %}
     ctx.run("git add pyproject.toml CHANGELOG.md", title="Staging files", pty=PTY)
     ctx.run(["git", "commit", "-m", f"chore: Prepare release {version}"], title="Committing changes", pty=PTY)
     ctx.run(f"git tag {version}", title="Tagging commit", pty=PTY)

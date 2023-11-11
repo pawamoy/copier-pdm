@@ -1,8 +1,8 @@
 site_name: "Copier PDM"
 site_description: "Copier template for Python projects managed by PDM."
-site_url: "https://pawamoy.github.io/copier-pdm"
-repo_url: "https://github.com/pawamoy/copier-pdm"
-repo_name: "pawamoy/copier-pdm"
+site_url: "https://sl-smith.github.io/copier-pdm-template"
+repo_url: "https:///github.com/sl-smith/copier-pdm-template"
+repo_name: "sl-smith/copier-pdm-template"
 
 validation:
   omitted_files: warn
@@ -22,7 +22,7 @@ nav:
   - Working on a project: work.md
   - Updating a project: update.md
   - Migrating from copier-poetry: migrate.md
-- Author's website: https://pawamoy.github.io/
+- Author's website: https://sl-smith.github.io/
 
 theme:
   name: material
@@ -79,13 +79,7 @@ markdown_extensions:
 extra:
   social:
   - icon: fontawesome/brands/github
-    link: https://github.com/pawamoy
-  - icon: fontawesome/brands/mastodon
-    link: https://fosstodon.org/@pawamoy
-  - icon: fontawesome/brands/twitter
-    link: https://twitter.com/pawamoy
-  - icon: fontawesome/brands/gitter
-    link: https://app.gitter.im/#/room/#copier-pdm/community:gitter.im
+    link: https://github.com/sl-smith
 
 extra_css:
   - css/custom.css

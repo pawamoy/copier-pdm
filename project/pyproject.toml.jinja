@@ -103,16 +103,6 @@ Changelog = "https://{{ repository_namespace }}.{{ repository_provider.rsplit('.
 Repository = "https://{{ repository_provider }}/{{ repository_namespace }}/{{ repository_name }}"
 Issues = "https://{{ repository_provider }}/{{ repository_namespace }}/{{ repository_name }}/issues"
 Discussions = "https://{{ repository_provider }}/{{ repository_namespace }}/{{ repository_name }}/discussions"
-Gitter = "https://gitter.im/{% if repository_namespace != author_username %}{{ repository_namespace }}/{{ repository_name }}{% else %}{{ repository_name }}/community{% endif %}"
-{%- if repository_provider == "github.com" %}
-Funding = "https://{{ repository_provider }}/sponsors/{{ author_username }}"
-{%- endif %}
-
-{% if python_package_command_line_name -%}
-[project.scripts]
-{{ python_package_command_line_name }} = "{{ python_package_import_name }}.cli:main"
-
-{% endif -%}
 
 [tool.pdm]
 version = {source = "scm"}

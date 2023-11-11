@@ -1,20 +1,17 @@
 # {{ project_name }}
 
-{% if repository_provider == "github.com" and (not insiders or public_release) -%}
+{% if repository_provider == "github.com" and public_release -%}
 [![ci](https://github.com/{{ repository_namespace }}/{{ repository_name }}/workflows/ci/badge.svg)](https://github.com/{{ repository_namespace }}/{{ repository_name }}/actions?query=workflow%3Aci)
 {% endif -%}
 [![documentation](https://img.shields.io/badge/docs-mkdocs%20material-blue.svg?style=flat)](https://{{ repository_namespace }}.{{ repository_provider[:-4] }}.io/{{ repository_name }}/)
-{% if not insiders or public_release -%}
+{% if public_release -%}
 [![pypi version](https://img.shields.io/pypi/v/{{ python_package_distribution_name }}.svg)](https://pypi.org/project/{{ python_package_distribution_name }}/)
 {% endif -%}
-[![gitpod](https://img.shields.io/badge/gitpod-workspace-blue.svg?style=flat)](https://gitpod.io/#https://github.com/{{ repository_namespace }}/{{ repository_name }})
-[![gitter](https://badges.gitter.im/join%20chat.svg)](https://gitter.im/{% if repository_namespace != author_username %}{{ repository_namespace }}/{{ repository_namespace }}{% else %}{{ repository_name }}/community{% endif %})
 
 {{ project_description }}
 
 ## Installation
 
-{% if not insiders or public_release -%}
 With `pip`:
 
 ```bash
@@ -27,6 +24,3 @@ With [`pipx`](https://github.com/pipxproject/pipx):
 python3.8 -m pip install --user pipx
 pipx install {{ python_package_distribution_name }}
 ```
-{%- else -%}
-See [Insiders installation](https://{{ repository_namespace }}.github.io/{{ repository_namespace }}/insiders/installation.md).
-{%- endif %}

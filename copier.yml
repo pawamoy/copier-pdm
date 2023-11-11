@@ -12,7 +12,6 @@ _jinja_extensions:
 - extensions.py:SlugifyExtension
 _skip_if_exists:
 - CHANGELOG.md
-- docs/insiders/changelog.md
 
 # PROMPT --------------------------------
 project_name:
@@ -26,17 +25,17 @@ project_description:
 author_fullname:
   type: str
   help: Your full name
-  default: "{{ 'Timothée Mazzucotelli' | git_user_name }}"
+  default: "{{ 'Shawn Smith' | git_user_name }}"
 
 author_email:
   type: str
   help: Your email
-  default: "{{ 'pawamoy@pm.me' | git_user_email }}"
+  default: "{{ 'ssmith161803@gmail.com' | git_user_email }}"
 
 author_username:
   type: str
   help: Your username (e.g. on GitHub)
-  default: pawamoy
+  default: sl-smith
 
 repository_provider:
   type: str
@@ -118,25 +117,3 @@ python_package_import_name:
   type: str
   help: Your Python package import name (for `import NAME` in Python code)
   default: "{{ project_name | slugify('_') }}"
-
-python_package_command_line_name:
-  type: str
-  help: Your CLI name if any (for use in the shell)
-  default: "{{ project_name | slugify }}"
-
-insiders:
-  type: bool
-  help: Does this project have an Insiders version?
-  default: false
-
-insiders_repository_name:
-  type: str
-  help: Your Insiders repository name
-  default: "{{ repository_name }}"
-  when: "{{ insiders }}"
-
-public_release:
-  type: bool
-  help: Is this project already released publicly?
-  default: false
-  when: "{{ insiders }}"
