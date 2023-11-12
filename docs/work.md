@@ -232,9 +232,18 @@ make setup
 This will install the project's dependencies in `__pypackages__`:
 one folder per chosen Python version.
 The chosen Python versions are defined in the Makefile.
+If you would like to use *virutalenvs* instead, uncomment this line in the Makefile:
+
+```bash
+export PDM_MULTIRUN_USE_VENVS = 1 # Uncomment this line to enable venvs when using multirun
+```
+
+With this option, the `scripts/setup.sh` script 
+will create named venvs (`name=3.xx`) 
+in your `venv.location` location (from pdm).
 
 If you don't have the `make` command,
-you can use `bash scripts/setup.sh` instead,
+you can use `bash scripts/setup.sh` directly,
 or even just `pdm install`
 if you don't plan on using multiple Python versions.
 
