@@ -12,6 +12,7 @@ echo "///////////////////////////////////////////"
 echo
 generate "${PWD}" "${output}"
 cd "${output}"
+cat .copier-answers.yml
 git init .
 git remote add origin https://github.com/pawamoy/pawamoy-testing
 
@@ -28,6 +29,7 @@ with open(".copier-answers.yml") as file:
 with open(".copier-answers.yml", "w") as file:
     file.write(re.sub(r"(_commit: [^-]+)-.*", r"\1", answers))
 EOF
+cat .copier-answers.yml
 git add -A .
 git commit -am "feat: Initial commit"
 git tag v0.1.0
