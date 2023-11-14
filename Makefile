@@ -27,9 +27,7 @@ changelog:
 	@git-changelog -Tio CHANGELOG.md -Bauto -c angular
 
 release:
-ifndef version
-$(error version is not set)
-endif
+	@test -n "$(version)" || { echo "error: usage: make release version=x.y.z" >&2; exit 1; }
 	@git add CHANGELOG.md
 	@git commit -m "docs: Update changelog for version $(version)"
 	@git tag $(version)
