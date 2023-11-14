@@ -28,7 +28,7 @@ changelog:
 
 release:
 ifndef version
-$(error version is not set) # If no version is provided, throw an error.
+$(error version is not set)
 endif
 	@git add CHANGELOG.md
 	@git commit -m "docs: Update changelog for version $(version)"
