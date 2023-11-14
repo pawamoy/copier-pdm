@@ -54,7 +54,7 @@ jobs:
         pdm config python.use_venv false
 
     - name: Set up the project
-      run: pip install copier
+      run: pip install copier copier-templates-extensions
 
     - name: Run the test suite
       run: make test
