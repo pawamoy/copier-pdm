@@ -21,7 +21,6 @@ nav:
   - Generating a project: generate.md
   - Working on a project: work.md
   - Updating a project: update.md
-  - Migrating from copier-poetry: migrate.md
 - Author's website: https://pawamoy.github.io/
 
 theme:

@@ -293,9 +293,8 @@ run `make check-types`.
 ### check-quality
 
 The code quality analysis is done
-with [Flake8](https://flake8.pycqa.org/en/latest/),
-and a battery of Flake8 plugins.
-The analysis is configured in `config/flake8.ini`.
+with [Ruff](https://github.com/astral-sh/ruff).
+The analysis is configured in `config/ruff.toml`.
 In this file, you can deactivate rules
 or activate others to customize your analysis.
 Rules identifiers always start with one or more capital letters,
@@ -305,7 +304,7 @@ You can ignore a rule on a specific code line by appending
 a `noqa` comment ("no quality analysis/assurance"):
 
 ```python title="src/your_package/module.py"
-print("a code line that triggers a flake8 warning")  # noqa: ID
+print("a code line that triggers a Ruff warning")  # noqa: ID
 ```
 
 ...where ID is the identifier of the rule you want to ignore for this line.
@@ -319,17 +318,14 @@ import subprocess
 ```console
 $ make check-quality
 ✗ Checking code quality (1)
-  > flake8 --config=config/flake8.ini src/ tests/ scripts/
+  > ruff check --config=config/ruff.toml src/ tests/ scripts/
   src/your_package/module.py:2:1: S404 Consider possible security implications associated with subprocess module.
 ```
 
 Now add a comment to ignore this warning.
-As a best-practice, and because rules identifiers
-are not self-explanatory, add a comment explaining
-why we ignore the warning:
 
 ```python title="src/your_package/module.py"
-import subprocess  # noqa: S404 (we don't mind the security implications)
+import subprocess  # noqa: S404
 ```
 
 ```console
@@ -349,18 +345,19 @@ markdown_docstring = """
     print("code block")
     \"\"\"
     ```
-"""  # noqa: D300,D301 (escape sequences: it's not a regex)
+"""  # noqa: D300,D301
 ```
 
 You can disable a warning globally by adding its ID
-into the list in `pyproject.toml`, section `[tool.flakehell.plugins]`.
+into the list in `config/ruff.toml`.
 
 You can also disable warnings per file, like so:
 
-```ini title="config/flake8.ini"
-per-file-ignores =
-    # mutable constant
-    src/your_package/your_module.py:WPS407
+```toml title="config/ruff.toml"
+[per-file-ignores]
+"src/your_package/your_module.py" = [
+    "T201",  # Print statement
+]
 ```
 
 ### check-dependencies
@@ -595,14 +592,14 @@ release this exact same version with `make release version=0.5.1`.
 
 The `release` action does several things, in this order:
 
-- Update the version in `pyproject.toml`
-- Stage the modified files (`pyproject.toml` and `CHANGELOG.md `)
+- Stage the changelog file (`CHANGELOG.md`)
 - Commit the changes with a message like `chore: Prepare release 0.5.1`
 - Tag the commit with that version
 - Push the commits
 - Push the tags
 - Build the package dist and wheel
 - Publish the dist and wheel to PyPI.org
+- Build and deploy the documentation site
 
 ## Documentation
 
