@@ -12,8 +12,7 @@ if ! pdm self list 2>/dev/null | grep -q pdm-multirun; then
 fi
 
 if [ -n "${PDM_MULTIRUN_VERSIONS}" ]; then
-    if [ "$(pdm config --local python.use_venv)" = "True" ]; then
-        export PDM_MULTIRUN_USE_VENVS=1
+    if [ "${PDM_MULTIRUN_USE_VENVS}" -eq "1" ]; then
         for version in ${PDM_MULTIRUN_VERSIONS}; do
             if ! pdm venv --path "${version}" &>/dev/null; then
                 pdm venv create --name "${version}" "${version}"
