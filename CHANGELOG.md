@@ -6,6 +6,18 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [1.2.0](https://github.com/pawamoy/copier-pdm/releases/tag/1.2.0) - 2024-01-08
+
+<small>[Compare with 1.1.3](https://github.com/pawamoy/copier-pdm/compare/1.1.3...1.2.0)</small>
+
+### Features
+
+- Support using venvs instead of pypackages ([23f0d3e](https://github.com/pawamoy/copier-pdm/commit/23f0d3e76daac84ef76d9d6543c9aed9e1f0c157) by Dennis Bücker). [Related to pawamoy/pdm-multirun#10](https://github.com/pawamoy/pdm-multirun/discussions/10), Co-authored-by: Timothée Mazzucotelli <pawamoy@pm.me>
+
+### Bug Fixes
+
+- Pass funding when loading goals from list of sources ([91aed63](https://github.com/pawamoy/copier-pdm/commit/91aed6316dc38de4fc274970bdc445ff309948d4) by Timothée Mazzucotelli).
+
 ## [1.1.3](https://github.com/pawamoy/copier-pdm/releases/tag/1.1.3) - 2023-11-08
 
 <small>[Compare with 1.1.2](https://github.com/pawamoy/copier-pdm/compare/1.1.2...1.1.3)</small>
