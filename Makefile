@@ -14,6 +14,9 @@ docs:
 docs-deploy:
 	@mkdocs gh-deploy
 
+format:
+	@ruff format
+
 gen generate:
 	@bash -c 'source tests/helpers.sh && generate ${PWD} tests/tmp'
 
