@@ -6,13 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
-## [1.2.1](https://github.com/pawamoy/copier-pdm/releases/tag/1.2.1) - 2024-01-12
+## [1.2.1](https://github.com/pawamoy/copier-pdm/releases/tag/1.2.1) - 2024-02-08
 
 <small>[Compare with 1.2.0](https://github.com/pawamoy/copier-pdm/compare/1.2.0...1.2.1)</small>
 
 ### Code Refactoring
 
-- Format code with Ruff ([609c48f](https://github.com/pawamoy/copier-pdm/commit/609c48f3950b2720b9c840f5b7e061ccaac8b524) by Timothée Mazzucotelli).
+- Update VSCode launch configurations (type `python` -> `debugpy`) ([d97d362](https://github.com/pawamoy/copier-pdm/commit/d97d36292859f91fe0063afc6ad66b764e91c7b3) by Timothée Mazzucotelli).
+- Format code with Ruff ([2c0c9f1](https://github.com/pawamoy/copier-pdm/commit/2c0c9f120deac345fec6a831f073a2ab75bd15f9) by Timothée Mazzucotelli).
 
 ## [1.2.0](https://github.com/pawamoy/copier-pdm/releases/tag/1.2.0) - 2024-01-08
 
