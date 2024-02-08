@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [1.2.2](https://github.com/pawamoy/copier-pdm/releases/tag/1.2.2) - 2024-02-08
+
+<small>[Compare with 1.2.1](https://github.com/pawamoy/copier-pdm/compare/1.2.1...1.2.2)</small>
+
+### Bug Fixes
+
+- Use insiders repository name in insiders installation page ([2308ed4](https://github.com/pawamoy/copier-pdm/commit/2308ed4f4d907ffce3bf6a418e345dfc021ff8c2) by Timothée Mazzucotelli).
+
 ## [1.2.1](https://github.com/pawamoy/copier-pdm/releases/tag/1.2.1) - 2024-02-08
 
 <small>[Compare with 1.2.0](https://github.com/pawamoy/copier-pdm/compare/1.2.0...1.2.1)</small>
