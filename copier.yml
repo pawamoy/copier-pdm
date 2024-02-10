@@ -31,7 +31,7 @@ author_fullname:
 author_email:
   type: str
   help: Your email
-  default: "{{ 'pawamoy@pm.me' | git_user_email }}"
+  default: "{{ 'dev@pawamoy.fr' | git_user_email }}"
 
 author_username:
   type: str
