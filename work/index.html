@@ -536,8 +536,6 @@
       
         
       
-        
-      
     
     
     
@@ -984,32 +982,6 @@
     
   
     Updating a project
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../migrate/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    
-  
-    Migrating from copier-poetry
   
 
     
@@ -1571,13 +1543,20 @@ The <code>setup</code> rule is explained below.</p>
 <p>The first thing you should run when entering your repository is:</p>
 <div class="highlight"><pre><span></span><code>make<span class="w"> </span>setup
 </code></pre></div>
-<p>This will install the project's dependencies in <code>__pypackages__</code>:
-one folder per chosen Python version.
-The chosen Python versions are defined in the Makefile.</p>
 <p>If you don't have the <code>make</code> command,
-you can use <code>bash scripts/setup.sh</code> instead,
+you can use <code>bash scripts/setup.sh</code> directly,
 or even just <code>pdm install</code>
 if you don't plan on using multiple Python versions.</p>
+<p>This will install the project's dependencies in <code>__pypackages__</code>:
+one folder per chosen Python version.
+The chosen Python versions are defined in the Makefile.
+If you would like to use <em>virtual environments (venvs)</em> instead,
+set the PDM configuration item <code>python.use_venv</code> to true:</p>
+<div class="highlight"><pre><span></span><code>pdm<span class="w"> </span>config<span class="w"> </span>--local<span class="w"> </span>python.use_venv
+</code></pre></div>
+<p>Remove the <code>--local</code> flag to enable using venvs for all your local projects.</p>
+<p>When venvs are enabled, the setup script will create named venvs (<code>name=3.xx</code>) 
+in your <code>venv.location</code> directory (PDM configuration).</p>
 <p>Now you can start writing and editing code in <code>src/your_package</code>.</p>
 <ul>
 <li>You can auto-format the code with <code>make format</code>.</li>
@@ -1623,16 +1602,15 @@ make<span class="w"> </span>release<span class="w"> </span><span class="nv">vers
 run <code>make check-types</code>.</p>
 <h3 id="check-quality">check-quality<a class="headerlink" href="#check-quality" title="Permanent link">¤</a></h3>
 <p>The code quality analysis is done
-with <a href="https://flake8.pycqa.org/en/latest/">Flake8</a>,
-and a battery of Flake8 plugins.
-The analysis is configured in <code>config/flake8.ini</code>.
+with <a href="https://github.com/astral-sh/ruff">Ruff</a>.
+The analysis is configured in <code>config/ruff.toml</code>.
 In this file, you can deactivate rules
 or activate others to customize your analysis.
 Rules identifiers always start with one or more capital letters,
 like <code>D</code>, <code>S</code> or <code>BLK</code>, then followed by a number.</p>
 <p>You can ignore a rule on a specific code line by appending
 a <code>noqa</code> comment ("no quality analysis/assurance"):</p>
-<div class="highlight"><span class="filename">src/your_package/module.py</span><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a code line that triggers a flake8 warning&quot;</span><span class="p">)</span>  <span class="c1"># noqa: ID</span>
+<div class="highlight"><span class="filename">src/your_package/module.py</span><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a code line that triggers a Ruff warning&quot;</span><span class="p">)</span>  <span class="c1"># noqa: ID</span>
 </code></pre></div>
 <p>...where ID is the identifier of the rule you want to ignore for this line.</p>
 <p>Example:</p>
@@ -1640,14 +1618,11 @@ a <code>noqa</code> comment ("no quality analysis/assurance"):</p>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>make<span class="w"> </span>check-quality
 <span class="go">✗ Checking code quality (1)</span>
-<span class="go">  &gt; flake8 --config=config/flake8.ini src/ tests/ scripts/</span>
+<span class="go">  &gt; ruff check --config=config/ruff.toml src/ tests/ scripts/</span>
 <span class="go">  src/your_package/module.py:2:1: S404 Consider possible security implications associated with subprocess module.</span>
 </code></pre></div>
-<p>Now add a comment to ignore this warning.
-As a best-practice, and because rules identifiers
-are not self-explanatory, add a comment explaining
-why we ignore the warning:</p>
-<div class="highlight"><span class="filename">src/your_package/module.py</span><pre><span></span><code><span class="kn">import</span> <span class="nn">subprocess</span>  <span class="c1"># noqa: S404 (we don&#39;t mind the security implications)</span>
+<p>Now add a comment to ignore this warning.</p>
+<div class="highlight"><span class="filename">src/your_package/module.py</span><pre><span></span><code><span class="kn">import</span> <span class="nn">subprocess</span>  <span class="c1"># noqa: S404</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>make<span class="w"> </span>check-quality
 <span class="go">✓ Checking code quality</span>
@@ -1662,14 +1637,15 @@ by separating them with commas:</p>
 <span class="s2">    print(&quot;code block&quot;)</span>
 <span class="s2">    </span><span class="se">\&quot;\&quot;\&quot;</span>
 <span class="s2">    ```</span>
-<span class="s2">&quot;&quot;&quot;</span>  <span class="c1"># noqa: D300,D301 (escape sequences: it&#39;s not a regex)</span>
+<span class="s2">&quot;&quot;&quot;</span>  <span class="c1"># noqa: D300,D301</span>
 </code></pre></div>
 <p>You can disable a warning globally by adding its ID
-into the list in <code>pyproject.toml</code>, section <code>[tool.flakehell.plugins]</code>.</p>
+into the list in <code>config/ruff.toml</code>.</p>
 <p>You can also disable warnings per file, like so:</p>
-<div class="highlight"><span class="filename">config/flake8.ini</span><pre><span></span><code><span class="na">per-file-ignores</span><span class="w"> </span><span class="o">=</span>
-<span class="w">    </span><span class="c1"># mutable constant</span>
-<span class="w">    </span><span class="na">src/your_package/your_module.py</span><span class="o">:</span><span class="s">WPS407</span>
+<div class="highlight"><span class="filename">config/ruff.toml</span><pre><span></span><code><span class="k">[per-file-ignores]</span>
+<span class="s">&quot;src/your_package/your_module.py&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s">&quot;T201&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1"># Print statement</span>
+<span class="p">]</span>
 </code></pre></div>
 <h3 id="check-dependencies">check-dependencies<a class="headerlink" href="#check-dependencies" title="Permanent link">¤</a></h3>
 <p>This action uses the tool <a href="https://github.com/pyupio/safety"><code>safety</code></a>
@@ -1840,14 +1816,14 @@ shows a new <code>0.5.1</code> entry in the changelog, you must
 release this exact same version with <code>make release version=0.5.1</code>.</p>
 <p>The <code>release</code> action does several things, in this order:</p>
 <ul>
-<li>Update the version in <code>pyproject.toml</code></li>
-<li>Stage the modified files (<code>pyproject.toml</code> and <code>CHANGELOG.md</code>)</li>
+<li>Stage the changelog file (<code>CHANGELOG.md</code>)</li>
 <li>Commit the changes with a message like <code>chore: Prepare release 0.5.1</code></li>
 <li>Tag the commit with that version</li>
 <li>Push the commits</li>
 <li>Push the tags</li>
 <li>Build the package dist and wheel</li>
 <li>Publish the dist and wheel to PyPI.org</li>
+<li>Build and deploy the documentation site</li>
 </ul>
 <h2 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">¤</a></h2>
 <p>The documentation is built with <a href="https://www.mkdocs.org/">Mkdocs</a>,
