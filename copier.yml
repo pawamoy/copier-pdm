@@ -1,5 +1,5 @@
 # CONFIGURATION -------------------------
-_min_copier_version: "8"
+_min_copier_version: "9"
 _envops:
   autoescape: false
   keep_trailing_newline: true
