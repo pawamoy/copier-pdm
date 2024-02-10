@@ -6,6 +6,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [1.2.3](https://github.com/pawamoy/copier-pdm/releases/tag/1.2.3) - 2024-02-11
+
+<small>[Compare with 1.2.2](https://github.com/pawamoy/copier-pdm/compare/1.2.2...1.2.3)</small>
+
+### Code Refactoring
+
+- Upgrade actions versions ([29b7545](https://github.com/pawamoy/copier-pdm/commit/29b75458eaf986cf8bb8e67a4b061da33162edd8) by Timothée Mazzucotelli).
+- Add `insiders_email` question ([af6f5ac](https://github.com/pawamoy/copier-pdm/commit/af6f5ac19db15775fba649580fc479f703821bf8) by Timothée Mazzucotelli).
+- Change default author email address to dev@pawamoy.fr ([cf6273d](https://github.com/pawamoy/copier-pdm/commit/cf6273da247c8f484529617e8977cc163bae49ca) by Timothée Mazzucotelli).
+
 ## [1.2.2](https://github.com/pawamoy/copier-pdm/releases/tag/1.2.2) - 2024-02-08
 
 <small>[Compare with 1.2.1](https://github.com/pawamoy/copier-pdm/compare/1.2.1...1.2.2)</small>
