@@ -135,6 +135,12 @@ insiders_repository_name:
   default: "{{ repository_name }}"
   when: "{{ insiders }}"
 
+insiders_email:
+  type: str
+  help: The email to use for Insiders-related questions
+  default: "{{ author_email }}"
+  when: "{{ insiders }}"
+
 public_release:
   type: bool
   help: Is this project already released publicly?
