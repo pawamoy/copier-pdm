@@ -10,6 +10,11 @@ for Python projects managed by [PDM](https://github.com/pdm-project/pdm).
 This copier template is mainly for my own usage,
 but feel free to try it out, or fork it!
 
+Similar templates:
+
+- [copier-poetry](https://github.com/pawamoy/copier-poetry), with [Poetry](https://github.com/python-poetry/poetry)
+- [copier-uv](https:///github.com/pawamoy/copier-uv), with [uv](https://github.com/astral-sh/uv)
+
 ## Features
 
 - Support for Insiders versions of projects (e.g. see [@pawamoy's insiders](https://pawamoy.github.io/insiders/))
