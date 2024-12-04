@@ -7,8 +7,11 @@
 [Copier](https://github.com/copier-org/copier) template
 for Python projects managed by [PDM](https://github.com/pdm-project/pdm).
 
-This copier template is mainly for my own usage,
-but feel free to try it out, or fork it!
+> [!WARNING]
+> I personally don't use this template anymore,
+> so it is maintained by the community. I will still review and merge PRs though.
+> I can add you as a contributor if you wish to maintain the template
+> for the community (for personal needs, please fork instead).
 
 Similar templates:
 
